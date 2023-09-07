@@ -1,27 +1,27 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./css/App.css";
 
 //import pages
 import Home from "./pages/Home";
+
 //import components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
 import Signup from "./components/Signup";
-// import context hook
-import { useLoginModalContext } from "./hooks/useLoginModalContext";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="App">
+    <div className="project-app">
       <BrowserRouter>
-        <Header />{" "}
+        {/* custom event handler onLoginClick handle login modal */}
+        <Header />
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
         </div>
-        <Footer />
       </BrowserRouter>
     </div>
   );
