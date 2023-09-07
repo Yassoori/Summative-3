@@ -11,6 +11,13 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+
   password: {
     type: String,
     required: true,
@@ -26,7 +33,7 @@ const userSchema = new Schema({
 // static method for user sign up
 userSchema.statics.signup = async function (username, password, isvendor) {
   // check if we have a value for the username and password
-  if (!username || !password || !isvendor) {
+  if (!username || !email || !password || !isvendor) {
     throw Error("All fields must be filled");
   }
   // check if password is strong enough
@@ -35,10 +42,19 @@ userSchema.statics.signup = async function (username, password, isvendor) {
     throw Error("Please enter in a stronger password");
   }
 
-  const exists = await this.findOne({ username });
+  const exists = await this.findOne({ username, email });
 
   if (exists) {
     throw Error("that username already in use");
+  }
+
+  // check if email is valid
+  if (!validator.isEmail(email)) {
+    throw Error("Please enter a vaild email");
+  }
+
+  if (exists) {
+    throw Error("Email already in use");
   }
 
   // Normal password: mypassword
@@ -57,17 +73,17 @@ userSchema.statics.signup = async function (username, password, isvendor) {
 };
 
 // static method for user log in
-userSchema.statics.login = async function (username, password) {
-  // check is username and password values exist
-  if (!username || !password) {
+userSchema.statics.login = async function (email, password) {
+  // check is email and password values exist
+  if (!email || !password) {
     throw Error("both fields must be filled in");
   }
 
-  // try and find the user on the database via the username provided
-  const user = await this.findOne({ username });
-  // if no user found
+  // try and find the user on the database via the email provided
+  const user = await this.findOne({ email });
+  // if no user is found
   if (!user) {
-    throw Error("Incorrect username");
+    throw Error("Incorrect email");
   }
 
   // compare passwords

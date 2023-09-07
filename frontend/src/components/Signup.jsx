@@ -4,6 +4,7 @@ import { useLoginModalContext } from "../hooks/useLoginModalContext";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // set default isvendor to false
   const [isvendor, setIsvendor] = useState("false");
@@ -14,7 +15,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(username, password, isvendor);
+    await signup(username, email, password, isvendor);
   };
 
   // take the dispatch function from context
@@ -38,7 +39,15 @@ const Signup = () => {
             value={username}
           />
         </div>
-
+        <div>
+          <label className="email-label">Email</label>
+          <input
+            type="email"
+            className="email-input"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
         <div>
           <label className="password-label">Password</label>
           <input
