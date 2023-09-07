@@ -9,16 +9,16 @@ const createToken = (_id) => {
 
 // login user
 const loginUser = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
     // call upon our custom login method
-    const user = await User.login(username, password);
+    const user = await User.login(email, password);
 
     // create token
     const token = createToken(user._id);
 
-    // return username and newly logged in token
-    res.status(200).json({ username, token });
+    // return email and newly logged in token
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -26,12 +26,12 @@ const loginUser = async (req, res) => {
 
 // signup user
 const signupUser = async (req, res) => {
-  const { username, password, isvendor } = req.body;
+  const { username, email, password, isvendor } = req.body;
 
   // signup user
   try {
     // call upon the custom signup static method defined in the user model
-    const user = await User.signup(username, password, isvendor);
+    const user = await User.signup(username, email, password, isvendor);
 
     // create token
     const token = createToken(user._id);

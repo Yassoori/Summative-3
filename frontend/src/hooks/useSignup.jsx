@@ -19,7 +19,7 @@ export const useSignup = () => {
     });
   };
 
-  const signup = async (username, password, isvendor) => {
+  const signup = async (username, email, password, isvendor) => {
     // disables button to stop requests
     setIsLoading(true);
     // ensure there are no errors
@@ -29,7 +29,7 @@ export const useSignup = () => {
     try {
       const response = await axios.post(
         "http://localhost:4000/api/user/signup",
-        { username, password, isvendor },
+        { username, email, password, isvendor },
         { headers: { "Content-Type": "application/json" } }
       );
       // end of URL

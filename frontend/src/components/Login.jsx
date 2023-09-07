@@ -13,7 +13,7 @@ const Login = ({ onClose }) => {
   // const isVisible = useLoginModalContext();
 
   // state for login
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useLogin();
 
@@ -28,7 +28,7 @@ const Login = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await login(username, password);
+    await login(email, password);
   };
 
   const handleCancelClick = () => {
@@ -45,11 +45,11 @@ const Login = ({ onClose }) => {
         <h3>Log In</h3>
 
         <div>
-          <label>Username</label>
+          <label>email</label>
           <input
             type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
 
