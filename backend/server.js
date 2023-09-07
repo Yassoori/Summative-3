@@ -7,6 +7,7 @@ const cors = require("cors");
 
 //import routes
 const userRoutes = require("./routes/user");
+const productRoutes = require("./routes/products")
 
 //use CORS
 app.use(cors());
@@ -22,7 +23,8 @@ app.use((req, res, next) => {
 
 //Attach Routes to our app
 app.use("/api/user", userRoutes);
-app.use("/public/uploads", express.static("public/uploads"));
+app.use("/api/products/", productRoutes)
+// app.use("/public/uploads", express.static("public/uploads"));
 
 //Mongo username, password, database
 const mongoUsername = process.env.MONGODB_USERNAME;
@@ -47,11 +49,7 @@ mongoose
   })
   .then(() => {
     console.log("Connected to MongoDB Atlas");
-    app.listen(port, () => {
-      console.log(
-        `DB connected & Express server is running on http://localhost:${port}`
-      );
-    });
+  
   })
   .catch((err) => {
     console.error("Error connecting to MongoDB Atlas:", err);
