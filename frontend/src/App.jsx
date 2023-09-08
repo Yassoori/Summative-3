@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-import Signup from "./components/Signup";
+// import Signup from "./components/Signup";
 // import context hook
 import { useLoginModalContext } from "./hooks/useLoginModalContext";
 
