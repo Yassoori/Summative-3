@@ -1,17 +1,59 @@
-import { useContext } from "react";
-import { LoginModalContext } from "../context/LoginModalContext";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "./useAuthContext";
 
-// custom hook
-export const useLoginModalContext = () => {
-  const context = useContext(LoginModalContext);
+export const useLogin = () => {
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
 
-  // error check - make sure context is avaliable
-  // make sure we are using the LoginModalContext inside of LoginModalContext.Provider
-  if (!context) {
-    throw Error(
-      "useLoginModalContext must be used inside of LoginModalContextProvider"
-    );
-  }
+  const login = async (email, password) => {
+    setIsLoading(true);
+    setError(null);
 
-  return context;
+    //API call
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/user/login",
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // end of url
+
+      // if the response is not OK, set Error
+      if (response.status !== 200) {
+        setIsLoading(false);
+        setError(error.response.data.error);
+      }
+
+      // if the response is OK
+      if (response.status === 200) {
+        // save the user local storage data type as string
+        localStorage.setItem("user", JSON.stringify(response.data));
+
+        // update the authContext
+        dispatch({ type: "LOGIN", payload: response.data });
+
+        //enalble the button
+        setIsLoading(false);
+
+        //navigate to home
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+      setError(error.response.data.error);
+      setIsLoading(false);
+    }
+  };
+  // end of login
+
+  //return function, isLoading state, error state
+  return { login, isLoading, error };
 };
