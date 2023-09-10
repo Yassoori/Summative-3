@@ -31,7 +31,12 @@ const userSchema = new Schema({
 });
 
 // static method for user sign up
-userSchema.statics.signup = async function (username, password, isvendor) {
+userSchema.statics.signup = async function (
+  username,
+  email,
+  password,
+  isvendor
+) {
   // check if we have a value for the username and password
   if (!username || !email || !password || !isvendor) {
     throw Error("All fields must be filled");
@@ -67,7 +72,7 @@ userSchema.statics.signup = async function (username, password, isvendor) {
   //Hash both the password and the salt combined
   const hash = await bcrypt.hash(password, salt);
   // set the password to the hash value when creating the user
-  const user = await this.create({ username, password: hash, isvendor });
+  const user = await this.create({ username, email, password: hash, isvendor });
 
   return user;
 };
