@@ -1,5 +1,68 @@
 @media screen and (min-width: 375px) {
-  body {
-    background: yellow;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   
+   html,
+   body {
+     position: relative;
+     height: 100%;
+   }
+   
+   body {
+     background: #eee;
+   }
+   
+   .hero {
+       height: 100vh;
+
+       .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+   }
+   
+   .category-jewelry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    .category {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      margin-inline: 10px;
+
+      .category-name {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        background-color: #36454F;
+        color: white;
+      }
+    }
   }
+   
+   
 }
