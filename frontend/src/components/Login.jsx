@@ -10,7 +10,7 @@ const Login = ({ onClose }) => {
   const { isLoginVisible } = useLoginModalContext();
 
   // call in the context
-  // const isVisible = useLoginModalContext();
+  const isVisible = useLoginModalContext();
 
   // state for login
   const [email, setEmail] = useState("");
