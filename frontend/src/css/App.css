@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -109,37 +110,64 @@ body ::-webkit-scrollbar {
     width: 100%;
   }
   #about-page #about-hero {
-    padding: 5% 5% 5% 5%;
-    background-color: #0E2C36;
+    background-image: linear-gradient(to top, rgba(14, 44, 54, 0.5647058824), #0E2C36), url("https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+    padding: 15% 5% 15% 5%;
+    background-size: cover;
+    background-position: center;
   }
   #about-page #about-hero h2 {
+    padding: 3% 5% 3% 5%;
     color: #f9f9f9;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
+    font-size: 40px;
   }
   #about-page #about-hero p {
+    padding: 0% 5% 0% 5%;
     color: #f9f9f9;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    font-size: 20px;
+  }
+  #about-page #about-mid-section {
+    padding: 5% 10% 10% 10%;
   }
   #about-page #about-mid-section h3 {
+    text-align: center;
     font-family: "Rubik", sans-serif;
     font-weight: 300;
+    font-size: 40px;
+  }
+  #about-page #about-mid-section .about-card {
+    text-align: center;
+    padding: 10% 10% 10% 7%;
   }
   #about-page #about-mid-section .about-card h4 {
     font-family: "Rubik", sans-serif;
     font-weight: 300;
+    font-size: 30px;
   }
   #about-page #about-mid-section .about-card p {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    font-size: 20px;
+  }
+  #about-page #about-final-section {
+    background-color: #0E2C36;
+    padding: 10%;
+    text-align: center;
   }
   #about-page #about-final-section h3 {
     font-family: "Rubik", sans-serif;
     font-weight: 400;
+    color: #f9f9f9;
+    padding: 2%;
+    font-size: 40px;
   }
   #about-page #about-final-section p {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    color: #f9f9f9;
+    font-size: 20px;
   }
-}/*# sourceMappingURL=App.css.map */
+}

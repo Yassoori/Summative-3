@@ -24,41 +24,63 @@
   #about-page {
     width: 100%;
       #about-hero {
-        padding: 5% 5% 5% 5%;
-        background-color: $main-color;
+        background-image:
+                linear-gradient(to top, #0E2C3690 ,#0E2C36),
+                url('https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+        padding: 15% 5% 15% 5%;
+        background-size: cover;
+        background-position: center;
         h2 {
+          padding: 3% 5% 3% 5%;
           color: $light-color;
-          @include head-font
+          @include head-font;
+          font-size: $head-size;
         }
         p {
+          padding: 0% 5% 0% 5%;
           color: $light-color;
-          @include body-font
+          @include body-font;
+          font-size: $body-size;
         }
       }
   
       #about-mid-section {
+        padding: 5% 10% 10% 10%;
         h3 {
-          @include sub-font
+          text-align: center;
+          @include sub-font;
+          font-size: $head-size;
         }
   
         .about-card {
+          text-align: center;
+          padding: 10% 10% 10% 7%;
           h4 {
-            @include sub-font
+            @include sub-font;
+            font-size: $sub-size
           }
   
           p {
-            @include body-font
+            @include body-font;
+            font-size: $body-size;
           }
         }
       }
       #about-final-section{
+        background-color: $main-color;
+        padding: 10%;
+        text-align: center;
         h3{
-          @include head-font
+          @include head-font;
+          color: $light-color;
+          padding: 2%;
+          font-size: $head-size
         }
         p{
-          @include body-font
+          @include body-font;
+          color: $light-color;
+          font-size: $body-size;
         }
       }
     }
-
 }
