@@ -4,6 +4,7 @@ import "./css/App.min.css";
 //import pages
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
+import About from "./pages/About";
 //import components
 // import Header from "./components/Header";
 // import Footer from "./components/Footer";
@@ -19,6 +20,7 @@ function App() {
         {/* <Header />{" "} */}
         <div className="pages">
           <Routes>
+            <Route path="/about" element ={<About/>}/>
             <Route path="/" element={<Home />} />
             <Route path="/shop/:category" Component={Shop} />
           </Routes>

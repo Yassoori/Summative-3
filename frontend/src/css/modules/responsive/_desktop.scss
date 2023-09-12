@@ -1,25 +1,64 @@
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #af940e #5c5c5c3b;
-  }
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #af940e #5c5c5c3b;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 5px;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #5c5c5c3b;
-  }
+*::-webkit-scrollbar-track {
+  background: #5c5c5c3b;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #af940e;
-    border-radius: 6px;
-    border: 0px none #ffffff;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #af940e;
+  border-radius: 6px;
+  border: 0px none #ffffff;
+}
 
 @media screen and (min-width: 992px) {
+  #about-page {
+    width: 100%;
+      #about-hero {
+        padding: 5% 5% 5% 5%;
+        background-color: $main-color;
+        h2 {
+          color: $light-color;
+          @include head-font
+        }
+        p {
+          color: $light-color;
+          @include body-font
+        }
+      }
   
+      #about-mid-section {
+        h3 {
+          @include sub-font
+        }
+  
+        .about-card {
+          h4 {
+            @include sub-font
+          }
+  
+          p {
+            @include body-font
+          }
+        }
+      }
+      #about-final-section{
+        h3{
+          @include head-font
+        }
+        p{
+          @include body-font
+        }
+      }
+    }
+
 }

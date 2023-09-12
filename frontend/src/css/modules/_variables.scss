@@ -16,29 +16,40 @@ body {
   ::-webkit-scrollbar {
     display: none;
   }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 // Colors
 
-//   $offwhite: # ;
-//   $main-color: # ;
-//   $accent-color: # ;
-//   $light-color: # ;
-//   $hover-color: # ;
-//   $border-color: # ;
-//   $fine-text-color: # ;
+$main-color: #0E2C36 ;
+$light-color: #f9f9f9 ;
+$dark-color: #0e1111;
+// $hover-color: # ;
 
 // Typefaces
 
-//   $head-font: "  ", sans-serif;
-//   $sub-font: "  ", sans-serif;
-//   $body-font: "  ", sans-serif;
+@mixin head-font {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+
+@mixin sub-font {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+}
+
+@mixin body-font {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
 
 // Type sizes
 
-//   $head-size: 40px;
-//   $sub-size: 30px;
-//   $body-size: 20px;
-//   $button-size: 22px;
+// $head-size: 40px;
+// $sub-size: 30px;
+// $body-size: 20px;
+// $button-size: 22px;
