@@ -47,9 +47,13 @@ $dark-color: #0e1111;
   font-weight: 400;
 }
 
+@mixin logo-font {
+  font-family: 'Parisienne', cursive;
+}
+
 // Type sizes
 
-// $head-size: 40px;
-// $sub-size: 30px;
-// $body-size: 20px;
-// $button-size: 22px;
+$head-size: 40px;
+$sub-size: 30px;
+$body-size: 20px;
+$button-size: 22px;
