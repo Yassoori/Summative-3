@@ -14,9 +14,6 @@ const Header = () => {
   // take the dispatch function from context
   const { dispatch } = useLoginModalContext();
 
-  // useState definitions for input:
-  const [searchTerm, setSearchTerm] = useState("");
-
   // use the dispatch action to open login modal
   const handleLoginModalClick = () => {
     dispatch({ type: "LOGIN_OPEN" });
@@ -41,16 +38,6 @@ const Header = () => {
           </h1>
         </Link>
         <div className="nav-icons">
-          <form id="search-bar">
-            <input
-              type="text"
-              placeholder="Search"
-              //   value={searchTerm}
-              //   onChange={handleSearchTermChange}
-            />
-            <button id="search-bar-btn">Search</button>
-          </form>
-          <div id="search-icon" className="nav-icon"></div>
           <div id="account-icon" className="nav-icon">
             <div id="account-dropdown">
               <Link to="/account">Account</Link>
@@ -62,7 +49,6 @@ const Header = () => {
               {!user && (
                 <div>
                   <button onClick={handleLoginModalClick}>Login</button>
-                  <Link to="/signup">Sign Up</Link>
                   {/* <button onClick={handleSignupModalClick}>Signup</button> */}
                 </div>
               )}
