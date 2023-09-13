@@ -170,4 +170,39 @@ body ::-webkit-scrollbar {
     color: #f9f9f9;
     font-size: 20px;
   }
+  footer {
+    width: 100%;
+  }
+  footer #footer-logo {
+    font-family: "Parisienne", cursive;
+    text-align: center;
+    font-size: 30px;
+  }
+  footer #footer-links {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2% 0% 2% 0%;
+  }
+  footer #footer-links h2 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    padding: 5%;
+  }
+  footer #footer-links ul {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+  }
+  footer #footer-links ul li {
+    padding: 5%;
+  }
+  footer hr {
+    margin: 0px auto;
+    width: 80%;
+  }
+  footer #footer-copywrite {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding: 2%;
+  }
 }

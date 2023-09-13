@@ -83,4 +83,38 @@
         }
       }
     }
+
+
+  footer{
+    width: 100%;
+    #footer-logo{
+      @include logo-font;
+      text-align: center;
+      font-size: $sub-size;
+    }
+    #footer-links{
+      display: flex;
+      justify-content: space-evenly;
+      margin: 2% 0% 2% 0%;
+      h2{
+        @include sub-font;
+        padding: 5%;
+      }
+      ul{
+        @include body-font;
+        li{
+          padding: 5%;
+        }
+      }
+    }
+    hr{
+      margin: 0px auto;
+      width: 80%;
+    }
+    #footer-copywrite{
+      @include body-font;
+      text-align: center;
+      padding: 2%;
+    }
+  }
 }
