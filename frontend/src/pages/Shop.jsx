@@ -6,6 +6,7 @@ import SearchBar from "../components/Search";
 import { useIcons } from "../context/IconContext";
 import { useProducts } from "../context/ProductContext";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { Link } from "react-router-dom";
 
 const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
@@ -37,7 +38,9 @@ const Shop = () => {
       </div>
       <Suspense fallback={<LoadingSpinner />}>
         {filteredProducts.map((product) => (
-          <LazyProductCard key={product._id} product={product} />
+          <Link to={`/product/${product._id}`} key={product._id}>
+            <LazyProductCard product={product} />
+          </Link>
         ))}
       </Suspense>
     </div>

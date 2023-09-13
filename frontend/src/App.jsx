@@ -5,6 +5,7 @@ import "./css/App.min.css";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import About from "./pages/About";
+import ProductDetails from "./pages/Details";
 //import components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -33,7 +34,11 @@ function App() {
               <Routes>
                 <Route path="/about" element={<About />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/shop/:category" element={<Shop />} />
+                <Route exact path="/shop/:category" element={<Shop />} />
+                <Route
+                  path="/product/:productId"
+                  element={<ProductDetails />}
+                />
               </Routes>
             </div>
             {isLoginVisible && <Login onClose={handleLoginModalClose} />}
