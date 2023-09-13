@@ -12,6 +12,8 @@ import Login from "./components/Login";
 // import Signup from "./components/Signup";
 // import context hook
 import { useLoginModalContext } from "./hooks/useLoginModalContext";
+import { IconContextProvider } from "./context/IconContext";
+import { ProductsContextProvider } from "./context/ProductContext";
 
 function App() {
   const { isLoginVisible, dispatch } = useLoginModalContext();
@@ -24,16 +26,20 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <div className="pages">
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/shop/:category" Component={Shop} />
-          </Routes>
-        </div>
-        {isLoginVisible && <Login onClose={handleLoginModalClose} />}
-        <Footer />
+        <IconContextProvider>
+          <ProductsContextProvider>
+            <Header />
+            <div className="pages">
+              <Routes>
+                <Route path="/about" element={<About />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/shop/:category" element={<Shop />} />
+              </Routes>
+            </div>
+            {isLoginVisible && <Login onClose={handleLoginModalClose} />}
+            <Footer />
+          </ProductsContextProvider>
+        </IconContextProvider>
       </BrowserRouter>
     </div>
   );

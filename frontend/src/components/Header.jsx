@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <div id="header">
       <nav>
-        <Link to="/shop">
+        <Link to="/shop/all">
           <h2 className="nav-text-link">Shop</h2>
         </Link>
         <Link to="/about">
