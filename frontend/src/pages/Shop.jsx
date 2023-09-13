@@ -1,47 +1,45 @@
-import { useEffect, useState } from "react";
+// Shop.js
+
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import SearchBar from "../components/Search";
+import { useIcons } from "../context/IconContext";
+import { useProducts } from "../context/ProductContext";
+import LoadingSpinner from "../components/LoadingSpinner";
+
+const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
 const Shop = () => {
   const { category } = useParams();
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const { filteredProducts, filterProducts, fetchProducts } = useProducts();
+  const icons = useIcons();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const fetchCategoryProducts = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:4000/api/products?category=${category}`
-        );
-
-        if (response.status === 200) {
-          console.log(`Fetched data for ${category}`, response.data);
-          setFilteredProducts(response.data);
-        }
-      } catch (error) {
-        console.error(`Error fetching ${category} products:`, error);
-      }
-    };
-
-    fetchCategoryProducts();
-  }, [category]);
+    // Fetch products based on the category when the category changes
+    fetchProducts(category);
+  }, [category, fetchProducts]);
 
   const HandleSearch = (query) => {
-    const filteredResults = filteredProducts.filter((product) =>
-      product.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredProducts(filteredResults);
+    setQuery(query);
+    filterProducts(query);
   };
 
   return (
     <div className="shop">
-      <h2>Shop for {category}</h2>
-      <SearchBar onSearch={HandleSearch} />
-      <ul>
+      <div className="shop-category-heading">{category}</div>
+      <SearchBar onSearch={HandleSearch} initialValue={query} />
+      <div className="icon-container">
+        <React.Suspense fallback={<div>Loading Icons...</div>}>
+          <icons.SearchIcon className="search-icon" />
+          <icons.ShoppingCartIcon className="cart-icon" />
+        </React.Suspense>
+      </div>
+      <Suspense fallback={<LoadingSpinner />}>
         {filteredProducts.map((product) => (
-          <li key={product.id}>{product.title}</li>
+          <LazyProductCard key={product._id} product={product} />
         ))}
-      </ul>
+      </Suspense>
     </div>
   );
 };
