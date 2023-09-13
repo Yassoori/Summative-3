@@ -8,6 +8,7 @@ const cors = require("cors");
 //import routes
 const userRoutes = require("./routes/users");
 const productRoutes = require("./routes/products");
+const commentRoutes = require("./routes/comment")
 
 //use CORS
 app.use(cors());
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 //Attach Routes to our app
 app.use("/api/users", userRoutes);
 app.use("/api/products/", productRoutes);
+app.use("/api/comments", commentRoutes);
 // app.use("/public/uploads", express.static("public/uploads"));
 
 //Mongo username, password, database

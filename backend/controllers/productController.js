@@ -11,9 +11,14 @@ const getProducts = async (req, res) => {
   const filter = category ? { category } : {};
 
   try {
-    const products = await Product.find(filter).sort({ createdAt: -1 });
+    const products = await Product.find(filter).populate({
+      path: 'comments',
+      model: 'Comment'
+    }).sort({ createdAt: -1 });
+
     res.status(200).json(products);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -24,19 +29,26 @@ const getProduct = async (req, res) => {
 
   // Check if id is MongoDB valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such Product" });
+    return res.status(404).json({ error: "No such Product: Id invalid" });
   }
 
-  // Find a product by its id
-  const product = await Product.findById(id);
+  try {
+    // Find the product by Id and populate the 'comment' array
+    const product = await Product.findById(id).populate({
+      path: 'comments',
+      model: 'Comment'
+    })
 
-  // if no product, show an error
-  if (!product) {
-    return res.status(404).json({ error: "No such Product" });
+    // if no product, show an error
+    if (!product) {
+      return res.status(404).json({ error: "No such Product: Product does not exist" });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' })
   }
-
-  // Otherwise return the product found
-  res.status(200).json(product);
 };
 
 // CREATE a New Product
