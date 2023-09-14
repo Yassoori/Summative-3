@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 app.use("/api/users", userRoutes);
 app.use("/api/products/", productRoutes);
 app.use("/api/comments", commentRoutes);
-// app.use("/public/uploads", express.static("public/uploads"));
+app.use("/public/uploads", express.static("public/uploads"));
 
 //Mongo username, password, database
 const mongoUsername = process.env.MONGODB_USERNAME;

@@ -58,7 +58,12 @@ const getProduct = async (req, res) => {
 // CREATE a New Product
 const createProduct = async (req, res) => {
   const { title, price, category, materials, description } = req.body;
-  const userId = req.user._id;
+  const userId = req.user_id;
+
+  // Get the uploaded image filename from the req.file object
+  const imageFilenames = req.files.map((file) => {
+    return '/uploads/' + file.filename
+  })
 
   try {
     const product = await Product.create({
@@ -67,6 +72,7 @@ const createProduct = async (req, res) => {
       category,
       materials,
       description,
+      image: imageFilenames,
       creator: userId,
     });
     res.status(200).json(product);

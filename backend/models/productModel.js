@@ -29,10 +29,12 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
-    image: {
+    image: [
+      {
       type: String,
       default: null,
     },
+    ],
     comments: [
       {
         type: Schema.Types.ObjectId,
