@@ -23,8 +23,8 @@ const Signup = () => {
       <form className="signup-form" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <div>
-          <label className="username-label">Username</label>
           <input
+          placeholder="Username"
             type="username"
             className="username-input"
             onChange={(e) => setUsername(e.target.value)}
@@ -32,8 +32,8 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="email-label">Email</label>
           <input
+          placeholder="Email"
             type="email"
             className="email-input"
             onChange={(e) => setEmail(e.target.value)}
@@ -41,15 +41,15 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="password-label">Password</label>
           <input
+          placeholder="Password"
             type="password"
             className="password-input"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
         </div>
-        <div>
+        <div id="radio-input">
           <input
             type="radio"
             className="isvendor-input"
