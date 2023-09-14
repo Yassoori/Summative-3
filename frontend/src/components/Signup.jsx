@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 // import context hook
-import { useLoginModalContext } from "../hooks/useLoginModalContext";
+// import { useLoginModalContext } from "../hooks/useLoginModalContext";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -12,23 +13,26 @@ const Signup = () => {
   // bring in signup function, loading state, error from our hook:
   const { signup, error, isLoading } = useSignup();
 
-  const handleSubmit = async (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
 
     await signup(username, email, password, isvendor);
   };
 
-  // take the dispatch function from context
-  const { dispatch } = useLoginModalContext();
+  // // take the dispatch function from context
+  // const { dispatch } = useLoginModalContext();
 
-  // use the dispatch action to open login modal
-  const handleLoginModalClick = () => {
-    dispatch({ type: "LOGIN_OPEN" });
-  };
+  // // use the dispatch action to open login modal
+  // const handleLoginModalClick = () => {
+  //   dispatch({ type: "LOGIN_OPEN" });
+  // };
 
+  // This is literally just HTML now
+
+  // const Signup = () => {
   return (
     <div className="signup">
-      <form className="signup-form" onSubmit={handleSubmit}>
+      <form className="signup-form" onSubmit={handleSignupSubmit}>
         <h3>Sign Up</h3>
         <div>
           <label className="username-label">Username</label>
@@ -67,13 +71,9 @@ const Signup = () => {
               checked={true}
               onChange={(e) => setIsvendor(e.target.checked)}
             />
-            <span class="slider"></span>
+            <span className="slider"></span>
           </label>
         </div>
-        <p className="register-text">
-          Already have an account? <a onClick={handleLoginModalClick}>Log In</a>
-        </p>
-
         <button className="signup-btn" disabled={isLoading}>
           Sign Up
         </button>
@@ -82,3 +82,5 @@ const Signup = () => {
     </div>
   );
 };
+
+export default Signup;
