@@ -106,11 +106,11 @@ body ::-webkit-scrollbar {
 }
 
 @media screen and (min-width: 992px) {
-  #header {
-    text-decoration: none;
+  #header h1 {
+    font-family: "Parisienne", cursive;
   }
   #header nav {
-    padding: 0.5% 0% 0.5% 0%;
+    padding: 0.5%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
@@ -124,35 +124,15 @@ body ::-webkit-scrollbar {
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     text-align: center;
-    color: #0e1111;
   }
   #header .nav-logo {
     grid-area: 1/2/2/3;
   }
   #header .nav-logo h1 {
     text-align: center;
-    font-family: "Parisienne", cursive;
-    color: #0e1111;
   }
   #header .nav-icons {
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    text-align: center;
     grid-area: 1/3/2/4;
-  }
-  #header .nav-icons button {
-    margin: auto 0%;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 100px;
-    height: 40px;
-    text-decoration: none;
-    background-color: #0E2C36;
-  }
-  #header .nav-icons button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
   }
   #about-page {
     width: 100%;
