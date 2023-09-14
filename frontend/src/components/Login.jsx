@@ -21,16 +21,16 @@ const Login = ({ onClose }) => {
       <div className="login">
         <h3>Log In</h3>
         <div>
-          <label>email</label>
           <input
+          placeholder="Email"
             type="text"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
         </div>
         <div>
-          <label>Password</label>
           <input
+          placeholder="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}

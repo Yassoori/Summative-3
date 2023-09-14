@@ -154,6 +154,132 @@ body ::-webkit-scrollbar {
     transition: 0.3s;
     opacity: 0.8;
   }
+  .login-signup-wrapper {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    background-color: rgba(14, 17, 17, 0.6);
+  }
+  .login-signup-wrapper .login-signup-modal {
+    background-color: #f9f9f9;
+    width: 40%;
+    height: 85%;
+  }
+  .login-signup-wrapper .login-signup-modal p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5%;
+  }
+  .login-signup-wrapper .login-signup-modal .cancel-login {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 3%;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form {
+    margin-top: -4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form h3 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    padding: 5% 0% 5% 0%;
+    text-align: center;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form div {
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form input {
+    width: 20rem;
+    height: 2.5rem;
+    padding: 2%;
+    margin: 4% 0% 4% 0%;
+    background-color: #f9f9f9;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0E2C36;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form #radio-input {
+    display: block;
+    width: 100%;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form label {
+    font-size: 20px;
+    margin: 4%;
+  }
+  .login-signup-wrapper .login-signup-modal .signup .signup-form .isvendor-input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #0E2C36;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login h3 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 40px;
+    padding: 5% 0% 5% 0%;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login div {
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login input {
+    width: 20rem;
+    height: 2.5rem;
+    padding: 2%;
+    margin: 4% 0% 4% 0%;
+    background-color: #f9f9f9;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0E2C36;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
+  }
   #about-page {
     width: 100%;
   }
