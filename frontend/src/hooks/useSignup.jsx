@@ -18,7 +18,7 @@ export const useSignup = () => {
     // API call
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/user/signup",
+        "http://localhost:4000/api/users/signup",
         { username, email, password, isvendor },
         { headers: { "Content-Type": "application/json" } }
       );

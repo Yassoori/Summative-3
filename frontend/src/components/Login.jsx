@@ -11,13 +11,13 @@ const Login = ({ onClose }) => {
     onClose();
   }
 
-  const handleLoginSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     await login(email, password);
   };
 
   return (
-    <form className="login-modal" onSubmit={handleLoginSubmit}>
+    <form className="login-modal" onSubmit={handleSubmit}>
       <div className="login">
         <h3>Log In</h3>
         <div>

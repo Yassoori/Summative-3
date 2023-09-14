@@ -13,7 +13,7 @@ const Signup = () => {
   // bring in signup function, loading state, error from our hook:
   const { signup, error, isLoading } = useSignup();
 
-  const handleSignupSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     await signup(username, email, password, isvendor);
@@ -32,7 +32,7 @@ const Signup = () => {
   // const Signup = () => {
   return (
     <div className="signup">
-      <form className="signup-form" onSubmit={handleSignupSubmit}>
+      <form className="signup-form" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <div>
           <label className="username-label">Username</label>
@@ -64,7 +64,31 @@ const Signup = () => {
         {/* a Buyer or Seller switch that makes isvendor true or false */}
         {/* should be styled a lot more, idk how to do toggle switches */}
         <div>
-          <label className="isvendor-switch-label">
+          {/* <form
+            className="isvendor-radio-form"
+            onChange={(e) => setIsvendor(e.target.checked)}
+          > */}
+          <input
+            type="radio"
+            className="isvendor-input"
+            id="vendor-input"
+            name="fav_language"
+            onChange={(e) => setIsvendor(e.target.value)}
+            value={true}
+          />
+          <label htmlFor="vendor-input">Vendor</label>
+          <input
+            type="radio"
+            className="isvendor-input"
+            id="customer-input"
+            name="fav_language"
+            onChange={(e) => setIsvendor(e.target.value)}
+            value={false}
+          />
+          <label htmlFor="customer-input">Customer</label>
+          {/* </form> */}
+
+          {/* <label className="isvendor-switch-label">
             <input
               className="isvendor-switch-input"
               type="checkbox"
@@ -72,7 +96,7 @@ const Signup = () => {
               onChange={(e) => setIsvendor(e.target.checked)}
             />
             <span className="slider"></span>
-          </label>
+          </label> */}
         </div>
         <button className="signup-btn" disabled={isLoading}>
           Sign Up
