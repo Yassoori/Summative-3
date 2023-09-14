@@ -11,10 +11,12 @@ const getProducts = async (req, res) => {
   const filter = category ? { category } : {};
 
   try {
-    const products = await Product.find(filter).populate({
-      path: 'comments',
-      model: 'Comment'
-    }).sort({ createdAt: -1 });
+    const products = await Product.find(filter)
+      .populate({
+        path: "comments",
+        model: "Comment",
+      })
+      .sort({ createdAt: -1 });
 
     res.status(200).json(products);
   } catch (error) {
@@ -35,25 +37,28 @@ const getProduct = async (req, res) => {
   try {
     // Find the product by Id and populate the 'comment' array
     const product = await Product.findById(id).populate({
-      path: 'comments',
-      model: 'Comment'
-    })
+      path: "comments",
+      model: "Comment",
+    });
 
     // if no product, show an error
     if (!product) {
-      return res.status(404).json({ error: "No such Product: Product does not exist" });
+      return res
+        .status(404)
+        .json({ error: "No such Product: Product does not exist" });
     }
 
     res.status(200).json(product);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' })
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
 // CREATE a New Product
 const createProduct = async (req, res) => {
   const { title, price, category, materials, description } = req.body;
+  const userId = req.user._id;
 
   try {
     const product = await Product.create({
@@ -62,6 +67,7 @@ const createProduct = async (req, res) => {
       category,
       materials,
       description,
+      creator: userId,
     });
     res.status(200).json(product);
   } catch (error) {
