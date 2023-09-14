@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import About from "./pages/About";
 import ProductDetails from "./pages/Details";
+import VendorAccount from "./pages/VendorAccount";
 //import components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -39,6 +40,7 @@ function App() {
                   path="/product/:productId"
                   element={<ProductDetails />}
                 />
+                <Route path="/account-vendor" element={<VendorAccount />} />
               </Routes>
             </div>
             {isLoginVisible && <Login onClose={handleLoginModalClose} />}
