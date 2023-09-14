@@ -2,22 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuthContext } from "./useAuthContext.jsx";
-import Swal from "sweetalert2";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
-
-  const signupAlert = (username) => {
-    Swal.fire({
-      title: "Sign Up",
-      text: `Thanks for signing up ${username}!`,
-      icon: "success",
-      confirmButtonText: "OK",
-    });
-  };
 
   const signup = async (username, email, password, isvendor) => {
     // disables button to stop requests
@@ -28,7 +18,7 @@ export const useSignup = () => {
     // API call
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/user/signup",
+        "http://localhost:4000/api/users/signup",
         { username, email, password, isvendor },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -55,7 +45,7 @@ export const useSignup = () => {
         // reenable the button
         setIsLoading(false);
 
-        signupAlert(response.data.username);
+        console.log("You signed up!");
       }
     } catch (error) {
       console.error(error.response.data.error);

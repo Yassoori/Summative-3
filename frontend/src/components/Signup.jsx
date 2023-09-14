@@ -1,6 +1,5 @@
+import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
-// import context hook
-import { useLoginModalContext } from "../hooks/useLoginModalContext";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -18,14 +17,7 @@ const Signup = () => {
     await signup(username, email, password, isvendor);
   };
 
-  // take the dispatch function from context
-  const { dispatch } = useLoginModalContext();
-
-  // use the dispatch action to open login modal
-  const handleLoginModalClick = () => {
-    dispatch({ type: "LOGIN_OPEN" });
-  };
-
+  // const Signup = () => {
   return (
     <div className="signup">
       <form className="signup-form" onSubmit={handleSubmit}>
@@ -57,23 +49,26 @@ const Signup = () => {
             value={password}
           />
         </div>
-        {/* a Buyer or Seller switch that makes isvendor true or false */}
-        {/* should be styled a lot more, idk how to do toggle switches */}
         <div>
-          <label className="isvendor-switch-label">
-            <input
-              className="isvendor-switch-input"
-              type="checkbox"
-              checked={true}
-              onChange={(e) => setIsvendor(e.target.checked)}
-            />
-            <span class="slider"></span>
-          </label>
+          <input
+            type="radio"
+            className="isvendor-input"
+            id="vendor-input"
+            name="fav_language"
+            onChange={(e) => setIsvendor(e.target.value)}
+            value={true}
+          />
+          <label htmlFor="vendor-input">Vendor</label>
+          <input
+            type="radio"
+            className="isvendor-input"
+            id="customer-input"
+            name="fav_language"
+            onChange={(e) => setIsvendor(e.target.value)}
+            value={false}
+          />
+          <label htmlFor="customer-input">Customer</label>
         </div>
-        <p className="register-text">
-          Already have an account? <a onClick={handleLoginModalClick}>Log In</a>
-        </p>
-
         <button className="signup-btn" disabled={isLoading}>
           Sign Up
         </button>
@@ -82,3 +77,5 @@ const Signup = () => {
     </div>
   );
 };
+
+export default Signup;

@@ -9,8 +9,8 @@ import ProductDetails from "./pages/Details";
 //import components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
-// import Signup from "./components/Signup";
+import LoginSignup from "./components/LoginSignupModal";
+
 // import context hook
 import { useLoginModalContext } from "./hooks/useLoginModalContext";
 import { IconContextProvider } from "./context/IconContext";
@@ -41,7 +41,7 @@ function App() {
                 />
               </Routes>
             </div>
-            {isLoginVisible && <Login onClose={handleLoginModalClose} />}
+            {isLoginVisible && <LoginSignup onClose={handleLoginModalClose} />}
             <Footer />
           </ProductsContextProvider>
         </IconContextProvider>
