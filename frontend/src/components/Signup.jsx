@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
-// import context hook
-// import { useLoginModalContext } from "../hooks/useLoginModalContext";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -18,16 +16,6 @@ const Signup = () => {
 
     await signup(username, email, password, isvendor);
   };
-
-  // // take the dispatch function from context
-  // const { dispatch } = useLoginModalContext();
-
-  // // use the dispatch action to open login modal
-  // const handleLoginModalClick = () => {
-  //   dispatch({ type: "LOGIN_OPEN" });
-  // };
-
-  // This is literally just HTML now
 
   // const Signup = () => {
   return (
@@ -61,13 +49,7 @@ const Signup = () => {
             value={password}
           />
         </div>
-        {/* a Buyer or Seller switch that makes isvendor true or false */}
-        {/* should be styled a lot more, idk how to do toggle switches */}
         <div>
-          {/* <form
-            className="isvendor-radio-form"
-            onChange={(e) => setIsvendor(e.target.checked)}
-          > */}
           <input
             type="radio"
             className="isvendor-input"
@@ -86,17 +68,6 @@ const Signup = () => {
             value={false}
           />
           <label htmlFor="customer-input">Customer</label>
-          {/* </form> */}
-
-          {/* <label className="isvendor-switch-label">
-            <input
-              className="isvendor-switch-input"
-              type="checkbox"
-              checked={true}
-              onChange={(e) => setIsvendor(e.target.checked)}
-            />
-            <span className="slider"></span>
-          </label> */}
         </div>
         <button className="signup-btn" disabled={isLoading}>
           Sign Up

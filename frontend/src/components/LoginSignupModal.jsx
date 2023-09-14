@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import { useLogin } from "../hooks/useLogin";
-// import { useSignup } from "../hooks/useSignup";
 // react-icons
 import { ImCancelCircle } from "react-icons/im";
 import Signup from "./Signup";
