@@ -27,16 +27,16 @@ const Header = () => {
     <div id="header">
       <nav>
         <div className="nav-shop">
-        <Link to="/shop/all">
-          <h2 className="nav-text-link">Shop</h2>
-        </Link>
+          <Link to="/shop/all">
+            <h2 className="nav-text-link">Shop</h2>
+          </Link>
         </div>
         <div className="nav-logo">
-        <Link to="/">
-          <h1 className="nav-text-link" id="logo">
-            Aurea
-          </h1>
-        </Link>
+          <Link to="/">
+            <h1 className="nav-text-link" id="logo">
+              Aurea
+            </h1>
+          </Link>
         </div>
         <div className="nav-icons">
           <div id="account-icon" className="nav-icon">
@@ -46,10 +46,10 @@ const Header = () => {
                   <Link to="/account">Account</Link>
                   <button onClick={handleLogout}>Logout</button>
                   <Link>
-                   <i class="bi bi-heart">cart</i>
+                    <i className="bi bi-heart">cart</i>
                   </Link>
                   <Link>
-                    <i class="bi bi-cart">heart</i>
+                    <i className="bi bi-cart">heart</i>
                   </Link>
                 </div>
               )}
