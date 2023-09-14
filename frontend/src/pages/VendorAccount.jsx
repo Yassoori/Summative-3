@@ -9,19 +9,22 @@ const VendorAccount = () => {
     const [category, setCategory] = useState("")
     const [materials, setMaterials] = useState("")
     const [description, setDescription] = useState("")
-    const [image, setImage] = useState([])
+    const [images, setImages] = useState([])
     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        console.log("selected images", images);
         const formData = new FormData()
         formData.append("title", title)
         formData.append("price", price)
         formData.append("category", category)
         formData.append("materials", materials)
         formData.append("description", description)
-        formData.append("image", image)
+        
+        images.forEach((imageFile) => {
+            formData.append("images", imageFile)
+        })
 
         try {
             const response = await axios.post(
@@ -38,7 +41,7 @@ const VendorAccount = () => {
             setCategory("")
             setMaterials("")
             setDescription("")
-            setImage(null)
+            setImages([])
             setError(null)
 
             if (response.status === 200) {
@@ -113,7 +116,10 @@ const VendorAccount = () => {
                 type="file"
                 accept="image/*"
                 multiple
-                onChange={(e) => setImage([...e.target.files])}
+                onChange={(e) => {
+                    setImages([...e.target.files])
+                    console.log(images);
+                }}
             />
         </div>
 

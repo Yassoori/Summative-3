@@ -61,7 +61,7 @@ const createProduct = async (req, res) => {
   const userId = req.user_id;
 
   // Get the uploaded image filename from the req.file object
-  const imageFilename = req.files.map((file) => {
+  const imageFilenames = req.files.map((file) => {
     return '/uploads/' + file.filename
   })
 
@@ -72,7 +72,7 @@ const createProduct = async (req, res) => {
       category,
       materials,
       description,
-      image: imageFilename,
+      image: imageFilenames,
       creator: userId,
     });
     res.status(200).json(product);
