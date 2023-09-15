@@ -60,10 +60,14 @@ const createProduct = async (req, res) => {
   const { title, price, category, materials, description } = req.body;
   const userId = req.user_id;
 
+  if (!req.files || !Array.isArray(req.files)) {
+    return res.status(400).json({ error: "No files uploaded" });
+  }
+
   // Get the uploaded image filename from the req.file object
   const imageFilenames = req.files.map((file) => {
-    return '/uploads/' + file.filename
-  })
+    return "public/uploads/" + file.filename;
+  });
 
   try {
     const product = await Product.create({
