@@ -16,20 +16,17 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-grid">
-      <div 
+      <div
         className="product-card"
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+        onMouseLeave={handleMouseLeave}>
         <React.Suspense fallback={<div>Loading Icons...</div>}>
           <icons.HeartIcon className="heart-icon" />
         </React.Suspense>
         <div className="image-container">
-        <img
+          <img
             className="product-image"
-            src={`http://localhost:4000/${
-              isHovered ? product.image[1] : product.image[0]
-            }`}
+            src={`${isHovered ? product.image[1] : product.image[0]}`}
             alt={`Product Image`}
           />
         </div>
