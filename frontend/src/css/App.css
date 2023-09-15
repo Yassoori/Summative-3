@@ -82,6 +82,42 @@ body ::-webkit-scrollbar {
   .category-jewelry .category .category-image {
     width: 100%;
   }
+  .product-slider {
+    position: relative;
+    margin: 30px 50px;
+  }
+  .product-slider h3 {
+    text-align: center;
+  }
+  .product-slider .product-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  .product-slider .slider-controls .prev-button {
+    position: absolute;
+    left: -40px;
+    top: 100px;
+    border: none;
+    font-size: 30px;
+  }
+  .product-slider .slider-controls .next-button {
+    position: absolute;
+    right: -40px;
+    top: 100px;
+    border: none;
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .product-slider .product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 992px) {
+  .product-slider .product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 /* ===== Scrollbar CSS ===== */
 /* Firefox */

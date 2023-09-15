@@ -66,6 +66,40 @@
       }
     }
   }
-   
+
+  // Home - New arrivlas
+  .product-slider {
+    position: relative;
+    margin: 30px 50px;
+
+    h3 {
+      text-align: center;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+    }
+
+    .slider-controls{
+      
+      .prev-button {
+        position: absolute;
+        left: -40px;
+        top: 100px;
+        border: none;
+        font-size: 30px;
+      }
+
+      .next-button {
+        position: absolute;
+        right: -40px;
+        top: 100px;
+        border: none;
+        font-size: 30px;
+      }
+    }
+  }
+  
    
 }

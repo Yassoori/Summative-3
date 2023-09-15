@@ -2,9 +2,13 @@ import { useEffect, useState, lazy, useRef, Suspense } from "react";
 import { useProducts } from "../context/ProductContext";
 import { Link, useParams } from "react-router-dom";
 
+// react-icons
+import { BsChevronLeft } from "react-icons/bs"
+import { BsChevronRight } from "react-icons/bs"
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual, Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,39 +21,64 @@ import ProductCard from "../components/ProductCard.jsx";
 const Home = () => {
   const { category } = useParams();
   const { filteredProducts = [], fetchProducts } = useProducts();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [prevDisabled, setPrevDisabled] = useState(true);
+  const [nextDisabled, setNextDisabled] = useState(false);
 
-  // Swiper
-  const [swiperRef, setSwiperRef] = useState(null);
-  const appendNumber = useRef(500);
-  const prependNumber = useRef(1);
+  useEffect(() => {
+    fetchProducts("all")
+  }, []);
+  
+  useEffect(() => {
+    const handleResize = () => {
+    if (filteredProducts.length > 0) {
+      const startIndex = currentIndex;
+      const endIndex = Math.min(currentIndex + (window.innerWidth <= 768 ? 1 : 3), filteredProducts.length);
 
-  // Create array with 500 slides
-  const [slides, setSlides] = useState(
-    Array.from({ length: 500 }).map((_, index) => `Slide ${index + 1}`)
-  );
+      // Create an array of product indices to display
+      const productIndices = Array.from({ length: endIndex - startIndex }, (_, index) => startIndex + index);
 
-  const prepend = () => {
-    setSlides([
-      `Slide ${prependNumber.current - 2}`,
-      `Slide ${prependNumber.current - 1}`,
-      ...slides,
-    ]);
-    prependNumber.current = prependNumber.current - 2;
-    swiperRef.slideTo(swiperRef.activeIndex + 2, 0);
+      // Use the product indices to extract the products to display
+      const productsToDisplay = productIndices.map(index => filteredProducts[index]);
+
+      setDisplayedProducts(productsToDisplay);
+      setPrevDisabled(currentIndex === 0);
+      setNextDisabled(currentIndex === filteredProducts.length - 1);
+    }
+  }
+    // Call the handleResize function on initial load
+    handleResize();
+
+    // Add an event listener to update the state when the window is resized
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+
+  }, [currentIndex, filteredProducts]);
+
+  
+
+  const slideToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex < filteredProducts.length - 1 ? prevIndex + 1 : 0
+    );
   };
 
-  const append = () => {
-    setSlides([...slides, "Slide " + ++appendNumber.current]);
-  };
-
-  const slideTo = (index) => {
-    swiperRef.slideTo(index - 1, 0);
+  const slideToPrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : filteredProducts.length - 1
+    );
   };
 
   useEffect(() => {
     fetchProducts("all");
   }, []);
   console.log(filteredProducts);
+
   return (
     <div className="home">
       <div className="hero">
@@ -126,27 +155,36 @@ const Home = () => {
           </div>
         </Link>
       </div>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <div className="product-slider">
+          <h3>NEW ARRIVALS</h3>
+          {displayedProducts.length > 0 ? (
+            <div className="product-list">
+              {displayedProducts.map((product) => (
+                <div key={product._id} className="product-card">
+                  <Link to={`/product/${product._id}`}>
+                    <LazyProductCard product={product} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No products to display.</p>
+          )}
+            
+          <div className="slider-controls">
+            <button className="prev-button" onClick={slideToPrev} disabled={prevDisabled}>
+              <BsChevronLeft/>
+            </button>
+            <button className="next-button" onClick={slideToNext} disabled={nextDisabled}>
+              <BsChevronRight/>
+            </button>
+          </div>
 
-      <Swiper
-        modules={[Virtual, Navigation, Pagination]}
-        onSwiper={setSwiperRef}
-        slidesPerView={3}
-        centeredSlides={true}
-        spaceBetween={30}
-        navigation={true}
-        virtual>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product, index) => (
-            <SwiperSlide key={product._id} virtualIndex={index}>
-              <Link to={`/product/${product._id}`}>
-                <ProductCard product={product} />
-              </Link>
-            </SwiperSlide>
-          ))
-        ) : (
-          <p>No products to display.</p>
-        )}
-      </Swiper>
+        </div>
+      </Suspense>
+
     </div>
   );
 };
