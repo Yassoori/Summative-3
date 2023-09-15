@@ -47,7 +47,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchProducts(category);
+    fetchProducts("all");
   }, []);
 
   return (
