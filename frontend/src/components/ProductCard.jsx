@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
             <img
               key={index}
               className="product-image"
-              src={`http://localhost:4000/${image}`}
+              src={`${image}`}
               alt={`Product Image ${index + 1}`}
             />
           ))}

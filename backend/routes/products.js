@@ -48,7 +48,7 @@ router.get("/", getProducts);
 // GET A SINGLE PRODUCT
 router.get("/:id", getProduct);
 // CREATE A PRODUCT AND UPLOAD IMAGES
-router.post("/", upload.array("images", 2), createProduct);
+router.post("/", upload.array("images", 5), createProduct);
 // DELETE A PRODUCT
 router.delete("/:id", deleteProduct);
 // UPDATE A PRODUCT
