@@ -1,24 +1,37 @@
 import React from "react";
+import { useState } from "react";
 import { useIcons } from "../context/IconContext";
 
 const ProductCard = ({ product }) => {
   const icons = useIcons();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
     <div className="product-grid">
-      <div className="product-card">
+      <div 
+        className="product-card"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <React.Suspense fallback={<div>Loading Icons...</div>}>
           <icons.HeartIcon className="heart-icon" />
         </React.Suspense>
         <div className="image-container">
-          {product.image.map((image, index) => (
-            <img
-              key={index}
-              className="product-image"
-              src={`http://localhost:4000/${image}`}
-              alt={`Product Image ${index + 1}`}
-            />
-          ))}
+        <img
+            className="product-image"
+            src={`http://localhost:4000/${
+              isHovered ? product.image[1] : product.image[0]
+            }`}
+            alt={`Product Image`}
+          />
         </div>
         <div className="product-name">{product.title}</div>
         <div className="product-description">{product.description}</div>

@@ -1,3 +1,8 @@
 @media screen and (min-width: 768px) and (max-width: 992px) {
-  
+  // Home - New arrivlas
+  .product-slider {
+    .product-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }

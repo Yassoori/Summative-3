@@ -1,3 +1,12 @@
+@media screen and (min-width: 992px) {
+  // Home - New arrivlas
+  .product-slider {
+    .product-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
