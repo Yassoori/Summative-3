@@ -8,7 +8,7 @@ const cors = require("cors");
 //import routes
 const userRoutes = require("./routes/users");
 const productRoutes = require("./routes/products");
-const commentRoutes = require("./routes/comment")
+const commentRoutes = require("./routes/comment");
 
 //use CORS
 app.use(cors());

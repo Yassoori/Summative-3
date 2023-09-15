@@ -15,8 +15,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import LoadingSpinner from "../components/LoadingSpinner";
-
-const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
+import ProductCard from "../components/ProductCard.jsx";
+// const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
 const Home = () => {
   const { category } = useParams();
@@ -73,6 +73,11 @@ const Home = () => {
       prevIndex > 0 ? prevIndex - 1 : filteredProducts.length - 1
     );
   };
+
+  useEffect(() => {
+    fetchProducts("all");
+  }, []);
+  console.log(filteredProducts);
 
   return (
     <div className="home">
