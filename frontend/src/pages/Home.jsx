@@ -47,9 +47,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchProducts("all");
+    fetchProducts("all")
   }, []);
-
+  
   return (
     <div className="home">
       <div className="hero">
@@ -126,48 +126,32 @@ const Home = () => {
           </div>
         </Link>
       </div>
-
+      
+      <Suspense fallback={<LoadingSpinner />}>
       <Swiper
         modules={[Virtual, Navigation, Pagination]}
         onSwiper={setSwiperRef}
         slidesPerView={3}
         centeredSlides={true}
         spaceBetween={30}
-        pagination={{
-          type: "fraction",
-        }}
         navigation={true}
-        virtual>
-        <Suspense fallback={<LoadingSpinner />}>
+        virtual> 
+        
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <Link to={`/product/${product._id}`} key={product._id}>
-                <LazyProductCard product={product} />
-              </Link>
+            filteredProducts.map((product, index) => (
+              <SwiperSlide key={product._id} virtualIndex={index}>
+                <Link to={`/product/${product._id}`}>
+                  <LazyProductCard product={product} />
+                </Link>
+              </SwiperSlide>
             ))
           ) : (
             <p>No products to display.</p>
           )}
-        </Suspense>
+          
       </Swiper>
+      </Suspense>
 
-      <p className="append-buttons">
-        <button onClick={() => prepend()} className="prepend-2-slides">
-          Prepend 2 Slides
-        </button>
-        <button onClick={() => slideTo(1)} className="prepend-slide">
-          Slide 1
-        </button>
-        <button onClick={() => slideTo(250)} className="slide-250">
-          Slide 250
-        </button>
-        <button onClick={() => slideTo(500)} className="slide-500">
-          Slide 500
-        </button>
-        <button onClick={() => append()} className="append-slides">
-          Append Slide
-        </button>
-      </p>
     </div>
   );
 };
