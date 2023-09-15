@@ -164,7 +164,7 @@ const Home = () => {
               {displayedProducts.map((product) => (
                 <div key={product._id} className="product-card">
                   <Link to={`/product/${product._id}`}>
-                    <LazyProductCard product={product} />
+                    <ProductCard product={product} />
                   </Link>
                 </div>
               ))}
