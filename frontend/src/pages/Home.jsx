@@ -11,8 +11,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import LoadingSpinner from "../components/LoadingSpinner";
-
-const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
+import ProductCard from "../components/ProductCard.jsx";
+// const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
 const Home = () => {
   const { category } = useParams();
@@ -47,9 +47,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchProducts("all")
+    fetchProducts("all");
   }, []);
-  
+  console.log(filteredProducts);
   return (
     <div className="home">
       <div className="hero">
@@ -126,8 +126,7 @@ const Home = () => {
           </div>
         </Link>
       </div>
-      
-      <Suspense fallback={<LoadingSpinner />}>
+
       <Swiper
         modules={[Virtual, Navigation, Pagination]}
         onSwiper={setSwiperRef}
@@ -135,23 +134,19 @@ const Home = () => {
         centeredSlides={true}
         spaceBetween={30}
         navigation={true}
-        virtual> 
-        
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product, index) => (
-              <SwiperSlide key={product._id} virtualIndex={index}>
-                <Link to={`/product/${product._id}`}>
-                  <LazyProductCard product={product} />
-                </Link>
-              </SwiperSlide>
-            ))
-          ) : (
-            <p>No products to display.</p>
-          )}
-          
+        virtual>
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product, index) => (
+            <SwiperSlide key={product._id} virtualIndex={index}>
+              <Link to={`/product/${product._id}`}>
+                <ProductCard product={product} />
+              </Link>
+            </SwiperSlide>
+          ))
+        ) : (
+          <p>No products to display.</p>
+        )}
       </Swiper>
-      </Suspense>
-
     </div>
   );
 };
