@@ -1,26 +1,32 @@
 // ProductsContext.jsx
 
-import React, { createContext, useContext, useEffect, useState, useReducer } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useReducer,
+} from "react";
 import axios from "axios";
 
 const ProductsContext = createContext();
 
 export const productsReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_PRODUCTS':
+    case "SET_PRODUCTS":
       return {
         ...state,
-        products: action.payload
-      }
-    case 'CREATE_PRODUCTS':
+        products: action.payload,
+      };
+    case "CREATE_PRODUCTS":
       return {
         ...state,
-        products: [action.payload, ...state.products]
-      }
+        products: [action.payload, ...state.products],
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export function ProductsContextProvider({ children }) {
   const [products, setProducts] = useState([]);
@@ -29,8 +35,8 @@ export function ProductsContextProvider({ children }) {
   const [cachedData, setCachedData] = useState({}); // Cache fetched data
   // Initialize state with useReducer
   const [state, dispatch] = useReducer(productsReducer, {
-    products: null
-  })
+    products: [],
+  });
 
   const fetchProducts = async (category) => {
     if (category === cachedData.category) {
@@ -56,7 +62,7 @@ export function ProductsContextProvider({ children }) {
 
           setProducts(response.data);
           setFilteredProducts(response.data);
-          dispatch({ type: 'SET_PRODUCTS', payload: response.data });
+          dispatch({ type: "SET_PRODUCTS", payload: response.data });
         }
       } catch (error) {
         console.error(`Error fetching products:`, error);

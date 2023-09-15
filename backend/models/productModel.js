@@ -11,7 +11,7 @@ const productSchema = new Schema(
     creator: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: false,
     },
     price: {
       type: Number,
@@ -19,11 +19,11 @@ const productSchema = new Schema(
     },
     category: {
       type: String,
-      required: true,
+      required: false,
     },
     materials: {
       type: String,
-      required: true,
+      required: false,
     },
     description: {
       type: String,
@@ -31,9 +31,9 @@ const productSchema = new Schema(
     },
     image: [
       {
-      type: String,
-      default: null,
-    },
+        type: String,
+        default: null,
+      },
     ],
     comments: [
       {

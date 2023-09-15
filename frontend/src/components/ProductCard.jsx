@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
         </React.Suspense>
         <img
           className="product-image"
-          src={product.image}
+          src={`http://localhost:4000/${product.image}`}
           alt="Product Image"
         />
         <div className="product-name">{product.title}</div>
