@@ -10,11 +10,16 @@ const ProductCard = ({ product }) => {
         <React.Suspense fallback={<div>Loading Icons...</div>}>
           <icons.HeartIcon className="heart-icon" />
         </React.Suspense>
-        <img
-          className="product-image"
-          src={`http://localhost:4000/${product.image}`}
-          alt="Product Image"
-        />
+        <div className="image-container">
+          {product.image.map((image, index) => (
+            <img
+              key={index}
+              className="product-image"
+              src={`http://localhost:4000/${image}`}
+              alt={`Product Image ${index + 1}`}
+            />
+          ))}
+        </div>
         <div className="product-name">{product.title}</div>
         <div className="product-description">{product.description}</div>
         <div className="product-material">{product.materials}</div>
