@@ -3,6 +3,10 @@ const Product = require("../models/productModel");
 
 const mongoose = require("mongoose");
 
+const {
+  uploadToGoogleDrive,
+} = require("../googleControllers/googleDriveUploader"); // Adjust the path to your file
+
 // GET All Products
 const getProducts = async (req, res) => {
   const { category } = req.query;
@@ -64,21 +68,34 @@ const createProduct = async (req, res) => {
     return res.status(400).json({ error: "No files uploaded" });
   }
 
-  // Get the uploaded image filename from the req.file object
-  const imageFilenames = req.files.map((file) => {
-    return "public/uploads/" + file.filename;
-  });
-
   try {
+    // Upload each image to Google Drive and collect their web view links
+    const imageLinks = [];
+    for (const file of req.files) {
+      const webViewLink = await uploadToGoogleDrive(file.path, file.filename);
+      if (webViewLink) {
+        imageLinks.push(webViewLink);
+      }
+    }
+
+    // Check if any images failed to upload
+    if (imageLinks.length !== req.files.length) {
+      return res
+        .status(500)
+        .json({ error: "Error uploading some images to Google Drive" });
+    }
+
+    // Create the product with the Google Drive web view links
     const product = await Product.create({
       title,
       price,
       category,
       materials,
       description,
-      image: imageFilenames,
+      image: imageLinks, // Use the web view links
       creator: userId,
     });
+
     res.status(200).json(product);
   } catch (error) {
     res.status(400).json({ error: error.message });
