@@ -1,15 +1,24 @@
+import React, { useState } from "react";
 import axios from "axios";
-import { useState } from "react";
+import MultiSelectDropdown from "../components/MultiSelectDropdown"; // Make sure to import the component correctly
 
 const VendorAccount = () => {
   // Form inputs state variables
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [materials, setMaterials] = useState("");
+  const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
+
+  const handleMaterialChange = (material) => {
+    if (selectedMaterials.includes(material)) {
+      setSelectedMaterials(selectedMaterials.filter((m) => m !== material));
+    } else {
+      setSelectedMaterials([...selectedMaterials, material]);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +27,7 @@ const VendorAccount = () => {
     formData.append("title", title);
     formData.append("price", price);
     formData.append("category", category);
-    formData.append("materials", materials);
+    formData.append("materials", selectedMaterials.join(", ")); // Combine selected materials into a single string
     formData.append("description", description);
 
     images.forEach((imageFile) => {
@@ -38,7 +47,7 @@ const VendorAccount = () => {
       setTitle("");
       setPrice("");
       setCategory("");
-      setMaterials("");
+      setSelectedMaterials([]);
       setDescription("");
       setImages([]);
       setError(null);
@@ -50,13 +59,15 @@ const VendorAccount = () => {
       console.error("Error:", error);
 
       if (error.response) {
-        console.error("Server Response Data:", error.response.data); // Log server response data
-        console.error("Server Response Status:", error.response.status); // Log server response status
+        console.error("Server Response Data:", error.response.data);
+        console.error("Server Response Status:", error.response.status);
       }
 
-      setError("An error occurred while submitting the form."); // Set a generic error message
+      setError("An error occurred while submitting the form.");
     }
   };
+
+  const materialOptions = ["Gold", "Silver", "Metal", "Stone"]; // Define your material options
 
   return (
     <form className="add-product" onSubmit={handleSubmit}>
@@ -83,14 +94,11 @@ const VendorAccount = () => {
 
       <div>
         <label>Materials</label>
-        <select
-          onChange={(e) => setMaterials(e.target.value)}
-          value={materials}>
-          <option value="ring">Gold</option>
-          <option value="necklace">Silver</option>
-          <option value="bracelet">Metal</option>
-          <option value="earring">Stone</option>
-        </select>
+        <MultiSelectDropdown
+          options={materialOptions}
+          selectedItems={selectedMaterials}
+          onChange={handleMaterialChange}
+        />
       </div>
 
       <div>
