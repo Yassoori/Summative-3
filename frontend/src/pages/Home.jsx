@@ -1,29 +1,30 @@
-import { useEffect,useState, lazy, useRef } from "react";
+import { useEffect, useState, lazy, useRef, Suspense } from "react";
 import { useProducts } from "../context/ProductContext";
 import { Link, useParams } from "react-router-dom";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual, Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Virtual, Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
 const Home = () => {
   const { category } = useParams();
-  const { filteredProducts= [], fetchProducts } = useProducts();
+  const { filteredProducts = [], fetchProducts } = useProducts();
 
   // Swiper
   const [swiperRef, setSwiperRef] = useState(null);
   const appendNumber = useRef(500);
   const prependNumber = useRef(1);
 
-   // Create array with 500 slides
-   const [slides, setSlides] = useState(
+  // Create array with 500 slides
+  const [slides, setSlides] = useState(
     Array.from({ length: 500 }).map((_, index) => `Slide ${index + 1}`)
   );
 
@@ -38,7 +39,7 @@ const Home = () => {
   };
 
   const append = () => {
-    setSlides([...slides, 'Slide ' + ++appendNumber.current]);
+    setSlides([...slides, "Slide " + ++appendNumber.current]);
   };
 
   const slideTo = (index) => {
@@ -46,11 +47,10 @@ const Home = () => {
   };
 
   useEffect(() => {
-    
     fetchProducts(category);
   }, []);
 
-    return (
+  return (
     <div className="home">
       <div className="hero">
         <Swiper
@@ -127,7 +127,6 @@ const Home = () => {
         </Link>
       </div>
 
-     
       <Swiper
         modules={[Virtual, Navigation, Pagination]}
         onSwiper={setSwiperRef}
@@ -135,22 +134,23 @@ const Home = () => {
         centeredSlides={true}
         spaceBetween={30}
         pagination={{
-          type: 'fraction',
+          type: "fraction",
         }}
         navigation={true}
-        virtual
-      >
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <Link to={`/product/${product._id}`} key={product._id}>
-              <LazyProductCard product={product} />
-            </Link>
-          ))
-        ) : (
-          <p>No products to display.</p>
-        )}
+        virtual>
+        <Suspense fallback={<LoadingSpinner />}>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <Link to={`/product/${product._id}`} key={product._id}>
+                <LazyProductCard product={product} />
+              </Link>
+            ))
+          ) : (
+            <p>No products to display.</p>
+          )}
+        </Suspense>
       </Swiper>
-     
+
       <p className="append-buttons">
         <button onClick={() => prepend()} className="prepend-2-slides">
           Prepend 2 Slides
@@ -168,10 +168,6 @@ const Home = () => {
           Append Slide
         </button>
       </p>
-      
-        
-        
-     
     </div>
   );
 };
