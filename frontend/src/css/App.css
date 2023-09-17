@@ -76,11 +76,39 @@ body ::-webkit-scrollbar {
     width: 100%;
     padding: 5px;
     text-align: center;
-    background-color: #36454F;
+    background-color: #36454f;
     color: white;
   }
   .category-jewelry .category .category-image {
     width: 100%;
+  }
+  .product-grid {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 0;
+  }
+  .product-grid .product-card {
+    background-color: #f9f9f9;
+    color: #0e1111;
+    width: 25%;
+  }
+  .product-grid .product-card .product-image {
+    width: 100%;
+  }
+  .product-grid .product-card .product-name {
+    text-align: center;
+  }
+  .product-grid .product-card .product-description {
+    text-align: center;
+  }
+  .product-grid .product-card .product-material {
+    text-align: center;
+  }
+  .product-grid .product-card .product-price {
+    text-align: center;
   }
 }
 /* ===== Scrollbar CSS ===== */
@@ -379,4 +407,4 @@ body ::-webkit-scrollbar {
     text-align: center;
     padding: 2%;
   }
-}
+}/*# sourceMappingURL=App.css.map */
