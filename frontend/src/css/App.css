@@ -82,8 +82,6 @@ body ::-webkit-scrollbar {
   .category-jewelry .category .category-image {
     width: 100%;
   }
-<<<<<<< HEAD
-=======
   .product-slider {
     position: relative;
     margin: 30px 50px;
@@ -120,7 +118,6 @@ body ::-webkit-scrollbar {
   .product-slider .product-list {
     grid-template-columns: repeat(3, 1fr);
   }
->>>>>>> parent of d1b2236 (Merge pull request #38 from AliceHeeyeon/rollback)
 }
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
