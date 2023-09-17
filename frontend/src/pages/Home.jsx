@@ -1,33 +1,83 @@
-import { useEffect } from "react";
-import axios from "axios";
+import { useEffect, useState, lazy, useRef, Suspense } from "react";
+import { useProducts } from "../context/ProductContext";
+import { Link, useParams } from "react-router-dom";
+
+// react-icons
+import { BsChevronLeft } from "react-icons/bs"
+import { BsChevronRight } from "react-icons/bs"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Link } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ProductCard from "../components/ProductCard.jsx";
+// const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
 const Home = () => {
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        // axios call
-        const response = await axios.get("http://localhost:4000/api/products");
+  const { category } = useParams();
+  const { filteredProducts = [], fetchProducts } = useProducts();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [prevDisabled, setPrevDisabled] = useState(true);
+  const [nextDisabled, setNextDisabled] = useState(false);
 
-        if (response.status === 200) {
-          console.log("All Products:", response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching all products:", error);
-      }
-    };
-    fetchProducts();
+  useEffect(() => {
+    fetchProducts("all")
   }, []);
+  
+  useEffect(() => {
+    const handleResize = () => {
+    if (filteredProducts.length > 0) {
+      const startIndex = currentIndex;
+      const endIndex = Math.min(currentIndex + (window.innerWidth <= 768 ? 1 : 3), filteredProducts.length);
+
+      // Create an array of product indices to display
+      const productIndices = Array.from({ length: endIndex - startIndex }, (_, index) => startIndex + index);
+
+      // Use the product indices to extract the products to display
+      const productsToDisplay = productIndices.map(index => filteredProducts[index]);
+
+      setDisplayedProducts(productsToDisplay);
+      setPrevDisabled(currentIndex === 0);
+      setNextDisabled(currentIndex === filteredProducts.length - 1);
+    }
+  }
+    // Call the handleResize function on initial load
+    handleResize();
+
+    // Add an event listener to update the state when the window is resized
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+
+  }, [currentIndex, filteredProducts]);
+
+  
+
+  const slideToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex < filteredProducts.length - 1 ? prevIndex + 1 : 0
+    );
+  };
+
+  const slideToPrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : filteredProducts.length - 1
+    );
+  };
+
+  useEffect(() => {
+    fetchProducts("all");
+  }, []);
+  console.log(filteredProducts);
 
   return (
     <div className="home">
@@ -105,6 +155,36 @@ const Home = () => {
           </div>
         </Link>
       </div>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <div className="product-slider">
+          <h3>NEW ARRIVALS</h3>
+          {displayedProducts.length > 0 ? (
+            <div className="product-list">
+              {displayedProducts.map((product) => (
+                <div key={product._id} className="product-card">
+                  <Link to={`/product/${product._id}`}>
+                    <ProductCard product={product} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No products to display.</p>
+          )}
+            
+          <div className="slider-controls">
+            <button className="prev-button" onClick={slideToPrev} disabled={prevDisabled}>
+              <BsChevronLeft/>
+            </button>
+            <button className="next-button" onClick={slideToNext} disabled={nextDisabled}>
+              <BsChevronRight/>
+            </button>
+          </div>
+
+        </div>
+      </Suspense>
+
     </div>
   );
 };

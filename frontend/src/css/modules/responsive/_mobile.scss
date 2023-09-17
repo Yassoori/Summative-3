@@ -3,42 +3,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+   }
+   
+   html,
+   body {
+     position: relative;
+     height: 100%;
+   }
+   
+   body {
+     background: #eee;
+   }
+   
+   .hero {
+       height: 100vh;
 
-  html,
-  body {
-    position: relative;
-    height: 100%;
-  }
+       .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  body {
-    background: #eee;
-  }
-
-  .hero {
-    height: 100vh;
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .category-jewelry {
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+   }
+   
+   .category-jewelry {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,45 +58,55 @@
         width: 100%;
         padding: 5px;
         text-align: center;
-        background-color: #36454f;
+        background-color: #36454F;
         color: white;
       }
-      .category-image {
-        width: 100%;
+      .category-image{
+        width: 100%
+<<<<<<< HEAD
+      }
+    }
+  }
+   
+=======
       }
     }
   }
 
-  .product-grid {
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    margin: 0;
+  // Home - New arrivlas
+  .product-slider {
+    position: relative;
+    margin: 30px 50px;
 
-    .product-card {
-      background-color: $light-color;
-      // background-color: blue;
-      color: $dark-color;
-      width: 25%;
-      // height: ;
+    h3 {
+      text-align: center;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+    }
 
-      .product-image {
-        width: 100%;
+    .slider-controls{
+      
+      .prev-button {
+        position: absolute;
+        left: -40px;
+        top: 100px;
+        border: none;
+        font-size: 30px;
       }
-      .product-name {
-        text-align: center;
-      }
-      .product-description {
-        text-align: center;
-      }
-      .product-material {
-        text-align: center;
-      }
-      .product-price {
-        text-align: center;
+
+      .next-button {
+        position: absolute;
+        right: -40px;
+        top: 100px;
+        border: none;
+        font-size: 30px;
       }
     }
   }
+  
+>>>>>>> parent of d1b2236 (Merge pull request #38 from AliceHeeyeon/rollback)
+   
 }
