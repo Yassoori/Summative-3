@@ -28,21 +28,25 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      <div className="shop-category-heading">{category}</div>
+      <div className="shop-search">
+      <div className="shop-category-heading">Showing: {category}</div>
       <SearchBar onSearch={HandleSearch} initialValue={query} />
       <div className="icon-container">
         <React.Suspense fallback={<div>Loading Icons...</div>}>
-          <icons.SearchIcon className="search-icon" />
-          <icons.ShoppingCartIcon className="cart-icon" />
         </React.Suspense>
+        </div>
       </div>
+      <div className="shop-page-grid">
       <Suspense fallback={<LoadingSpinner />}>
         {filteredProducts.map((product) => (
+          
           <Link to={`/product/${product._id}`} key={product._id}>
             <LazyProductCard product={product} />
           </Link>
+          
         ))}
       </Suspense>
+      </div>
     </div>
   );
 };
