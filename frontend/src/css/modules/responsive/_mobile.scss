@@ -12,12 +12,67 @@
    }
    
    body {
-     background: #eee;
+     background: $light-color;
    }
-   
-   .hero {
-       height: 100vh;
+  //interpage styles
+   nav{
+    display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      text-align: center;
+      text-decoration: none;
+      .nav-shop{
+        @include sub-font;
+        font-size: $body-size;
+        color: $dark-color;
+      }
+      .nav-logo{
+        @include logo-font;
+        font-size: $body-size;
+        color: $dark-color;
+      }
+   }
+  footer {
+           margin-top: 50px;
+    
+           #footer-logo {
+             margin: 10px;
+             @include logo-font;
+             text-align: center;
+             font-size: $sub-size;
+           }
+    
+           #footer-links {
+             display: grid;
+             grid-template-columns: repeat(2, 1fr);
+             grid-template-rows: repeat(2, 1fr);
+             grid-column-gap: 0px;
+             grid-row-gap: 0px;
+    
+             div {
+               margin: 10px;
+    
+               h2 {
+                 @include sub-font;
+                 font-size: $sub-size;
+                 text-align: center;
+               }
+    
+               li {
+                 @include body-font;
+                 font-size: $body-size;
+                 text-align: center;
+               }
+             }
+           }
+  }
 
+  //  home - hero
+   .hero {
+       height: 75vh;
+        width: 100vw;
        .swiper {
         width: 100%;
         height: 100%;
@@ -36,20 +91,26 @@
         height: 100%;
         object-fit: cover;
       }
+      .swiper-button-prev{
+        display: none;
+      }
+      .swiper-button-next{
+        display: none;
+      }
    }
-   
+   //Home - category cards
    .category-jewelry {
     display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
 
     .category {
+      margin-bottom: 10%;
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
       border: 1px solid black;
-      margin-inline: 10px;
 
       .category-name {
         position: absolute;
@@ -58,22 +119,27 @@
         width: 100%;
         padding: 5px;
         text-align: center;
-        background-color: #36454F;
-        color: white;
+        background-color: $main-color ;
+        color: $light-color ;
+        @include head-font;
+
       }
       .category-image{
         width: 100%
       }
     }
   }
-
   // Home - New arrivlas
   .product-slider {
+    margin-top: 50px;
     position: relative;
-    margin: 30px 50px;
+    padding: 30px 50px;
+    background-color: $main-color ;
+    color: $light-color ;
 
     h3 {
       text-align: center;
+      @include head-font;
     }
     .product-list {
       display: grid;
@@ -82,24 +148,132 @@
     }
 
     .slider-controls{
-      
+      z-index: 99;
+      position: relative;
+      top: -20;
+     
       .prev-button {
         position: absolute;
         left: -40px;
-        top: 100px;
+        top: -250px;
         border: none;
         font-size: 30px;
+        background-color: $main-color;
+        color: $light-color;
       }
 
       .next-button {
         position: absolute;
         right: -40px;
-        top: 100px;
+        top: -250px;
         border: none;
         font-size: 30px;
+        background-color: $main-color;
+        color: $light-color;
+      }
+    }
+    .product-card{
+      svg{
+        display: none;
+      }
+      .image-container{
+        .product-image{
+          width: 100%;
+          height: fit-content;
+        }
+      }
+      .product-description{
+        display: none;
+      }
+      .product-material{
+        display: none;
+      }
+      .product-name{
+        color: $light-color;
+        @include head-font;
+        text-align: center;
+      }
+      .product-price{
+        text-align: center;
+        color: $light-color;
+        @include sub-font;
       }
     }
   }
-  
-   
+.shop{
+  .shop-search{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+      .shop-category-heading{
+        @include  body-font;
+        font-size: $body-size;
+        margin: 10px;
+
+      }
+      .search-bar{
+      button {
+          margin-left: 20px;
+          color: $light-color;
+          @include head-font;
+          width: 60px;
+          height: 30px;
+          text-decoration: none;
+          background-color: $main-color;
+        }
+        button:hover {
+          transition: 0.3s;
+          opacity: .8;
+        }
+        input{
+          margin-left: 10px;
+          height: 30px;
+          width: 225px;
+          @include body-font;
+        }
+      }
+      }
+  }
+  .shop-page-grid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .product-card{
+      width: 60vw;
+      background-color: $main-color;
+      margin: 20px;
+      .product-image{
+        width: 100%;
+      }
+      .product-description {
+        display: none;
+      }
+      .product-material {
+        display: none;
+      }
+      .product-name{
+        color: $light-color;
+        @include sub-font;
+        font-size: $sub-size;
+        text-align: center;
+        padding: 20px;
+      }
+      .product-price{
+        color: $light-color;
+        @include body-font;
+        text-align: center;
+        font-size: $body-size;
+        padding-bottom: 20px;
+      }
+      svg{
+        position: absolute;
+        margin: 20px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+  }
 }
+   
