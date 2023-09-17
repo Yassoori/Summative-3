@@ -19,6 +19,11 @@ export function IconContextProvider({ children }) {
         default: module.AiOutlineHeart,
       }))
     ),
+    HeartFilledIcon: React.lazy(() =>
+      import("react-icons/ai").then((module) => ({
+        default: module.AiFillHeart,
+      }))
+    ),
   };
 
   return <IconContext.Provider value={icons}>{children}</IconContext.Provider>;

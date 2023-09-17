@@ -16,6 +16,7 @@ import LoginSignup from "./components/LoginSignupModal";
 import { useLoginModalContext } from "./hooks/useLoginModalContext";
 import { IconContextProvider } from "./context/IconContext";
 import { ProductsContextProvider } from "./context/ProductContext";
+import { WishlistProvider } from "./context/wishlistContext";
 
 function App() {
   const { isLoginVisible, dispatch } = useLoginModalContext();
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <WishlistProvider>
         <IconContextProvider>
           <ProductsContextProvider>
             <Header />
@@ -46,7 +48,8 @@ function App() {
             {isLoginVisible && <LoginSignup onClose={handleLoginModalClose} />}
             <Footer />
           </ProductsContextProvider>
-        </IconContextProvider>
+          </IconContextProvider>
+          </WishlistProvider>
       </BrowserRouter>
     </div>
   );
