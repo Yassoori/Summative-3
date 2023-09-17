@@ -35,7 +35,7 @@ const getProduct = async (req, res) => {
 
   // Check if id is MongoDB valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such Product: Id invalid" });
+    return res.status(404).json({ error: "No such Product: Id is invalid" });
   }
 
   try {
