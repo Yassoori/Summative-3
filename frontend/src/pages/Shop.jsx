@@ -39,11 +39,7 @@ const Shop = () => {
       <div className="shop-page-grid">
       <Suspense fallback={<LoadingSpinner />}>
         {filteredProducts.map((product) => (
-          
-          <Link to={`/product/${product._id}`} key={product._id}>
             <LazyProductCard product={product} />
-          </Link>
-          
         ))}
       </Suspense>
       </div>

@@ -163,9 +163,7 @@ const Home = () => {
             <div className="product-list">
               {displayedProducts.map((product) => (
                 <div key={product._id} className="product-card">
-                  <Link to={`/product/${product._id}`}>
                     <ProductCard product={product} />
-                  </Link>
                 </div>
               ))}
             </div>
@@ -181,9 +179,19 @@ const Home = () => {
               <BsChevronRight/>
             </button>
           </div>
-
         </div>
       </Suspense>
+
+      <div className="sub-hero">
+            <img src='https://robbreport.com/wp-content/uploads/2020/08/19605-63073546-art.gif' alt='diamonds'/>
+            <div className="diamond">
+              <h4>Diamond Jewellery</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <Link to="/shop/all">
+              <button>SHOP NOW</button>
+            </Link>      
+      </div>
 
     </div>
   );
