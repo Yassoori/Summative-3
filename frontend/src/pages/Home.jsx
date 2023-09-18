@@ -185,12 +185,12 @@ const Home = () => {
       <div className="sub-hero">
             <img src='https://robbreport.com/wp-content/uploads/2020/08/19605-63073546-art.gif' alt='diamonds'/>
             <div className="diamond">
-              <h4>Diamond Jewellery</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+              <h4>Timeless Radiance</h4>
+              <p>Timeless Radiance is a dazzling diamond jewelry necklace that exudes sophistication and elegance. The necklace's centerpiece showcases a brilliant-cut diamond encircled by smaller diamonds, all set in white gold.</p>
             <Link to="/shop/all">
               <button>SHOP NOW</button>
-            </Link>      
+            </Link>  
+            </div>    
       </div>
 
     </div>
