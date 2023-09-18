@@ -6,6 +6,7 @@ import { useCommentsContext } from "../hooks/useCommentContext"
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 const ProductDetails = () => {
+  // We only need dispatch if we manage the delete comment function
   const { dispatch } = useCommentsContext();
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -19,7 +20,7 @@ const ProductDetails = () => {
         `http://localhost:4000/api/comments/products/${productId}/comments`,
         {
           text: commentText, 
-          user_id: user.username,
+          user_id: user.email,
         }
       );
 
@@ -31,6 +32,7 @@ const ProductDetails = () => {
         // Dispatch the updated product data
         setProduct(updatedProduct);
         setCommentText('');
+        console.log(response.data);
       }
     } catch(error) {
       console.error('Error Adding Comment:', error);
