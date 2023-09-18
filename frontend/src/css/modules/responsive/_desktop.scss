@@ -11,7 +11,8 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #af940e #5c5c5c3b;
+  scrollbar-color: $main-color #5c5c5c3b;
+  overflow-x: hidden;
 }
 
 /* Chrome, Edge, and Safari */
@@ -24,13 +25,46 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #af940e;
+  background-color: $main-color;
   border-radius: 6px;
   border: 0px none #ffffff;
 }
 
 @media screen and (min-width: 992px) {
-  #header{
+
+.hero {
+      height: 85vh;
+      width: 100vw;
+  
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+  
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      .swiper-button-prev {
+        display: block;
+      }
+  
+      .swiper-button-next {
+        display: block;
+      }
+}
+
+#header{
     text-decoration: none;
     
     nav{
@@ -61,6 +95,17 @@
       @include head-font;
       text-align: center;
       grid-area: 1 / 3 / 2 / 4;
+      #account-dropdown{
+      div {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        }
+      }
+      svg{
+        width: 35px;
+        height: 35px;
+      }
       button{
         margin: auto 0%;
         color: $light-color;
@@ -75,7 +120,54 @@
         opacity: .8;
       }
     }
-  }
+}
+.category-jewelry {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+       .category {
+        overflow: hidden;
+         margin-bottom: 10%;
+         position: relative;
+         width: 200px;
+         height: 200px;
+         border: 1px solid black;
+  
+         .category-name {
+           position: absolute;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           padding: 5px;
+           text-align: center;
+           background-color: $main-color ;
+           color: $light-color ;
+           @include head-font;
+          
+         }
+  
+         .category-image {
+           width: 100%
+         }
+        .category-name:hover{
+          transition: 0.4 all;
+            background-color: #0E2C36B3;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+       }
+}
+.product-image{
+  width: 90%;
+  max-height: 370px;
+}
+.prev-button{
+  z-index: 99;
+}
+
 .login-signup-wrapper{
   position: fixed;
   z-index: 99;
@@ -199,7 +291,7 @@
 }
 }
 
-  #about-page {
+#about-page {
     width: 100%;
       #about-hero {
         background-image:
@@ -260,10 +352,10 @@
           font-size: $body-size;
         }
       }
-    }
+}
 
 
-  footer{
+footer{
     width: 100%;
     #footer-logo{
       @include logo-font;
@@ -294,5 +386,5 @@
       text-align: center;
       padding: 2%;
     }
-  }
+}
 }
