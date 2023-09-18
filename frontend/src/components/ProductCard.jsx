@@ -31,7 +31,6 @@ const ProductCard = ({ product }) => {
   
 
   return (
-    <div className="product-grid">
       <div
         className="product-card"
         onMouseEnter={handleMouseEnter}
@@ -46,7 +45,7 @@ const ProductCard = ({ product }) => {
           <icons.HeartIcon className="heart-icon" onClick={handleHeartClick} />
         )}
         </React.Suspense>
-
+        <Link to={`/product/${product._id}`} key={product._id}>
         <div className="image-container">
           <img
             className="product-image"
@@ -54,13 +53,13 @@ const ProductCard = ({ product }) => {
             alt={`Product Image`}
           />
         </div>
-        <Link to={`/product/${product._id}`} key={product._id}>
-        <div className="product-name">{product.title}</div>
-        <div className="product-description">{product.description}</div>
-        <div className="product-material">{product.materials}</div>
+        <div className="text-container">
+          <div className="product-name">{product.title}</div>
+          <div className="product-description">{product.description}</div>
+          <div className="product-material">{product.materials}</div>
           <div className="product-price">${product.price} Tax incl.</div>
-          </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };

@@ -129,7 +129,9 @@
       }
     }
   }
-  // Home - New arrivlas
+  
+  // Home - New arrivals
+  
   .product-slider {
     margin-top: 50px;
     position: relative;
@@ -137,15 +139,29 @@
     background-color: $main-color ;
     color: $light-color ;
 
-    h3 {
+
+    .category-name {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 5px;
       text-align: center;
+// <<<<<<< shop
+      background-color: #36454f;
+      color: white;
+// =======
       @include head-font;
+// >>>>>>> main
     }
-    .product-list {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 10px;
+    .category-image {
+      width: 100%;
     }
+  }
+}
+
+
+// slider
 
     .slider-controls{
       z-index: 99;
@@ -172,8 +188,11 @@
         color: $light-color;
       }
     }
-    .product-card{
-      svg{
+
+
+
+    .product-card {
+      svg {
         display: none;
       }
       .image-container{
@@ -200,80 +219,119 @@
       }
     }
   }
+
+
+// Shop Page
+
 .shop{
-  .shop-search{
+  .shop-search {
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column-reverse;
-      .shop-category-heading{
+    
+    .shop-category-heading {
         @include  body-font;
         font-size: $body-size;
         margin: 10px;
 
-      }
-      .search-bar{
+    }
+    .search-bar {
       button {
-          margin-left: 20px;
-          color: $light-color;
-          @include head-font;
-          width: 60px;
-          height: 30px;
-          text-decoration: none;
-          background-color: $main-color;
-        }
-        button:hover {
-          transition: 0.3s;
-          opacity: .8;
-        }
-        input{
-          margin-left: 10px;
-          height: 30px;
-          width: 225px;
-          @include body-font;
-        }
-      }
-      }
-  }
-  .shop-page-grid{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .product-card{
-      width: 60vw;
-      background-color: $main-color;
-      margin: 20px;
-      .product-image{
-        width: 100%;
-      }
-      .product-description {
-        display: none;
-      }
-      .product-material {
-        display: none;
-      }
-      .product-name{
+        margin-left: 20px;
         color: $light-color;
-        @include sub-font;
-        font-size: $sub-size;
-        text-align: center;
-        padding: 20px;
-      }
-      .product-price{
-        color: $light-color;
-        @include body-font;
-        text-align: center;
-        font-size: $body-size;
-        padding-bottom: 20px;
-      }
-      svg{
-        position: absolute;
-        margin: 20px;
-        width: 30px;
+        @include head-font;
+        width: 60px;
         height: 30px;
+        text-decoration: none;
+        background-color: $main-color;
+      }
+      button:hover {
+        transition: 0.3s;
+        opacity: .8;
+      }
+      input {
+        margin-left: 10px;
+        height: 30px;
+        width: 225px;
+        @include body-font;
       }
     }
-
   }
 }
-   
+
+.product-grid {
+  background-color: $light-color;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  margin: auto;
+  padding: 2em 0 2em 0;
+
+  a {
+    margin-top: 0;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 4em;
+
+    .product-card {
+      text-align: center;
+      background-color: $light-color;
+      filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+      position: relative;
+
+      svg {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        width: 32px;
+        height: 32px;
+        color: $dark-color;
+      }
+
+      .image-container {
+        // width: 25%;
+        // padding-bottom: 25%;
+        // position: relative;
+
+        .product-image {
+          // position: absolute;
+          // margin: 0;
+          // max-width: 100%;
+
+          width: 320px;
+          height: 320px;
+          object-fit: cover;
+          object-position: center;
+          margin-bottom: 1em;
+        }
+      }
+
+      .text-container {
+        width: 320px;
+        height: 6em;
+        text-align: center;
+        margin: auto;
+
+        .product-name,
+          // .product-material,
+          .product-price {
+          text-transform: uppercase;
+          text-align: center;
+          color: $dark-color;
+          text-decoration: none;
+          font-size: $body-size;
+          @include body-font;
+          margin: auto;
+          margin-bottom: 0.5em;
+        }
+        .product-description,
+        .product-material {
+          display: none;
+        }
+      }
+    }
+  }
