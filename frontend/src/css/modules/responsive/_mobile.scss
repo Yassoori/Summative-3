@@ -57,12 +57,16 @@ footer {
         @include sub-font;
         font-size: $sub-size;
         text-align: center;
+        text-decoration: none;
+        color: $dark-color;
       }
 
       li {
         @include body-font;
         font-size: $body-size;
         text-align: center;
+        text-decoration: none;
+        color: $dark-color;
       }
     }
   }

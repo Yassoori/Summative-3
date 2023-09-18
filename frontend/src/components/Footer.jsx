@@ -4,31 +4,59 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer>
-      <div id="footer-logo"><p>Aurea</p></div>
+      <div id="footer-logo">
+        <p>Aurea</p>
+      </div>
       <div id="footer-links">
         <div>
-          <h2>Shop</h2>
+          <Link to="/shop">
+            <h2>Shop</h2>
+          </Link>
           <ul>
-            <li>Bracelets</li>
-            <li>Earrings</li>
-            <li>Rings</li>
-            <li>Necklaces</li>
+            <Link to="/shop/bracelet">
+              <li>Bracelets</li>
+            </Link>
+            <Link to="/shop/earring">
+              <li>Earrings</li>
+            </Link>
+            <Link to="/shop/ring">
+              <li>Rings</li>
+            </Link>
+            <Link to="/shop/necklace">
+              <li>Necklaces</li>
+            </Link>
           </ul>
         </div>
         <div>
-          <h2>About</h2>
+          <Link to="/about">
+            <h2>About</h2>
+          </Link>
           <ul>
-            <li>Our story</li>
-            <li>What Sets Us Apart</li>
-            <li>Join Our Community</li>
+            <Link to="/about">
+              <li>Our story</li>
+            </Link>
+            <Link to="/about">
+              <li>What Sets Us Apart</li>
+            </Link>
+            <Link to="/about">
+              <li>Join Our Community</li>
+            </Link>
           </ul>
         </div>
         <div>
-          <h2>Account</h2>
+          <Link to="/account">
+            <h2>Account</h2>
+          </Link>
           <ul>
-            <li>Wish-list</li>
-            <li>Cart</li>
-            <li>My Account</li>
+            <Link to="/account">
+              <li>Wish-list</li>
+            </Link>
+            <Link to="/cart">
+              <li>Cart</li>
+            </Link>
+            <Link to="/account">
+              <li>My Account</li>
+            </Link>
           </ul>
         </div>
       </div>

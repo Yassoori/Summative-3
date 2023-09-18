@@ -83,12 +83,16 @@ footer #footer-links div h2 {
   font-weight: 300;
   font-size: 30px;
   text-align: center;
+  text-decoration: none;
+  color: #0e1111;
 }
 footer #footer-links div li {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 20px;
   text-align: center;
+  text-decoration: none;
+  color: #0e1111;
 }
 
 .hero {
