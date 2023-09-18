@@ -25,13 +25,12 @@ body {
 
 // Colors
 
-$main-color: #0E2C36 ;
-$light-color: #f9f9f9 ;
+$main-color: #0e2c36;
+$light-color: #f9f9f9;
 $dark-color: #0e1111;
 // $hover-color: # ;
 
 // Typefaces
-
 @mixin head-font {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
@@ -48,7 +47,7 @@ $dark-color: #0e1111;
 }
 
 @mixin logo-font {
-  font-family: 'Parisienne', cursive;
+  font-family: "Parisienne", cursive;
 }
 
 // Type sizes

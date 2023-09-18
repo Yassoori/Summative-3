@@ -30,10 +30,10 @@
 }
 
 @media screen and (min-width: 992px) {
-  #header{
+  #header {
     text-decoration: none;
-    
-    nav{
+
+    nav {
       padding: 0.5% 0% 0.5% 0%;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -41,27 +41,27 @@
       grid-column-gap: 0px;
       grid-row-gap: 0px;
     }
-    .nav-shop{
+    .nav-shop {
       grid-area: 1 / 1 / 2 / 2;
-      h2{
+      h2 {
         @include head-font;
         text-align: center;
-        color: $dark-color ;
+        color: $dark-color;
       }
     }
-    .nav-logo{
+    .nav-logo {
       grid-area: 1 / 2 / 2 / 3;
-      h1{
+      h1 {
         text-align: center;
         @include logo-font;
-        color: $dark-color ;
+        color: $dark-color;
       }
     }
-    .nav-icons{
+    .nav-icons {
       @include head-font;
       text-align: center;
       grid-area: 1 / 3 / 2 / 4;
-      button{
+      button {
         margin: auto 0%;
         color: $light-color;
         @include head-font;
@@ -72,62 +72,62 @@
       }
       button:hover {
         transition: 0.3s;
-        opacity: .8;
+        opacity: 0.8;
       }
     }
   }
-.login-signup-wrapper{
-  position: fixed;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  top: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(10px);
-  background-color: #0e111199;
-    .login-signup-modal{
+  .login-signup-wrapper {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background-color: #0e111199;
+    .login-signup-modal {
       background-color: $light-color;
       width: 40%;
       height: 85%;
-            p {
-                @include body-font;
-                text-align: center;
-                margin-top: 5%;
-              }
-              .cancel-login{
-                height: 1.5rem;
-                width: 1.5rem;
-                margin: 3%;
-              }
-        .signup{
-          .signup-form{
-            margin-top: -4%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            h3{
-              @include head-font;
-              font-size: $head-size;
-              padding: 5% 0% 5% 0%;
-              text-align: center;
-            }
-            div {
+      p {
+        @include body-font;
+        text-align: center;
+        margin-top: 5%;
+      }
+      .cancel-login {
+        height: 1.5rem;
+        width: 1.5rem;
+        margin: 3%;
+      }
+      .signup {
+        .signup-form {
+          margin-top: -4%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          h3 {
+            @include head-font;
+            font-size: $head-size;
+            padding: 5% 0% 5% 0%;
+            text-align: center;
+          }
+          div {
             @include sub-font;
             font-size: $sub-size;
             display: flex;
             flex-direction: column;
             text-align: center;
-            }
-            input {
+          }
+          input {
             width: 20rem;
             height: 2.5rem;
             padding: 2%;
             margin: 4% 0% 4% 0%;
             background-color: $light-color;
-            }
-            button {
+          }
+          button {
             margin: auto 0%;
             color: $light-color;
             @include head-font;
@@ -135,164 +135,191 @@
             height: 40px;
             text-decoration: none;
             background-color: $main-color;
-            }
-            button:hover {
+          }
+          button:hover {
             transition: 0.3s;
-            opacity: .8;
-            }
-            #radio-input{
-              display: block;
-              width: 100%;
-            }
-            label{
-              font-size: $body-size;
-              margin: 4%;
-            }
-            .isvendor-input{
+            opacity: 0.8;
+          }
+          #radio-input {
+            display: block;
+            width: 100%;
+          }
+          label {
+            font-size: $body-size;
+            margin: 4%;
+          }
+          .isvendor-input {
             width: 1rem;
             height: 1rem;
             accent-color: $main-color;
-            }
           }
         }
-        .login-modal{
-            .login{
-              margin-top: 5%;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-                h3{
-                  @include head-font;
-                  text-align: center;
-                  font-size: $head-size;
-                  padding: 5% 0% 5% 0%; 
-                }
-                div{
-                  @include sub-font;
-                  font-size: $sub-size;
-                  display: flex;
-                  flex-direction: column;
-                  text-align: center;
-                }
-                input{
-                  width: 20rem;
-                  height: 2.5rem;
-                  padding: 2%;
-                  margin: 4% 0% 4% 0%;
-                  background-color: $light-color;
-                }
-                button {
-                margin: auto 0%;
-                color: $light-color;
-                @include head-font;
-                width: 100px;
-                height: 40px;
-                text-decoration: none;
-                background-color: $main-color;
-                }     
-                button:hover {
-                transition: 0.3s;
-                opacity: .8;
-                }
+      }
+      .login-modal {
+        .login {
+          margin-top: 5%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          h3 {
+            @include head-font;
+            text-align: center;
+            font-size: $head-size;
+            padding: 5% 0% 5% 0%;
+          }
+          div {
+            @include sub-font;
+            font-size: $sub-size;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+          }
+          input {
+            width: 20rem;
+            height: 2.5rem;
+            padding: 2%;
+            margin: 4% 0% 4% 0%;
+            background-color: $light-color;
+          }
+          button {
+            margin: auto 0%;
+            color: $light-color;
+            @include head-font;
+            width: 100px;
+            height: 40px;
+            text-decoration: none;
+            background-color: $main-color;
+          }
+          button:hover {
+            transition: 0.3s;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
   }
-}
-}
-}
 
   #about-page {
     width: 100%;
-      #about-hero {
-        background-image:
-                linear-gradient(to top, #0E2C3690 ,#0E2C36),
-                url('https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
-        padding: 15% 5% 15% 5%;
-        background-size: cover;
-        background-position: center;
-        h2 {
-          padding: 3% 5% 3% 5%;
-          color: $light-color;
-          @include head-font;
-          font-size: $head-size;
-        }
-        p {
-          padding: 0% 5% 0% 5%;
-          color: $light-color;
-          @include body-font;
-          font-size: $body-size;
-        }
+    #about-hero {
+      background-image: linear-gradient(to top, #0e2c3690, #0e2c36),
+        url("https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+      padding: 15% 5% 15% 5%;
+      background-size: cover;
+      background-position: center;
+      h2 {
+        padding: 3% 5% 3% 5%;
+        color: $light-color;
+        @include head-font;
+        font-size: $head-size;
       }
-  
-      #about-mid-section {
-        padding: 5% 10% 10% 10%;
-        h3 {
-          text-align: center;
-          @include sub-font;
-          font-size: $head-size;
-        }
-  
-        .about-card {
-          text-align: center;
-          padding: 10% 10% 10% 7%;
-          h4 {
-            @include sub-font;
-            font-size: $sub-size
-          }
-  
-          p {
-            @include body-font;
-            font-size: $body-size;
-          }
-        }
+      p {
+        padding: 0% 5% 0% 5%;
+        color: $light-color;
+        @include body-font;
+        font-size: $body-size;
       }
-      #about-final-section{
-        background-color: $main-color;
-        padding: 10%;
+    }
+
+    #about-mid-section {
+      padding: 5% 10% 10% 10%;
+      h3 {
         text-align: center;
-        h3{
-          @include head-font;
-          color: $light-color;
-          padding: 2%;
-          font-size: $head-size
+        @include sub-font;
+        font-size: $head-size;
+      }
+
+      .about-card {
+        text-align: center;
+        padding: 10% 10% 10% 7%;
+        h4 {
+          @include sub-font;
+          font-size: $sub-size;
         }
-        p{
+
+        p {
           @include body-font;
-          color: $light-color;
           font-size: $body-size;
         }
       }
     }
+    #about-final-section {
+      background-color: $main-color;
+      padding: 10%;
+      text-align: center;
+      h3 {
+        @include head-font;
+        color: $light-color;
+        padding: 2%;
+        font-size: $head-size;
+      }
+      p {
+        @include body-font;
+        color: $light-color;
+        font-size: $body-size;
+      }
+    }
+  }
 
-
-  footer{
+  footer {
     width: 100%;
-    #footer-logo{
+    #footer-logo {
       @include logo-font;
       text-align: center;
       font-size: $sub-size;
     }
-    #footer-links{
+    #footer-links {
       display: flex;
       justify-content: space-evenly;
       margin: 2% 0% 2% 0%;
-      h2{
+      h2 {
         @include sub-font;
         padding: 5%;
       }
-      ul{
+      ul {
         @include body-font;
-        li{
+        li {
           padding: 5%;
         }
       }
     }
-    hr{
+    hr {
       margin: 0px auto;
       width: 80%;
     }
-    #footer-copywrite{
+    #footer-copywrite {
       @include body-font;
       text-align: center;
       padding: 2%;
     }
+  }
+
+  .product-grid {
+    margin-right: 12%;
+    margin-left: 12%;
+
+    // a {
+    // width: 30%;
+    // }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .product-grid {
+    margin-right: 16%;
+    margin-left: 16%;
+
+    .product-image {
+      width: 440px;
+      height: 440px;
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 1em;
+    }
+  }
+
+  .text-container {
+    width: 440px;
+    height: 6em;
   }
 }

@@ -37,11 +37,13 @@ const Shop = () => {
         </React.Suspense>
       </div>
       <Suspense fallback={<LoadingSpinner />}>
-        {filteredProducts.map((product) => (
-          <Link to={`/product/${product._id}`} key={product._id}>
-            <LazyProductCard product={product} />
-          </Link>
-        ))}
+        <div className="product-grid">
+          {filteredProducts.map((product) => (
+            <Link to={`/product/${product._id}`} key={product._id}>
+              <LazyProductCard product={product} />
+            </Link>
+          ))}
+        </div>
       </Suspense>
     </div>
   );
