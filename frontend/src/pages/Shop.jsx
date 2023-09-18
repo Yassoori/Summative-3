@@ -29,16 +29,15 @@ const Shop = () => {
   return (
     <div className="shop">
       <div className="shop-search">
-      <div className="shop-category-heading">Showing: {category}</div>
-      <SearchBar onSearch={HandleSearch} initialValue={query} />
-      <div className="icon-container">
-        <React.Suspense fallback={<div>Loading Icons...</div>}>
-        </React.Suspense>
+        <div className="shop-category-heading">Showing: {category}</div>
+        <SearchBar onSearch={HandleSearch} initialValue={query} />
+        <div className="icon-container">
+          <React.Suspense
+            fallback={<div>Loading Icons...</div>}
+          ></React.Suspense>
         </div>
       </div>
-      <div className="shop-page-grid">
       <Suspense fallback={<LoadingSpinner />}>
-
         <div className="product-grid">
           {filteredProducts.map((product) => (
             <Link to={`/product/${product._id}`} key={product._id}>
@@ -46,9 +45,7 @@ const Shop = () => {
             </Link>
           ))}
         </div>
-
       </Suspense>
-      </div>
     </div>
   );
 };
