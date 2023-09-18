@@ -334,7 +334,6 @@ footer #footer-links div li {
 * {
   scrollbar-width: thin;
   scrollbar-color: #0e2c36 rgba(92, 92, 92, 0.231372549);
-  overflow-x: hidden;
 }
 
 /* Chrome, Edge, and Safari */
@@ -353,32 +352,209 @@ footer #footer-links div li {
 }
 
 @media screen and (min-width: 992px) {
-  .hero {
-    height: 85vh;
-    width: 100vw;
+  .home {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .hero .swiper {
+  .home .hero {
+    height: 85vh;
+    width: 99vw;
+    overflow-x: hidden;
+  }
+  .home .hero .swiper {
     width: 100%;
     height: 100%;
   }
-  .hero .swiper-slide {
+  .home .hero .swiper-slide {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .hero .swiper-slide img {
+  .home .hero .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  .hero .swiper-button-prev {
+  .home .hero .swiper-button-prev {
     display: block;
   }
-  .hero .swiper-button-next {
+  .home .hero .swiper-button-next {
     display: block;
+  }
+  .home #header {
+    text-decoration: none;
+  }
+  .home #header nav {
+    padding: 0.5% 0% 0.5% 0%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  .home #header .nav-shop {
+    grid-area: 1/1/2/2;
+  }
+  .home #header .nav-shop h2 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: #0e1111;
+  }
+  .home #header .nav-logo {
+    grid-area: 1/2/2/3;
+  }
+  .home #header .nav-logo h1 {
+    text-align: center;
+    font-family: "Parisienne", cursive;
+    color: #0e1111;
+  }
+  .home #header .nav-icons {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    grid-area: 1/3/2/4;
+  }
+  .home #header .nav-icons #account-dropdown div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .home #header .nav-icons svg {
+    width: 35px;
+    height: 35px;
+  }
+  .home #header .nav-icons button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0e2c36;
+  }
+  .home #header .nav-icons button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
+  }
+  .home .category-jewelry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    width: 99vw;
+  }
+  .home .category-jewelry .category {
+    overflow: hidden;
+    margin-bottom: 10%;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+  }
+  .home .category-jewelry .category .category-name {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    background-color: #0e2c36;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+  }
+  .home .category-jewelry .category .category-image {
+    width: 100%;
+  }
+  .home .category-jewelry .category .category-name:hover {
+    transition: 0.4 all;
+    background-color: rgba(14, 44, 54, 0.7019607843);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home .product-slider {
+    background-color: #0e2c36;
+    padding-bottom: 30px;
+    overflow-x: hidden;
+    width: 99vw;
+  }
+  .home .product-slider h3 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: #f9f9f9;
+    padding: 30px;
+  }
+  .home .product-slider .product-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 40px;
+  }
+  .home .product-slider .product-list .text-container {
+    padding: 10px;
+  }
+  .home .product-slider .product-list .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .home .product-slider .product-list .image-container .product-image {
+    width: 70%;
+    height: 350px;
+  }
+  .home .sub-hero {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .home .sub-hero img {
+    max-width: 50%;
+    height: auto;
+  }
+  .home .sub-hero .diamond {
+    width: 40%;
+    background-color: #0e2c36;
+    padding: 50px;
+  }
+  .home .sub-hero .diamond h4 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #f9f9f9;
+    text-align: center;
+    margin: 20px;
+  }
+  .home .sub-hero .diamond p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #f9f9f9;
+    text-align: center;
+  }
+  .home .sub-hero .diamond a {
+    display: flex;
+    justify-content: center;
+  }
+  .home .sub-hero .diamond a button {
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    text-decoration: none;
+    background-color: #0e2c36;
+    border: #f9f9f9 2px solid;
   }
   #header {
     text-decoration: none;
@@ -437,49 +613,6 @@ footer #footer-links div li {
     transition: 0.3s;
     opacity: 0.8;
   }
-  .category-jewelry {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  .category-jewelry .category {
-    overflow: hidden;
-    margin-bottom: 10%;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
-  }
-  .category-jewelry .category .category-name {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-    background-color: #0e2c36;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-  }
-  .category-jewelry .category .category-image {
-    width: 100%;
-  }
-  .category-jewelry .category .category-name:hover {
-    transition: 0.4 all;
-    background-color: rgba(14, 44, 54, 0.7019607843);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .product-image {
-    width: 90%;
-    max-height: 370px;
-  }
-  .prev-button {
-    z-index: 99;
-  }
   .login-signup-wrapper {
     position: fixed;
     z-index: 99;
@@ -508,6 +641,48 @@ footer #footer-links div li {
     height: 1.5rem;
     width: 1.5rem;
     margin: 3%;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login h3 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 40px;
+    padding: 5% 0% 5% 0%;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login div {
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login input {
+    width: 20rem;
+    height: 2.5rem;
+    padding: 2%;
+    margin: 4% 0% 4% 0%;
+    background-color: #f9f9f9;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0e2c36;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
   }
   .login-signup-wrapper .login-signup-modal .signup .signup-form {
     margin-top: -4%;
@@ -563,48 +738,6 @@ footer #footer-links div li {
     width: 1rem;
     height: 1rem;
     accent-color: #0e2c36;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login h3 {
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    text-align: center;
-    font-size: 40px;
-    padding: 5% 0% 5% 0%;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login div {
-    font-family: "Rubik", sans-serif;
-    font-weight: 300;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login input {
-    width: 20rem;
-    height: 2.5rem;
-    padding: 2%;
-    margin: 4% 0% 4% 0%;
-    background-color: #f9f9f9;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login button {
-    margin: auto 0%;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 100px;
-    height: 40px;
-    text-decoration: none;
-    background-color: #0e2c36;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
   }
   .login-signup-wrapper #about-page {
     width: 100%;
@@ -793,4 +926,4 @@ footer #footer-links div li {
     width: 440px;
     height: 6em;
   }
-}/*# sourceMappingURL=App.css.map */
+}
