@@ -23,8 +23,28 @@ export const productsReducer = (state, action) => {
         ...state,
         products: [action.payload, ...state.products],
       };
-    default:
-      return state;
+      
+      case "UPDATE_PRODUCTS": {
+        const updatedProduct = action.payload;
+        const updatedProducts = state.products.map((product) => {
+            if (product._id === updatedProduct._id) {
+									// swap the project for the updated on if id's matach
+                  return updatedProduct;
+                }
+								
+								// Return the project for every project in the projects
+								// array
+                  return product;
+                });
+          
+								// last return returns the map of updatedProjects
+                return {
+                  products: updatedProducts,
+                };
+              }
+              default:
+            return state 
+    
   }
 };
 
