@@ -2,10 +2,52 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { useCommentsContext } from "../hooks/useCommentContext"
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 const ProductDetails = () => {
+  const { dispatch } = useCommentsContext();
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const [commentText, setCommentText] = useState('');
+  const user = JSON.parse(localStorage.getItem("user"));
+  const user_id = user ? user.username : null;
+
+  const handleAddComment = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:4000/api/comments/products/${productId}/comments`,
+        {
+          text: commentText, 
+          user_id: user.username,
+        }
+      );
+
+      if (response.status === 201) {
+        const newComment = response.data;
+        const updatedComments = [...product.comments, newComment];
+        const updatedProduct = { ...product, comments: updatedComments };
+
+        // Dispatch the updated product data
+        setProduct(updatedProduct);
+        setCommentText('');
+      }
+    } catch(error) {
+      console.error('Error Adding Comment:', error);
+    }
+  }
+
+  // const handleDelete = async (commentId) => {
+  //   const response = await axios.delete(
+  //     `http://localhost:4000/api/comments/products/${productId}/comments/${commentId}`
+  //   );
+  //   const json = await response.data;
+
+  //   if (response.status === 200) {
+  //     console.log(json, "is deleted");
+  //     dispatch({ type: "DELETE_COMMENT", payload: commentId });
+  //   }
+  // };
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -34,7 +76,8 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="details-container">
+    <>
+      <div className="details-container">
       <div className="image-container">
         {product.image.map((image, index) => (
           <img
@@ -50,6 +93,43 @@ const ProductDetails = () => {
       <div className="detail-material">{product.materials}</div>
       <div className="detail-price">${product.price} Tax incl.</div>
     </div>
+
+    {/* Map over comments array */}
+    <div className="comments">
+      {product.comments.map((comment) => (
+        <div key={comment._id} className="comment">
+          <h5>{comment.user_id}</h5>
+          <p>{comment.text}</p>
+          <span>
+            posted:{formatDistanceToNow(new Date(comment.createdAt), {
+              includeSeconds: true,
+            })}{' '} ago
+          </span>
+
+          {/* {user_id && comment.user_id === user_id && (
+          <p className="delete" onClick={handleDelete(comment._id)}>
+            delete
+          </p>    
+        )} */}
+        </div>
+
+        
+      ))}
+    </div>
+
+    <div className="add-comment">
+        <label>Add Comment</label>
+        <input
+              type="text"
+              placeholder="Add a comment..."
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+            />
+        <button onClick={handleAddComment}>Submit</button>
+    </div>
+
+    
+    </>
   );
 };
 
