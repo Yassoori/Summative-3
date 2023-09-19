@@ -260,6 +260,7 @@ footer {
     display: none;
   }
 }
+
 //Home - category cards
 .category-jewelry {
   display: flex;
@@ -491,3 +492,117 @@ footer {
     }
   }
 }
+
+// details
+
+.details-container {
+  margin: auto;
+  margin-top: 0;
+  // margin-left: 2em;
+  // margin-right: 2em;
+  margin-bottom: 4em;
+
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: visible;
+
+  .image-container {
+    margin-bottom: 1em;
+
+    img {
+      // width: 320px;
+      // height: 320px;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+      overflow-x: visible;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: visible;
+
+      img {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        object-position: center;
+        overflow-x: visible;
+      }
+    }
+
+    // .swiper-slide img {
+    //   display: block;
+    // width: 100%;
+    // height: 100%;
+    //   object-fit: cover;
+    // }
+  }
+  .text-container {
+    // width: 320px;
+    text-align: left;
+    margin: 2em;
+    margin: auto;
+
+    .detail-name,
+    .detail-material,
+    .details-description,
+    .detail-price,
+    .designer {
+      text-align: left;
+      color: $dark-color;
+      text-decoration: none;
+      margin: auto;
+    }
+
+    .detail-name {
+      text-transform: uppercase;
+      font-size: $head-size;
+      @include head-font;
+      margin-bottom: 1em;
+    }
+    .details-description,
+    .detail-material {
+      font-size: $body-size;
+      @include body-font;
+      margin-bottom: 0.5em;
+    }
+    .detail-price,
+    .designer {
+      font-size: $head-size;
+      @include head-font;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+// // comments
+
+// .comments {
+//   .comment {
+//     h5 {}
+//     p {}
+//     span {}
+//   }
+// }
+
+// .add-comment {
+//   label {}
+//   input {}
+//   button {}
+// }
