@@ -49,16 +49,21 @@ const Header = () => {
 
                 <React.Suspense fallback={<div>Loading Icons...</div>}>
                   <div className="icon-box">
+            
                     <Link to={`/account/${user._id}`}>
-                      <icons.ProfileIcon/>
+                      <icons.ProfileIcon />
                     </Link>
                     <Link to="/cart">
-                      <icons.ShoppingCartIcon/>
+                      <icons.ShoppingCartIcon />
                     </Link>
+
                   </div>
                     
                 </React.Suspense>
                  
+
+           
+
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               )}
