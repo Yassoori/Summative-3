@@ -46,16 +46,15 @@ const Header = () => {
             <div id="account-dropdown">
               {user && (
                 <div>
-
-                <React.Suspense fallback={<div>Loading Icons...</div>}>
+                  <React.Suspense fallback={<div>Loading Icons...</div>}>
                     <Link to={`/account/${user._id}`}>
-                      <icons.ProfileIcon/>
+                      <icons.ProfileIcon />
                     </Link>
                     <Link to="/cart">
-                      <icons.ShoppingCartIcon/>
+                      <icons.ShoppingCartIcon />
                     </Link>
-                </React.Suspense>
-                 
+                  </React.Suspense>
+
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               )}
