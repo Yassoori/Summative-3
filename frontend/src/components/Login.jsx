@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
+import { useLoginModalContext } from "../hooks/useLoginModalContext";
 
-const Login = ({ onClose }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useLogin();
   const userData = localStorage.getItem("user");
+  const navigate = useNavigate()
+  const { dispatch } = useLoginModalContext();
 
   if (userData) {
-    onClose();
+    dispatch({ type: "LOGIN_CLOSE" });
+    navigate("/")
   }
 
   const handleSubmit = async (e) => {
