@@ -33,12 +33,14 @@ const Account = () => {
 
   return (
     <div className="account-container">
-      <div className="account-name">Welcome, {user.username}!</div>
+      <div className="account-name">Hey, {user.username}!</div>
       {/* Only render VendorAccount if the user is a vendor */}
       {user.isvendor === "true" ? (
         <VendorAccount />
       ) : (
-        <div>Regular Account Content</div>
+        <div className="regular-account-container">
+          <div className="wishlist-heading">Wishlist</div>
+        </div>
       )}
     </div>
   );
