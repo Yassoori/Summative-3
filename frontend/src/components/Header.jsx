@@ -43,7 +43,7 @@ const Header = () => {
             <div id="account-dropdown">
               {user && (
                 <div>
-                  <Link to="/account">Account</Link>
+                  <Link to={`/account/${user._id}`}>Account</Link>
                   <button onClick={handleLogout}>Logout</button>
                   <Link>
                     <i className="bi bi-heart">cart</i>

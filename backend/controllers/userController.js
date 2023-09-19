@@ -9,16 +9,24 @@ const createToken = (_id) => {
 
 // login user
 const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, username } = req.body;
   try {
     // call upon our custom login method
-    const user = await User.login(email, password);
+    const user = await User.login(email, password, username);
 
     // create token
-    const token = createToken(user._id);
+    const token = createToken({ _id: user._id, isvendor: user.isvendor });
 
-    // return email and newly logged in token
-    res.status(200).json({ email, token });
+    // Return username, email, isvendor, and token
+    res
+      .status(200)
+      .json({
+        _id: user._id,
+        username: user.username,
+        email,
+        isvendor: user.isvendor,
+        token,
+      });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -34,10 +42,10 @@ const signupUser = async (req, res) => {
     const user = await User.signup(username, email, password, isvendor);
 
     // create token
-    const token = createToken(user._id);
+    const token = createToken({ _id: user._id, isvendor });
 
     // return the username and newly created user
-    res.status(200).json({ username, token });
+    res.status(200).json({ _id: user._id, username, email, isvendor, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
