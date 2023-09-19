@@ -319,6 +319,87 @@ footer #footer-links div li {
   display: none;
 }
 
+.details-container {
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 4em;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: visible;
+}
+.details-container .image-container {
+  margin-bottom: 1em;
+}
+.details-container .image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.details-container .image-container .swiper {
+  width: 100%;
+  height: 100%;
+  overflow-x: visible;
+}
+.details-container .image-container .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: visible;
+}
+.details-container .image-container .swiper-slide img {
+  width: 320px;
+  height: 320px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  overflow-x: visible;
+}
+.details-container .text-container {
+  text-align: left;
+  margin: 2em;
+  margin: auto;
+}
+.details-container .text-container .detail-name,
+.details-container .text-container .detail-material,
+.details-container .text-container .details-description,
+.details-container .text-container .detail-price,
+.details-container .text-container .designer {
+  text-align: left;
+  color: #0e1111;
+  text-decoration: none;
+  margin: auto;
+}
+.details-container .text-container .detail-name {
+  text-transform: uppercase;
+  font-size: 40px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+.details-container .text-container .details-description,
+.details-container .text-container .detail-material {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+.details-container .text-container .detail-price,
+.details-container .text-container .designer {
+  font-size: 40px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .product-slider .product-list {
     grid-template-columns: repeat(3, 1fr);
@@ -789,7 +870,7 @@ footer #footer-links div li {
        object-position: center;
     margin-bottom: 1em;
   }
-  .text-container {
+  .product-grid .text-container {
     width: 440px;
     height: 6em;
   }
