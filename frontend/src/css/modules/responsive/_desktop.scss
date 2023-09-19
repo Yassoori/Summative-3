@@ -12,7 +12,6 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: $main-color #5c5c5c3b;
-  overflow-x: hidden;
 }
 
 /* Chrome, Edge, and Safari */
@@ -31,13 +30,64 @@
 }
 
 @media screen and (min-width: 992px) {
+.home{  
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .hero {
-    height: 85vh;
-    width: 100vw;
+    height: 95vh;
+    width: 99vw;
+    overflow-x: hidden;
 
     .swiper {
       width: 100%;
       height: 100%;
+      img{
+        background-color: #0e2c3699;
+        position: relative;
+      }
+      .hero-details-wrapper{
+        background-color: #0e2c3680;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .hero-details {
+            display: flex;
+            position: absolute;
+            top: 200px;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0px 500px 0px 120px;
+            text-align: start;
+            padding: 10px;
+            border-radius: 5%;
+            backdrop-filter: blur(2px);
+            h2 {
+              @include head-font;
+              font-size: $head-size;
+              color: $light-color;
+            }
+        
+            p {
+              @include body-font;
+              font-size: $body-size;
+              color: $light-color;
+            }
+        
+            button {
+              margin: auto 0%;
+              color: $light-color;
+              @include head-font;
+              width: 100px;
+              height: 40px;
+              text-decoration: none;
+              background-color: #0e2c36;
+              margin-top: 10px;
+            }
+          }
+      }
+      
     }
 
     .swiper-slide {
@@ -54,6 +104,7 @@
       object-fit: cover;
     }
 
+
     .swiper-button-prev {
       display: block;
     }
@@ -63,69 +114,12 @@
     }
   }
 
-  #header {
-    text-decoration: none;
-
-    nav {
-      padding: 0.5% 0% 0.5% 0%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
-    }
-    .nav-shop {
-      grid-area: 1 / 1 / 2 / 2;
-      h2 {
-        @include head-font;
-        text-align: center;
-        color: $dark-color;
-      }
-    }
-    .nav-logo {
-      grid-area: 1 / 2 / 2 / 3;
-      h1 {
-        text-align: center;
-        @include logo-font;
-        color: $dark-color;
-      }
-    }
-    .nav-icons {
-      @include head-font;
-      text-align: center;
-      grid-area: 1 / 3 / 2 / 4;
-
-      #account-dropdown {
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-        }
-      }
-      svg {
-        width: 35px;
-        height: 35px;
-      }
-      button {
-        margin: auto 0%;
-        color: $light-color;
-        @include head-font;
-        width: 100px;
-        height: 40px;
-        text-decoration: none;
-        background-color: $main-color;
-      }
-      button:hover {
-        transition: 0.3s;
-        opacity: 0.8;
-      }
-    }
-  }
-
   .category-jewelry {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 50px;
+    width: 99vw;
 
     .category {
       overflow: hidden;
@@ -160,13 +154,81 @@
       }
     }
   }
-  .product-image {
-    width: 90%;
-    max-height: 370px;
+
+  .product-slider{
+    background-color: $main-color;
+    padding-bottom:30px ;
+    overflow-x: hidden;
+    width: 99vw;
+    h3{
+      @include head-font;
+      text-align: center;
+      color: $light-color ;
+      padding: 30px;
+    }
+    .product-list{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 40px;
+      .text-container{
+        padding: 10px;
+      }
+      .image-container{
+        display: flex;
+        justify-content: center;
+        .product-image {
+            width: 70%;
+            height: 350px;
+          }
+        }
+    }
   }
-  .prev-button {
-    z-index: 99;
+  .sub-hero{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+      img{
+        max-width: 50%;
+        height: auto;
+      }
+      .diamond{
+        width: 40%;
+        background-color: $main-color;
+        padding: 50px;
+        h4{
+          @include head-font;
+          font-size: $head-size;
+          color: $light-color;
+          text-align: center;
+          margin: 20px;
+        }
+        p{
+          @include body-font;
+          font-size: $body-size;
+          color: $light-color;
+          text-align: center;
+        }
+        a{
+          display: flex;
+          justify-content: center;
+          button {
+            color: $light-color;
+            @include head-font;
+            width: 100px;
+            height: 40px;
+            margin: 20px;
+            text-decoration: none;
+            background-color: $main-color;
+            border: $light-color 2px solid;
+          }
+        }
+      }
   }
+}
+
+
 
   .login-signup-wrapper {
     position: fixed;
@@ -192,6 +254,52 @@
         height: 1.5rem;
         width: 1.5rem;
         margin: 3%;
+      }
+      .login-modal {
+                              .login {
+                                margin-top: 5%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+              
+                                h3 {
+                                  @include head-font;
+                                  text-align: center;
+                                  font-size: $head-size;
+                                  padding: 5% 0% 5% 0%;
+                                }
+              
+                                div {
+                                  @include sub-font;
+                                  font-size: $sub-size;
+                                  display: flex;
+                                  flex-direction: column;
+                                  text-align: center;
+                                }
+              
+                                input {
+                                  width: 20rem;
+                                  height: 2.5rem;
+                                  padding: 2%;
+                                  margin: 4% 0% 4% 0%;
+                                  background-color: $light-color;
+                                }
+              
+                                button {
+                                  margin: auto 0%;
+                                  color: $light-color;
+                                  @include head-font;
+                                  width: 100px;
+                                  height: 40px;
+                                  text-decoration: none;
+                                  background-color: $main-color;
+                                }
+              
+                                button:hover {
+                                  transition: 0.3s;
+                                  opacity: 0.8;
+                                }
+                              }
       }
       .signup {
         .signup-form {
@@ -246,48 +354,6 @@
             accent-color: $main-color;
           }
         }
-
-        .login-modal {
-          .login {
-            margin-top: 5%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            h3 {
-              @include head-font;
-              text-align: center;
-              font-size: $head-size;
-              padding: 5% 0% 5% 0%;
-            }
-            div {
-              @include sub-font;
-              font-size: $sub-size;
-              display: flex;
-              flex-direction: column;
-              text-align: center;
-            }
-            input {
-              width: 20rem;
-              height: 2.5rem;
-              padding: 2%;
-              margin: 4% 0% 4% 0%;
-              background-color: $light-color;
-            }
-            button {
-              margin: auto 0%;
-              color: $light-color;
-              @include head-font;
-              width: 100px;
-              height: 40px;
-              text-decoration: none;
-              background-color: $main-color;
-            }
-            button:hover {
-              transition: 0.3s;
-              opacity: 0.8;
-            }
-          }
-        }
       }
     }
 
@@ -312,7 +378,7 @@
           font-size: $body-size;
         }
       }
-      .login-modal {
+     .login-modal {
         .login {
           margin-top: 5%;
           display: flex;
@@ -352,7 +418,7 @@
             opacity: 0.8;
           }
         }
-      }
+      } 
     }
   }
 
@@ -437,6 +503,7 @@
         @include body-font;
         li {
           padding: 5%;
+          width: 200px
         }
       }
     }

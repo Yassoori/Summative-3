@@ -46,24 +46,178 @@ nav {
   grid-row-gap: 0px;
   text-align: center;
   text-decoration: none;
+  align-items: center;
 }
 nav .nav-shop {
   font-family: "Rubik", sans-serif;
   font-weight: 300;
-  font-size: 20px;
+}
+nav .nav-shop h2 {
   color: #0e1111;
+  font-size: 16px;
 }
 nav .nav-logo {
   font-family: "Parisienne", cursive;
-  font-size: 20px;
+}
+nav .nav-logo h1 {
   color: #0e1111;
+}
+nav .nav-icons .icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav .nav-icons svg {
+  color: #0e1111;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+nav .nav-icons button {
+  border: none;
+  margin-left: 20px;
+  padding: 5px 10px;
+  background-color: #0e2c36;
+  color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.login-signup-wrapper {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-color: rgba(14, 17, 17, 0.6);
+}
+.login-signup-wrapper .login-signup-modal {
+  background-color: #f9f9f9;
+  width: 80%;
+  height: 85%;
+}
+.login-signup-wrapper .login-signup-modal p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 5%;
+}
+.login-signup-wrapper .login-signup-modal .cancel-login {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 3%;
+}
+.login-signup-wrapper .login-signup-modal .login-modal .login {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-signup-wrapper .login-signup-modal .login-modal .login h3 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 40px;
+  padding: 5% 0% 5% 0%;
+}
+.login-signup-wrapper .login-signup-modal .login-modal .login div {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.login-signup-wrapper .login-signup-modal .login-modal .login input {
+  width: 20rem;
+  height: 2.5rem;
+  padding: 2%;
+  margin: 4% 0% 4% 0%;
+  background-color: #f9f9f9;
+}
+.login-signup-wrapper .login-signup-modal .login-modal .login button {
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  background-color: #0e2c36;
+}
+.login-signup-wrapper .login-signup-modal .login-modal .login button:hover {
+  transition: 0.3s;
+  opacity: 0.8;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form {
+  margin-top: -4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form h3 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  padding: 5% 0% 5% 0%;
+  text-align: center;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form div {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form input {
+  width: 20rem;
+  height: 2.5rem;
+  padding: 2%;
+  margin: 4% 0% 4% 0%;
+  background-color: #f9f9f9;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form button {
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  background-color: #0e2c36;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form button:hover {
+  transition: 0.3s;
+  opacity: 0.8;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form #radio-input {
+  display: block;
+  width: 100%;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form label {
+  font-size: 20px;
+  margin: 4%;
+}
+.login-signup-wrapper .login-signup-modal .signup .signup-form .isvendor-input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #0e2c36;
+}
+
+.sub-hero {
+  display: none;
 }
 
 footer {
   margin-top: 50px;
 }
 footer #footer-logo {
-  margin: 10px;
+  margin: 10px 0px 25px;
   font-family: "Parisienne", cursive;
   text-align: center;
   font-size: 30px;
@@ -74,21 +228,25 @@ footer #footer-links {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  margin-left: 65px;
 }
 footer #footer-links div {
-  margin: 10px;
+  margin-bottom: 10px;
 }
 footer #footer-links div h2 {
   font-family: "Rubik", sans-serif;
   font-weight: 300;
-  font-size: 30px;
-  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 10px;
 }
 footer #footer-links div li {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 20px;
-  text-align: center;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .hero {
@@ -319,6 +477,7 @@ footer #footer-links div li {
   display: none;
 }
 
+
 .details-container {
   margin: auto;
   margin-top: 0;
@@ -400,7 +559,30 @@ footer #footer-links div li {
   margin-bottom: 0.5em;
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+/* @media screen and (min-width: 768px) and (max-width: 992px) { */
+
+@media screen and (min-width: 768px) {
+  nav {
+    padding: 10px 0px;
+  }
+  nav .nav-shop h2 {
+    font-size: 20px;
+  }
+  nav .nav-logo h1 {
+    font-size: 30px;
+  }
+  nav .nav-icons svg {
+    color: #0e1111;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+  }
+  nav .nav-icons button {
+    margin-left: 40px;
+    padding: 10px 22px;
+    font-size: 15px;
+  }
+
   .product-slider .product-list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -415,7 +597,6 @@ footer #footer-links div li {
 * {
   scrollbar-width: thin;
   scrollbar-color: #0e2c36 rgba(92, 92, 92, 0.231372549);
-  overflow-x: hidden;
 }
 
 /* Chrome, Edge, and Safari */
@@ -434,77 +615,57 @@ footer #footer-links div li {
 }
 
 @media screen and (min-width: 992px) {
-  .hero {
-    height: 85vh;
-    width: 100vw;
+  .home {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .hero .swiper {
+  .home .hero {
+    height: 95vh;
+    width: 99vw;
+    overflow-x: hidden;
+  }
+  .home .hero .swiper {
     width: 100%;
     height: 100%;
   }
-  .hero .swiper-slide {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .home .hero .swiper img {
+    background-color: rgba(14, 44, 54, 0.6);
+    position: relative;
   }
-  .hero .swiper-slide img {
-    display: block;
+  .home .hero .swiper .hero-details-wrapper {
+    background-color: rgba(14, 44, 54, 0.5019607843);
+    position: absolute;
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
-  .hero .swiper-button-prev {
-    display: block;
-  }
-  .hero .swiper-button-next {
-    display: block;
-  }
-  #header {
-    text-decoration: none;
-  }
-  #header nav {
-    padding: 0.5% 0% 0.5% 0%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-  }
-  #header .nav-shop {
-    grid-area: 1/1/2/2;
-  }
-  #header .nav-shop h2 {
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    text-align: center;
-    color: #0e1111;
-  }
-  #header .nav-logo {
-    grid-area: 1/2/2/3;
-  }
-  #header .nav-logo h1 {
-    text-align: center;
-    font-family: "Parisienne", cursive;
-    color: #0e1111;
-  }
-  #header .nav-icons {
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    text-align: center;
-    grid-area: 1/3/2/4;
-  }
-  #header .nav-icons #account-dropdown div {
+  .home .hero .swiper .hero-details-wrapper .hero-details {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    position: absolute;
+    top: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px 500px 0px 120px;
+    text-align: start;
+    padding: 10px;
+    border-radius: 5%;
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
   }
-  #header .nav-icons svg {
-    width: 35px;
-    height: 35px;
+  .home .hero .swiper .hero-details-wrapper .hero-details h2 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #f9f9f9;
   }
-  #header .nav-icons button {
+  .home .hero .swiper .hero-details-wrapper .hero-details p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #f9f9f9;
+  }
+  .home .hero .swiper .hero-details-wrapper .hero-details button {
     margin: auto 0%;
     color: #f9f9f9;
     font-family: "Rubik", sans-serif;
@@ -513,17 +674,35 @@ footer #footer-links div li {
     height: 40px;
     text-decoration: none;
     background-color: #0e2c36;
+    margin-top: 10px;
   }
-  #header .nav-icons button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
+  .home .hero .swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .category-jewelry {
+  .home .hero .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .home .hero .swiper-button-prev {
+    display: block;
+  }
+  .home .hero .swiper-button-next {
+    display: block;
+  }
+  .home .category-jewelry {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 50px;
+    width: 99vw;
   }
-  .category-jewelry .category {
+  .home .category-jewelry .category {
     overflow: hidden;
     margin-bottom: 10%;
     position: relative;
@@ -531,7 +710,7 @@ footer #footer-links div li {
     height: 200px;
     border: 1px solid black;
   }
-  .category-jewelry .category .category-name {
+  .home .category-jewelry .category .category-name {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -543,10 +722,10 @@ footer #footer-links div li {
     font-family: "Rubik", sans-serif;
     font-weight: 400;
   }
-  .category-jewelry .category .category-image {
+  .home .category-jewelry .category .category-image {
     width: 100%;
   }
-  .category-jewelry .category .category-name:hover {
+  .home .category-jewelry .category .category-name:hover {
     transition: 0.4 all;
     background-color: rgba(14, 44, 54, 0.7019607843);
     height: 100%;
@@ -554,12 +733,80 @@ footer #footer-links div li {
     justify-content: center;
     align-items: center;
   }
-  .product-image {
-    width: 90%;
-    max-height: 370px;
+  .home .product-slider {
+    background-color: #0e2c36;
+    padding-bottom: 30px;
+    overflow-x: hidden;
+    width: 99vw;
   }
-  .prev-button {
-    z-index: 99;
+  .home .product-slider h3 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: #f9f9f9;
+    padding: 30px;
+  }
+  .home .product-slider .product-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 40px;
+  }
+  .home .product-slider .product-list .text-container {
+    padding: 10px;
+  }
+  .home .product-slider .product-list .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .home .product-slider .product-list .image-container .product-image {
+    width: 70%;
+    height: 350px;
+  }
+  .home .sub-hero {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .home .sub-hero img {
+    max-width: 50%;
+    height: auto;
+  }
+  .home .sub-hero .diamond {
+    width: 40%;
+    background-color: #0e2c36;
+    padding: 50px;
+  }
+  .home .sub-hero .diamond h4 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #f9f9f9;
+    text-align: center;
+    margin: 20px;
+  }
+  .home .sub-hero .diamond p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #f9f9f9;
+    text-align: center;
+  }
+  .home .sub-hero .diamond a {
+    display: flex;
+    justify-content: center;
+  }
+  .home .sub-hero .diamond a button {
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    text-decoration: none;
+    background-color: #0e2c36;
+    border: #f9f9f9 2px solid;
   }
   .login-signup-wrapper {
     position: fixed;
@@ -589,6 +836,48 @@ footer #footer-links div li {
     height: 1.5rem;
     width: 1.5rem;
     margin: 3%;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login h3 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 40px;
+    padding: 5% 0% 5% 0%;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login div {
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login input {
+    width: 20rem;
+    height: 2.5rem;
+    padding: 2%;
+    margin: 4% 0% 4% 0%;
+    background-color: #f9f9f9;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0e2c36;
+  }
+  .login-signup-wrapper .login-signup-modal .login-modal .login button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
   }
   .login-signup-wrapper .login-signup-modal .signup .signup-form {
     margin-top: -4%;
@@ -644,48 +933,6 @@ footer #footer-links div li {
     width: 1rem;
     height: 1rem;
     accent-color: #0e2c36;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login h3 {
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    text-align: center;
-    font-size: 40px;
-    padding: 5% 0% 5% 0%;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login div {
-    font-family: "Rubik", sans-serif;
-    font-weight: 300;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login input {
-    width: 20rem;
-    height: 2.5rem;
-    padding: 2%;
-    margin: 4% 0% 4% 0%;
-    background-color: #f9f9f9;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login button {
-    margin: auto 0%;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 100px;
-    height: 40px;
-    text-decoration: none;
-    background-color: #0e2c36;
-  }
-  .login-signup-wrapper .login-signup-modal .signup .login-modal .login button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
   }
   .login-signup-wrapper #about-page {
     width: 100%;
@@ -840,6 +1087,7 @@ footer #footer-links div li {
   }
   footer #footer-links ul li {
     padding: 5%;
+    width: 200px;
   }
   footer hr {
     margin: 0px auto;

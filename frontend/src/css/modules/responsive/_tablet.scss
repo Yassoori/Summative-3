@@ -1,4 +1,32 @@
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) {
+
+  nav {
+    padding: 10px 0px;
+    .nav-shop {
+      h2 {
+        font-size: 20px;
+      }
+    }
+    .nav-logo {
+      h1{
+        font-size: 30px;
+      }
+    }
+    .nav-icons {
+      svg {
+        color: $dark-color;
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+      }
+      button {
+        margin-left: 40px;
+        padding: 10px 22px;
+        font-size: 15px;
+      }
+    }
+  }
+
   // Home - New arrivlas
   .product-slider {
     .product-list {

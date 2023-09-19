@@ -61,8 +61,7 @@ const getProduct = async (req, res) => {
 
 // CREATE a New Product
 const createProduct = async (req, res) => {
-  const { title, price, category, materials, description } = req.body;
-  const userId = req.user_id;
+  const { title, price, category, materials, description, creator } = req.body;
 
   if (!req.files || !Array.isArray(req.files)) {
     return res.status(400).json({ error: "No files uploaded" });
@@ -93,7 +92,7 @@ const createProduct = async (req, res) => {
       materials,
       description,
       image: imageLinks, // Use the web view links
-      creator: userId,
+      creator,
     });
 
     res.status(200).json(product);
