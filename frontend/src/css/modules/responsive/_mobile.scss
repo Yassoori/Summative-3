@@ -215,6 +215,8 @@ footer {
       margin-bottom: 10px;
       h2 {
         @include sub-font;
+        text-decoration: none;
+        color: $dark-color;
         font-size: 24px;
         font-weight: 400;
         text-align: left;
@@ -223,6 +225,8 @@ footer {
 
       li {
         @include body-font;
+        text-decoration: none;
+        color: $dark-color;
         font-size: 16px;
         text-align: left;
         margin-bottom: 10px;
