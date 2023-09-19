@@ -500,7 +500,7 @@ footer {
 // details
 
 .details-container {
-  margin: auto;
+  width: 90vw;
   margin-top: 0;
   // margin-left: 2em;
   // margin-right: 2em;
@@ -509,21 +509,20 @@ footer {
   display: flex;
   text-align: center;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  overflow-x: visible;
+  justify-content: space-evenly;
 
   .image-container {
     margin-bottom: 1em;
+    width: 45%;
+    transform: rotate(270deg);
 
     img {
       // width: 320px;
       // height: 320px;
 
-      width: 100%;
-      height: 100%;
-
+      width: 110%;
+      height: 110%;
+      transform: rotate(-270deg);
       object-fit: cover;
       object-position: center;
     }
@@ -531,7 +530,6 @@ footer {
     .swiper {
       width: 100%;
       height: 100%;
-      overflow-x: visible;
     }
 
     .swiper-slide {
@@ -539,14 +537,12 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow-x: visible;
 
       img {
-        width: 320px;
-        height: 320px;
+        width: 420px;
+        height: 520px;
         object-fit: cover;
         object-position: center;
-        overflow-x: visible;
       }
     }
 
@@ -560,8 +556,7 @@ footer {
   .text-container {
     // width: 320px;
     text-align: left;
-    margin: 2em;
-    margin: auto;
+    width: 40vw;
 
     .detail-name,
     .detail-material,
@@ -576,11 +571,14 @@ footer {
 
     .detail-name {
       text-transform: uppercase;
-      font-size: $head-size;
+      font-size: $sub-size;
       @include head-font;
       margin-bottom: 1em;
     }
-    .details-description,
+    .detail-description{
+      @include body-font;
+      margin-bottom: 0.5em;
+    }
     .detail-material {
       font-size: $body-size;
       @include body-font;
