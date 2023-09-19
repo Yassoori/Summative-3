@@ -36,13 +36,58 @@
   flex-direction: column;
   align-items: center;
   .hero {
-    height: 85vh;
+    height: 95vh;
     width: 99vw;
     overflow-x: hidden;
 
     .swiper {
       width: 100%;
       height: 100%;
+      img{
+        background-color: #0e2c3699;
+        position: relative;
+      }
+      .hero-details-wrapper{
+        background-color: #0e2c3680;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .hero-details {
+            display: flex;
+            position: absolute;
+            top: 200px;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0px 500px 0px 120px;
+            text-align: start;
+            padding: 10px;
+            border-radius: 5%;
+            backdrop-filter: blur(2px);
+            h2 {
+              @include head-font;
+              font-size: $head-size;
+              color: $light-color;
+            }
+        
+            p {
+              @include body-font;
+              font-size: $body-size;
+              color: $light-color;
+            }
+        
+            button {
+              margin: auto 0%;
+              color: $light-color;
+              @include head-font;
+              width: 100px;
+              height: 40px;
+              text-decoration: none;
+              background-color: #0e2c36;
+              margin-top: 10px;
+            }
+          }
+      }
+      
     }
 
     .swiper-slide {
@@ -58,6 +103,7 @@
       height: 100%;
       object-fit: cover;
     }
+
 
     .swiper-button-prev {
       display: block;

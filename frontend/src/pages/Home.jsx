@@ -93,22 +93,48 @@ const Home = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper">
           <SwiperSlide className="hero-image1">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0885/3178/files/HOMEPAGE_HERO_-_AUGUST.png?v=1692127025"
-              alt="hero1"
+            <img src="https://cdn.shopify.com/s/files/1/0885/3178/files/HOMEPAGE_HERO_-_AUGUST.png?v=1692127025" 
+            alt="hero1" 
             />
+            <div className="hero-details-wrapper">
+            <div className="hero-details">
+            <h2>Radiant Solitaire</h2>
+            <p>Radiant Solitaire is a stunning single-piece jewelry adorned with a captivating solitaire diamond. This timeless treasure elegantly combines simplicity and sophistication, making it the perfect expression of individuality and grace</p>
+            <Link to="/shop/all">
+              <button>SHOP NOW</button>
+            </Link>  
+            </div>
+            </div>
           </SwiperSlide>
           <SwiperSlide className="hero-image2">
             <img
               src="https://buddhamama.com/wp-content/uploads/2022/06/Buddha-Mama-Jewelry-star-necklace-hero.jpg"
               alt="hero2"
             />
+                      <div className="hero-details-wrapper">
+                       <div className="hero-details">
+            <h2>Ocean Starlight</h2>
+            <p> Ocean Starlight is a mesmerizing starfish-inspired jewelry piece adorned with sparkling diamonds. Its intricate design and choice of precious metals capture the essence of the sea, making it an ideal accessory for those who cherish the ocean's beauty.</p>
+            <Link to="/shop/all">
+              <button>SHOP NOW</button>
+            </Link>  
+            </div>
+            </div>
           </SwiperSlide>
           <SwiperSlide className="hero-image3">
             <img
               src="https://assets.vogue.com/photos/60679161b475e844532aacd5/4:3/w_1600%2Cc_limit/VO120118_jewelry_08.jpg"
               alt="hero3"
             />
+            <div className="hero-details-wrapper">
+            <div className="hero-details">
+              <h2>Emerald Elegance</h2>
+              <p>Emerald Elegance is a captivating emerald ring that exudes timeless beauty. This exquisite ring features a vivid, lush emerald gemstone nestled in a setting of your choice, such as classic white gold, warm yellow gold, or contemporary rose gold.</p>
+              <Link to="/shop/all">
+                <button>SHOP NOW</button>
+              </Link>  
+            </div>
+            </div>
           </SwiperSlide>
         </Swiper>
       </div>

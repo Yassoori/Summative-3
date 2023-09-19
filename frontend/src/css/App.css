@@ -359,13 +359,59 @@ footer #footer-links div li {
     align-items: center;
   }
   .home .hero {
-    height: 85vh;
+    height: 95vh;
     width: 99vw;
     overflow-x: hidden;
   }
   .home .hero .swiper {
     width: 100%;
     height: 100%;
+  }
+  .home .hero .swiper img {
+    background-color: rgba(14, 44, 54, 0.6);
+    position: relative;
+  }
+  .home .hero .swiper .hero-details-wrapper {
+    background-color: rgba(14, 44, 54, 0.5019607843);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .home .hero .swiper .hero-details-wrapper .hero-details {
+    display: flex;
+    position: absolute;
+    top: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px 500px 0px 120px;
+    text-align: start;
+    padding: 10px;
+    border-radius: 5%;
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+  }
+  .home .hero .swiper .hero-details-wrapper .hero-details h2 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #f9f9f9;
+  }
+  .home .hero .swiper .hero-details-wrapper .hero-details p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #f9f9f9;
+  }
+  .home .hero .swiper .hero-details-wrapper .hero-details button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0e2c36;
+    margin-top: 10px;
   }
   .home .hero .swiper-slide {
     text-align: center;
