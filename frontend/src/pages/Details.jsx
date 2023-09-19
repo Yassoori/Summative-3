@@ -125,6 +125,10 @@ const ProductDetails = () => {
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price} Tax incl.</div>
         </div>
+        <div className="button-container">
+          <button>ADD TO CART</button>
+          <button>ADD TO WISHLIST</button>
+        </div>
       </div>
 
       {/* Map over comments array */}
