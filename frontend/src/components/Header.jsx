@@ -46,8 +46,9 @@ const Header = () => {
             <div id="account-dropdown">
               {user && (
                 <div>
+
                 <React.Suspense fallback={<div>Loading Icons...</div>}>
-                    <Link to="/account">
+                    <Link to={`/account/${user._id}`}>
                       <icons.ProfileIcon/>
                     </Link>
                     <Link to="/cart">

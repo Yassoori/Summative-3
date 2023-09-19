@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import MultiSelectDropdown from "../components/MultiSelectDropdown"; // Make sure to import the component correctly
+import MultiSelectDropdown from "./MultiSelectDropdown"; // Make sure to import the component correctly
 
 const VendorAccount = () => {
   // Form inputs state variables
