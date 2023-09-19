@@ -2,14 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
-import { useCommentsContext } from "../hooks/useCommentContext"
-import formatDistanceToNow from "date-fns/formatDistanceToNow"
+import { useCommentsContext } from "../hooks/useCommentContext";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const ProductDetails = () => {
+  // We only need dispatch if we manage the delete comment function
   const { dispatch } = useCommentsContext();
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const [commentText, setCommentText] = useState('');
+  const [commentText, setCommentText] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
   const user_id = user ? user.username : null;
 
@@ -18,8 +27,8 @@ const ProductDetails = () => {
       const response = await axios.post(
         `http://localhost:4000/api/comments/products/${productId}/comments`,
         {
-          text: commentText, 
-          user_id: user.username,
+          text: commentText,
+          user_id: user.email,
         }
       );
 
@@ -30,12 +39,13 @@ const ProductDetails = () => {
 
         // Dispatch the updated product data
         setProduct(updatedProduct);
-        setCommentText('');
+        setCommentText("");
+        console.log(response.data);
       }
-    } catch(error) {
-      console.error('Error Adding Comment:', error);
+    } catch (error) {
+      console.error("Error Adding Comment:", error);
     }
-  }
+  };
 
   // const handleDelete = async (commentId) => {
   //   const response = await axios.delete(
@@ -78,57 +88,78 @@ const ProductDetails = () => {
   return (
     <>
       <div className="details-container">
-      <div className="image-container">
-        {product.image.map((image, index) => (
-          <img
-            key={index}
-            className="detail-image"
-            src={`${image}`}
-            alt={`Product Image ${index + 1}`}
-          />
-        ))}
+        <div className="image-container">
+          {/* {product.image.map((image, index) => (
+            <img
+              key={index}
+              className="detail-image"
+              src={`${image}`}
+              alt={`Product Image ${index + 1}`}
+            />
+          ))} */}
+          <Swiper
+            spaceBetween={1}
+            slidesPerView={1}
+            centeredSlides={true}
+            pagination={{ clickable: true }}
+            modules={[Pagination]}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {product.image.map((image, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  key={index}
+                  className="detail-image"
+                  src={`${image}`}
+                  alt={`Product Image ${index + 1}`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className="text-container">
+          <div className="designer">{product.username}</div>
+          <div className="detail-name">{product.title}</div>
+          <div className="detail-description">{product.description}</div>
+          <div className="detail-material">{product.materials}</div>
+          <div className="detail-price">${product.price} Tax incl.</div>
+        </div>
       </div>
-      <div className="detail-name">{product.title}</div>
-      <div className="detail-description">{product.description}</div>
-      <div className="detail-material">{product.materials}</div>
-      <div className="detail-price">${product.price} Tax incl.</div>
-    </div>
 
-    {/* Map over comments array */}
-    <div className="comments">
-      {product.comments.map((comment) => (
-        <div key={comment._id} className="comment">
-          <h5>{comment.user_id}</h5>
-          <p>{comment.text}</p>
-          <span>
-            posted:{formatDistanceToNow(new Date(comment.createdAt), {
-              includeSeconds: true,
-            })}{' '} ago
-          </span>
+      {/* Map over comments array */}
+      <div className="comments">
+        {product.comments.map((comment) => (
+          <div key={comment._id} className="comment">
+            <h5>{comment.user_id}</h5>
+            <p>{comment.text}</p>
+            <span>
+              posted:
+              {formatDistanceToNow(new Date(comment.createdAt), {
+                includeSeconds: true,
+              })}{" "}
+              ago
+            </span>
 
-          {/* {user_id && comment.user_id === user_id && (
+            {/* {user_id && comment.user_id === user_id && (
           <p className="delete" onClick={handleDelete(comment._id)}>
             delete
           </p>    
         )} */}
-        </div>
+          </div>
+        ))}
+      </div>
 
-        
-      ))}
-    </div>
-
-    <div className="add-comment">
+      <div className="add-comment">
         <label>Add Comment</label>
         <input
-              type="text"
-              placeholder="Add a comment..."
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-            />
+          type="text"
+          placeholder="Add a comment..."
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
+        />
         <button onClick={handleAddComment}>Submit</button>
-    </div>
-
-    
+      </div>
     </>
   );
 };

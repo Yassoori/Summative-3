@@ -22,22 +22,182 @@ nav {
   grid-row-gap: 0px;
   text-align: center;
   text-decoration: none;
+  align-items: center;
+  
+
   .nav-shop {
     @include sub-font;
-    font-size: $body-size;
-    color: $dark-color;
+    h2 {
+      color: $dark-color;
+      font-size: 16px;
+    }
   }
   .nav-logo {
     @include logo-font;
-    font-size: $body-size;
-    color: $dark-color;
+    h1{
+      color: $dark-color;
+    }
+  }
+  .nav-icons {
+    .icon-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    svg {
+      color: $dark-color;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+    }
+    button {
+      border: none;
+      margin-left: 20px;
+      padding: 5px 10px;
+      background-color: $main-color;
+      color: $light-color;
+      border-radius: 5px;
+    }
   }
 }
+
+.login-signup-wrapper {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: #0e111199;
+  .login-signup-modal {
+    background-color: $light-color;
+    width: 80%;
+    height: 85%;
+    p {
+      @include body-font;
+      text-align: center;
+      margin-top: 5%;
+    }
+    .cancel-login {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin: 3%;
+    }
+    .login-modal {
+                            .login {
+                              margin-top: 5%;
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+            
+                              h3 {
+                                @include head-font;
+                                text-align: center;
+                                font-size: $head-size;
+                                padding: 5% 0% 5% 0%;
+                              }
+            
+                              div {
+                                @include sub-font;
+                                font-size: $sub-size;
+                                display: flex;
+                                flex-direction: column;
+                                text-align: center;
+                              }
+            
+                              input {
+                                width: 20rem;
+                                height: 2.5rem;
+                                padding: 2%;
+                                margin: 4% 0% 4% 0%;
+                                background-color: $light-color;
+                              }
+            
+                              button {
+                                margin: auto 0%;
+                                color: $light-color;
+                                @include head-font;
+                                width: 100px;
+                                height: 40px;
+                                text-decoration: none;
+                                background-color: $main-color;
+                              }
+            
+                              button:hover {
+                                transition: 0.3s;
+                                opacity: 0.8;
+                              }
+                            }
+    }
+    .signup {
+      .signup-form {
+        margin-top: -4%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3 {
+          @include head-font;
+          font-size: $head-size;
+          padding: 5% 0% 5% 0%;
+          text-align: center;
+        }
+        div {
+          @include sub-font;
+          font-size: $sub-size;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+        input {
+          width: 20rem;
+          height: 2.5rem;
+          padding: 2%;
+          margin: 4% 0% 4% 0%;
+          background-color: $light-color;
+        }
+        button {
+          margin: auto 0%;
+          color: $light-color;
+          @include head-font;
+          width: 100px;
+          height: 40px;
+          text-decoration: none;
+          background-color: $main-color;
+        }
+        button:hover {
+          transition: 0.3s;
+          opacity: 0.8;
+        }
+        #radio-input {
+          display: block;
+          width: 100%;
+        }
+        label {
+          font-size: $body-size;
+          margin: 4%;
+        }
+        .isvendor-input {
+          width: 1rem;
+          height: 1rem;
+          accent-color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+.sub-hero {
+  display: none;
+}
+
 footer {
   margin-top: 50px;
 
   #footer-logo {
-    margin: 10px;
+    margin: 10px 0px 25px;
     @include logo-font;
     text-align: center;
     font-size: $sub-size;
@@ -49,24 +209,27 @@ footer {
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    margin-left: 65px;
 
     div {
-      margin: 10px;
-
+      margin-bottom: 10px;
       h2 {
         @include sub-font;
-        font-size: $sub-size;
-        text-align: center;
         text-decoration: none;
         color: $dark-color;
+        font-size: 24px;
+        font-weight: 400;
+        text-align: left;
+        margin-bottom: 10px;
       }
 
       li {
         @include body-font;
-        font-size: $body-size;
-        text-align: center;
         text-decoration: none;
         color: $dark-color;
+        font-size: 16px;
+        text-align: left;
+        margin-bottom: 10px;
       }
     }
   }
@@ -101,6 +264,7 @@ footer {
     display: none;
   }
 }
+
 //Home - category cards
 .category-jewelry {
   display: flex;
@@ -332,3 +496,117 @@ footer {
     }
   }
 }
+
+// details
+
+.details-container {
+  margin: auto;
+  margin-top: 0;
+  // margin-left: 2em;
+  // margin-right: 2em;
+  margin-bottom: 4em;
+
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: visible;
+
+  .image-container {
+    margin-bottom: 1em;
+
+    img {
+      // width: 320px;
+      // height: 320px;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+      overflow-x: visible;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: visible;
+
+      img {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        object-position: center;
+        overflow-x: visible;
+      }
+    }
+
+    // .swiper-slide img {
+    //   display: block;
+    // width: 100%;
+    // height: 100%;
+    //   object-fit: cover;
+    // }
+  }
+  .text-container {
+    // width: 320px;
+    text-align: left;
+    margin: 2em;
+    margin: auto;
+
+    .detail-name,
+    .detail-material,
+    .details-description,
+    .detail-price,
+    .designer {
+      text-align: left;
+      color: $dark-color;
+      text-decoration: none;
+      margin: auto;
+    }
+
+    .detail-name {
+      text-transform: uppercase;
+      font-size: $head-size;
+      @include head-font;
+      margin-bottom: 1em;
+    }
+    .details-description,
+    .detail-material {
+      font-size: $body-size;
+      @include body-font;
+      margin-bottom: 0.5em;
+    }
+    .detail-price,
+    .designer {
+      font-size: $head-size;
+      @include head-font;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+// // comments
+
+// .comments {
+//   .comment {
+//     h5 {}
+//     p {}
+//     span {}
+//   }
+// }
+
+// .add-comment {
+//   label {}
+//   input {}
+//   button {}
+// }
