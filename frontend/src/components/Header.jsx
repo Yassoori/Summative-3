@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useIcons } from "../context/IconContext";
 
 // import context hooks
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -13,6 +14,8 @@ const Header = () => {
   const { logout } = useLogout();
   // take the dispatch function from context
   const { dispatch } = useLoginModalContext();
+
+  const icons = useIcons();
 
   // use the dispatch action to open login modal
   const handleLoginModalClick = () => {
@@ -43,14 +46,17 @@ const Header = () => {
             <div id="account-dropdown">
               {user && (
                 <div>
-                  <Link to={`/account/${user._id}`}>Account</Link>
+
+                <React.Suspense fallback={<div>Loading Icons...</div>}>
+                    <Link to={`/account/${user._id}`}>
+                      <icons.ProfileIcon/>
+                    </Link>
+                    <Link to="/cart">
+                      <icons.ShoppingCartIcon/>
+                    </Link>
+                </React.Suspense>
+                 
                   <button onClick={handleLogout}>Logout</button>
-                  <Link>
-                    <i className="bi bi-heart">cart</i>
-                  </Link>
-                  <Link>
-                    <i className="bi bi-cart">heart</i>
-                  </Link>
                 </div>
               )}
               {!user && (

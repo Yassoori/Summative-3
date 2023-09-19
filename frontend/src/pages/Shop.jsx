@@ -28,18 +28,23 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      <div className="shop-category-heading">{category}</div>
-      <SearchBar onSearch={HandleSearch} initialValue={query} />
-      <div className="icon-container">
-        <React.Suspense fallback={<div>Loading Icons...</div>}>
-          <icons.SearchIcon className="search-icon" />
-          <icons.ShoppingCartIcon className="cart-icon" />
-        </React.Suspense>
+      <div className="shop-search">
+        <div className="shop-category-heading">Showing: {category}</div>
+        <SearchBar onSearch={HandleSearch} initialValue={query} />
+        <div className="icon-container">
+          <React.Suspense
+            fallback={<div>Loading Icons...</div>}
+          ></React.Suspense>
+        </div>
       </div>
       <Suspense fallback={<LoadingSpinner />}>
-        {filteredProducts.map((product) => (
-            <LazyProductCard product={product} />
-        ))}
+        <div className="product-grid">
+          {filteredProducts.map((product) => (
+            <Link to={`/product/${product._id}`} key={product._id}>
+              <LazyProductCard product={product} />
+            </Link>
+          ))}
+        </div>
       </Suspense>
     </div>
   );
