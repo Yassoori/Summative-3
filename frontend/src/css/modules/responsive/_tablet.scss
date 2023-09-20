@@ -30,7 +30,42 @@
   // Home - New arrivlas
   .product-slider {
     .product-list {
-      grid-template-columns: repeat(3, 1fr);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;  
     }
   }
-}
+
+
+  .product-card {
+   
+    .image-container {
+      display: flex;
+      justify-content: center;
+
+      .product-image {
+        width: 100%;
+        height: fit-content;
+      }
+    }
+    .product-description {
+      display: none;
+    }
+    .product-material {
+      display: none;
+    }
+    .product-name {
+      color: $light-color;
+      @include head-font;
+      text-align: center;
+    }
+    .product-price {
+      text-align: center;
+      color: $light-color;
+      @include sub-font;
+    }
+  }
+
+
+
+}// end of tablet

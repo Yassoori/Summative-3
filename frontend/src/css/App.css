@@ -93,7 +93,7 @@ nav .nav-icons button {
   align-items: center;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  background-color: rgba(14, 17, 17, 0.6);
+  background-color: rgba(140, 140, 140, 0.2);
 }
 .login-signup-wrapper .login-signup-modal {
   background-color: #f9f9f9;
@@ -371,10 +371,6 @@ footer #footer-links div li {
   width: 100%;
   padding: 5px;
   text-align: center;
-  background-color: #36454f;
-  color: white;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
 }
 .product-slider .category-image {
   width: 100%;
@@ -388,7 +384,7 @@ footer #footer-links div li {
 .slider-controls .prev-button {
   position: absolute;
   left: -40px;
-  top: -250px;
+  top: -300px;
   border: none;
   font-size: 30px;
   background-color: #0e2c36;
@@ -397,20 +393,29 @@ footer #footer-links div li {
 .slider-controls .next-button {
   position: absolute;
   right: -40px;
-  top: -250px;
+  top: -300px;
   border: none;
   font-size: 30px;
   background-color: #0e2c36;
   color: #f9f9f9;
 }
 
+.product-card {
+  position: relative;
+}
 .product-card svg {
-  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  color: #20657c;
+}
+.product-card .image-container {
+  margin-top: 20px;
 }
 .product-card .image-container .product-image {
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .product-card .product-description {
   display: none;
@@ -423,6 +428,7 @@ footer #footer-links div li {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   text-align: center;
+  margin-top: 10px;
 }
 .product-card .product-price {
   text-align: center;
@@ -664,24 +670,29 @@ footer #footer-links div li {
   font-weight: 400;
   margin-bottom: 0.25em;
 }
-.details-container .text-container .detail-price,
 .details-container .text-container .designer {
   font-size: 40px;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   margin-bottom: 0.25em;
 }
+.details-container .text-container .detail-price {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
 .details-container .text-container .button-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  justify-content: center;
 }
 .details-container .text-container .button-container .cart-button {
   margin: auto 0%;
   color: #f9f9f9;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  width: 200px;
-  height: 40px;
+  width: 300px;
+  height: 45px;
   text-decoration: none;
   background-color: #0e2c36;
   margin-bottom: 1em;
@@ -695,8 +706,8 @@ footer #footer-links div li {
   color: #0e1111;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  width: 200px;
-  height: 40px;
+  width: 300px;
+  height: 45px;
   border: #0e1111 2px solid;
   text-decoration: none;
   background-color: #f9f9f9;
@@ -732,6 +743,257 @@ footer #footer-links div li {
   opacity: 0.8;
 }
 
+.comments {
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+}
+.comments .comment {
+  display: flex;
+  margin-bottom: 10px;
+}
+.comments .comment h5 {
+  font-size: 23px;
+  margin-right: 20px;
+}
+.comments .comment p {
+  font-size: 23px;
+  margin-left: 20px;
+}
+.comments .comment span {
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+.account-container {
+  margin: 0 1em 0 1em;
+}
+
+.account-name {
+  font-size: 40px;
+  margin-top: 2em;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4em;
+}
+
+.vendor-products,
+.vendor-comments,
+.add-product-section {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6em;
+}
+.vendor-products .account-section-heading,
+.vendor-comments .account-section-heading,
+.add-product-section .account-section-heading {
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+.vendor-products .comments-products-heading,
+.vendor-comments .comments-products-heading,
+.add-product-section .comments-products-heading {
+  text-decoration: none;
+  color: #686868;
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-bottom: 1em;
+}
+.vendor-products ul,
+.vendor-comments ul,
+.add-product-section ul {
+  text-decoration: none;
+  color: #0e1111;
+  background-color: #f9f9f9;
+}
+.vendor-products ul .list-item-product,
+.vendor-comments ul .list-item-product,
+.add-product-section ul .list-item-product {
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "image text buttons";
+}
+.vendor-products ul .list-item-comment,
+.vendor-comments ul .list-item-comment,
+.add-product-section ul .list-item-comment {
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: " text buttons";
+}
+.vendor-products ul li,
+.vendor-comments ul li,
+.add-product-section ul li {
+  display: grid;
+  background: #f9f9f9;
+  filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+  margin-bottom: 4em;
+}
+.vendor-products ul li img,
+.vendor-comments ul li img,
+.add-product-section ul li img {
+  grid-area: image;
+  margin: 1em;
+}
+.vendor-products ul li .list-text,
+.vendor-comments ul li .list-text,
+.add-product-section ul li .list-text {
+  grid-area: text;
+  margin: 1em;
+  text-decoration: none;
+  color: #0e1111;
+}
+.vendor-products ul li .list-text .list-creator,
+.vendor-products ul li .list-text .comment-user,
+.vendor-comments ul li .list-text .list-creator,
+.vendor-comments ul li .list-text .comment-user,
+.add-product-section ul li .list-text .list-creator,
+.add-product-section ul li .list-text .comment-user {
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+.vendor-products ul li .list-text .list-title,
+.vendor-products ul li .list-text .list-price,
+.vendor-products ul li .list-text .comment-text,
+.vendor-comments ul li .list-text .list-title,
+.vendor-comments ul li .list-text .list-price,
+.vendor-comments ul li .list-text .comment-text,
+.add-product-section ul li .list-text .list-title,
+.add-product-section ul li .list-text .list-price,
+.add-product-section ul li .list-text .comment-text {
+  text-decoration: none;
+  color: #0e1111;
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-bottom: 1em;
+}
+.vendor-products ul li .list-buttons,
+.vendor-comments ul li .list-buttons,
+.add-product-section ul li .list-buttons {
+  grid-area: buttons;
+  position: relative;
+}
+.vendor-products ul li .list-buttons .edit-button,
+.vendor-products ul li .list-buttons .add-to-cart-button,
+.vendor-comments ul li .list-buttons .edit-button,
+.vendor-comments ul li .list-buttons .add-to-cart-button,
+.add-product-section ul li .list-buttons .edit-button,
+.add-product-section ul li .list-buttons .add-to-cart-button {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  font-size: 22px;
+}
+.vendor-products ul li .list-buttons .remove-button,
+.vendor-products ul li .list-buttons .view-comment,
+.vendor-comments ul li .list-buttons .remove-button,
+.vendor-comments ul li .list-buttons .view-comment,
+.add-product-section ul li .list-buttons .remove-button,
+.add-product-section ul li .list-buttons .view-comment {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  font-size: 22px;
+  text-decoration: none;
+  color: #0e1111;
+}
+.vendor-products form,
+.vendor-comments form,
+.add-product-section form {
+  width: 80%;
+  align-items: center;
+  margin: auto;
+  margin-top: 2em;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+.vendor-products form .form-sections,
+.vendor-comments form .form-sections,
+.add-product-section form .form-sections {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "labelarea inputarea";
+  margin-bottom: 3em;
+}
+.vendor-products form label,
+.vendor-comments form label,
+.add-product-section form label {
+  grid-area: labelarea;
+  color: #686868;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+.vendor-products form input,
+.vendor-products form textarea,
+.vendor-products form select,
+.vendor-products form .multi-select-dropdown,
+.vendor-comments form input,
+.vendor-comments form textarea,
+.vendor-comments form select,
+.vendor-comments form .multi-select-dropdown,
+.add-product-section form input,
+.add-product-section form textarea,
+.add-product-section form select,
+.add-product-section form .multi-select-dropdown {
+  grid-area: inputarea;
+  border: none;
+  border-bottom: 2px #686868 solid;
+  color: #686868;
+  background: none;
+  width: 100%;
+  resize: none;
+  resize: vertical;
+  text-align: end;
+  background-color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+.vendor-products form .file-upload,
+.vendor-comments form .file-upload,
+.add-product-section form .file-upload {
+  margin-bottom: 2em;
+}
+.vendor-products form .file-upload .upload-photos,
+.vendor-comments form .file-upload .upload-photos,
+.add-product-section form .file-upload .upload-photos {
+  display: none;
+}
+.vendor-products form .file-upload input[type=file]::file-selector-button,
+.vendor-comments form .file-upload input[type=file]::file-selector-button,
+.add-product-section form .file-upload input[type=file]::file-selector-button {
+  text-align: start;
+  width: 20%;
+  padding: 4px 10px;
+  border: 0;
+  background-color: #f9f9f9;
+  color: #686868;
+}
+
+.button-container {
+  text-align: center;
+  margin: 6em;
+}
+.button-container .product-submit {
+  text-align: center;
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 300px;
+  height: 45px;
+  text-decoration: none;
+  background-color: #0e2c36;
+  margin-bottom: 1em;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     padding: 10px 0px;
@@ -754,7 +1016,36 @@ footer #footer-links div li {
     font-size: 15px;
   }
   .product-slider .product-list {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .product-card .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .product-card .image-container .product-image {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .product-card .product-description {
+    display: none;
+  }
+  .product-card .product-material {
+    display: none;
+  }
+  .product-card .product-name {
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+  }
+  .product-card .product-price {
+    text-align: center;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
   }
 }
 @media screen and (min-width: 992px) {
@@ -930,7 +1221,7 @@ footer #footer-links div li {
     justify-content: center;
   }
   .home .product-slider .product-list .image-container .product-image {
-    width: 70%;
+    width: 100%;
     height: 350px;
   }
   .home .sub-hero {
@@ -1275,7 +1566,7 @@ footer #footer-links div li {
   }
   .details-container {
     width: 90vw;
-    margin: auto;
+    margin-top: 50px;
     display: flex;
     text-align: center;
     flex-direction: row;
@@ -1316,74 +1607,48 @@ footer #footer-links div li {
   .details-container .text-container {
     text-align: left;
     width: 40vw;
-  }
-  .details-container .text-container .detail-name,
-  .details-container .text-container .detail-material,
-  .details-container .text-container .details-description,
-  .details-container .text-container .detail-price,
-  .details-container .text-container .designer {
-    text-align: left;
-    color: #0e1111;
-    text-decoration: none;
-    margin: auto;
+    margin-top: 50px;
   }
   .details-container .text-container .detail-name {
     text-transform: uppercase;
     font-size: 30px;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
-    margin-bottom: 0.25em;
+    margin-bottom: 15px;
   }
   .details-container .text-container .detail-description {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    margin-bottom: 0.25em;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
   .details-container .text-container .detail-material {
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    margin-bottom: 0.25em;
+    margin-bottom: 10px;
   }
-  .details-container .text-container .detail-price,
+  .details-container .text-container .detail-price {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
   .details-container .text-container .designer {
     font-size: 40px;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     margin-bottom: 0.25em;
   }
-  .details-container .text-container .button-container {
-    display: flex;
-    flex-direction: column;
-  }
   .details-container .text-container .button-container .cart-button {
-    margin: auto 0%;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 200px;
-    height: 40px;
-    text-decoration: none;
-    background-color: #0e2c36;
-    margin-bottom: 1em;
-  }
-  .details-container .text-container .button-container .cart-button button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
+    width: 400px;
+    height: 50px;
   }
   .details-container .text-container .button-container .wish-button {
-    margin: auto 0%;
-    color: #0e1111;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 200px;
-    height: 40px;
-    border: #0e1111 2px solid;
-    text-decoration: none;
-    background-color: #f9f9f9;
+    width: 400px;
+    height: 50px;
   }
   .comments-wrapper {
     flex-direction: column-reverse;
+    margin-top: 30px;
   }
   .comments-wrapper .add-comment {
     height: 4em;
@@ -1428,4 +1693,4 @@ footer #footer-links div li {
     width: 440px;
     height: 6em;
   }
-}
+}/*# sourceMappingURL=App.css.map */
