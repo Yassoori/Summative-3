@@ -13,7 +13,22 @@ body {
 body {
   background: $light-color;
 }
+
+.pages {
+  // all pages except home and about, because of the full page hero section
+  .details-page,
+  .account-page,
+  .shop-page,
+  .cart-page {
+    max-width: 1000px;
+    min-width: 80%;
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+}
+
 //interpage styles
+
 nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,10 +40,10 @@ nav {
   align-items: center;
 
   .nav-shop {
-    @include sub-font;
+    @include body-font;
     h2 {
       color: $dark-color;
-      font-size: 16px;
+      font-size: $mob-button-size;
     }
   }
   .nav-logo {
@@ -38,25 +53,25 @@ nav {
     }
   }
   .nav-icons {
-    .icon-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     svg {
       color: $dark-color;
       width: 20px;
       height: 20px;
-      margin-left: 10px;
+      margin: 0 0.5em;
     }
-    button {
-      border: none;
-      margin-left: 20px;
-      padding: 5px 10px;
-      background-color: $main-color;
-      color: $light-color;
-      border-radius: 5px;
-    }
+    // button {
+    //   border: none;
+    //   margin-left: $mob-margin;
+    //   padding: 5px 10px;
+    //   background-color: $main-color;
+    //   color: $light-color;
+    //   border-radius: 5px;
+    //   font-size: $mob-button-size;
+    // }
   }
 }
 
@@ -70,110 +85,92 @@ nav {
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(10px);
-  // background-color: #0e111199;
-  background-color: $faint-color;
+  background-color: $drop-shadow;
   .login-signup-modal {
     background-color: $light-color;
     width: 80%;
     height: 85%;
+    max-width: 480px;
     p {
       @include body-font;
+      font-size: $mob-button-size;
       text-align: center;
-      margin-top: 5%;
+      margin: auto;
+      margin-top: 1em;
     }
     .cancel-login {
       height: 1.5rem;
       width: 1.5rem;
-      margin: 3%;
+      margin: 1em;
     }
-    .login-modal {
-      .login {
-        margin-top: 5%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        h3 {
-          @include head-font;
-          text-align: center;
-          font-size: $head-size;
-          padding: 5% 0% 5% 0%;
-        }
-
-        div {
-          @include sub-font;
-          font-size: $sub-size;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-        }
-
-        input {
-          width: 20rem;
-          height: 2.5rem;
-          padding: 2%;
-          margin: 4% 0% 4% 0%;
-          background-color: $light-color;
-        }
-
-        button {
-          margin: auto 0%;
-          color: $light-color;
-          @include head-font;
-          width: 100px;
-          height: 40px;
-          text-decoration: none;
-          background-color: $main-color;
-        }
-
-        button:hover {
-          transition: 0.3s;
-          opacity: 0.8;
-        }
-      }
-    }
+    .login,
     .signup {
+      .login-form,
       .signup-form {
-        margin-top: -4%;
+        margin-top: 1em;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0 20%;
+
         h3 {
           @include head-font;
-          font-size: $head-size;
-          padding: 5% 0% 5% 0%;
           text-align: center;
+          font-size: $mob-head-size;
+          padding: 0.5em;
         }
+
         div {
           @include sub-font;
-          font-size: $sub-size;
+          font-size: $mob-button-size;
           display: flex;
           flex-direction: column;
           text-align: center;
+          width: 100%;
         }
+
         input {
-          width: 20rem;
+          width: 100%;
           height: 2.5rem;
-          padding: 2%;
-          margin: 4% 0% 4% 0%;
+          padding: 1em;
+          margin: 0.5em 0;
+          border: none;
+          border-bottom: 2px $grey-color solid;
+          color: $grey-color;
+          background: none;
           background-color: $light-color;
+          @include head-font;
+          font-size: $mob-button-size;
         }
+
         button {
-          margin: auto 0%;
+          margin: 2em 0%;
           color: $light-color;
           @include head-font;
-          width: 100px;
+          font-size: $mob-button-size;
+          width: 100%;
           height: 40px;
           text-decoration: none;
           background-color: $main-color;
+          border: none;
         }
+
         button:hover {
           transition: 0.3s;
           opacity: 0.8;
         }
+
         #radio-input {
-          display: block;
           width: 100%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-around;
+          .radio-option {
+            display: block;
+            width: 120px;
+          }
         }
         label {
           font-size: $body-size;
@@ -197,41 +194,45 @@ footer {
   margin-top: 50px;
 
   #footer-logo {
-    margin: 10px 0px 25px;
+    margin: 10px auto 25px;
     @include logo-font;
     text-align: center;
     font-size: $sub-size;
   }
 
   #footer-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    margin-left: 65px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
     div {
-      margin-bottom: 10px;
+      text-align: center;
+      margin: 0 auto 1em;
+      min-width: 250px;
       h2 {
         @include sub-font;
         text-decoration: none;
         color: $dark-color;
         font-size: 24px;
         font-weight: 400;
-        text-align: left;
         margin-bottom: 10px;
       }
-
       li {
         @include body-font;
         text-decoration: none;
         color: $dark-color;
-        font-size: 16px;
-        text-align: left;
+        font-size: $mob-button-size;
+        text-align: center;
+        margin: auto;
         margin-bottom: 10px;
       }
     }
+  }
+  #footer-copywrite {
+    @include body-font;
+    text-align: center;
+    padding: 2%;
   }
 }
 
@@ -292,7 +293,6 @@ footer {
         }
       }
     }
-
   }
 
   .swiper-slide {
@@ -309,7 +309,6 @@ footer {
     object-fit: cover;
   }
 
-
   .swiper-button-prev {
     display: block;
   }
@@ -323,14 +322,16 @@ footer {
 .category-jewelry {
   display: flex;
   margin-top: 50px;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
 
   .category {
     margin-bottom: 10%;
     position: relative;
-    width: 250px;
-    height: 250px;
+    max-width: 250px;
+    max-height: 250px;
     border: 1px solid black;
 
     .category-name {
@@ -401,7 +402,7 @@ footer {
 }
 
 .product-card {
-position: relative;
+  position: relative;
   svg {
     position: absolute;
     top: 10px;
@@ -410,7 +411,7 @@ position: relative;
     height: 30px;
     color: #20657c;
   }
-  
+
   .image-container {
     margin-top: 20px;
     .product-image {
@@ -437,78 +438,78 @@ position: relative;
 }
 // about
 #about-page {
-      width: 100%;
-  
-      #about-hero {
-        background-image: linear-gradient(to top, #0e2c3690, #0e2c36),
-          url("https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
-        padding: 15% 5% 15% 5%;
-        background-size: cover;
-        background-position: center;
-  
-        h2 {
-          padding: 3% 5% 3% 5%;
-          color: $light-color;
-          @include head-font;
-          font-size: $head-size;
-        }
-  
-        p {
-          padding: 0% 5% 0% 5%;
-          color: $light-color;
-          @include body-font;
-          font-size: $body-size;
-        }
+  width: 100%;
+
+  #about-hero {
+    background-image: linear-gradient(to top, #0e2c3690, #0e2c36),
+      url("https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+    padding: 15% 5% 15% 5%;
+    background-size: cover;
+    background-position: center;
+
+    h2 {
+      padding: 3% 5% 3% 5%;
+      color: $light-color;
+      @include head-font;
+      font-size: $head-size;
+    }
+
+    p {
+      padding: 0% 5% 0% 5%;
+      color: $light-color;
+      @include body-font;
+      font-size: $body-size;
+    }
+  }
+
+  #about-mid-section {
+    padding: 5% 10% 10% 10%;
+
+    h3 {
+      text-align: center;
+      @include sub-font;
+      font-size: $head-size;
+    }
+
+    .about-card {
+      text-align: center;
+      padding: 10% 10% 10% 7%;
+
+      h4 {
+        @include sub-font;
+        font-size: $sub-size;
       }
-  
-      #about-mid-section {
-        padding: 5% 10% 10% 10%;
-  
-        h3 {
-          text-align: center;
-          @include sub-font;
-          font-size: $head-size;
-        }
-  
-        .about-card {
-          text-align: center;
-          padding: 10% 10% 10% 7%;
-  
-          h4 {
-            @include sub-font;
-            font-size: $sub-size;
-          }
-  
-          p {
-            @include body-font;
-            font-size: $body-size;
-          }
-        }
+
+      p {
+        @include body-font;
+        font-size: $body-size;
       }
-  
-      #about-final-section {
-        background-color: $main-color;
-        padding: 10%;
-        text-align: center;
-  
-        h3 {
-          @include head-font;
-          color: $light-color;
-          padding: 2%;
-          font-size: $head-size;
-        }
-  
-        p {
-          @include body-font;
-          color: $light-color;
-          font-size: $body-size;
-        }
-      }
+    }
+  }
+
+  #about-final-section {
+    background-color: $main-color;
+    padding: 10%;
+    text-align: center;
+
+    h3 {
+      @include head-font;
+      color: $light-color;
+      padding: 2%;
+      font-size: $head-size;
+    }
+
+    p {
+      @include body-font;
+      color: $light-color;
+      font-size: $body-size;
+    }
+  }
 }
 
 // Shop Page
 
-.shop {
+.shop-page {
   .shop-search {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -564,7 +565,7 @@ position: relative;
     .product-card {
       text-align: center;
       background-color: $light-color;
-      filter: drop-shadow(0.3rem 0.3rem 0.2rem $faint-color);
+      filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
       position: relative;
 
       svg {
@@ -623,202 +624,217 @@ position: relative;
 
 // details
 
-.details-container {
-          width: 90vw;
-          margin: auto;
-          // margin-left: 2em;
-          // margin-right: 2em;
-    
-          display: flex;
+.details-page {
+  .details-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-bottom: 6em;
+    .image-container {
+      grid-area: image;
+      max-width: 100%;
+      max-height: 100%;
+      margin-bottom: 2em;
+      margin: auto;
+
+      .swiper {
+        max-width: 100%;
+        max-height: 100%;
+        .swiper-slide {
           text-align: center;
-          flex-direction: column;
-          justify-content: space-between;
-    
-          .image-container {
-            width: 95%;
-            margin-bottom: 2em;
-            margin: auto;
-    
-            img {
-              // width: 320px;
-              // height: 320px;
-    
-              width: 110%;
-              height: 110%;
-              object-fit: cover;
-              object-position: center;
-            }
-    
-            .swiper {
-              width: 100%;
-              height: 100%;
-            }
-    
-            .swiper-slide {
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-    
-              img {
-                width: 420px;
-                height: 520px;
-                object-fit: cover;
-                object-position: center;
-              }
-            }
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 100%;
+          max-height: 50%;
+
+          img {
+            width: 60%;
+            max-height: 480px;
+            object-fit: contain;
+            margin: 0 1em 1em;
           }
-    
-          .text-container {
-            // width: 320px;
-            text-align: left;
-            margin-bottom: 1.5em;
-            .detail-name,
-            .detail-material,
-            .details-description,
-            .detail-price,
-            .designer {
-              text-align: left;
-              color: $dark-color;
-              text-decoration: none;
-              margin: auto;
-            }
-    
-            .detail-name {
-              text-transform: uppercase;
-              font-size: $sub-size;
-              @include head-font;
-              margin-bottom: 0.25em;
-            }
-    
-            .detail-description {
-              @include body-font;
-              margin-bottom: 0.25em;
-            }
-    
-            .detail-material {
-              font-size: $body-size;
-              @include body-font;
-              margin-bottom: 0.25em;
-            }
-    
-            .designer {
-              font-size: $head-size;
-              @include head-font;
-              margin-bottom: 0.25em;
-            }
+        }
+        .swiper-pagination {
+          position: relative;
+        }
+      }
+    }
+    .text-container {
+      grid-area: text;
+      // width: 320px;
+      text-align: left;
+      margin-bottom: 1.5em;
+      .detail-name,
+      .detail-material,
+      .details-description,
+      .detail-price,
+      .designer {
+        text-align: left;
+        color: $dark-color;
+        text-decoration: none;
+        margin: auto;
+      }
 
-            .detail-price {
-              @include head-font;
-              font-size: 25px;
-              margin-bottom: 20px;
-            }
-    
-            .button-container {
-              display: grid;
-              justify-content: center;
-    
-              .cart-button {
-                margin: auto 0%;
-                color: $light-color;
-                @include head-font;
-                width: 300px;
-                height: 45px;
-                text-decoration: none;
-                background-color: $main-color;
-                margin-bottom: 1em;
-    
-                button:hover {
-                  transition: 0.3s;
-                  opacity: 0.8;
-                }
-              }
-    
-              .wish-button {
-                margin: auto 0%;
-                color: $dark-color;
-                @include head-font;
-                width: 300px;
-                height: 45px;
-                border: $dark-color 2px solid;
-                text-decoration: none;
-                background-color: $light-color;
-              }
-            }
+      .detail-name {
+        text-transform: capitalize;
+        font-size: $sub-size;
+        @include head-font;
+        margin-bottom: 0.25em;
+      }
 
+      .detail-description {
+        @include body-font;
+        margin-bottom: 0.25em;
+      }
 
-          }
-}
-.comments-wrapper {
-          flex-direction: column-reverse;
-  
-          .add-comment {
-            height: 4em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            input {
-              height: 40px;
-              align-self: center;
-              margin: 0% 1% 0% 5%;
-              width: 250px;
-            }
-    
-            button {
-              margin: auto 0%;
-              color: $light-color;
-              @include head-font;
-              width: 100px;
-              height: 40px;
-              text-decoration: none;
-              background-color: $main-color;
-    
-              button:hover {
-                transition: 0.3s;
-                opacity: 0.8;
-              }
-            }
+      .detail-material {
+        font-size: $body-size;
+        @include body-font;
+        margin-bottom: 0.25em;
+      }
+
+      // .designer {
+      //   font-size: $head-size;
+      //   @include head-font;
+      //   margin-bottom: 0.25em;
+      // }
+
+      .detail-price {
+        @include head-font;
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+
+      .button-container {
+        display: grid;
+        justify-content: center;
+
+        .cart-button {
+          margin: auto 0%;
+          color: $light-color;
+          @include head-font;
+          width: 300px;
+          height: 45px;
+          text-decoration: none;
+          background-color: $main-color;
+          margin-bottom: 1em;
+
+          button:hover {
+            transition: 0.3s;
+            opacity: 0.8;
           }
         }
 
-// comments
-
-.comments {
-  margin-top: 30px;
-  display: grid;
-  justify-content: center;
-  @include sub-font;
-  .comment {
-    display: flex;
-    margin-bottom: 10px;
-    .detail-name {
-      text-transform: uppercase;
-      font-size: $sub-size;
-      @include head-font;
-      margin-bottom: 1em;
-    }
-    .detail-description {
-      @include body-font;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 23px;
-      margin-left: 20px;
-    }
-    span {
-      font-size: 18px;
-      margin-left: 30px;
+        .wish-button {
+          margin: auto 0%;
+          color: $dark-color;
+          @include head-font;
+          width: 300px;
+          height: 45px;
+          border: $dark-color 2px solid;
+          text-decoration: none;
+          background-color: $light-color;
+        }
+      }
     }
   }
 }
+
+// .comments-wrapper {
+//   flex-direction: column-reverse;
+
+//   .add-comment {
+//     height: 4em;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     input {
+//       height: 40px;
+//       align-self: center;
+//       margin: 0% 1% 0% 5%;
+//       width: 250px;
+//     }
+
+//     button {
+//       margin: auto 0%;
+//       color: $light-color;
+//       @include head-font;
+//       width: 100px;
+//       height: 40px;
+//       text-decoration: none;
+//       background-color: $main-color;
+
+//       button:hover {
+//         transition: 0.3s;
+//         opacity: 0.8;
+//       }
+//     }
+//   }
+// }
+
+// comments
+
+// .comments {
+//   margin-top: 30px;
+//   display: grid;
+//   justify-content: center;
+//   @include sub-font;
+//   .comment {
+//     display: flex;
+//     margin-bottom: 10px;
+//     .detail-name {
+//       text-transform: uppercase;
+//       font-size: $sub-size;
+//       @include head-font;
+//       margin-bottom: 1em;
+//     }
+//     .detail-description {
+//       @include body-font;
+//       margin-bottom: 0.5em;
+//     }
+//     p {
+//       font-size: 23px;
+//       margin-left: 20px;
+//     }
+//     span {
+//       font-size: 18px;
+//       margin-left: 30px;
+//     }
+//   }
+// }
 
 // .add-comment {
 //   label {}
 //   input {}
 //   button {}
 // }
-.account-container {
+.account-page {
   margin: 0 1em 0 1em;
+
+  // logout
+  .logout {
+    text-align: center;
+    margin: 0 auto;
+    button {
+      text-align: center;
+      margin: auto;
+      color: $main-color;
+      @include body-font;
+      font-size: $button-size;
+      width: 80%;
+      max-width: 1000px;
+      padding: 0.5em 0;
+      text-decoration: none;
+      background-color: $light-color;
+      margin-bottom: 1em;
+      button:hover {
+        background-color: $main-color;
+        transition: 0.3s;
+        opacity: 0.2;
+      }
+    }
+  }
 }
 
 .account-name {
@@ -828,12 +844,13 @@ position: relative;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 .vendor-products,
 .vendor-comments,
-.add-product-section {
+.add-product-section,
+.comments-wrapper {
   @include head-font;
   max-width: 1000px;
   margin-left: auto;
@@ -855,13 +872,18 @@ position: relative;
     text-transform: capitalize;
     margin-bottom: 1em;
   }
+  .comment-list {
+    width: 80%;
+    margin: auto;
+  }
   ul {
     text-decoration: none;
     color: $dark-color;
     background-color: $light-color;
+
     .list-item-product {
-      grid-template-columns: 1fr 2fr 1fr;
-      grid-template-areas: "image text buttons";
+      grid-template-columns: 1fr 3fr;
+      grid-template-areas: "image text";
     }
     .list-item-comment {
       grid-template-columns: 3fr 1fr;
@@ -870,12 +892,13 @@ position: relative;
     li {
       display: grid;
       background: $light-color;
-      filter: drop-shadow(0.3rem 0.3rem 0.2rem $faint-color);
-      margin-bottom: 4em;
+      filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
+      margin-bottom: 1em;
+      position: relative;
 
       img {
         grid-area: image;
-        // width: 100%;
+        width: 100%;
         // height: 100%;
         // object-fit: cover;
         margin: 1em;
@@ -888,7 +911,7 @@ position: relative;
 
         .list-creator,
         .comment-user {
-          font-size: $body-size;
+          font-size: $mob-body-size;
           margin-bottom: 0.5em;
         }
         .list-title,
@@ -896,28 +919,25 @@ position: relative;
         .comment-text {
           text-decoration: none;
           color: $dark-color;
-          font-size: $button-size;
+          font-size: $mob-button-size;
           text-transform: capitalize;
           margin-bottom: 1em;
         }
       }
       .list-buttons {
         grid-area: buttons;
-        position: relative;
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
 
         .edit-button,
         .add-to-cart-button {
-          position: absolute;
-          right: 1em;
-          top: 1em;
-          font-size: $button-size;
+          font-size: $mob-button-size;
+          margin-right: 1em;
         }
         .remove-button,
         .view-comment {
-          position: absolute;
-          right: 1em;
-          bottom: 1em;
-          font-size: $button-size;
+          font-size: $mob-button-size;
           text-decoration: none;
           color: $dark-color;
         }
@@ -925,7 +945,8 @@ position: relative;
     }
   }
 
-  form {
+  form,
+  .add-comment {
     width: 80%;
     align-items: center;
     margin: auto;
@@ -933,8 +954,11 @@ position: relative;
     @include head-font;
     .form-sections {
       display: grid;
-      grid-template-columns: 1fr 4fr;
-      grid-template-areas: "labelarea inputarea";
+      // grid-template-columns: 1fr 4fr;
+      // grid-template-areas: "labelarea inputarea";
+      // margin-bottom: 3em;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "labelarea" "inputarea";
       margin-bottom: 3em;
     }
     label {
@@ -942,6 +966,7 @@ position: relative;
       color: $grey-color;
       @include head-font;
       font-size: $body-size;
+      min-width: 160px;
     }
     input,
     textarea,
@@ -951,14 +976,16 @@ position: relative;
       border: none;
       border-bottom: 2px $grey-color solid;
       color: $grey-color;
-      background: none;
       width: 100%;
       resize: none;
       resize: vertical;
-      text-align: end;
+      text-align: start;
       background-color: $light-color;
       @include head-font;
       font-size: $body-size;
+      .dropdown-header {
+        text-align: end;
+      }
     }
     .file-upload {
       margin-bottom: 2em;
@@ -980,23 +1007,39 @@ position: relative;
         color: $grey-color;
       }
     }
+    .button-container {
+      text-align: center;
+      margin: 6em 0;
+    }
+
+    .product-submit,
+    .comment-submit {
+      text-align: center;
+      margin: auto;
+      color: $light-color;
+      @include body-font;
+      font-size: $button-size;
+      width: 100%;
+      padding: 0.5em 0;
+      text-decoration: none;
+      background-color: $main-color;
+      margin-bottom: 1em;
+      button:hover {
+        transition: 0.3s;
+        opacity: 0.8;
+      }
+    }
   }
-}
-
-.button-container {
-  text-align: center;
-  margin: 6em;
-
-  .product-submit {
-    text-align: center;
-    margin: auto 0%;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 300px;
-    height: 45px;
-    text-decoration: none;
-    background-color: #0e2c36;
-    margin-bottom: 1em;
+  .add-comment {
+    position: relative;
+    input {
+      margin: 0 0 2em;
+      padding: 1em 0;
+    }
+    .comment-submit {
+      width: 200px;
+      position: absolute;
+      right: 0;
+    }
   }
 }

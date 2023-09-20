@@ -30,6 +30,13 @@ const ProductDetails = () => {
 
   const handleAddToWishlist = () => {
     addToWishlist(productId); // Pass the productId to addToWishlist
+//   const handleAddToWishlist = async () => {
+//     try {
+//       // Call addToWishlist with productId as an argument
+//       await addToWishlist(productId);
+//     } catch (error) {
+//       console.error("Error Adding Product to Wishlist:", error);
+//     }
   };
 
   const handleAddComment = async () => {
@@ -84,7 +91,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <>
+    <div className="details-page">
       <div className="details-container">
         <div className="image-container">
           {/* {product.image.map((image, index) => (
@@ -120,44 +127,64 @@ const ProductDetails = () => {
           <div className="detail-name">{product.title}</div>
           <div className="detail-description">{product.description}</div>
           <div className="detail-material">{product.materials}</div>
-          <div className="detail-price">${product.price} Tax incl.</div>
-        </div>
-        <div className="button-container">
-          <button className="cart-button">ADD TO CART</button>
-          <button className="wish-button" onClick={handleAddToWishlist}>
-            ADD TO WISHLIST
-          </button>
+          <div className="detail-price">${product.price}</div>
+          <div className="button-container">
+            <button className="cart-button">
+              {/* ADD TO CART */}
+              Add to Cart
+            </button>
+            <button className="wish-button" onClick={handleAddToWishlist}>
+              {/* ADD TO WISHLIST */}
+              Add to Wishlist
+            </button>
+          </div>
         </div>
       </div>
-
       <div className="comments-wrapper">
         <div className="add-comment">
           <input
+            className="comment-input"
             type="text"
             placeholder="Add a comment..."
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
-          <button onClick={handleAddComment}>Submit</button>
+          <button onClick={handleAddComment} className="comment-submit">
+            Submit
+          </button>
         </div>
         {/* Map over comments array */}
-        <div className="comments">
+        <ul className="comment-list">
           {product.comments.map((comment) => (
-            <div key={comment._id} className="comment">
-              <h5>{comment.user_id}</h5>
-              <p>{comment.text}</p>
-              <span>
-                posted:
-                {formatDistanceToNow(new Date(comment.createdAt), {
-                  includeSeconds: true,
-                })}{" "}
-                ago
-              </span>
-            </div>
+            // <div key={comment._id} className="comment">
+            //   <h5>{comment.user_id}</h5>
+            //   <p>{comment.text}</p>
+            //   <span>
+            //     posted:
+            //     {formatDistanceToNow(new Date(comment.createdAt), {
+            //       includeSeconds: true,
+            //     })}{" "}
+            //     ago
+            //   </span>
+            // </div>
+
+            <li key={comment._id} className="list-item-comment">
+              <div className="list-text">
+                <p className="comment-user">{comment.user_id} commented:</p>
+                <p className="comment-text">{comment.text}</p>
+                <span>
+                  posted:
+                  {formatDistanceToNow(new Date(comment.createdAt), {
+                    includeSeconds: true,
+                  })}{" "}
+                  ago
+                </span>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 

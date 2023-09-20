@@ -50,24 +50,28 @@ const Signup = () => {
           />
         </div>
         <div id="radio-input">
-          <input
-            type="radio"
-            className="isvendor-input"
-            id="vendor-input"
-            name="fav_language"
-            onChange={(e) => setIsvendor(e.target.value)}
-            value={"true"}
-          />
-          <label htmlFor="vendor-input">Vendor</label>
-          <input
-            type="radio"
-            className="isvendor-input"
-            id="customer-input"
-            name="fav_language"
-            onChange={(e) => setIsvendor(e.target.value)}
-            value={"false"}
-          />
-          <label htmlFor="customer-input">Customer</label>
+          <div className="radio-option">
+            <input
+              type="radio"
+              className="isvendor-input"
+              id="vendor-input"
+              name="fav_language"
+              onChange={(e) => setIsvendor(e.target.value)}
+              value={"true"}
+            />
+            <label htmlFor="vendor-input">Vendor</label>
+          </div>
+          <div className="radio-option">
+            <input
+              type="radio"
+              className="isvendor-input"
+              id="customer-input"
+              name="fav_language"
+              onChange={(e) => setIsvendor(e.target.value)}
+              value={"false"}
+            />
+            <label htmlFor="customer-input">Customer</label>
+          </div>
         </div>
         <button className="signup-btn" disabled={isLoading}>
           Sign Up

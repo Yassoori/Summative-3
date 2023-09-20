@@ -3,6 +3,7 @@ import axios from "axios";
 import MultiSelectDropdown from "./MultiSelectDropdown"; // Make sure to import the component correctly
 import { productsReducer, useProducts } from "../context/ProductContext";
 import { Link } from "react-router-dom";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const VendorAccount = () => {
   // Form inputs state variables
@@ -127,8 +128,15 @@ const VendorAccount = () => {
               {product.comments.map((comment) => (
                 <li key={comment._id} className="list-item-comment">
                   <div className="list-text">
-                    <p className="comment-user">{comment.user_id} commented</p>
+                    <p className="comment-user">{comment.user_id} commented:</p>
                     <p className="comment-text">{comment.text}</p>
+                    <span>
+                      posted:
+                      {formatDistanceToNow(new Date(comment.createdAt), {
+                        includeSeconds: true,
+                      })}{" "}
+                      ago
+                    </span>
                   </div>
                   <div className="list-buttons">
                     <Link

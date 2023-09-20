@@ -23,7 +23,7 @@ const Cart = ({ product }) => {
   };
 
   return (
-    <div>
+    <div className="cart-page">
       {/* cart list should be almost identical to wishlist, but with add and remove buttons instead */}
       <div className="vendor-products">
         <div className="products-heading">Your Products</div>

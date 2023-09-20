@@ -3,11 +3,20 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useWishlist } from "../context/wishlistContext";
 import VendorAccount from "../components/VendorAccount"; // Import the VendorAccount component
 
+import { useLogout } from "../hooks/useLogout";
+
 const Account = () => {
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { wishlist } = useWishlist(); // Use the wishlist from the context
+  const { wishlist } = useWishlist();
+  console.log(wishlist);
+
+  const { logout } = useLogout();
+  const handleLogout = () => {
+    logout();
+  };
+
 
   useEffect(() => {
     if (user) {
@@ -34,7 +43,7 @@ const Account = () => {
   }
 
   return (
-    <div className="account-container">
+    <div className="account-page">
       <div className="account-name">Hey, {user.username}!</div>
       {/* Only render VendorAccount if the user is a vendor */}
       {user.isvendor === "true" ? (
@@ -56,6 +65,9 @@ const Account = () => {
           </div>
         </div>
       )}
+      <div className="logout">
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 };

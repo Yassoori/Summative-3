@@ -1,15 +1,14 @@
 @media screen and (min-width: 768px) {
-
   nav {
     padding: 10px 0px;
     .nav-shop {
       h2 {
-        font-size: 20px;
+        font-size: $body-size;
       }
     }
     .nav-logo {
-      h1{
-        font-size: 30px;
+      h1 {
+        font-size: $sub-size;
       }
     }
     .nav-icons {
@@ -17,12 +16,11 @@
         color: $dark-color;
         width: 30px;
         height: 30px;
-        margin-left: 20px;
+        margin-left: $desktop-margin;
       }
       button {
-        margin-left: 40px;
+        margin-left: $desktop-margin;
         padding: 10px 22px;
-        font-size: 15px;
       }
     }
   }
@@ -32,13 +30,11 @@
     .product-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;  
+      gap: 20px;
     }
   }
 
-
   .product-card {
-   
     .image-container {
       display: flex;
       justify-content: center;
@@ -66,6 +62,65 @@
     }
   }
 
+  .details-page {
+    .details-container {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: "image text";
+    }
+  }
 
+  .vendor-products {
+    .list-item-product {
+      // this is overridden by the mobile sass ?
+      // grid-template-columns: 1fr 2fr 1fr;
+      // grid-template-areas: "image text buttons";
 
-}// end of tablet
+      .image-container {
+        position: absolute;
+        top: 0;
+      }
+      .list-text {
+        .list-creator,
+        .comment-user {
+          font-size: $body-size;
+        }
+        .list-title,
+        .list-price,
+        .comment-text {
+          font-size: $button-size;
+        }
+      }
+      .list-buttons {
+        top: 1em;
+
+        .edit-button,
+        .add-to-cart-button {
+          position: absolute;
+          right: 1em;
+          top: 1em;
+          font-size: $button-size;
+          margin-right: 0;
+        }
+        .remove-button,
+        .view-comment {
+          position: absolute;
+          right: 1em;
+          bottom: 1em;
+          font-size: $button-size;
+          text-decoration: none;
+          color: $dark-color;
+        }
+      }
+    }
+  }
+  .add-product-section {
+    form {
+      .form-sections {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: "labelarea inputarea";
+      }
+    }
+  }
+} // end of tablet
