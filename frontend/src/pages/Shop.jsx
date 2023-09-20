@@ -27,7 +27,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="shop">
+    <div className="shop-page">
       <div className="shop-search">
         <div className="shop-category-heading">Showing: {category}</div>
         <SearchBar onSearch={HandleSearch} initialValue={query} />
@@ -40,7 +40,7 @@ const Shop = () => {
       <Suspense fallback={<LoadingSpinner />}>
         <div className="product-grid">
           {filteredProducts.map((product) => (
-              <LazyProductCard product={product} />
+            <LazyProductCard product={product} />
           ))}
         </div>
       </Suspense>

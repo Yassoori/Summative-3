@@ -3,12 +3,20 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useWishlist } from "../context/wishlistContext";
 import VendorAccount from "../components/VendorAccount"; // Import the VendorAccount component
 
+import { useLogout } from "../hooks/useLogout";
+
 const Account = () => {
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const { wishlist } = useWishlist();
   console.log(wishlist);
+
+  const { logout } = useLogout();
+  const handleLogout = () => {
+    logout();
+  };
+
   useEffect(() => {
     if (user) {
       const storedUserDetails = JSON.parse(localStorage.getItem("user"));
@@ -34,7 +42,7 @@ const Account = () => {
   }
 
   return (
-    <div className="account-container">
+    <div className="account-page">
       <div className="account-name">Hey, {user.username}!</div>
       {/* Only render VendorAccount if the user is a vendor */}
       {user.isvendor === "true" ? (
@@ -48,12 +56,14 @@ const Account = () => {
       <div className="wishlist">
         <h3>Wishlist</h3>
         <ul>
-        {wishlist.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
+          {wishlist.map((product) => (
+            <li key={product.id}>{product.name}</li>
+          ))}
+        </ul>
       </div>
-      
+      <div className="logout">
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 };

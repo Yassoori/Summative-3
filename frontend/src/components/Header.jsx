@@ -41,41 +41,35 @@ const Header = () => {
             </h1>
           </Link>
         </div>
-        <div className="nav-icons">
-          <div id="account-icon" className="nav-icon">
-            <div id="account-dropdown">
-              {user && (
-                <div className="icon-button">
-
-                <React.Suspense fallback={<div>Loading Icons...</div>}>
-                  <div className="icon-box">
-            
-                    <Link to={`/account/${user._id}`}>
-                      <icons.ProfileIcon />
-                    </Link>
-                    <Link to="/cart">
-                      <icons.ShoppingCartIcon />
-                    </Link>
-
-                  </div>
-                    
-                </React.Suspense>
-                 
-
-           
-
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
-              )}
-              {!user && (
-                <div>
-                  <button onClick={handleLoginModalClick}>Login</button>
-                  {/* <button onClick={handleSignupModalClick}>Signup</button> */}
-                </div>
-              )}
-            </div>
+        {user && (
+          <div className="nav-icons">
+            <React.Suspense fallback={<div>Loading Icons...</div>}>
+              <Link to={`/account/${user._id}`}>
+                <icons.ProfileIcon />
+              </Link>
+              <Link to="/cart">
+                <icons.ShoppingCartIcon />
+              </Link>
+            </React.Suspense>
+            {/* <button onClick={handleLogout}>Logout</button> */}
           </div>
-        </div>
+        )}
+        {!user && (
+          // <div>
+          //   <button onClick={handleLoginModalClick}>Login</button>
+          // </div>
+          <div className="nav-icons">
+            <React.Suspense fallback={<div>Loading Icons...</div>}>
+              <div onClick={handleLoginModalClick}>
+                <icons.ProfileIcon />
+              </div>
+              <div onClick={handleLoginModalClick}>
+                <icons.ShoppingCartIcon />
+              </div>
+            </React.Suspense>
+            {/* <button onClick={handleLogout}>Logout</button> */}
+          </div>
+        )}
       </nav>
     </div>
   );

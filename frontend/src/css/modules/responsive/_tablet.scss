@@ -61,4 +61,66 @@
       @include sub-font;
     }
   }
+
+  .details-page {
+    .details-container {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: "image text";
+    }
+  }
+
+  .vendor-products {
+    .list-item-product {
+      // this is overridden by the mobile sass ?
+      // grid-template-columns: 1fr 2fr 1fr;
+      // grid-template-areas: "image text buttons";
+
+      .image-container {
+        position: absolute;
+        top: 0;
+      }
+      .list-text {
+        .list-creator,
+        .comment-user {
+          font-size: $body-size;
+        }
+        .list-title,
+        .list-price,
+        .comment-text {
+          font-size: $button-size;
+        }
+      }
+      .list-buttons {
+        top: 1em;
+
+        .edit-button,
+        .add-to-cart-button {
+          position: absolute;
+          right: 1em;
+          top: 1em;
+          font-size: $button-size;
+          margin-right: 0;
+        }
+        .remove-button,
+        .view-comment {
+          position: absolute;
+          right: 1em;
+          bottom: 1em;
+          font-size: $button-size;
+          text-decoration: none;
+          color: $dark-color;
+        }
+      }
+    }
+  }
+  .add-product-section {
+    form {
+      .form-sections {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: "labelarea inputarea";
+      }
+    }
+  }
 } // end of tablet
