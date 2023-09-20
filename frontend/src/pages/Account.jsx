@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useWishlist } from "../context/wishlistContext";
 import VendorAccount from "../components/VendorAccount"; // Import the VendorAccount component
 
 const Account = () => {
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { wishlist } = useWishlist();
+  console.log(wishlist);
   useEffect(() => {
     if (user) {
       const storedUserDetails = JSON.parse(localStorage.getItem("user"));
@@ -42,6 +44,16 @@ const Account = () => {
           <div className="wishlist-heading">Wishlist</div>
         </div>
       )}
+
+      <div className="wishlist">
+        <h3>Wishlist</h3>
+        <ul>
+        {wishlist.map((product) => (
+          <li key={product.id}>{product.name}</li>
+        ))}
+      </ul>
+      </div>
+      
     </div>
   );
 };
