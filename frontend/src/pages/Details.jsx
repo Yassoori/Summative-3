@@ -28,15 +28,9 @@ const ProductDetails = () => {
   //   addToCart(product); // Add the current product to the wishlist
   // };
 
-  const handleAddToWishlist = async () => {
-    try {
-        // Call addToWishlist with productId as an argument
-        await addToWishlist(productId);
-    } catch (error) {
-        console.error("Error Adding Product to Wishlist:", error);
-
-    }
-};
+  const handleAddToWishlist = () => {
+    addToWishlist(productId); // Pass the productId to addToWishlist
+  };
 
   const handleAddComment = async () => {
     try {
@@ -62,7 +56,6 @@ const ProductDetails = () => {
       console.error("Error Adding Comment:", error);
     }
   };
-
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -109,8 +102,7 @@ const ProductDetails = () => {
             pagination={{ clickable: true }}
             modules={[Pagination]}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+            onSwiper={(swiper) => console.log(swiper)}>
             {product.image.map((image, index) => (
               <SwiperSlide key={index}>
                 <img
@@ -129,15 +121,13 @@ const ProductDetails = () => {
           <div className="detail-description">{product.description}</div>
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price} Tax incl.</div>
-
         </div>
         <div className="button-container">
           {/* <button onClick={handleAddToCart}>ADD TO CART</button> */}
           <button onClick={handleAddToWishlist}>ADD TO WISHLIST</button>
-
         </div>
       </div>
-<div className="comments-wrapper">
+
       {/* Map over comments array */}
       <div className="comments">
         {product.comments.map((comment) => (
@@ -151,12 +141,12 @@ const ProductDetails = () => {
               })}{" "}
               ago
             </span>
-
           </div>
         ))}
       </div>
 
       <div className="add-comment">
+        <label>Add Comment</label>
         <input
           type="text"
           placeholder="Add a comment..."
@@ -164,7 +154,6 @@ const ProductDetails = () => {
           onChange={(e) => setCommentText(e.target.value)}
         />
         <button onClick={handleAddComment}>Submit</button>
-      </div>
       </div>
     </>
   );

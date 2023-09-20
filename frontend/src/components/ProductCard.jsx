@@ -8,7 +8,10 @@ const ProductCard = ({ product }) => {
   const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
   const icons = useIcons();
   const [isHovered, setIsHovered] = useState(false);
-  const [isInWishlist, setIsInWishlist] = useState(wishlist.includes(product));
+  // const [isInWishlist, setIsInWishlist] = useState(wishlist.includes(product));
+
+  console.log("Wishlist:", wishlist);
+  console.log("Product:", product);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -18,34 +21,31 @@ const ProductCard = ({ product }) => {
     setIsHovered(false);
   };
 
-  const handleHeartClick = () => {
-    if (isInWishlist) {
-      
-      removeFromWishlist(product);
-    } else {
-     
-      addToWishlist(product);
-    }
-    setIsInWishlist(!isInWishlist);
-  };
-  
+  // const handleHeartClick = () => {
+  //   if (isInWishlist) {
+  //     removeFromWishlist(product);
+  //   } else {
+  //     addToWishlist(product);
+  //   }
+  //   setIsInWishlist(!isInWishlist);
+  // };
 
   return (
-      <div
-        className="product-card"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
-        <React.Suspense fallback={<div>Loading Icons...</div>}>
-        {isInWishlist ? (
+    <div
+      className="product-card"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+      <React.Suspense fallback={<div>Loading Icons...</div>}>
+        {/* {isInWishlist ? (
           <icons.HeartFilledIcon
             className="heart-icon"
             onClick={handleHeartClick}
           />
         ) : (
           <icons.HeartIcon className="heart-icon" onClick={handleHeartClick} />
-        )}
-        </React.Suspense>
-        <Link to={`/product/${product._id}`} key={product._id}>
+        )} */}
+      </React.Suspense>
+      <Link to={`/product/${product._id}`} key={product._id}>
         <div className="image-container">
           <img
             className="product-image"
