@@ -17,25 +17,33 @@ const LoginSignup = ({ onClose }) => {
   return isLoginVisible ? (
     loginOrSignup === "Signup" ? (
       <div className="login-signup-wrapper">
-      <div className="login-signup-modal">
-        <ImCancelCircle className="cancel-login" onClick={handleCancelClick} />
-        <Signup></Signup>
-        <p className="register-text">
-          Already have an account?{" "}
-          <a onClick={(e) => setLoginOrSignup("Login")}>Log In</a>
-        </p>
-      </div>
+        <div className="login-signup-modal">
+          <ImCancelCircle
+            className="cancel-login"
+            onClick={handleCancelClick}
+          />
+          <Signup></Signup>
+          <p className="register-text">
+            Already have an account?
+            <br />
+            <a onClick={(e) => setLoginOrSignup("Login")}>Log In</a>
+          </p>
+        </div>
       </div>
     ) : (
       <div className="login-signup-wrapper">
-      <div className="login-signup-modal">
-        <ImCancelCircle className="cancel-login" onClick={handleCancelClick} />
-        <Login></Login>
-        <p className="register-text">
-          Don't have an account?{" "}
-          <a onClick={(e) => setLoginOrSignup("Signup")}>Signup</a>
-        </p>
-      </div>
+        <div className="login-signup-modal">
+          <ImCancelCircle
+            className="cancel-login"
+            onClick={handleCancelClick}
+          />
+          <Login></Login>
+          <p className="register-text">
+            Don't have an account?
+            <br />
+            <a onClick={(e) => setLoginOrSignup("Signup")}>Signup</a>
+          </p>
+        </div>
       </div>
     )
   ) : null;

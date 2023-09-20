@@ -1,15 +1,14 @@
 @media screen and (min-width: 768px) {
-
   nav {
     padding: 10px 0px;
     .nav-shop {
       h2 {
-        font-size: 20px;
+        font-size: $body-size;
       }
     }
     .nav-logo {
-      h1{
-        font-size: 30px;
+      h1 {
+        font-size: $sub-size;
       }
     }
     .nav-icons {
@@ -17,12 +16,11 @@
         color: $dark-color;
         width: 30px;
         height: 30px;
-        margin-left: 20px;
+        margin-left: $desktop-margin;
       }
       button {
-        margin-left: 40px;
+        margin-left: $desktop-margin;
         padding: 10px 22px;
-        font-size: 15px;
       }
     }
   }
@@ -32,13 +30,11 @@
     .product-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;  
+      gap: 20px;
     }
   }
 
-
   .product-card {
-   
     .image-container {
       display: flex;
       justify-content: center;
@@ -65,7 +61,4 @@
       @include sub-font;
     }
   }
-
-
-
-}// end of tablet
+} // end of tablet

@@ -8,12 +8,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { login, isLoading, error } = useLogin();
   const userData = localStorage.getItem("user");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { dispatch } = useLoginModalContext();
 
   if (userData) {
     dispatch({ type: "LOGIN_CLOSE" });
-    navigate("/")
+    navigate("/");
   }
 
   const handleSubmit = async (e) => {
@@ -22,12 +22,12 @@ const Login = () => {
   };
 
   return (
-    <form className="login-modal" onSubmit={handleSubmit}>
-      <div className="login">
+    <div className="login">
+      <form className="login-form" onSubmit={handleSubmit}>
         <h3>Log In</h3>
         <div>
           <input
-          placeholder="Email"
+            placeholder="Email"
             type="text"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
@@ -35,7 +35,7 @@ const Login = () => {
         </div>
         <div>
           <input
-          placeholder="Password"
+            placeholder="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
@@ -45,8 +45,8 @@ const Login = () => {
           Log In
         </button>
         {error && <div className="login-error">{error}</div>}
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
