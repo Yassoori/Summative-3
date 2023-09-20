@@ -420,43 +420,6 @@ footer #footer-copywrite {
   color: #f9f9f9;
 }
 
-.product-card {
-  position: relative;
-}
-.product-card svg {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  color: #20657c;
-}
-.product-card .image-container {
-  margin-top: 20px;
-}
-.product-card .image-container .product-image {
-  width: 100%;
-}
-.product-card .product-description {
-  display: none;
-}
-.product-card .product-material {
-  display: none;
-}
-.product-card .product-name {
-  color: #f9f9f9;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 10px;
-}
-.product-card .product-price {
-  text-align: center;
-  color: #f9f9f9;
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
-}
-
 #about-page {
   width: 100%;
 }
@@ -556,6 +519,26 @@ footer #footer-copywrite {
   font-weight: 400;
 }
 
+.product-card .product-description {
+  display: none;
+}
+.product-card .product-material {
+  display: none;
+}
+.product-card .product-name {
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 10px;
+}
+.product-card .product-price {
+  text-align: center;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+}
+
 .product-grid {
   background-color: #f9f9f9;
   max-width: 100%;
@@ -565,21 +548,18 @@ footer #footer-copywrite {
   align-content: center;
   justify-content: space-around;
   margin: auto;
-  padding: 2em 0 2em 0;
 }
-.product-grid a {
-  margin-top: 0;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-bottom: 4em;
-}
-.product-grid a .product-card {
+.product-grid .product-card {
   text-align: center;
   background-color: #f9f9f9;
   filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
-  position: relative;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 4em;
+  min-width: 240px;
+  max-width: 30%;
 }
-.product-grid a .product-card svg {
+.product-grid .product-card a svg {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
@@ -587,35 +567,46 @@ footer #footer-copywrite {
   height: 32px;
   color: #171d1d;
 }
-.product-grid a .product-card .image-container .product-image {
+.product-grid .product-card a .image-container {
+  padding: 0 0.5em 0.5em;
+}
+.product-grid .product-card a .image-container .product-image {
+  margin: 0;
   width: 320px;
   height: 320px;
+  max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
   margin-bottom: 1em;
 }
-.product-grid a .product-card .text-container {
+.product-grid .product-card a .text-container {
   width: 320px;
-  height: 6em;
+  max-width: 100%;
+  height: 7em;
   text-align: center;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
-.product-grid a .product-card .text-container .product-name,
-.product-grid a .product-card .text-container .product-price {
+.product-grid .product-card a .text-container .product-name,
+.product-grid .product-card a .text-container .product-price {
   text-transform: uppercase;
   text-align: center;
   color: #171d1d;
   text-decoration: none;
-  font-size: 20px;
+  color: #171d1d;
+  font-size: 16px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  margin: auto;
   margin-bottom: 0.5em;
 }
-.product-grid a .product-card .text-container .product-description,
-.product-grid a .product-card .text-container .product-material {
+.product-grid .product-card a .text-container .product-description,
+.product-grid .product-card a .text-container .product-material {
+  color: #171d1d;
   display: none;
 }
 
@@ -1186,14 +1177,14 @@ footer #footer-copywrite {
     display: none;
   }
   .product-card .product-name {
-    color: #f9f9f9;
+    color: #171d1d;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     text-align: center;
   }
   .product-card .product-price {
     text-align: center;
-    color: #f9f9f9;
+    color: #171d1d;
     font-family: "Rubik", sans-serif;
     font-weight: 300;
   }
@@ -1606,16 +1597,8 @@ footer #footer-copywrite {
     color: #f9f9f9;
     font-size: 20px;
   }
-  .product-grid {
-    margin-right: 12%;
-    margin-left: 12%;
-  }
 }
 @media screen and (min-width: 1200px) {
-  .product-grid {
-    margin-right: 16%;
-    margin-left: 16%;
-  }
   .product-grid .product-image {
     width: 440px;
     height: 440px;

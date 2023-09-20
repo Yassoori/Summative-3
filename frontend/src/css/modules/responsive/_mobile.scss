@@ -401,41 +401,6 @@ footer {
   }
 }
 
-.product-card {
-  position: relative;
-  svg {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    color: #20657c;
-  }
-
-  .image-container {
-    margin-top: 20px;
-    .product-image {
-      width: 100%;
-    }
-  }
-  .product-description {
-    display: none;
-  }
-  .product-material {
-    display: none;
-  }
-  .product-name {
-    color: $light-color;
-    @include head-font;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .product-price {
-    text-align: center;
-    color: $light-color;
-    @include sub-font;
-  }
-}
 // about
 #about-page {
   width: 100%;
@@ -545,6 +510,26 @@ footer {
   }
 }
 
+.product-card {
+  .product-description {
+    display: none;
+  }
+  .product-material {
+    display: none;
+  }
+  .product-name {
+    color: $light-color;
+    @include head-font;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .product-price {
+    text-align: center;
+    color: $light-color;
+    @include sub-font;
+  }
+}
+
 .product-grid {
   background-color: $light-color;
   max-width: 100%;
@@ -554,20 +539,27 @@ footer {
   align-content: center;
   justify-content: space-around;
   margin: auto;
-  padding: 2em 0 2em 0;
 
-  a {
+  .product-card {
+    text-align: center;
+    background-color: $light-color;
+    filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
+    margin: auto;
     margin-top: 0;
-    margin-left: 2em;
-    margin-right: 2em;
     margin-bottom: 4em;
+    min-width: 240px;
+    max-width: 30%;
+    // position: relative;
+    // svg {
+    //   position: absolute;
+    //   top: 10px;
+    //   right: 10px;
+    //   width: 30px;
+    //   height: 30px;
+    //   color: #20657c;
+    // }
 
-    .product-card {
-      text-align: center;
-      background-color: $light-color;
-      filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
-      position: relative;
-
+    a {
       svg {
         position: absolute;
         top: 0.5em;
@@ -579,16 +571,15 @@ footer {
 
       .image-container {
         // width: 25%;
-        // padding-bottom: 25%;
-        // position: relative;
+        padding: 0 0.5em 0.5em;
+        // position: absolute;
 
         .product-image {
           // position: absolute;
-          // margin: 0;
-          // max-width: 100%;
-
+          margin: 0;
           width: 320px;
           height: 320px;
+          max-width: 100%;
           object-fit: cover;
           object-position: center;
           margin-bottom: 1em;
@@ -597,24 +588,31 @@ footer {
 
       .text-container {
         width: 320px;
-        height: 6em;
+        max-width: 100%;
+        height: 7em;
         text-align: center;
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: nowrap;
 
         .product-name,
-          // .product-material,
-          .product-price {
+        // .product-material,
+        .product-price {
           text-transform: uppercase;
           text-align: center;
           color: $dark-color;
           text-decoration: none;
-          font-size: $body-size;
+          color: $dark-color;
+          // font-size: $body-size;
+          font-size: $mob-button-size;
           @include body-font;
-          margin: auto;
           margin-bottom: 0.5em;
         }
         .product-description,
         .product-material {
+          color: $dark-color;
           display: none;
         }
       }
@@ -741,74 +739,6 @@ footer {
   }
 }
 
-// .comments-wrapper {
-//   flex-direction: column-reverse;
-
-//   .add-comment {
-//     height: 4em;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     input {
-//       height: 40px;
-//       align-self: center;
-//       margin: 0% 1% 0% 5%;
-//       width: 250px;
-//     }
-
-//     button {
-//       margin: auto 0%;
-//       color: $light-color;
-//       @include head-font;
-//       width: 100px;
-//       height: 40px;
-//       text-decoration: none;
-//       background-color: $main-color;
-
-//       button:hover {
-//         transition: 0.3s;
-//         opacity: 0.8;
-//       }
-//     }
-//   }
-// }
-
-// comments
-
-// .comments {
-//   margin-top: 30px;
-//   display: grid;
-//   justify-content: center;
-//   @include sub-font;
-//   .comment {
-//     display: flex;
-//     margin-bottom: 10px;
-//     .detail-name {
-//       text-transform: uppercase;
-//       font-size: $sub-size;
-//       @include head-font;
-//       margin-bottom: 1em;
-//     }
-//     .detail-description {
-//       @include body-font;
-//       margin-bottom: 0.5em;
-//     }
-//     p {
-//       font-size: 23px;
-//       margin-left: 20px;
-//     }
-//     span {
-//       font-size: 18px;
-//       margin-left: 30px;
-//     }
-//   }
-// }
-
-// .add-comment {
-//   label {}
-//   input {}
-//   button {}
-// }
 .account-page {
   margin: 0 1em 0 1em;
 

@@ -51,13 +51,13 @@
       display: none;
     }
     .product-name {
-      color: $light-color;
+      color: $dark-color;
       @include head-font;
       text-align: center;
     }
     .product-price {
       text-align: center;
-      color: $light-color;
+      color: $dark-color;
       @include sub-font;
     }
   }
