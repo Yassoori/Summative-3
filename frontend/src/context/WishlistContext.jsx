@@ -1,62 +1,71 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const WishlistContext = createContext();
 
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
-
+  const [wishlistProducts, setWishlistProducts] = useState([]); // Store product details
+  const { user } = useAuthContext(); // Get the user context data
 
   useEffect(() => {
-
-    const fetchWishlist = async () => {
+    const fetchWishlistProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/users/wishlist`, {
+        const userId = user._id;
+        const token = user.token; // Assuming you store the token in the user object
 
-        });
+        const response = await axios.get(
+          `http://localhost:4000/api/users/${userId}/wishlist/products`,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
 
         if (response.status === 200) {
+          // Set the wishlist state with the fetched data
           setWishlist(response.data.wishlist);
+          setWishlistProducts(response.data.products);
+        } else {
+          console.error("Error fetching wishlist. Response:", response);
         }
       } catch (error) {
         console.error("Error fetching wishlist:", error);
       }
     };
 
-    fetchWishlist();
-  }, []); 
+    if (user) {
+      // Fetch the wishlist when the user is available
+      fetchWishlistProducts();
+    }
+  }, [user]);
 
   const addToWishlist = async (productId) => {
     try {
+      const userId = user._id; // Access the user ID directly from the user context
+      const token = user.token;
+
       const response = await axios.post(
-        `http://localhost:4000/api/users/wishlist/add`,
-        { productId },
+        `http://localhost:4000/api/users/${userId}/wishlist/${productId}`,
+        null,
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
       );
 
-      if (response.status === 200) {
-
+      if (response.status === 201) {
+        // Update the wishlist state with the response data if successful
         setWishlist([...wishlist, productId]);
+        console.log("Product added to wishlist");
+      } else {
+        console.error("Error adding product to wishlist. Response:", response);
       }
     } catch (error) {
       console.error("Error adding product to wishlist:", error);
-    }
-  };
-
-  const removeFromWishlist = async (productId) => {
-    try {
-      const response = await axios.post(
-        `http://localhost:4000/api/users/wishlist/remove`,
-        { productId },
-
-
-      );
-
-      if (response.status === 200) {
-
-        setWishlist(wishlist.filter((item) => item !== productId));
-      }
-    } catch (error) {
-      console.error("Error removing product from wishlist:", error);
     }
   };
 
@@ -65,9 +74,7 @@ export function WishlistProvider({ children }) {
       value={{
         wishlist,
         addToWishlist,
-        removeFromWishlist,
-      }}
-    >
+      }}>
       {children}
     </WishlistContext.Provider>
   );

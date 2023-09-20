@@ -28,13 +28,15 @@ const ProductDetails = () => {
   //   addToCart(product); // Add the current product to the wishlist
   // };
 
-  const handleAddToWishlist = async () => {
-    try {
-      // Call addToWishlist with productId as an argument
-      await addToWishlist(productId);
-    } catch (error) {
-      console.error("Error Adding Product to Wishlist:", error);
-    }
+  const handleAddToWishlist = () => {
+    addToWishlist(productId); // Pass the productId to addToWishlist
+//   const handleAddToWishlist = async () => {
+//     try {
+//       // Call addToWishlist with productId as an argument
+//       await addToWishlist(productId);
+//     } catch (error) {
+//       console.error("Error Adding Product to Wishlist:", error);
+//     }
   };
 
   const handleAddComment = async () => {
@@ -107,8 +109,7 @@ const ProductDetails = () => {
             pagination={{ clickable: true }}
             modules={[Pagination]}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+            onSwiper={(swiper) => console.log(swiper)}>
             {product.image.map((image, index) => (
               <SwiperSlide key={index}>
                 <img
@@ -127,7 +128,6 @@ const ProductDetails = () => {
           <div className="detail-description">{product.description}</div>
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price}</div>
-
           <div className="button-container">
             <button className="cart-button">
               {/* ADD TO CART */}

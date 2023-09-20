@@ -17,6 +17,7 @@ const Account = () => {
     logout();
   };
 
+
   useEffect(() => {
     if (user) {
       const storedUserDetails = JSON.parse(localStorage.getItem("user"));
@@ -50,17 +51,20 @@ const Account = () => {
       ) : (
         <div className="regular-account-container">
           <div className="wishlist-heading">Wishlist</div>
+          <div className="wishlist">
+            <ul>
+              {wishlist.map((product) => (
+                <div className="wishlist-item">
+                  <img src={product.image[0]}></img>
+                  <p>{product.creator}</p>
+                  <h3>{product.title}</h3>
+                  <p>${product.price}</p>
+                </div>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
-
-      <div className="wishlist">
-        <h3>Wishlist</h3>
-        <ul>
-          {wishlist.map((product) => (
-            <li key={product.id}>{product.name}</li>
-          ))}
-        </ul>
-      </div>
       <div className="logout">
         <button onClick={handleLogout}>Logout</button>
       </div>
