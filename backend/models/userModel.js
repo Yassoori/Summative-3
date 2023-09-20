@@ -29,6 +29,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  wishlists: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Product"
+    }
+  ]
 });
 
 // static method for user sign up

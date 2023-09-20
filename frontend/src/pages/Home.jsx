@@ -33,8 +33,21 @@ const Home = () => {
   useEffect(() => {
     const handleResize = () => {
     if (filteredProducts.length > 0) {
+      let itemsToDisplay;
+
+      if (window.innerWidth <= 768) {
+        itemsToDisplay = 1;
+      } else if (window.innerWidth <= 992) {
+        itemsToDisplay = 2;
+      } else {
+        itemsToDisplay = 3;
+      }
+
       const startIndex = currentIndex;
-      const endIndex = Math.min(currentIndex + (window.innerWidth <= 768 ? 1 : 3), filteredProducts.length);
+      const endIndex = Math.min(
+        currentIndex + itemsToDisplay,
+        filteredProducts.length
+      );
 
       // Create an array of product indices to display
       const productIndices = Array.from({ length: endIndex - startIndex }, (_, index) => startIndex + index);
@@ -86,7 +99,7 @@ const Home = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 6000,
+            delay: 14000,
             disableOnInteraction: false,
           }}
           navigation={true}
