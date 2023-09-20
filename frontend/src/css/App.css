@@ -254,12 +254,59 @@ footer #footer-links div li {
 }
 
 .hero {
-  height: 75vh;
-  width: 100vw;
+  height: 95vh;
+  width: 99vw;
+  overflow-x: hidden;
 }
 .hero .swiper {
   width: 100%;
   height: 100%;
+}
+.hero .swiper img {
+  background-color: rgba(14, 44, 54, 0.6);
+  position: relative;
+}
+.hero .swiper .hero-details-wrapper {
+  background-color: rgba(14, 44, 54, 0.5019607843);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.hero .swiper .hero-details-wrapper .hero-details {
+  display: flex;
+  position: absolute;
+  top: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0px 30px 0px 30px;
+  text-align: start;
+  padding: 10px;
+  border-radius: 5%;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+.hero .swiper .hero-details-wrapper .hero-details h2 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #f9f9f9;
+}
+.hero .swiper .hero-details-wrapper .hero-details p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #f9f9f9;
+}
+.hero .swiper .hero-details-wrapper .hero-details button {
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  background-color: #0e2c36;
+  margin-top: 10px;
 }
 .hero .swiper-slide {
   text-align: center;
@@ -275,10 +322,10 @@ footer #footer-links div li {
      object-fit: cover;
 }
 .hero .swiper-button-prev {
-  display: none;
+  display: block;
 }
 .hero .swiper-button-next {
-  display: none;
+  display: block;
 }
 
 .category-jewelry {
@@ -384,6 +431,71 @@ footer #footer-links div li {
   font-weight: 300;
 }
 
+#about-page {
+  width: 100%;
+}
+#about-page #about-hero {
+  background-image: linear-gradient(to top, rgba(14, 44, 54, 0.5647058824), #0e2c36), url("https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+  padding: 15% 5% 15% 5%;
+  background-size: cover;
+  background-position: center;
+}
+#about-page #about-hero h2 {
+  padding: 3% 5% 3% 5%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+}
+#about-page #about-hero p {
+  padding: 0% 5% 0% 5%;
+  color: #f9f9f9;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+#about-page #about-mid-section {
+  padding: 5% 10% 10% 10%;
+}
+#about-page #about-mid-section h3 {
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+}
+#about-page #about-mid-section .about-card {
+  text-align: center;
+  padding: 10% 10% 10% 7%;
+}
+#about-page #about-mid-section .about-card h4 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+}
+#about-page #about-mid-section .about-card p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+#about-page #about-final-section {
+  background-color: #0e2c36;
+  padding: 10%;
+  text-align: center;
+}
+#about-page #about-final-section h3 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  color: #f9f9f9;
+  padding: 2%;
+  font-size: 40px;
+}
+#about-page #about-final-section p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #f9f9f9;
+  font-size: 20px;
+}
+
 .shop .shop-search {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -483,22 +595,20 @@ footer #footer-links div li {
 
 .details-container {
   width: 90vw;
-  margin-top: 0;
-  margin-bottom: 4em;
+  margin: auto;
   display: flex;
   text-align: center;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .details-container .image-container {
-  margin-bottom: 1em;
-  width: 45%;
-  transform: rotate(270deg);
+  width: 95%;
+  margin-bottom: 2em;
+  margin: auto;
 }
 .details-container .image-container img {
   width: 110%;
   height: 110%;
-  transform: rotate(-270deg);
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -524,7 +634,7 @@ footer #footer-links div li {
 }
 .details-container .text-container {
   text-align: left;
-  width: 40vw;
+  margin-bottom: 1.5em;
 }
 .details-container .text-container .detail-name,
 .details-container .text-container .detail-material,
@@ -541,25 +651,85 @@ footer #footer-links div li {
   font-size: 30px;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  margin-bottom: 1em;
+  margin-bottom: 0.25em;
 }
 .details-container .text-container .detail-description {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
 }
 .details-container .text-container .detail-material {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
 }
 .details-container .text-container .detail-price,
 .details-container .text-container .designer {
   font-size: 40px;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
+}
+.details-container .text-container .button-container {
+  display: flex;
+  flex-direction: column;
+}
+.details-container .text-container .button-container .cart-button {
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 200px;
+  height: 40px;
+  text-decoration: none;
+  background-color: #0e2c36;
+  margin-bottom: 1em;
+}
+.details-container .text-container .button-container .cart-button button:hover {
+  transition: 0.3s;
+  opacity: 0.8;
+}
+.details-container .text-container .button-container .wish-button {
+  margin: auto 0%;
+  color: #0e1111;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 200px;
+  height: 40px;
+  border: #0e1111 2px solid;
+  text-decoration: none;
+  background-color: #f9f9f9;
+}
+
+.comments-wrapper {
+  flex-direction: column-reverse;
+}
+.comments-wrapper .add-comment {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comments-wrapper .add-comment input {
+  height: 40px;
+  align-self: center;
+  margin: 0% 1% 0% 5%;
+  width: 250px;
+}
+.comments-wrapper .add-comment button {
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  background-color: #0e2c36;
+}
+.comments-wrapper .add-comment button button:hover {
+  transition: 0.3s;
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 768px) {
@@ -1102,6 +1272,142 @@ footer #footer-links div li {
   .product-grid {
     margin-right: 12%;
     margin-left: 12%;
+  }
+  .details-container {
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .details-container .image-container {
+    width: 45%;
+    transform: rotate(270deg);
+    margin-bottom: 2em;
+  }
+  .details-container .image-container img {
+    width: 110%;
+    height: 110%;
+    transform: rotate(-270deg);
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .details-container .image-container .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .details-container .image-container .swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .details-container .image-container .swiper-slide img {
+    width: 420px;
+    height: 520px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .details-container .text-container {
+    text-align: left;
+    width: 40vw;
+  }
+  .details-container .text-container .detail-name,
+  .details-container .text-container .detail-material,
+  .details-container .text-container .details-description,
+  .details-container .text-container .detail-price,
+  .details-container .text-container .designer {
+    text-align: left;
+    color: #0e1111;
+    text-decoration: none;
+    margin: auto;
+  }
+  .details-container .text-container .detail-name {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    margin-bottom: 0.25em;
+  }
+  .details-container .text-container .detail-description {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin-bottom: 0.25em;
+  }
+  .details-container .text-container .detail-material {
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin-bottom: 0.25em;
+  }
+  .details-container .text-container .detail-price,
+  .details-container .text-container .designer {
+    font-size: 40px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    margin-bottom: 0.25em;
+  }
+  .details-container .text-container .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .details-container .text-container .button-container .cart-button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 200px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0e2c36;
+    margin-bottom: 1em;
+  }
+  .details-container .text-container .button-container .cart-button button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
+  }
+  .details-container .text-container .button-container .wish-button {
+    margin: auto 0%;
+    color: #0e1111;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 200px;
+    height: 40px;
+    border: #0e1111 2px solid;
+    text-decoration: none;
+    background-color: #f9f9f9;
+  }
+  .comments-wrapper {
+    flex-direction: column-reverse;
+  }
+  .comments-wrapper .add-comment {
+    height: 4em;
+    display: flex;
+  }
+  .comments-wrapper .add-comment input {
+    height: 40px;
+    align-self: center;
+    margin: 0% 1% 0% 5%;
+    width: 400px;
+  }
+  .comments-wrapper .add-comment button {
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 200px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #0e2c36;
+  }
+  .comments-wrapper .add-comment button button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
   }
 }
 @media screen and (min-width: 1200px) {
