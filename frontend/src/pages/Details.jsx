@@ -129,15 +129,24 @@ const ProductDetails = () => {
           <div className="detail-description">{product.description}</div>
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price} Tax incl.</div>
-
+          
+          <div className="button-container">
+            <button className="cart-button">ADD TO CART</button>
+            <button className="wish-button" onClick={handleAddToWishlist}>ADD TO WISHLIST</button>
         </div>
-        <div className="button-container">
-          {/* <button onClick={handleAddToCart}>ADD TO CART</button> */}
-          <button onClick={handleAddToWishlist}>ADD TO WISHLIST</button>
-
         </div>
+        
       </div>
 <div className="comments-wrapper">
+    <div className="add-comment">
+      <input
+        type="text"
+        placeholder="Add a comment..."
+        value={commentText}
+        onChange={(e) => setCommentText(e.target.value)}
+      />
+      <button onClick={handleAddComment}>Submit</button>
+    </div>
       {/* Map over comments array */}
       <div className="comments">
         {product.comments.map((comment) => (
@@ -156,15 +165,7 @@ const ProductDetails = () => {
         ))}
       </div>
 
-      <div className="add-comment">
-        <input
-          type="text"
-          placeholder="Add a comment..."
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-        />
-        <button onClick={handleAddComment}>Submit</button>
-      </div>
+      
       </div>
     </>
   );

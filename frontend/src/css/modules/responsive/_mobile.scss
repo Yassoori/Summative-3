@@ -366,14 +366,6 @@ footer {
     width: 100%;
     padding: 5px;
     text-align: center;
-
-    // I dont know what this is about
-    // <<<<<<< shop
-    background-color: #36454f;
-    color: white;
-    // =======
-    @include head-font;
-    // >>>>>>> main
   }
   .category-image {
     width: 100%;
@@ -390,7 +382,7 @@ footer {
   .prev-button {
     position: absolute;
     left: -40px;
-    top: -250px;
+    top: -300px;
     border: none;
     font-size: 30px;
     background-color: $main-color;
@@ -400,7 +392,7 @@ footer {
   .next-button {
     position: absolute;
     right: -40px;
-    top: -250px;
+    top: -300px;
     border: none;
     font-size: 30px;
     background-color: $main-color;
@@ -409,13 +401,20 @@ footer {
 }
 
 .product-card {
+position: relative;
   svg {
-    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    color: #20657c;
   }
+  
   .image-container {
+    margin-top: 20px;
     .product-image {
       width: 100%;
-      height: fit-content;
     }
   }
   .product-description {
@@ -428,6 +427,7 @@ footer {
     color: $light-color;
     @include head-font;
     text-align: center;
+    margin-top: 10px;
   }
   .product-price {
     text-align: center;
@@ -702,23 +702,28 @@ footer {
               margin-bottom: 0.25em;
             }
     
-            .detail-price,
             .designer {
               font-size: $head-size;
               @include head-font;
               margin-bottom: 0.25em;
             }
+
+            .detail-price {
+              @include head-font;
+              font-size: 25px;
+              margin-bottom: 20px;
+            }
     
             .button-container {
-              display: flex;
-              flex-direction: column;
+              display: grid;
+              justify-content: center;
     
               .cart-button {
                 margin: auto 0%;
                 color: $light-color;
                 @include head-font;
-                width: 200px;
-                height: 40px;
+                width: 300px;
+                height: 45px;
                 text-decoration: none;
                 background-color: $main-color;
                 margin-bottom: 1em;
@@ -733,18 +738,20 @@ footer {
                 margin: auto 0%;
                 color: $dark-color;
                 @include head-font;
-                width: 200px;
-                height: 40px;
+                width: 300px;
+                height: 45px;
                 border: $dark-color 2px solid;
                 text-decoration: none;
                 background-color: $light-color;
               }
             }
+
+
           }
 }
 .comments-wrapper {
           flex-direction: column-reverse;
-
+  
           .add-comment {
             height: 4em;
             display: flex;
@@ -774,15 +781,31 @@ footer {
           }
         }
 
-// // comments
+// comments
 
-// .comments {
-//   .comment {
-//     h5 {}
-//     p {}
-//     span {}
-//   }
-// }
+.comments {
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  @include sub-font;
+  .comment {
+    display: flex;
+    margin-bottom: 10px;
+
+    h5 {
+      font-size: 23px;
+      margin-right: 20px;
+    }
+    p {
+      font-size: 23px;
+      margin-left: 20px;
+    }
+    span {
+      font-size: 18px;
+      margin-left: 30px;
+    }
+  }
+}
 
 // .add-comment {
 //   label {}
