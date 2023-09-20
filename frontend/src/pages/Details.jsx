@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useCommentsContext } from "../hooks/useCommentContext";
+import { useWishlist } from "../context/wishlistContext";
+// import { useCart } from "../context/CartContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,13 +16,27 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const ProductDetails = () => {
-  // We only need dispatch if we manage the delete comment function
-  const { dispatch } = useCommentsContext();
+  const { addToWishlist, wishlist } = useWishlist();
+  // const { addToCart } = useCart();
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [commentText, setCommentText] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
   const user_id = user ? user.username : null;
+
+  // const handleAddToCart = () => {
+  //   addToCart(product); // Add the current product to the wishlist
+  // };
+
+  const handleAddToWishlist = async () => {
+    try {
+        // Call addToWishlist with productId as an argument
+        await addToWishlist(productId);
+    } catch (error) {
+        console.error("Error Adding Product to Wishlist:", error);
+
+    }
+};
 
   const handleAddComment = async () => {
     try {
@@ -47,17 +63,6 @@ const ProductDetails = () => {
     }
   };
 
-  // const handleDelete = async (commentId) => {
-  //   const response = await axios.delete(
-  //     `http://localhost:4000/api/comments/products/${productId}/comments/${commentId}`
-  //   );
-  //   const json = await response.data;
-
-  //   if (response.status === 200) {
-  //     console.log(json, "is deleted");
-  //     dispatch({ type: "DELETE_COMMENT", payload: commentId });
-  //   }
-  // };
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -124,10 +129,12 @@ const ProductDetails = () => {
           <div className="detail-description">{product.description}</div>
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price} Tax incl.</div>
-            <div className="button-container">
-              <button className="cart-button">ADD TO CART</button>
-              <button className="wish-button">ADD TO WISHLIST</button>
-          </div>
+
+        </div>
+        <div className="button-container">
+          {/* <button onClick={handleAddToCart}>ADD TO CART</button> */}
+          <button onClick={handleAddToWishlist}>ADD TO WISHLIST</button>
+
         </div>
       </div>
 <div className="comments-wrapper">
@@ -145,11 +152,6 @@ const ProductDetails = () => {
               ago
             </span>
 
-            {/* {user_id && comment.user_id === user_id && (
-          <p className="delete" onClick={handleDelete(comment._id)}>
-            delete
-          </p>    
-        )} */}
           </div>
         ))}
       </div>
