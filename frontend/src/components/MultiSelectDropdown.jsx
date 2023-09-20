@@ -30,7 +30,8 @@ const MultiSelectDropdown = ({ options, selectedItems, onChange }) => {
     <div className="multi-select-dropdown" ref={dropdownRef}>
       <div className="dropdown-header" onClick={toggleDropdown}>
         {selectedItems.length === 0
-          ? "Select Materials"
+          ? // ? "Select Materials"
+            ""
           : selectedItems.join(", ")}
         <span className={`chevron ${isOpen ? "chevron-up" : "chevron-down"}`}>
           &#x25BC;
@@ -44,7 +45,8 @@ const MultiSelectDropdown = ({ options, selectedItems, onChange }) => {
               className={`dropdown-option ${
                 selectedItems.includes(option) ? "selected" : ""
               }`}
-              onClick={() => handleOptionClick(option)}>
+              onClick={() => handleOptionClick(option)}
+            >
               {selectedItems.includes(option) && (
                 <span className="dot">&#8226;</span>
               )}

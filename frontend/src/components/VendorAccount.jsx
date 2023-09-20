@@ -93,13 +93,22 @@ const VendorAccount = () => {
   const renderVendorProducts = () => {
     return (
       <div className="vendor-products">
-        <div className="products-heading">Your Products</div>
+        <div className="account-section-heading">Your Products</div>
         <ul>
           {vendorProducts.map((product) => (
-            <li key={product._id}>
-              <img src={product.image[0]}></img>
-              <p>{product.title}</p>
-              <p>${product.price}</p>
+            <li key={product._id} className="list-item-product">
+              <img src={product.image[0]} className="list-image"></img>
+              <div className="list-text">
+                <p className="list-creator">{product.creator}</p>
+                <Link to={`/product/${product._id}`} key={product._id}>
+                  <p className="list-title">{product.title}</p>
+                </Link>
+                <p className="list-price">${product.price}</p>
+              </div>
+              <div className="list-buttons">
+                <a className="edit-button">Edit</a>
+                <a className="remove-button">Remove</a>
+              </div>
             </li>
           ))}
         </ul>
@@ -110,17 +119,26 @@ const VendorAccount = () => {
   const renderVendorComments = () => {
     return (
       <div className="vendor-comments">
-        <div className="comments-heading">Comments</div>
+        <div className="account-section-heading">Comments</div>
         {vendorProducts.map((product) => (
           <div key={product._id}>
-            <p>Comments for: {product.title}</p>
-            <ul>
+            <p className="comments-products-heading">{product.title}</p>
+            <ul className="comment-list">
               {product.comments.map((comment) => (
-                <li key={comment._id}>
-                  <p>{comment.text}</p>
-                  <Link to={`/product/${product._id}`} key={product._id}>
-                    <p>View Details</p>
-                  </Link>
+                <li key={comment._id} className="list-item-comment">
+                  <div className="list-text">
+                    <p className="comment-user">{comment.user_id} commented</p>
+                    <p className="comment-text">{comment.text}</p>
+                  </div>
+                  <div className="list-buttons">
+                    <Link
+                      to={`/product/${product._id}`}
+                      key={product._id}
+                      className="view-comment"
+                    >
+                      View Details
+                    </Link>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -130,82 +148,96 @@ const VendorAccount = () => {
     );
   };
 
-  const materialOptions = ["Gold", "Silver", "Metal", "Stone"]; // Define your material options
+  // Define your material options
+  const materialOptions = [
+    "Gold",
+    "Silver",
+    "Platinum",
+    "Diamond",
+    "Emerald",
+    "Sapphire",
+    "Opal",
+    "Pearl",
+    "Semi-Precious Gemstones",
+  ];
+  // Other Options could be:
+  //"Amethyst", "Lapis Lazuli", "Topaz", "Peridot", "Zircon", "Quartz", "Garnet", "Aquamarine", "Citrine", "Apatite"
 
   return (
     <div className="vendor-container">
       {renderVendorProducts()}
       {renderVendorComments()}
-      <form className="add-product" onSubmit={handleSubmit}>
-        <h3>Add a new product</h3>
+      <div className="add-product-section">
+        <div className="account-section-heading">Add a New Product</div>
+        <form className="add-product" onSubmit={handleSubmit}>
+          <div className="form-sections">
+            <label>Product Name</label>
+            <input
+              type="text"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+            />
+          </div>
 
-        <div>
-          <label>Product Name</label>
-          <input
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-          />
-        </div>
+          <div className="form-sections">
+            <label>Categories</label>
+            <select
+              onChange={(e) => setCategory(e.target.value)}
+              value={category}
+            >
+              <option value="" disabled hidden></option>
+              <option value="ring">Ring</option>
+              <option value="necklace">Necklace</option>
+              <option value="bracelet">Bracelet</option>
+              <option value="earring">Earring</option>
+            </select>
+          </div>
 
-        <div>
-          <label>Categories</label>
-          <select
-            onChange={(e) => setCategory(e.target.value)}
-            value={category}>
-            <option value="" disabled hidden>
-              Select a category
-            </option>
-            <option value="ring">Ring</option>
-            <option value="necklace">Necklace</option>
-            <option value="bracelet">Bracelet</option>
-            <option value="earring">Earring</option>
-          </select>
-        </div>
+          <div className="form-sections">
+            <label>Materials</label>
+            <MultiSelectDropdown
+              options={materialOptions}
+              selectedItems={selectedMaterials}
+              onChange={handleMaterialChange}
+            />
+          </div>
 
-        <div>
-          <label>Materials</label>
-          <MultiSelectDropdown
-            options={materialOptions}
-            selectedItems={selectedMaterials}
-            onChange={handleMaterialChange}
-          />
-        </div>
+          <div className="form-sections">
+            <label>Price</label>
+            <input
+              type="number"
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
+            />
+          </div>
 
-        <div>
-          <label>Price</label>
-          <input
-            type="number"
-            onChange={(e) => setPrice(e.target.value)}
-            value={price}
-          />
-        </div>
+          <div className="form-sections">
+            <label>Description</label>
+            <textarea
+              rows="4"
+              onChange={(e) => setDescription(e.target.value)}
+              value={description}
+            />
+          </div>
 
-        <div>
-          <label>Description</label>
-          <textarea
-            rows="4"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-          />
-        </div>
-
-        <div className="file-upload">
-          <label>Upload Photos</label>
-          <input
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={(e) => {
-              setImages([...e.target.files]);
-              console.log(images);
-            }}
-          />
-        </div>
-
-        <button className="product-submit">Submit</button>
-        {error && <div className="error">{error}</div>}
-      </form>
+          <div className="file-upload form sections">
+            <label className="upload-photos">Upload Photos</label>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={(e) => {
+                setImages([...e.target.files]);
+                console.log(images);
+              }}
+            />
+          </div>
+          <div className="button-container">
+            <button className="product-submit">Submit</button>
+          </div>
+          {error && <div className="error">{error}</div>}
+        </form>
+      </div>
     </div>
   );
 };

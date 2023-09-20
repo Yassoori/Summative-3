@@ -24,8 +24,9 @@ const userSchema = new Schema({
   },
 
   // account type, is this a vendor - true, or a customer - false
+  // this would be a boolean, but the account page won't work properly unless its a string for some reason, so its a string now
   isvendor: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   wishlists: [

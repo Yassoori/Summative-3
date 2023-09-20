@@ -24,7 +24,7 @@ const Signup = () => {
         <h3>Sign Up</h3>
         <div>
           <input
-          placeholder="Username"
+            placeholder="Username"
             type="username"
             className="username-input"
             onChange={(e) => setUsername(e.target.value)}
@@ -33,7 +33,7 @@ const Signup = () => {
         </div>
         <div>
           <input
-          placeholder="Email"
+            placeholder="Email"
             type="email"
             className="email-input"
             onChange={(e) => setEmail(e.target.value)}
@@ -42,7 +42,7 @@ const Signup = () => {
         </div>
         <div>
           <input
-          placeholder="Password"
+            placeholder="Password"
             type="password"
             className="password-input"
             onChange={(e) => setPassword(e.target.value)}
@@ -56,7 +56,7 @@ const Signup = () => {
             id="vendor-input"
             name="fav_language"
             onChange={(e) => setIsvendor(e.target.value)}
-            value={true}
+            value={"true"}
           />
           <label htmlFor="vendor-input">Vendor</label>
           <input
@@ -65,7 +65,7 @@ const Signup = () => {
             id="customer-input"
             name="fav_language"
             onChange={(e) => setIsvendor(e.target.value)}
-            value={false}
+            value={"false"}
           />
           <label htmlFor="customer-input">Customer</label>
         </div>

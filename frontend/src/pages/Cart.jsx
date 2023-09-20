@@ -25,6 +25,18 @@ const Cart = ({ product }) => {
   return (
     <div>
       {/* cart list should be almost identical to wishlist, but with add and remove buttons instead */}
+      <div className="vendor-products">
+        <div className="products-heading">Your Products</div>
+        <ul>
+          {vendorProducts.map((product) => (
+            <li key={product._id}>
+              <img src={product.image[0]}></img>
+              <p>{product.title}</p>
+              <p>${product.price}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
