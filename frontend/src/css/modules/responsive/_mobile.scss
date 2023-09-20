@@ -237,11 +237,62 @@ footer {
 
 //  home - hero
 .hero {
-  height: 75vh;
-  width: 100vw;
+  height: 95vh;
+  width: 99vw;
+  overflow-x: hidden;
+
   .swiper {
     width: 100%;
     height: 100%;
+
+    img {
+      background-color: #0e2c3699;
+      position: relative;
+    }
+
+    .hero-details-wrapper {
+      background-color: #0e2c3680;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      .hero-details {
+        display: flex;
+        position: absolute;
+        top: 200px;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0px 30px 0px 30px;
+        text-align: start;
+        padding: 10px;
+        border-radius: 5%;
+        backdrop-filter: blur(2px);
+
+        h2 {
+          @include head-font;
+          font-size: $head-size;
+          color: $light-color;
+        }
+
+        p {
+          @include body-font;
+          font-size: $body-size;
+          color: $light-color;
+        }
+
+        button {
+          margin: auto 0%;
+          color: $light-color;
+          @include head-font;
+          width: 100px;
+          height: 40px;
+          text-decoration: none;
+          background-color: #0e2c36;
+          margin-top: 10px;
+        }
+      }
+    }
+
   }
 
   .swiper-slide {
@@ -257,11 +308,14 @@ footer {
     height: 100%;
     object-fit: cover;
   }
+
+
   .swiper-button-prev {
-    display: none;
+    display: block;
   }
+
   .swiper-button-next {
-    display: none;
+    display: block;
   }
 }
 
@@ -380,6 +434,76 @@ footer {
     color: $light-color;
     @include sub-font;
   }
+}
+// about
+#about-page {
+      width: 100%;
+  
+      #about-hero {
+        background-image: linear-gradient(to top, #0e2c3690, #0e2c36),
+          url("https://images.unsplash.com/photo-1620656854929-5200d5d81889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+        padding: 15% 5% 15% 5%;
+        background-size: cover;
+        background-position: center;
+  
+        h2 {
+          padding: 3% 5% 3% 5%;
+          color: $light-color;
+          @include head-font;
+          font-size: $head-size;
+        }
+  
+        p {
+          padding: 0% 5% 0% 5%;
+          color: $light-color;
+          @include body-font;
+          font-size: $body-size;
+        }
+      }
+  
+      #about-mid-section {
+        padding: 5% 10% 10% 10%;
+  
+        h3 {
+          text-align: center;
+          @include sub-font;
+          font-size: $head-size;
+        }
+  
+        .about-card {
+          text-align: center;
+          padding: 10% 10% 10% 7%;
+  
+          h4 {
+            @include sub-font;
+            font-size: $sub-size;
+          }
+  
+          p {
+            @include body-font;
+            font-size: $body-size;
+          }
+        }
+      }
+  
+      #about-final-section {
+        background-color: $main-color;
+        padding: 10%;
+        text-align: center;
+  
+        h3 {
+          @include head-font;
+          color: $light-color;
+          padding: 2%;
+          font-size: $head-size;
+        }
+  
+        p {
+          @include body-font;
+          color: $light-color;
+          font-size: $body-size;
+        }
+      }
 }
 
 // Shop Page
@@ -500,98 +624,155 @@ footer {
 // details
 
 .details-container {
-  width: 90vw;
-  margin-top: 0;
-  // margin-left: 2em;
-  // margin-right: 2em;
-  margin-bottom: 4em;
-
-  display: flex;
-  text-align: center;
-  flex-direction: row;
-  justify-content: space-evenly;
-
-  .image-container {
-    margin-bottom: 1em;
-    width: 45%;
-    transform: rotate(270deg);
-
-    img {
-      // width: 320px;
-      // height: 320px;
-
-      width: 110%;
-      height: 110%;
-      transform: rotate(-270deg);
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        width: 420px;
-        height: 520px;
-        object-fit: cover;
-        object-position: center;
-      }
-    }
-
-    // .swiper-slide img {
-    //   display: block;
-    // width: 100%;
-    // height: 100%;
-    //   object-fit: cover;
-    // }
-  }
-  .text-container {
-    // width: 320px;
-    text-align: left;
-    width: 40vw;
-
-    .detail-name,
-    .detail-material,
-    .details-description,
-    .detail-price,
-    .designer {
-      text-align: left;
-      color: $dark-color;
-      text-decoration: none;
-      margin: auto;
-    }
-
-    .detail-name {
-      text-transform: uppercase;
-      font-size: $sub-size;
-      @include head-font;
-      margin-bottom: 1em;
-    }
-    .detail-description{
-      @include body-font;
-      margin-bottom: 0.5em;
-    }
-    .detail-material {
-      font-size: $body-size;
-      @include body-font;
-      margin-bottom: 0.5em;
-    }
-    .detail-price,
-    .designer {
-      font-size: $head-size;
-      @include head-font;
-      margin-bottom: 0.5em;
-    }
-  }
+          width: 90vw;
+          margin: auto;
+          // margin-left: 2em;
+          // margin-right: 2em;
+    
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+          justify-content: space-between;
+    
+          .image-container {
+            width: 95%;
+            margin-bottom: 2em;
+            margin: auto;
+    
+            img {
+              // width: 320px;
+              // height: 320px;
+    
+              width: 110%;
+              height: 110%;
+              object-fit: cover;
+              object-position: center;
+            }
+    
+            .swiper {
+              width: 100%;
+              height: 100%;
+            }
+    
+            .swiper-slide {
+              text-align: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+    
+              img {
+                width: 420px;
+                height: 520px;
+                object-fit: cover;
+                object-position: center;
+              }
+            }
+          }
+    
+          .text-container {
+            // width: 320px;
+            text-align: left;
+            margin-bottom: 1.5em;
+            .detail-name,
+            .detail-material,
+            .details-description,
+            .detail-price,
+            .designer {
+              text-align: left;
+              color: $dark-color;
+              text-decoration: none;
+              margin: auto;
+            }
+    
+            .detail-name {
+              text-transform: uppercase;
+              font-size: $sub-size;
+              @include head-font;
+              margin-bottom: 0.25em;
+            }
+    
+            .detail-description {
+              @include body-font;
+              margin-bottom: 0.25em;
+            }
+    
+            .detail-material {
+              font-size: $body-size;
+              @include body-font;
+              margin-bottom: 0.25em;
+            }
+    
+            .detail-price,
+            .designer {
+              font-size: $head-size;
+              @include head-font;
+              margin-bottom: 0.25em;
+            }
+    
+            .button-container {
+              display: flex;
+              flex-direction: column;
+    
+              .cart-button {
+                margin: auto 0%;
+                color: $light-color;
+                @include head-font;
+                width: 200px;
+                height: 40px;
+                text-decoration: none;
+                background-color: $main-color;
+                margin-bottom: 1em;
+    
+                button:hover {
+                  transition: 0.3s;
+                  opacity: 0.8;
+                }
+              }
+    
+              .wish-button {
+                margin: auto 0%;
+                color: $dark-color;
+                @include head-font;
+                width: 200px;
+                height: 40px;
+                border: $dark-color 2px solid;
+                text-decoration: none;
+                background-color: $light-color;
+              }
+            }
+          }
 }
+.comments-wrapper {
+          flex-direction: column-reverse;
+
+          .add-comment {
+            height: 4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            input {
+              height: 40px;
+              align-self: center;
+              margin: 0% 1% 0% 5%;
+              width: 250px;
+            }
+    
+            button {
+              margin: auto 0%;
+              color: $light-color;
+              @include head-font;
+              width: 100px;
+              height: 40px;
+              text-decoration: none;
+              background-color: $main-color;
+    
+              button:hover {
+                transition: 0.3s;
+                opacity: 0.8;
+              }
+            }
+          }
+        }
 
 // // comments
 
