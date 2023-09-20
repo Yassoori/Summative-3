@@ -70,7 +70,8 @@ nav {
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(10px);
-  background-color: #0e111199;
+  // background-color: #0e111199;
+  background-color: $faint-color;
   .login-signup-modal {
     background-color: $light-color;
     width: 80%;
@@ -439,7 +440,7 @@ footer {
     .product-card {
       text-align: center;
       background-color: $light-color;
-      filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+      filter: drop-shadow(0.3rem 0.3rem 0.2rem $faint-color);
       position: relative;
 
       svg {
@@ -607,55 +608,143 @@ footer {
 //   input {}
 //   button {}
 // }
+.account-container {
+  margin: 0 1em 0 1em;
+}
 
-.vendor-products {
-  .products-heading {
-    ul {
-      text-decoration: none;
-      color: $dark-color;
-      background-color: $light-color;
-      li {
-        display: grid;
-        // grid-template-columns: 1fr 2fr 1fr;
-        // grid-template-areas: "image", "text", "buttons";
-        // filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+.account-name {
+  font-size: $head-size;
+  margin-top: 2em;
+  @include head-font;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4em;
+}
 
-        img {
-          grid-area: "image";
-          object-fit: cover;
+.vendor-products,
+.vendor-comments,
+.add-product-section {
+  @include head-font;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6em;
+
+  .account-section-heading {
+    font-size: $head-size;
+    @include body-font;
+  }
+
+  .comments-products-heading {
+    // font-size: $body-size;
+    // @include body-font;
+    text-decoration: none;
+    // color: $dark-color;
+    color: $grey-color;
+    font-size: $button-size;
+    text-transform: capitalize;
+    margin-bottom: 1em;
+  }
+  ul {
+    text-decoration: none;
+    color: $dark-color;
+    background-color: $light-color;
+    .list-item-product {
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-areas: "image text buttons";
+    }
+    .list-item-comment {
+      grid-template-columns: 3fr 1fr;
+      grid-template-areas: " text buttons";
+    }
+    li {
+      display: grid;
+      background: $light-color;
+      filter: drop-shadow(0.3rem 0.3rem 0.2rem $faint-color);
+      margin-bottom: 4em;
+
+      img {
+        grid-area: image;
+        // width: 100%;
+        // height: 100%;
+        // object-fit: cover;
+        margin: 1em;
+      }
+      .list-text {
+        grid-area: text;
+        margin: 1em;
+        text-decoration: none;
+        color: $dark-color;
+
+        .list-creator,
+        .comment-user {
+          font-size: $body-size;
+          margin-bottom: 0.5em;
         }
-        .list-text {
-          grid-area: "text";
+        .list-title,
+        .list-price,
+        .comment-text {
+          text-decoration: none;
+          color: $dark-color;
+          font-size: $button-size;
+          text-transform: capitalize;
           margin-bottom: 1em;
-          .list-creator {
-            font-size: $body-size;
-            margin-bottom: 0.5em;
-          }
-          .list-title,
-          .list-price {
-            font-size: $button-size;
-            text-transform: capitalize;
-            margin-bottom: 0.5em;
-          }
         }
-        .list-buttons {
-          grid-area: "buttons";
-          position: relative;
-          .edit-button,
-          .add-to-cart-button,
-          .remove {
-            position: absolute;
-            right: 1em;
-            font-size: $button-size;
-          }
-          .edit-button,
-          .add-to-cart-button {
-            top: 1em;
-          }
-          .remove-button {
-            bottom: 1em;
-          }
+      }
+      .list-buttons {
+        grid-area: buttons;
+        position: relative;
+
+        .edit-button,
+        .add-to-cart-button {
+          position: absolute;
+          right: 1em;
+          top: 1em;
+          font-size: $button-size;
         }
+        .remove-button,
+        .view-comment {
+          position: absolute;
+          right: 1em;
+          bottom: 1em;
+          font-size: $button-size;
+          text-decoration: none;
+          color: $dark-color;
+        }
+      }
+    }
+  }
+
+  form {
+    width: 80%;
+    align-items: center;
+    margin: auto;
+    margin-top: 2em;
+    @include head-font;
+    .form-sections {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      grid-template-areas: "labelarea inputarea";
+      margin-bottom: 2em;
+      label {
+        grid-area: labelarea;
+        color: $grey-color;
+      }
+      input,
+      textarea,
+      select,
+      .multi-select-dropdown {
+        grid-area: inputarea;
+        border: none;
+        border-bottom: 2px $grey-color solid;
+        color: $grey-color;
+        background: none;
+        margin-left: 2em;
+        width: 100%;
+        resize: none;
+        resize: vertical;
+        text-align: end;
       }
     }
   }
