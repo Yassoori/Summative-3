@@ -598,7 +598,7 @@ footer #footer-links div li {
 .vendor-comments .comments-products-heading,
 .add-product-section .comments-products-heading {
   text-decoration: none;
-  color: rgba(14, 17, 17, 0.6352941176);
+  color: #686868;
   font-size: 22px;
   text-transform: capitalize;
   margin-bottom: 1em;
@@ -714,36 +714,79 @@ footer #footer-links div li {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-areas: "labelarea inputarea";
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
-.vendor-products form .form-sections label,
-.vendor-comments form .form-sections label,
-.add-product-section form .form-sections label {
+.vendor-products form label,
+.vendor-comments form label,
+.add-product-section form label {
   grid-area: labelarea;
-  color: rgba(14, 17, 17, 0.6352941176);
+  color: #686868;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
 }
-.vendor-products form .form-sections input,
-.vendor-products form .form-sections textarea,
-.vendor-products form .form-sections select,
-.vendor-products form .form-sections .multi-select-dropdown,
-.vendor-comments form .form-sections input,
-.vendor-comments form .form-sections textarea,
-.vendor-comments form .form-sections select,
-.vendor-comments form .form-sections .multi-select-dropdown,
-.add-product-section form .form-sections input,
-.add-product-section form .form-sections textarea,
-.add-product-section form .form-sections select,
-.add-product-section form .form-sections .multi-select-dropdown {
+.vendor-products form input,
+.vendor-products form textarea,
+.vendor-products form select,
+.vendor-products form .multi-select-dropdown,
+.vendor-comments form input,
+.vendor-comments form textarea,
+.vendor-comments form select,
+.vendor-comments form .multi-select-dropdown,
+.add-product-section form input,
+.add-product-section form textarea,
+.add-product-section form select,
+.add-product-section form .multi-select-dropdown {
   grid-area: inputarea;
   border: none;
-  border-bottom: 2px rgba(14, 17, 17, 0.6352941176) solid;
-  color: rgba(14, 17, 17, 0.6352941176);
+  border-bottom: 2px #686868 solid;
+  color: #686868;
   background: none;
-  margin-left: 2em;
   width: 100%;
   resize: none;
   resize: vertical;
   text-align: end;
+  background-color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+.vendor-products form .file-upload,
+.vendor-comments form .file-upload,
+.add-product-section form .file-upload {
+  margin-bottom: 2em;
+}
+.vendor-products form .file-upload .upload-photos,
+.vendor-comments form .file-upload .upload-photos,
+.add-product-section form .file-upload .upload-photos {
+  display: none;
+}
+.vendor-products form .file-upload input[type=file]::file-selector-button,
+.vendor-comments form .file-upload input[type=file]::file-selector-button,
+.add-product-section form .file-upload input[type=file]::file-selector-button {
+  text-align: start;
+  width: 20%;
+  padding: 4px 10px;
+  border: 0;
+  background-color: #f9f9f9;
+  color: #686868;
+}
+
+.button-container {
+  text-align: center;
+  margin: 6em;
+}
+.button-container .product-submit {
+  text-align: center;
+  margin: auto 0%;
+  color: #f9f9f9;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  width: 300px;
+  height: 45px;
+  text-decoration: none;
+  background-color: #0e2c36;
+  margin-bottom: 1em;
 }
 
 @media screen and (min-width: 768px) {

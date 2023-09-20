@@ -220,8 +220,8 @@ const VendorAccount = () => {
             />
           </div>
 
-          <div className="file-upload form-sections">
-            <label>Upload Photos</label>
+          <div className="file-upload form sections">
+            <label className="upload-photos">Upload Photos</label>
             <input
               type="file"
               accept="image/*"
@@ -232,8 +232,9 @@ const VendorAccount = () => {
               }}
             />
           </div>
-
-          <button className="product-submit">Submit</button>
+          <div className="button-container">
+            <button className="product-submit">Submit</button>
+          </div>
           {error && <div className="error">{error}</div>}
         </form>
       </div>

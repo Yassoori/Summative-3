@@ -726,39 +726,68 @@ footer {
       display: grid;
       grid-template-columns: 1fr 4fr;
       grid-template-areas: "labelarea inputarea";
+      margin-bottom: 3em;
+    }
+    label {
+      grid-area: labelarea;
+      color: $grey-color;
+      @include head-font;
+      font-size: $body-size;
+    }
+    input,
+    textarea,
+    select,
+    .multi-select-dropdown {
+      grid-area: inputarea;
+      border: none;
+      border-bottom: 2px $grey-color solid;
+      color: $grey-color;
+      background: none;
+      width: 100%;
+      resize: none;
+      resize: vertical;
+      text-align: end;
+      background-color: $light-color;
+      @include head-font;
+      font-size: $body-size;
+    }
+    .file-upload {
       margin-bottom: 2em;
-      label {
-        grid-area: labelarea;
-        color: $grey-color;
+      .upload-photos {
+        display: none;
       }
-      input,
-      textarea,
-      select,
-      .multi-select-dropdown {
-        grid-area: inputarea;
-        border: none;
-        border-bottom: 2px $grey-color solid;
+      // input {
+      //   display: grid;
+      //   grid-template-columns: 1fr 4fr;
+      //   grid-template-areas: "file-selector-button inputarea";
+      // }
+
+      input[type="file"]::file-selector-button {
+        text-align: start;
+        width: 20%;
+        padding: 4px 10px;
+        border: 0;
+        background-color: $light-color;
         color: $grey-color;
-        background: none;
-        margin-left: 2em;
-        width: 100%;
-        resize: none;
-        resize: vertical;
-        text-align: end;
       }
     }
   }
 }
 
-// <li key={product._id}>
-//   <img src={product.image[0]} className="list-image"></img>
-//   <div className="list-text">
-//     <p className="list-creator">{product.creator}</p>
-//     <p className="list-title">{product.title}</p>
-//     <p className="list-price">${product.price}</p>
-//   </div>
-//   <div className="list-buttons">
-//     <button className="edit-button">Edit</button>
-//     <button className="remove-button">Remove</button>
-//   </div>
-// </li>
+.button-container {
+  text-align: center;
+  margin: 6em;
+
+  .product-submit {
+    text-align: center;
+    margin: auto 0%;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    width: 300px;
+    height: 45px;
+    text-decoration: none;
+    background-color: #0e2c36;
+    margin-bottom: 1em;
+  }
+}
