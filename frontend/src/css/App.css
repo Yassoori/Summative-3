@@ -371,10 +371,6 @@ footer #footer-links div li {
   width: 100%;
   padding: 5px;
   text-align: center;
-  background-color: #36454f;
-  color: white;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
 }
 .product-slider .category-image {
   width: 100%;
@@ -388,7 +384,7 @@ footer #footer-links div li {
 .slider-controls .prev-button {
   position: absolute;
   left: -40px;
-  top: -250px;
+  top: -300px;
   border: none;
   font-size: 30px;
   background-color: #0e2c36;
@@ -397,20 +393,29 @@ footer #footer-links div li {
 .slider-controls .next-button {
   position: absolute;
   right: -40px;
-  top: -250px;
+  top: -300px;
   border: none;
   font-size: 30px;
   background-color: #0e2c36;
   color: #f9f9f9;
 }
 
+.product-card {
+  position: relative;
+}
 .product-card svg {
-  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  color: #20657c;
+}
+.product-card .image-container {
+  margin-top: 20px;
 }
 .product-card .image-container .product-image {
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .product-card .product-description {
   display: none;
@@ -423,6 +428,7 @@ footer #footer-links div li {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   text-align: center;
+  margin-top: 10px;
 }
 .product-card .product-price {
   text-align: center;
@@ -664,24 +670,29 @@ footer #footer-links div li {
   font-weight: 400;
   margin-bottom: 0.25em;
 }
-.details-container .text-container .detail-price,
 .details-container .text-container .designer {
   font-size: 40px;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   margin-bottom: 0.25em;
 }
+.details-container .text-container .detail-price {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
 .details-container .text-container .button-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  justify-content: center;
 }
 .details-container .text-container .button-container .cart-button {
   margin: auto 0%;
   color: #f9f9f9;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  width: 200px;
-  height: 40px;
+  width: 300px;
+  height: 45px;
   text-decoration: none;
   background-color: #0e2c36;
   margin-bottom: 1em;
@@ -695,8 +706,8 @@ footer #footer-links div li {
   color: #0e1111;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  width: 200px;
-  height: 40px;
+  width: 300px;
+  height: 45px;
   border: #0e1111 2px solid;
   text-decoration: none;
   background-color: #f9f9f9;
@@ -732,6 +743,30 @@ footer #footer-links div li {
   opacity: 0.8;
 }
 
+.comments {
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+}
+.comments .comment {
+  display: flex;
+  margin-bottom: 10px;
+}
+.comments .comment h5 {
+  font-size: 23px;
+  margin-right: 20px;
+}
+.comments .comment p {
+  font-size: 23px;
+  margin-left: 20px;
+}
+.comments .comment span {
+  font-size: 18px;
+  margin-left: 30px;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     padding: 10px 0px;
@@ -754,7 +789,36 @@ footer #footer-links div li {
     font-size: 15px;
   }
   .product-slider .product-list {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .product-card .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .product-card .image-container .product-image {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .product-card .product-description {
+    display: none;
+  }
+  .product-card .product-material {
+    display: none;
+  }
+  .product-card .product-name {
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    text-align: center;
+  }
+  .product-card .product-price {
+    text-align: center;
+    color: #f9f9f9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
   }
 }
 @media screen and (min-width: 992px) {
@@ -930,7 +994,7 @@ footer #footer-links div li {
     justify-content: center;
   }
   .home .product-slider .product-list .image-container .product-image {
-    width: 70%;
+    width: 100%;
     height: 350px;
   }
   .home .sub-hero {
@@ -1275,7 +1339,7 @@ footer #footer-links div li {
   }
   .details-container {
     width: 90vw;
-    margin: auto;
+    margin-top: 50px;
     display: flex;
     text-align: center;
     flex-direction: row;
@@ -1316,74 +1380,48 @@ footer #footer-links div li {
   .details-container .text-container {
     text-align: left;
     width: 40vw;
-  }
-  .details-container .text-container .detail-name,
-  .details-container .text-container .detail-material,
-  .details-container .text-container .details-description,
-  .details-container .text-container .detail-price,
-  .details-container .text-container .designer {
-    text-align: left;
-    color: #0e1111;
-    text-decoration: none;
-    margin: auto;
+    margin-top: 50px;
   }
   .details-container .text-container .detail-name {
     text-transform: uppercase;
     font-size: 30px;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
-    margin-bottom: 0.25em;
+    margin-bottom: 15px;
   }
   .details-container .text-container .detail-description {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    margin-bottom: 0.25em;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
   .details-container .text-container .detail-material {
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    margin-bottom: 0.25em;
+    margin-bottom: 10px;
   }
-  .details-container .text-container .detail-price,
+  .details-container .text-container .detail-price {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
   .details-container .text-container .designer {
     font-size: 40px;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     margin-bottom: 0.25em;
   }
-  .details-container .text-container .button-container {
-    display: flex;
-    flex-direction: column;
-  }
   .details-container .text-container .button-container .cart-button {
-    margin: auto 0%;
-    color: #f9f9f9;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 200px;
-    height: 40px;
-    text-decoration: none;
-    background-color: #0e2c36;
-    margin-bottom: 1em;
-  }
-  .details-container .text-container .button-container .cart-button button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
+    width: 400px;
+    height: 50px;
   }
   .details-container .text-container .button-container .wish-button {
-    margin: auto 0%;
-    color: #0e1111;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    width: 200px;
-    height: 40px;
-    border: #0e1111 2px solid;
-    text-decoration: none;
-    background-color: #f9f9f9;
+    width: 400px;
+    height: 50px;
   }
   .comments-wrapper {
     flex-direction: column-reverse;
+    margin-top: 30px;
   }
   .comments-wrapper .add-comment {
     height: 4em;
@@ -1428,4 +1466,4 @@ footer #footer-links div li {
     width: 440px;
     height: 6em;
   }
-}
+}/*# sourceMappingURL=App.css.map */
