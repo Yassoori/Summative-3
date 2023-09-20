@@ -97,9 +97,16 @@ const VendorAccount = () => {
         <ul>
           {vendorProducts.map((product) => (
             <li key={product._id}>
-              <img src={product.image[0]}></img>
-              <p>{product.title}</p>
-              <p>${product.price}</p>
+              <img src={product.image[0]} className="list-image"></img>
+              <div className="list-text">
+                <p className="list-creator">{product.creator}</p>
+                <p className="list-title">{product.title}</p>
+                <p className="list-price">${product.price}</p>
+              </div>
+              <div className="list-buttons">
+                <button className="edit-button">Edit</button>
+                <button className="remove-button">Remove</button>
+              </div>
             </li>
           ))}
         </ul>
@@ -130,7 +137,20 @@ const VendorAccount = () => {
     );
   };
 
-  const materialOptions = ["Gold", "Silver", "Metal", "Stone"]; // Define your material options
+  // Define your material options
+  const materialOptions = [
+    "Gold",
+    "Silver",
+    "Platinum",
+    "Diamond",
+    "Emerald",
+    "Sapphire",
+    "Opal",
+    "Pearl",
+    "Semi-Precious Gemstones",
+  ];
+  // Other Options could be:
+  //"Amethyst", "Lapis Lazuli", "Topaz", "Peridot", "Zircon", "Quartz", "Garnet", "Aquamarine", "Citrine", "Apatite"
 
   return (
     <div className="vendor-container">
@@ -138,7 +158,6 @@ const VendorAccount = () => {
       {renderVendorComments()}
       <form className="add-product" onSubmit={handleSubmit}>
         <h3>Add a new product</h3>
-
         <div>
           <label>Product Name</label>
           <input
@@ -152,7 +171,8 @@ const VendorAccount = () => {
           <label>Categories</label>
           <select
             onChange={(e) => setCategory(e.target.value)}
-            value={category}>
+            value={category}
+          >
             <option value="" disabled hidden>
               Select a category
             </option>

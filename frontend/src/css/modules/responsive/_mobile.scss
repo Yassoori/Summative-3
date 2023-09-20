@@ -23,7 +23,6 @@ nav {
   text-align: center;
   text-decoration: none;
   align-items: center;
-  
 
   .nav-shop {
     @include sub-font;
@@ -34,7 +33,7 @@ nav {
   }
   .nav-logo {
     @include logo-font;
-    h1{
+    h1 {
       color: $dark-color;
     }
   }
@@ -87,50 +86,50 @@ nav {
       margin: 3%;
     }
     .login-modal {
-                            .login {
-                              margin-top: 5%;
-                              display: flex;
-                              flex-direction: column;
-                              align-items: center;
-            
-                              h3 {
-                                @include head-font;
-                                text-align: center;
-                                font-size: $head-size;
-                                padding: 5% 0% 5% 0%;
-                              }
-            
-                              div {
-                                @include sub-font;
-                                font-size: $sub-size;
-                                display: flex;
-                                flex-direction: column;
-                                text-align: center;
-                              }
-            
-                              input {
-                                width: 20rem;
-                                height: 2.5rem;
-                                padding: 2%;
-                                margin: 4% 0% 4% 0%;
-                                background-color: $light-color;
-                              }
-            
-                              button {
-                                margin: auto 0%;
-                                color: $light-color;
-                                @include head-font;
-                                width: 100px;
-                                height: 40px;
-                                text-decoration: none;
-                                background-color: $main-color;
-                              }
-            
-                              button:hover {
-                                transition: 0.3s;
-                                opacity: 0.8;
-                              }
-                            }
+      .login {
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+          @include head-font;
+          text-align: center;
+          font-size: $head-size;
+          padding: 5% 0% 5% 0%;
+        }
+
+        div {
+          @include sub-font;
+          font-size: $sub-size;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        input {
+          width: 20rem;
+          height: 2.5rem;
+          padding: 2%;
+          margin: 4% 0% 4% 0%;
+          background-color: $light-color;
+        }
+
+        button {
+          margin: auto 0%;
+          color: $light-color;
+          @include head-font;
+          width: 100px;
+          height: 40px;
+          text-decoration: none;
+          background-color: $main-color;
+        }
+
+        button:hover {
+          transition: 0.3s;
+          opacity: 0.8;
+        }
+      }
     }
     .signup {
       .signup-form {
@@ -575,7 +574,7 @@ footer {
       @include head-font;
       margin-bottom: 1em;
     }
-    .detail-description{
+    .detail-description {
       @include body-font;
       margin-bottom: 0.5em;
     }
@@ -608,3 +607,69 @@ footer {
 //   input {}
 //   button {}
 // }
+
+.vendor-products {
+  .products-heading {
+    ul {
+      text-decoration: none;
+      color: $dark-color;
+      background-color: $light-color;
+      li {
+        display: grid;
+        // grid-template-columns: 1fr 2fr 1fr;
+        // grid-template-areas: "image", "text", "buttons";
+        // filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+
+        img {
+          grid-area: "image";
+          object-fit: cover;
+        }
+        .list-text {
+          grid-area: "text";
+          margin-bottom: 1em;
+          .list-creator {
+            font-size: $body-size;
+            margin-bottom: 0.5em;
+          }
+          .list-title,
+          .list-price {
+            font-size: $button-size;
+            text-transform: capitalize;
+            margin-bottom: 0.5em;
+          }
+        }
+        .list-buttons {
+          grid-area: "buttons";
+          position: relative;
+          .edit-button,
+          .add-to-cart-button,
+          .remove {
+            position: absolute;
+            right: 1em;
+            font-size: $button-size;
+          }
+          .edit-button,
+          .add-to-cart-button {
+            top: 1em;
+          }
+          .remove-button {
+            bottom: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+
+// <li key={product._id}>
+//   <img src={product.image[0]} className="list-image"></img>
+//   <div className="list-text">
+//     <p className="list-creator">{product.creator}</p>
+//     <p className="list-title">{product.title}</p>
+//     <p className="list-price">${product.price}</p>
+//   </div>
+//   <div className="list-buttons">
+//     <button className="edit-button">Edit</button>
+//     <button className="remove-button">Remove</button>
+//   </div>
+// </li>

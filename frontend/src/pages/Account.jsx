@@ -15,7 +15,7 @@ const Account = () => {
         setLoading(false);
       }
       console.log("user:", user);
-      console.log("isVendor:", user.isvendor);
+      console.log("isvendor:", user.isvendor);
     }
   }, [user]);
 

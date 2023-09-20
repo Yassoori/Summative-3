@@ -562,6 +562,52 @@ footer #footer-links div li {
   margin-bottom: 0.5em;
 }
 
+.vendor-products .products-heading ul {
+  text-decoration: none;
+  color: #0e1111;
+  background-color: #f9f9f9;
+}
+.vendor-products .products-heading ul li {
+  display: grid;
+}
+.vendor-products .products-heading ul li img {
+  grid-area: "image";
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.vendor-products .products-heading ul li .list-text {
+  grid-area: "text";
+  margin-bottom: 1em;
+}
+.vendor-products .products-heading ul li .list-text .list-creator {
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+.vendor-products .products-heading ul li .list-text .list-title,
+.vendor-products .products-heading ul li .list-text .list-price {
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-bottom: 0.5em;
+}
+.vendor-products .products-heading ul li .list-buttons {
+  grid-area: "buttons";
+  position: relative;
+}
+.vendor-products .products-heading ul li .list-buttons .edit-button,
+.vendor-products .products-heading ul li .list-buttons .add-to-cart-button,
+.vendor-products .products-heading ul li .list-buttons .remove {
+  position: absolute;
+  right: 1em;
+  font-size: 22px;
+}
+.vendor-products .products-heading ul li .list-buttons .edit-button,
+.vendor-products .products-heading ul li .list-buttons .add-to-cart-button {
+  top: 1em;
+}
+.vendor-products .products-heading ul li .list-buttons .remove-button {
+  bottom: 1em;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     padding: 10px 0px;
@@ -1122,4 +1168,4 @@ footer #footer-links div li {
     width: 440px;
     height: 6em;
   }
-}
+}/*# sourceMappingURL=App.css.map */
