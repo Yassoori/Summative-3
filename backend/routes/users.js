@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const { addToWishlist } = require("../controllers/wishListController")
+const {
+  signupUser,
+  loginUser,
+  addToWishlist,
+  fetchWishlist,
+} = require("../controllers/userController");
 
-// import controller functions
-const { signupUser, loginUser } = require("../controllers/userController");
-
-// login
+// Login
 router.post("/login", loginUser);
-router.get("/", () => {
-  console.log("get");
-});
 
-// signup
+// Signup
 router.post("/signup", signupUser);
 
-router.post("/wishlist/add", addToWishlist )
-
+// Add to Wishlist
+router.post("/:userId/wishlist/:productId", addToWishlist);
+router.get("/:userId/wishlist/products", fetchWishlist);
 module.exports = router;
