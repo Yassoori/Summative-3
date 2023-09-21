@@ -104,8 +104,7 @@ const ProductDetails = () => {
             pagination={{ clickable: true }}
             modules={[Pagination]}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+            onSwiper={(swiper) => console.log(swiper)}>
             {product.image.map((image, index) => (
               <SwiperSlide key={index}>
                 <img
