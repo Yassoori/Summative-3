@@ -745,7 +745,9 @@ footer {
 .vendor-comments,
 .add-product-section,
 .comments-wrapper,
-.shop-search {
+.shop-search,
+.regular-account-container,
+.cart-page {
   @include head-font;
   max-width: 1000px;
   margin-left: auto;
@@ -753,6 +755,16 @@ footer {
   margin-bottom: 6em;
 
   .account-section-heading {
+    font-size: $head-size;
+    @include body-font;
+  }
+
+  .wishlist-heading {
+    font-size: $head-size;
+    @include body-font;
+  }
+
+  .cart-heading {
     font-size: $head-size;
     @include body-font;
   }
@@ -767,6 +779,21 @@ footer {
     text-transform: capitalize;
     margin-bottom: 1em;
   }
+
+  .payment {
+    grid-area: inputarea;
+    border: none;
+    border-bottom: 2px $grey-color solid;
+    color: $grey-color;
+    width: 100%;
+    resize: none;
+    resize: vertical;
+    text-align: start;
+    background-color: $light-color;
+    @include head-font;
+    font-size: $body-size;
+  }
+  
   .comment-list {
     width: 80%;
     margin: auto;
@@ -908,7 +935,8 @@ select,
   margin: 6em 0;
 }
 
-.product-submit {
+.product-submit,
+.paynow {
   text-align: center;
   margin: auto;
   color: $light-color;
@@ -974,6 +1002,8 @@ select,
     }
   }
 }
+
+
 
 // swiper
 

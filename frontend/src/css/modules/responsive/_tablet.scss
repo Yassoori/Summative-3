@@ -70,7 +70,9 @@
     }
   }
 
-  .vendor-products {
+  .vendor-products,
+  .regular-account-container,
+  .cart-page {
     .list-item-product {
       // this is overridden by the mobile sass ?
       // grid-template-columns: 1fr 2fr 1fr;

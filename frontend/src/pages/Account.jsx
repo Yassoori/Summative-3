@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useWishlist } from "../context/wishlistContext";
+import { useWishlist } from "../context/WishlistContext";
 import VendorAccount from "../components/VendorAccount"; // Import the VendorAccount component
 
 import { useLogout } from "../hooks/useLogout";
@@ -54,12 +55,20 @@ const Account = () => {
           <div className="wishlist">
             <ul>
               {wishlist.map((product) => (
-                <div className="wishlist-item">
-                  <img src={product.image[0]}></img>
-                  <p>{product.creator}</p>
-                  <h3>{product.title}</h3>
-                  <p>${product.price}</p>
-                </div>
+                <li key={product._id} className="list-item-product">
+                  <img src={product.image[0]} className="list-image"></img>
+                  <div className="list-text">
+                    <p className="list-creator">{product.creator}</p>
+                    <Link to={`/product/${product._id}`} key={product._id}>
+                      <p className="list-title">{product.title}</p>
+                    </Link>
+                    <p className="list-price">${product.price}</p>
+                  </div>
+                  <div className="list-buttons">
+                    <a className="edit-button">Edit</a>
+                    <a className="remove-button">Remove</a>
+                  </div>
+                </li>
               ))}
             </ul>
           </div>

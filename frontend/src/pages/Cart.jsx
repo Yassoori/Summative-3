@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { user } = useAuthContext();
@@ -48,16 +49,37 @@ const Cart = () => {
         <div className="cart">
           <ul>
             {cart.map((product) => (
-              <div className="cart-item" key={product._id}>
-                <img src={product.image[0]} alt={product.title} />
-                <p>{product.creator}</p>
-                <h3>{product.title}</h3>
-                <p>${product.price}</p>
-              </div>
+                <li key={product._id} className="list-item-product">
+                  <img src={product.image[0]} className="list-image"></img>
+                  <div className="list-text">
+                    <p className="list-creator">{product.creator}</p>
+                    <Link to={`/product/${product._id}`} key={product._id}>
+                      <p className="list-title">{product.title}</p>
+                    </Link>
+                    <p className="list-price">${product.price}</p>
+                  </div>
+                  <div className="list-buttons">
+                    <a className="edit-button">Edit</a>
+                    <a className="remove-button">Remove</a>
+                  </div>
+              </li>
             ))}
           </ul>
         </div>
       </div>
+
+      <div className="payment">
+        <h3>Payment</h3>
+        <ul className="form-sections">
+          <li>Card number</li>
+          <li>Expiry date</li>
+          <li>CCV</li>
+          <li>Name on card</li>
+          <li>Optional - email my receipt </li>
+        </ul>
+        <button className="paynow">Pay now</button>
+      </div>
+
     </div>
   );
 };
