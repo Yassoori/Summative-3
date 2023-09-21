@@ -368,6 +368,51 @@ footer {
   background-color: $main-color;
   color: $light-color;
 
+  .product-card {
+    text-align: center;
+    filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 4em;
+    min-width: 240px;
+    max-width: 30%;
+    position: relative;
+  }
+
+  .image-container {
+    .product-image {
+      // position: absolute;
+      margin: 0;
+      width: 320px;
+      height: 320px;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 1em;
+    }
+  }
+
+  .product-name,
+  .product-price,
+  h3 {
+    color: $light-color;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    font-size: $mob-button-size;
+    @include body-font;
+    margin-bottom: 0.5em;
+  }
+
+  h3 {
+    font-size: $sub-size;
+  }
+
+  .product-description,
+  .product-material {
+    display: none;
+  }
+
   .category-name {
     position: absolute;
     left: 0;
@@ -375,9 +420,6 @@ footer {
     width: 100%;
     padding: 5px;
     text-align: center;
-  }
-  .category-image {
-    width: 100%;
   }
 }
 
@@ -483,26 +525,6 @@ footer {
 // Shop Page
 
 .product-card {
-  .product-description {
-    display: none;
-  }
-  .product-material {
-    display: none;
-  }
-  .product-name {
-    color: $light-color;
-    @include head-font;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .product-price {
-    text-align: center;
-    color: $light-color;
-    @include sub-font;
-  }
-}
-
-.product-card {
   position: relative;
 
   .heart-icon {
@@ -575,8 +597,7 @@ footer {
       flex-wrap: nowrap;
 
       .product-name,
-        // .product-material,
-        .product-price {
+      .product-price {
         text-transform: uppercase;
         text-align: center;
         color: $dark-color;

@@ -392,6 +392,46 @@ footer #footer-copywrite {
   background-color: #0e2c36;
   color: #f9f9f9;
 }
+.product-slider .product-card {
+  text-align: center;
+  filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 4em;
+  min-width: 240px;
+  max-width: 30%;
+  position: relative;
+}
+.product-slider .image-container .product-image {
+  margin: 0;
+  width: 320px;
+  height: 320px;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin-bottom: 1em;
+}
+.product-slider .product-name,
+.product-slider .product-price,
+.product-slider h3 {
+  color: #f9f9f9;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+.product-slider h3 {
+  font-size: 30px;
+}
+.product-slider .product-description,
+.product-slider .product-material {
+  display: none;
+}
 .product-slider .category-name {
   position: absolute;
   left: 0;
@@ -399,9 +439,6 @@ footer #footer-copywrite {
   width: 100%;
   padding: 5px;
   text-align: center;
-}
-.product-slider .category-image {
-  width: 100%;
 }
 
 .slider-controls {
@@ -491,26 +528,6 @@ footer #footer-copywrite {
   font-weight: 400;
   color: #f9f9f9;
   font-size: 20px;
-}
-
-.product-card .product-description {
-  display: none;
-}
-.product-card .product-material {
-  display: none;
-}
-.product-card .product-name {
-  color: #f9f9f9;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 10px;
-}
-.product-card .product-price {
-  text-align: center;
-  color: #f9f9f9;
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
 }
 
 .product-card {
@@ -1125,33 +1142,6 @@ select .dropdown-header,
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  }
-  .product-card .image-container {
-    display: flex;
-    justify-content: center;
-  }
-  .product-card .image-container .product-image {
-    width: 100%;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .product-card .product-description {
-    display: none;
-  }
-  .product-card .product-material {
-    display: none;
-  }
-  .product-card .product-name {
-    color: #171d1d;
-    font-family: "Rubik", sans-serif;
-    font-weight: 400;
-    text-align: center;
-  }
-  .product-card .product-price {
-    text-align: center;
-    color: #171d1d;
-    font-family: "Rubik", sans-serif;
-    font-weight: 300;
   }
   .details-page .details-container {
     display: grid;
