@@ -14,6 +14,12 @@ const VendorAccount = () => {
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
+  const { products, deleteProduct } = useProducts();
+
+  // Function to handle product deletion
+  const handleProductDelete = (productId) => {
+    deleteProduct(productId);
+  };
 
   const handleMaterialChange = (material) => {
     if (selectedMaterials.includes(material)) {
@@ -89,6 +95,7 @@ const VendorAccount = () => {
   // Use useEffect to fetch the vendor's products when the component mounts
   useEffect(() => {
     fetchVendorProducts();
+    console.log("VENDOR PRODUCTS ALL:", vendorProducts);
   }, []);
 
   const renderVendorProducts = () => {
@@ -98,7 +105,11 @@ const VendorAccount = () => {
         <ul>
           {vendorProducts.map((product) => (
             <li key={product._id} className="list-item-product">
-              <img src={product.image[0]} className="list-image"></img>
+              <img
+                src={product.image[0]}
+                className="list-image"
+                alt={product.title}
+              />
               <div className="list-text">
                 <p className="list-creator">{product.creator}</p>
                 <Link to={`/product/${product._id}`} key={product._id}>
@@ -108,7 +119,11 @@ const VendorAccount = () => {
               </div>
               <div className="list-buttons">
                 <a className="edit-button">Edit</a>
-                <a className="remove-button">Remove</a>
+                <a
+                  className="remove-button"
+                  onClick={() => handleProductDelete(product._id)}>
+                  Remove
+                </a>
               </div>
             </li>
           ))}
@@ -142,8 +157,7 @@ const VendorAccount = () => {
                     <Link
                       to={`/product/${product._id}`}
                       key={product._id}
-                      className="view-comment"
-                    >
+                      className="view-comment">
                       View Details
                     </Link>
                   </div>
@@ -193,8 +207,7 @@ const VendorAccount = () => {
             <select
               className="product-form-input"
               onChange={(e) => setCategory(e.target.value)}
-              value={category}
-            >
+              value={category}>
               <option value="" disabled hidden></option>
               <option value="ring">Ring</option>
               <option value="necklace">Necklace</option>
