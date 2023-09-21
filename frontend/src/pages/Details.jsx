@@ -9,6 +9,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
@@ -24,6 +25,7 @@ const ProductDetails = () => {
   const [commentText, setCommentText] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
   const user_id = user ? user.username : null;
+  const navigate = useNavigate()
 
   const handleAddToCart = () => {
     addToCart(productId); // Add the current product to the cart
