@@ -747,7 +747,8 @@ footer {
 .comments-wrapper,
 .shop-search,
 .regular-account-container,
-.cart-page {
+.cart-page,
+.payment-section {
   @include head-font;
   max-width: 1000px;
   margin-left: auto;
@@ -768,6 +769,11 @@ footer {
     font-size: $head-size;
     @include body-font;
   }
+  
+  .payment-section-heading {
+    font-size: $head-size;
+    @include body-font;
+  }
 
   .comments-products-heading {
     // font-size: $body-size;
@@ -778,20 +784,6 @@ footer {
     font-size: $button-size;
     text-transform: capitalize;
     margin-bottom: 1em;
-  }
-
-  .payment {
-    grid-area: inputarea;
-    border: none;
-    border-bottom: 2px $grey-color solid;
-    color: $grey-color;
-    width: 100%;
-    resize: none;
-    resize: vertical;
-    text-align: start;
-    background-color: $light-color;
-    @include head-font;
-    font-size: $body-size;
   }
   
   .comment-list {
@@ -859,12 +851,14 @@ footer {
   .add-to-cart-button {
     font-size: $mob-button-size;
     margin-right: 1em;
+    cursor: pointer;
   }
   .remove-button,
   .view-comment {
     font-size: $mob-button-size;
     text-decoration: none;
     color: $dark-color;
+    cursor: pointer;
   }
 }
 

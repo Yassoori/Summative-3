@@ -725,7 +725,8 @@ footer #footer-copywrite {
 .comments-wrapper,
 .shop-search,
 .regular-account-container,
-.cart-page {
+.cart-page,
+.payment-section {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   max-width: 1000px;
@@ -739,7 +740,8 @@ footer #footer-copywrite {
 .comments-wrapper .account-section-heading,
 .shop-search .account-section-heading,
 .regular-account-container .account-section-heading,
-.cart-page .account-section-heading {
+.cart-page .account-section-heading,
+.payment-section .account-section-heading {
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -750,7 +752,8 @@ footer #footer-copywrite {
 .comments-wrapper .wishlist-heading,
 .shop-search .wishlist-heading,
 .regular-account-container .wishlist-heading,
-.cart-page .wishlist-heading {
+.cart-page .wishlist-heading,
+.payment-section .wishlist-heading {
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -761,7 +764,20 @@ footer #footer-copywrite {
 .comments-wrapper .cart-heading,
 .shop-search .cart-heading,
 .regular-account-container .cart-heading,
-.cart-page .cart-heading {
+.cart-page .cart-heading,
+.payment-section .cart-heading {
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+.vendor-products .payment-section-heading,
+.vendor-comments .payment-section-heading,
+.add-product-section .payment-section-heading,
+.comments-wrapper .payment-section-heading,
+.shop-search .payment-section-heading,
+.regular-account-container .payment-section-heading,
+.cart-page .payment-section-heading,
+.payment-section .payment-section-heading {
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -772,32 +788,13 @@ footer #footer-copywrite {
 .comments-wrapper .comments-products-heading,
 .shop-search .comments-products-heading,
 .regular-account-container .comments-products-heading,
-.cart-page .comments-products-heading {
+.cart-page .comments-products-heading,
+.payment-section .comments-products-heading {
   text-decoration: none;
   color: #686868;
   font-size: 22px;
   text-transform: capitalize;
   margin-bottom: 1em;
-}
-.vendor-products .payment,
-.vendor-comments .payment,
-.add-product-section .payment,
-.comments-wrapper .payment,
-.shop-search .payment,
-.regular-account-container .payment,
-.cart-page .payment {
-  grid-area: inputarea;
-  border: none;
-  border-bottom: 2px #686868 solid;
-  color: #686868;
-  width: 100%;
-  resize: none;
-  resize: vertical;
-  text-align: start;
-  background-color: #f9f9f9;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
 }
 .vendor-products .comment-list,
 .vendor-comments .comment-list,
@@ -805,7 +802,8 @@ footer #footer-copywrite {
 .comments-wrapper .comment-list,
 .shop-search .comment-list,
 .regular-account-container .comment-list,
-.cart-page .comment-list {
+.cart-page .comment-list,
+.payment-section .comment-list {
   width: 80%;
   margin: auto;
 }
@@ -815,7 +813,8 @@ footer #footer-copywrite {
 .comments-wrapper ul,
 .shop-search ul,
 .regular-account-container ul,
-.cart-page ul {
+.cart-page ul,
+.payment-section ul {
   text-decoration: none;
   color: #171d1d;
   background-color: #f9f9f9;
@@ -826,7 +825,8 @@ footer #footer-copywrite {
 .comments-wrapper ul .list-item-product,
 .shop-search ul .list-item-product,
 .regular-account-container ul .list-item-product,
-.cart-page ul .list-item-product {
+.cart-page ul .list-item-product,
+.payment-section ul .list-item-product {
   grid-template-columns: 1fr 3fr;
   grid-template-areas: "image text";
 }
@@ -836,7 +836,8 @@ footer #footer-copywrite {
 .comments-wrapper ul .list-item-comment,
 .shop-search ul .list-item-comment,
 .regular-account-container ul .list-item-comment,
-.cart-page ul .list-item-comment {
+.cart-page ul .list-item-comment,
+.payment-section ul .list-item-comment {
   grid-template-columns: 3fr 1fr;
   grid-template-areas: " text buttons";
 }
@@ -846,7 +847,8 @@ footer #footer-copywrite {
 .comments-wrapper ul li,
 .shop-search ul li,
 .regular-account-container ul li,
-.cart-page ul li {
+.cart-page ul li,
+.payment-section ul li {
   display: grid;
   background: #f9f9f9;
   filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
@@ -859,7 +861,8 @@ footer #footer-copywrite {
 .comments-wrapper ul li img,
 .shop-search ul li img,
 .regular-account-container ul li img,
-.cart-page ul li img {
+.cart-page ul li img,
+.payment-section ul li img {
   grid-area: image;
   width: 100%;
   margin: 1em;
@@ -896,12 +899,14 @@ footer #footer-copywrite {
 .list-buttons .add-to-cart-button {
   font-size: 16px;
   margin-right: 1em;
+  cursor: pointer;
 }
 .list-buttons .remove-button,
 .list-buttons .view-comment {
   font-size: 16px;
   text-decoration: none;
   color: #171d1d;
+  cursor: pointer;
 }
 
 form,

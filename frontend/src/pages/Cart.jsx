@@ -47,48 +47,68 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart-page">
-      <div className="cart-container">
-        <div className="cart-heading">Cart</div>
-        <div className="cart">
-          <ul>
-            {cart.map((product) => (
-              <li key={product._id} className="list-item-product">
-                <img src={product.image[0]} className="list-image"></img>
-                <div className="list-text">
-                  <p className="list-creator">{product.creator}</p>
-                  <Link to={`/product/${product._id}`} key={product._id}>
-                    <p className="list-title">{product.title}</p>
-                  </Link>
-                  <p className="list-price">${product.price}</p>
-                </div>
-                <div className="list-buttons">
-                  <a className="edit-button">Edit</a>
-                  {/* Add a click handler for the Remove button */}
-                  <a
-                    className="remove-button"
-                    onClick={() => handleRemoveFromCart(product._id)}>
-                    Remove
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
+    <>
+      <div className="cart-page">
+        <div className="cart-container">
+          <div className="cart-heading">Cart</div>
+          <div className="cart">
+            <ul>
+              {cart.map((product) => (
+                  <li key={product._id} className="list-item-product">
+                    <img src={product.image[0]} className="list-image"></img>
+                    <div className="list-text">
+                      <p className="list-creator">{product.creator}</p>
+                      <Link to={`/product/${product._id}`} key={product._id}>
+                        <p className="list-title">{product.title}</p>
+                      </Link>
+                      <p className="list-price">${product.price}</p>
+                    </div>
+                    <div className="list-buttons">
+                      <a className="edit-button">Edit</a>
+                      <a className="remove-button">Remove</a>
+                    </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="payment">
-        <h3>Payment</h3>
-        <ul className="form-sections">
-          <li>Card number</li>
-          <li>Expiry date</li>
-          <li>CCV</li>
-          <li>Name on card</li>
-          <li>Optional - email my receipt</li>
-        </ul>
-        <button className="paynow">Pay now</button>
+      <div className="payment-section">
+        <div className="payment-section-heading">Payment</div>
+        <form>
+          <div className="form-sections">
+            <label className="payment-form-label">Product Name</label>
+            <input className="payment-form-input" type="text" />
+          </div>
+
+          <div className="form-sections">
+            <label className="payment-form-label">Expiry date</label>
+            <input className="payment-form-input" type="text" />
+          </div>
+
+          <div className="form-sections">
+            <label className="payment-form-label">CCV</label>
+            <input className="payment-form-input" type="number" />
+          </div>
+
+          <div className="form-sections">
+            <label className="payment-form-label">Name on card</label>
+            <input className="payment-form-input" type="text" />
+          </div>
+
+          <div className="form-sections">
+            <label className="payment-form-label">Optional - email my receipt </label>
+            <input className="payment-form-input" type="text" />
+          </div>
+
+          <div className="button-container">
+            <button className="paynow">Paynow</button>
+          </div>
+        </form>
       </div>
-    </div>
+    </>
+
   );
 };
 
