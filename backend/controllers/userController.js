@@ -229,4 +229,76 @@ const fetchWishlist = async (req, res) => {
   }
 };
 
-module.exports = { signupUser, loginUser, addToWishlist, fetchWishlist };
+const addToCart = async (req, res) => {
+  try {
+    const { productId } = req.params;
+
+    // Extract the token from the Authorization header
+    const token = req.headers.authorization;
+
+    if (!token) {
+      return res.status(401).json({ error: "Token not provided" });
+    }
+
+    // Decode the JWT token to access user data
+    const decodedToken = jwt.verify(token, process.env.SECRET);
+
+    if (!decodedToken || !decodedToken._id) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    const userId = decodedToken._id;
+    // Check if the user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check if the product with the given ID exists
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
+    // Check if the product is already in the user's cart
+    if (user.carts.includes(productId)) {
+      return res
+        .status(400)
+        .json({ error: "Product is already in the cart" });
+    }
+
+    // Add the product's ObjectId to the user's carts array
+    user.carts.push(productId);
+    await user.save();
+
+    res.status(201).json({ message: "Product added to cart" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server Error" });
+  }
+};
+
+const fetchCart = async (req, res) => {
+  try {
+    // Get the user ID from the request parameters
+    const { userId } = req.params;
+
+    // Fetch the user by ID
+    const user = await User.findById(userId);
+
+    // Check if the user exists
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const cartlistItems = await Product.find({ _id: { $in: user.cartlists } });
+
+    // Send the wishlist items in the response
+    res.status(200).json({ wishlist: cartlistItems });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server Error" });
+  }
+};
+
+module.exports = { signupUser, loginUser, addToWishlist, fetchWishlist, addToCart, fetchCart};

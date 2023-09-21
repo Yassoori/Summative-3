@@ -8,6 +8,7 @@ import About from "./pages/About";
 import ProductDetails from "./pages/Details";
 import VendorAccount from "./components/VendorAccount";
 import Account from "./pages/Account";
+import Cart from "./pages/Cart";
 //import components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -19,7 +20,7 @@ import { useLoginModalContext } from "./hooks/useLoginModalContext";
 import { IconContextProvider } from "./context/IconContext";
 import { ProductsContextProvider } from "./context/ProductContext";
 import { WishlistProvider } from "./context/wishlistContext";
-import { useContext } from "react";
+import { CartProvider } from "./context/CartContext";
 
 //Import Local Storage
 
@@ -35,34 +36,42 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <CartProvider>
         <WishlistProvider>
-          <IconContextProvider>
-            <ProductsContextProvider>
-              <Header />
-              <div className="pages">
-                <Routes>
-                  <Route path="/about" element={<About />} />
-                  <Route path="/" element={<Home />} />
-                  <Route exact path="/shop/:category" element={<Shop />} />
-                  <Route
-                    path="/product/:productId"
-                    element={<ProductDetails />}
-                  />
-                  <Route
-                    path="/account/:userId"
-                    element={
-                      user && user.isVendor ? <VendorAccount /> : <Account />
-                    }
-                  />
-                </Routes>
-              </div>
-              {isLoginVisible && (
-                <LoginSignup onClose={handleLoginModalClose} />
-              )}
-              <Footer />
-            </ProductsContextProvider>
-          </IconContextProvider>
+          
+            <IconContextProvider>
+              <ProductsContextProvider>
+                <Header />
+                <div className="pages">
+                  <Routes>
+                    <Route path="/about" element={<About />} />
+                    <Route path="/" element={<Home />} />
+                    <Route exact path="/shop/:category" element={<Shop />} />
+                    <Route
+                      path="/product/:productId"
+                      element={<ProductDetails />}
+                    />
+                    <Route
+                      path="/account/:userId"
+                      element={
+                        user && user.isVendor ? <VendorAccount /> : <Account />
+                      }
+                    />
+                    <Route
+                      path="/cart/:userId"
+                      element={<Cart />}
+                    />
+                  </Routes>
+                </div>
+                {isLoginVisible && (
+                  <LoginSignup onClose={handleLoginModalClose} />
+                )}
+                <Footer />
+              </ProductsContextProvider>
+            </IconContextProvider>
+         
         </WishlistProvider>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

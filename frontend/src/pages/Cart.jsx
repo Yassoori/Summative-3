@@ -1,42 +1,58 @@
-import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
 
-const Cart = ({ product }) => {
-  const { addToCart, removeFromCart, cart } = useCart();
-  // const [isHovered, setIsHovered] = useState(false);
-  const [isInCart, setIsInCart] = useState(cart.includes(product));
+const Cart = () => {
+  const { user } = useAuthContext();
+  const [ userDetails, setUserDetails ] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { cart } = useCart();
 
-  const handleCartClick = () => {
-    if (isInCart) {
-      removeFromCart(product);
-    } else {
-      addToCart(product);
+  useEffect(()=> {
+    console.log(cart);
+  },[cart])
+
+  useEffect(() => {
+    if (user) {
+      const storedUserDetails = JSON.parse(localStorage.getItem("user"));
+      if (storedUserDetails) {
+        setUserDetails(storedUserDetails);
+        setLoading(false);
+      }
+      console.log("user:", user);
+      console.log("isvendor:", user.isvendor);
     }
+  }, [user]);
 
-    setIsInCart(!isInCart);
-  };
+  if (!user) {
+    return <div>User Not Logged In.</div>;
+  }
 
-  const handleRemoveClick = () => {
-    removeFromCart(product);
-  };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!userDetails) {
+    return <div>User Details Not Available.</div>;
+  }
 
   return (
     <div className="cart-page">
-      {/* cart list should be almost identical to wishlist, but with add and remove buttons instead */}
-      <div className="vendor-products">
-        <div className="products-heading">Your Products</div>
-        <ul>
-          {vendorProducts.map((product) => (
-            <li key={product._id}>
-              <img src={product.image[0]}></img>
-              <p>{product.title}</p>
-              <p>${product.price}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="cart-container">
+          <div className="cart-heading">Cart</div>
+          <div className="cart">
+            <ul>
+              {cart.map((product) => (
+                <div className="cart-item">
+                  <img src={product.image[0]}></img>
+                  <p>{product.creator}</p>
+                  <h3>{product.title}</h3>
+                  <p>${product.price}</p>
+                </div>
+              ))}
+            </ul>
+          </div>
+        </div>
     </div>
   );
 };
