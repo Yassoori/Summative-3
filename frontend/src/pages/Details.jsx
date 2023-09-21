@@ -31,13 +31,13 @@ const ProductDetails = () => {
 
   const handleAddToWishlist = () => {
     addToWishlist(productId); // Pass the productId to addToWishlist
-//   const handleAddToWishlist = async () => {
-//     try {
-//       // Call addToWishlist with productId as an argument
-//       await addToWishlist(productId);
-//     } catch (error) {
-//       console.error("Error Adding Product to Wishlist:", error);
-//     }
+    //   const handleAddToWishlist = async () => {
+    //     try {
+    //       // Call addToWishlist with productId as an argument
+    //       await addToWishlist(productId);
+    //     } catch (error) {
+    //       console.error("Error Adding Product to Wishlist:", error);
+    //     }
   };
 
   const handleAddComment = async () => {
@@ -107,10 +107,12 @@ const ProductDetails = () => {
             spaceBetween={1}
             slidesPerView={1}
             centeredSlides={true}
+            loop={true}
             pagination={{ clickable: true }}
             modules={[Pagination]}
             onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}>
+            onSwiper={(swiper) => console.log(swiper)}
+          >
             {product.image.map((image, index) => (
               <SwiperSlide key={index}>
                 <img
@@ -150,9 +152,9 @@ const ProductDetails = () => {
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
-          <button onClick={handleAddComment} className="comment-submit">
-            Submit
-          </button>
+          <a onClick={handleAddComment} className="comment-submit">
+            Post
+          </a>
         </div>
         {/* Map over comments array */}
         <ul className="comment-list">
