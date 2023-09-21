@@ -710,14 +710,16 @@ footer #footer-copywrite {
   color: #f9f9f9;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
+  font-size: 16px;
   width: 300px;
   height: 45px;
+  border: none;
   text-decoration: none;
   background-color: #0e2c36;
   margin-bottom: 1em;
   cursor: pointer;
 }
-.details-page .details-container .text-container .button-container .cart-button button:hover {
+.details-page .details-container .text-container .button-container .cart-button:hover {
   transition: 0.3s;
   opacity: 0.8;
 }
@@ -726,12 +728,19 @@ footer #footer-copywrite {
   color: #171d1d;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
+  font-size: 16px;
   width: 300px;
   height: 45px;
   border: #171d1d 2px solid;
   text-decoration: none;
   background-color: #f9f9f9;
   cursor: pointer;
+}
+.details-page .details-container .text-container .button-container .wish-button:hover {
+  transition: 0.3s;
+  background-color: #0e2c36;
+  color: #f9f9f9;
+  opacity: 0.2;
 }
 
 .account-page {
@@ -961,6 +970,13 @@ footer #footer-copywrite {
   text-decoration: none;
   color: #171d1d;
   cursor: pointer;
+}
+.list-buttons .edit-button:hover,
+.list-buttons .add-to-cart-button:hover,
+.list-buttons .remove-button:hover,
+.list-buttons .view-comment:hover {
+  border-bottom: 2px #0e2c36 solid;
+  padding: 2px;
 }
 
 form,
