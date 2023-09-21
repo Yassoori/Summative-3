@@ -106,6 +106,7 @@ const ProductDetails = () => {
             spaceBetween={1}
             slidesPerView={1}
             centeredSlides={true}
+            loop={true}
             pagination={{ clickable: true }}
             modules={[Pagination]}
             onSlideChange={() => console.log("slide change")}

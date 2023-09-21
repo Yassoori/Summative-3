@@ -100,6 +100,7 @@ const Home = () => {
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
+          loop={true}
           autoplay={{
             delay: 14000,
             disableOnInteraction: false,

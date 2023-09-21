@@ -974,3 +974,24 @@ select,
     }
   }
 }
+
+// swiper
+
+.swiper-pagination-bullet-active {
+  background: $main-color !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $main-color !important;
+}
+
+// loader
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .puff {
+    margin: auto;
+  }
+}

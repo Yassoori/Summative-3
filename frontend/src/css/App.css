@@ -987,6 +987,24 @@ select .dropdown-header,
   text-align: center;
 }
 
+.swiper-pagination-bullet-active {
+  background: #0e2c36 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #0e2c36 !important;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.loading-spinner .puff {
+  margin: auto;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     padding: 10px 0px;
