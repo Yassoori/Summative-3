@@ -4,13 +4,13 @@ import { useCart } from "../context/CartContext";
 
 const Cart = () => {
   const { user } = useAuthContext();
-  const [ userDetails, setUserDetails ] = useState(null);
+  const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const { cart } = useCart();
 
-  useEffect(()=> {
+  useEffect(() => {
     console.log(cart);
-  },[cart])
+  }, [cart]);
 
   useEffect(() => {
     if (user) {
@@ -36,23 +36,28 @@ const Cart = () => {
     return <div>User Details Not Available.</div>;
   }
 
+  // Add a conditional check for cart to avoid the error
+  if (!cart || !cart.length) {
+    return <div>Your cart is empty.</div>;
+  }
+
   return (
     <div className="cart-page">
-        <div className="cart-container">
-          <div className="cart-heading">Cart</div>
-          <div className="cart">
-            <ul>
-              {cart.map((product) => (
-                <div className="cart-item">
-                  <img src={product.image[0]}></img>
-                  <p>{product.creator}</p>
-                  <h3>{product.title}</h3>
-                  <p>${product.price}</p>
-                </div>
-              ))}
-            </ul>
-          </div>
+      <div className="cart-container">
+        <div className="cart-heading">Cart</div>
+        <div className="cart">
+          <ul>
+            {cart.map((product) => (
+              <div className="cart-item" key={product._id}>
+                <img src={product.image[0]} alt={product.title} />
+                <p>{product.creator}</p>
+                <h3>{product.title}</h3>
+                <p>${product.price}</p>
+              </div>
+            ))}
+          </ul>
         </div>
+      </div>
     </div>
   );
 };

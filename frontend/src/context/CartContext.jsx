@@ -5,16 +5,15 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
-  const [cartProducts, setCartProducts] = useState([]); // Store product details
-  const { user } = useAuthContext(); // Get the user context data
+  const [cart, setCart] = useState([]); // Initialize cart as an empty array
+  const [cartProducts, setCartProducts] = useState([]);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchCartProducts = async () => {
       try {
         const userId = user._id;
-        const token = user.token; // Assuming you store the token in the user object
-
+        const token = user.token;
         const response = await axios.get(
           `http://localhost:4000/api/users/${userId}/cart/products`,
           {
@@ -58,13 +57,15 @@ export function CartProvider({ children }) {
       );
 
       if (response.status === 201) {
-        // Update the wishlist state with the response data if successful
+        // Update the cart state with the response data if successful
         setCart([...cart, productId]);
         console.log("Product added to cart");
       } else {
+        console.log("NOOOO");
         console.error("Error adding product to cart. Response:", response);
       }
     } catch (error) {
+      console.log("NOPE");
       console.error("Error adding product to cart:", error);
     }
   };

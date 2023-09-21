@@ -6,14 +6,13 @@ const WishlistContext = createContext();
 
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
-  const [wishlistProducts, setWishlistProducts] = useState([]); // Store product details
-  const { user } = useAuthContext(); // Get the user context data
-
+  const [wishlistProducts, setWishlistProducts] = useState([]);
+  const { user } = useAuthContext();
   useEffect(() => {
     const fetchWishlistProducts = async () => {
       try {
         const userId = user._id;
-        const token = user.token; // Assuming you store the token in the user object
+        const token = user.token;
 
         const response = await axios.get(
           `http://localhost:4000/api/users/${userId}/wishlist/products`,

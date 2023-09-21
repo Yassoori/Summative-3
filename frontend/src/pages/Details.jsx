@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
-import { useWishlist } from "../context/wishlistContext";
+import { useWishlist } from "../context/WishlistContext";
 import { useCart } from "../context/CartContext";
 // import { useCart } from "../context/CartContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
@@ -31,13 +31,6 @@ const ProductDetails = () => {
 
   const handleAddToWishlist = () => {
     addToWishlist(productId); // Pass the productId to addToWishlist
-    //   const handleAddToWishlist = async () => {
-    //     try {
-    //       // Call addToWishlist with productId as an argument
-    //       await addToWishlist(productId);
-    //     } catch (error) {
-    //       console.error("Error Adding Product to Wishlist:", error);
-    //     }
   };
 
   const handleAddComment = async () => {
