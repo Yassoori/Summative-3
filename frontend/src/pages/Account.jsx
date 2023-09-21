@@ -2,33 +2,33 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useWishlist } from "../context/WishlistContext";
+
 import VendorAccount from "../components/VendorAccount"; // Import the VendorAccount component
 
 import { useLogout } from "../hooks/useLogout";
 
 const Account = () => {
   const { user } = useAuthContext();
-  const [userDetails, setUserDetails] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const { wishlist } = useWishlist();
-  console.log(wishlist);
-
+  const { wishlist, removeFromWishlist } = useWishlist();
   const { logout } = useLogout();
+  const [loading, setLoading] = useState(true);
+  const [userDetails, setUserDetails] = useState(null);
+
+  console.log("wishlist Items:", wishlist);
+
   const handleLogout = () => {
     logout();
   };
-
 
   useEffect(() => {
     if (user) {
       const storedUserDetails = JSON.parse(localStorage.getItem("user"));
       if (storedUserDetails) {
         setUserDetails(storedUserDetails);
-        setLoading(false);
       }
-      console.log("user:", user);
-      console.log("isvendor:", user.isvendor);
+      setLoading(false);
     }
+    console.log("Account component re-rendered");
   }, [user]);
 
   if (!user) {
@@ -43,10 +43,14 @@ const Account = () => {
     return <div>User Details Not Available.</div>;
   }
 
+  const handleRemoveFromWishlist = async (productId) => {
+    // Call removeFromWishlist when the button is clicked
+    await removeFromWishlist(productId);
+  };
+
   return (
     <div className="account-page">
       <div className="account-name">Hey, {user.username}!</div>
-      {/* Only render VendorAccount if the user is a vendor */}
       {user.isvendor === "true" ? (
         <VendorAccount />
       ) : (
@@ -55,6 +59,7 @@ const Account = () => {
           <div className="wishlist">
             <ul>
               {wishlist.map((product) => (
+
                 <li key={product._id} className="list-item-product">
                   <img src={product.image[0]} className="list-image"></img>
                   <div className="list-text">
@@ -69,6 +74,7 @@ const Account = () => {
                     <a className="remove-button">Remove</a>
                   </div>
                 </li>
+
               ))}
             </ul>
           </div>
