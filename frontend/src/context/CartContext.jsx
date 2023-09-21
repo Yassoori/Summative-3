@@ -1,12 +1,14 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]); // Initialize cart as an empty array
   const { user } = useAuthContext();
+  const navigate = useNavigate();
 
   const addToCart = async (productId) => {
     try {
@@ -40,7 +42,7 @@ export function CartProvider({ children }) {
 
           //Update localStorage with new cart data
           localStorage.setItem("cart", JSON.stringify(updatedCart));
-
+          navigate(`/cart/${userId}`)
           console.log("Product added to cart");
         } else {
           console.error(
