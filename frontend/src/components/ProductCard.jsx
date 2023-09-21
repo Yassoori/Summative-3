@@ -35,7 +35,8 @@ const ProductCard = ({ product }) => {
     <div
       className="product-card"
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
+      onMouseLeave={handleMouseLeave}
+    >
       <React.Suspense fallback={<div>Loading Icons...</div>}>
         {isInWishlist ? (
           <icons.HeartFilledIcon
@@ -43,7 +44,16 @@ const ProductCard = ({ product }) => {
             onClick={handleHeartClick}
           />
         ) : (
-          <icons.HeartIcon className="heart-icon" onClick={handleHeartClick} />
+          <div>
+            <icons.HeartFilledIcon
+              className="heart-icon heart-icon-fill-unclicked"
+              onClick={handleHeartClick}
+            />
+            <icons.HeartIcon
+              className="heart-icon"
+              onClick={handleHeartClick}
+            />
+          </div>
         )}
       </React.Suspense>
       <Link to={`/product/${product._id}`} key={product._id}>

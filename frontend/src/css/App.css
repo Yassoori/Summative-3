@@ -513,6 +513,28 @@ footer #footer-copywrite {
   font-weight: 300;
 }
 
+.product-card {
+  position: relative;
+}
+.product-card .heart-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  color: #171d1d;
+  z-index: 99;
+  cursor: pointer;
+}
+.product-card .heart-icon-fill-unclicked {
+  color: rgba(249, 249, 249, 0.4823529412);
+  z-index: 98;
+  top: 11px;
+  right: 11px;
+  width: 30px;
+  height: 30px;
+}
+
 .product-grid {
   background-color: #f9f9f9;
   max-width: 100%;
@@ -534,18 +556,10 @@ footer #footer-copywrite {
   max-width: 30%;
   position: relative;
 }
-.product-grid .product-card a svg {
-  position: absolute;
-  top: 0.5em;
-  right: 0.5em;
-  width: 32px;
-  height: 32px;
-  color: #171d1d;
-}
-.product-grid .product-card a .image-container {
+.product-grid .product-card .image-container {
   padding: 0 0.5em 0.5em;
 }
-.product-grid .product-card a .image-container .product-image {
+.product-grid .product-card .image-container .product-image {
   margin: 0;
   width: 320px;
   height: 320px;
@@ -556,7 +570,7 @@ footer #footer-copywrite {
      object-position: center;
   margin-bottom: 1em;
 }
-.product-grid .product-card a .text-container {
+.product-grid .product-card .text-container {
   width: 320px;
   max-width: 100%;
   height: 7em;
@@ -567,8 +581,8 @@ footer #footer-copywrite {
   justify-content: space-between;
   flex-wrap: nowrap;
 }
-.product-grid .product-card a .text-container .product-name,
-.product-grid .product-card a .text-container .product-price {
+.product-grid .product-card .text-container .product-name,
+.product-grid .product-card .text-container .product-price {
   text-transform: uppercase;
   text-align: center;
   color: #171d1d;
@@ -579,8 +593,8 @@ footer #footer-copywrite {
   font-weight: 400;
   margin-bottom: 0.5em;
 }
-.product-grid .product-card a .text-container .product-description,
-.product-grid .product-card a .text-container .product-material {
+.product-grid .product-card .text-container .product-description,
+.product-grid .product-card .text-container .product-material {
   color: #171d1d;
   display: none;
 }
