@@ -118,6 +118,12 @@ nav .nav-icons svg {
 .login-signup-wrapper .login-signup-modal p .login-signup-switch {
   cursor: pointer;
   color: #0e2c36;
+  border-bottom: 1px #0e2c36 solid;
+  padding: 2px;
+}
+.login-signup-wrapper .login-signup-modal p .login-signup-switch:hover {
+  border-bottom: 2px #0e2c36 solid;
+  padding: 2px;
 }
 .login-signup-wrapper .login-signup-modal .cancel-login {
   height: 1.5rem;

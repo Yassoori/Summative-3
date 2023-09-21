@@ -31,7 +31,7 @@ const LoginSignup = ({ onClose }) => {
               onClick={(e) => setLoginOrSignup("Login")}
               className="login-signup-switch"
             >
-              Log In
+              Log in
             </a>
           </p>
         </div>
@@ -52,7 +52,7 @@ const LoginSignup = ({ onClose }) => {
               onClick={(e) => setLoginOrSignup("Signup")}
               className="login-signup-switch"
             >
-              Signup
+              Sign up
             </a>
           </p>
         </div>

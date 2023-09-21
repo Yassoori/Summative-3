@@ -105,6 +105,13 @@ nav {
       .login-signup-switch {
         cursor: pointer;
         color: $main-color;
+        border-bottom: 1px $main-color solid;
+        padding: 2px;
+      }
+
+      .login-signup-switch:hover {
+        border-bottom: 2px $main-color solid;
+        padding: 2px;
       }
     }
     .cancel-login {
