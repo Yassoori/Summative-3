@@ -47,7 +47,7 @@ const Header = () => {
               <Link to={`/account/${user._id}`}>
                 <icons.ProfileIcon />
               </Link>
-              <Link to="/cart">
+              <Link to={`/cart/${user._id}`}>
                 <icons.ShoppingCartIcon />
               </Link>
             </React.Suspense>

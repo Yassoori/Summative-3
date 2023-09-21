@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
-import { useCommentsContext } from "../hooks/useCommentContext";
 import { useWishlist } from "../context/wishlistContext";
+import { useCart } from "../context/CartContext";
 // import { useCart } from "../context/CartContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 // Import Swiper React components
@@ -17,6 +17,7 @@ import "swiper/css/navigation";
 
 const ProductDetails = () => {
   const { addToWishlist, wishlist } = useWishlist();
+  const { addToCart, cart } = useCart();
   // const { addToCart } = useCart();
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -24,9 +25,9 @@ const ProductDetails = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const user_id = user ? user.username : null;
 
-  // const handleAddToCart = () => {
-  //   addToCart(product); // Add the current product to the wishlist
-  // };
+  const handleAddToCart = () => {
+    addToCart(productId); // Add the current product to the cart
+  };
 
   const handleAddToWishlist = () => {
     addToWishlist(productId); // Pass the productId to addToWishlist
@@ -129,7 +130,7 @@ const ProductDetails = () => {
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price}</div>
           <div className="button-container">
-            <button className="cart-button">
+            <button className="cart-button" onClick={handleAddToCart}>
               {/* ADD TO CART */}
               Add to Cart
             </button>
