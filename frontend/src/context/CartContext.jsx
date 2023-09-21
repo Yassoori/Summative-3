@@ -6,40 +6,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]); // Initialize cart as an empty array
-  const [cartProducts, setCartProducts] = useState([]);
   const { user } = useAuthContext();
-
-  useEffect(() => {
-    const fetchCartProducts = async () => {
-      try {
-        const userId = user._id;
-        const token = user.token;
-        const response = await axios.get(
-          `http://localhost:4000/api/users/${userId}/cart/products`,
-          {
-            headers: {
-              Authorization: `${token}`,
-            },
-          }
-        );
-
-        if (response.status === 200) {
-          // Set the wishlist state with the fetched data
-          setCart(response.data.cart);
-          setCartProducts(response.data.products);
-        } else {
-          console.error("Error fetching cart. Response:", response);
-        }
-      } catch (error) {
-        console.error("Error fetching cart:", error);
-      }
-    };
-
-    if (user) {
-      // Fetch the wishlist when the user is available
-      fetchCartProducts();
-    }
-  }, [user]);
 
   const addToCart = async (productId) => {
     try {
@@ -57,24 +24,80 @@ export function CartProvider({ children }) {
       );
 
       if (response.status === 201) {
-        // Update the cart state with the response data if successful
-        setCart([...cart, productId]);
-        console.log("Product added to cart");
+        // Fetch the complete product details and add them to the wishlist
+        const productDetailsResponse = await axios.get(
+          `http://localhost:4000/api/products/${productId}`,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
+
+        if (productDetailsResponse.status === 200) {
+          const updatedCart = [...cart, productDetailsResponse.data];
+          setCart(updatedCart);
+
+          //Update localStorage with new cart data
+          localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+          console.log("Product added to cart");
+        } else {
+          console.error(
+            "Error Fetching Product Details. Response:",
+            productDetailsResponse
+          );
+        }
       } else {
-        console.log("NOOOO");
-        console.error("Error adding product to cart. Response:", response);
+        console.error("Error Adding Product To Wishlist. Response:", response);
       }
     } catch (error) {
-      console.log("NOPE");
       console.error("Error adding product to cart:", error);
     }
   };
+
+  const removeFromCart = async (productId) => {
+    try {
+      const userId = user._id;
+      const token = user.token;
+
+      const response = await axios.delete(
+        `http://localhost:4000/api/users/${userId}/cart/${productId}`,
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        // Update the cart state with the updated data
+        const updatedCart = cart.filter((item) => item._id !== productId);
+        setCart(updatedCart);
+
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      } else {
+        console.error("Error removing product from cart. Response:", response);
+      }
+    } catch (error) {
+      console.error("Error removing product from cart:", error);
+    }
+  };
+
+  // Load cart data from localStorage when the component mounts
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
 
   return (
     <CartContext.Provider
       value={{
         cart,
         addToCart,
+        removeFromCart,
       }}>
       {children}
     </CartContext.Provider>

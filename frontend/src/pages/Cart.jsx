@@ -7,7 +7,7 @@ const Cart = () => {
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart(); // Get the removeFromCart function from useCart
 
   useEffect(() => {
     console.log(cart);
@@ -37,10 +37,14 @@ const Cart = () => {
     return <div>User Details Not Available.</div>;
   }
 
-  // Add a conditional check for cart to avoid the error
   if (!cart || !cart.length) {
     return <div>Your cart is empty.</div>;
   }
+
+  // Define a function to handle removal of a product from the cart
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
 
   return (
     <div className="cart-page">
@@ -49,19 +53,24 @@ const Cart = () => {
         <div className="cart">
           <ul>
             {cart.map((product) => (
-                <li key={product._id} className="list-item-product">
-                  <img src={product.image[0]} className="list-image"></img>
-                  <div className="list-text">
-                    <p className="list-creator">{product.creator}</p>
-                    <Link to={`/product/${product._id}`} key={product._id}>
-                      <p className="list-title">{product.title}</p>
-                    </Link>
-                    <p className="list-price">${product.price}</p>
-                  </div>
-                  <div className="list-buttons">
-                    <a className="edit-button">Edit</a>
-                    <a className="remove-button">Remove</a>
-                  </div>
+              <li key={product._id} className="list-item-product">
+                <img src={product.image[0]} className="list-image"></img>
+                <div className="list-text">
+                  <p className="list-creator">{product.creator}</p>
+                  <Link to={`/product/${product._id}`} key={product._id}>
+                    <p className="list-title">{product.title}</p>
+                  </Link>
+                  <p className="list-price">${product.price}</p>
+                </div>
+                <div className="list-buttons">
+                  <a className="edit-button">Edit</a>
+                  {/* Add a click handler for the Remove button */}
+                  <a
+                    className="remove-button"
+                    onClick={() => handleRemoveFromCart(product._id)}>
+                    Remove
+                  </a>
+                </div>
               </li>
             ))}
           </ul>
@@ -75,11 +84,10 @@ const Cart = () => {
           <li>Expiry date</li>
           <li>CCV</li>
           <li>Name on card</li>
-          <li>Optional - email my receipt </li>
+          <li>Optional - email my receipt</li>
         </ul>
         <button className="paynow">Pay now</button>
       </div>
-
     </div>
   );
 };

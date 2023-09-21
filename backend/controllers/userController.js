@@ -234,6 +234,47 @@ const removeFromWishlist = async (req, res) => {
   }
 };
 
+const removeCart = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    // Extract the token from the Authorization header
+    const token = req.headers.authorization;
+
+    if (!token) {
+      return res.status(401).json({ error: "Token not provided" });
+    }
+
+    // Decode the JWT token to access user data
+    const decodedToken = jwt.verify(token, process.env.SECRET);
+
+    if (!decodedToken || !decodedToken._id) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    const userId = decodedToken._id;
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check if the product is in the user's wishlist
+    if (!user.carts.includes(productId)) {
+      return res.status(400).json({ error: "Product is not in the cart" });
+    }
+
+    // Remove the product's ObjectId from the user's wishlists array
+    user.carts = user.carts.filter((id) => id.toString() !== productId);
+    await user.save();
+
+    res.status(200).json({ message: "Product removed from cart" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server Error" });
+  }
+};
+
 module.exports = {
   signupUser,
   loginUser,
@@ -242,4 +283,5 @@ module.exports = {
   removeFromWishlist,
   addToCart,
   fetchCart,
+  removeCart,
 };
