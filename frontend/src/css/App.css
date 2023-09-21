@@ -65,12 +65,14 @@ nav .nav-shop {
 nav .nav-shop h2 {
   color: #171d1d;
   font-size: 16px;
+  cursor: pointer;
 }
 nav .nav-logo {
   font-family: "Parisienne", cursive;
 }
 nav .nav-logo h1 {
   color: #171d1d;
+  cursor: pointer;
 }
 nav .nav-icons {
   display: flex;
@@ -82,6 +84,7 @@ nav .nav-icons svg {
   width: 20px;
   height: 20px;
   margin: 0 0.5em;
+  cursor: pointer;
 }
 
 .login-signup-wrapper {
@@ -179,6 +182,7 @@ nav .nav-icons svg {
   text-decoration: none;
   background-color: #0e2c36;
   border: none;
+  cursor: pointer;
 }
 .login-signup-wrapper .login-signup-modal .login .login-form button:hover,
 .login-signup-wrapper .login-signup-modal .login .signup-form button:hover,
@@ -239,6 +243,7 @@ footer #footer-links {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  cursor: pointer;
 }
 footer #footer-links div {
   text-align: center;
@@ -325,6 +330,7 @@ footer #footer-copywrite {
   text-decoration: none;
   background-color: #0e2c36;
   margin-top: 10px;
+  cursor: pointer;
 }
 .hero .swiper-slide {
   text-align: center;
@@ -341,9 +347,11 @@ footer #footer-copywrite {
 }
 .hero .swiper-button-prev {
   display: block;
+  cursor: pointer;
 }
 .hero .swiper-button-next {
   display: block;
+  cursor: pointer;
 }
 
 .category-jewelry {
@@ -524,6 +532,7 @@ footer #footer-copywrite {
   margin-bottom: 4em;
   min-width: 240px;
   max-width: 30%;
+  position: relative;
 }
 .product-grid .product-card a svg {
   position: absolute;
@@ -664,6 +673,7 @@ footer #footer-copywrite {
   text-decoration: none;
   background-color: #0e2c36;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 .details-page .details-container .text-container .button-container .cart-button button:hover {
   transition: 0.3s;
@@ -679,6 +689,7 @@ footer #footer-copywrite {
   border: #171d1d 2px solid;
   text-decoration: none;
   background-color: #f9f9f9;
+  cursor: pointer;
 }
 
 .account-page {
@@ -701,6 +712,7 @@ footer #footer-copywrite {
   text-decoration: none;
   background-color: #f9f9f9;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 .account-page .logout button button:hover {
   background-color: #0e2c36;
@@ -969,6 +981,7 @@ select .dropdown-header,
 }
 .file-upload .upload-photos {
   display: none;
+  cursor: pointer;
 }
 .file-upload input[type=file]::file-selector-button {
   text-align: start;
@@ -997,6 +1010,7 @@ select .dropdown-header,
   text-decoration: none;
   background-color: #0e2c36;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 .product-submit button:hover,
 .paynow button:hover {
@@ -1044,6 +1058,7 @@ select .dropdown-header,
   position: absolute;
   right: 6px;
   bottom: 6px;
+  cursor: pointer;
 }
 .shop-search .search-bar input {
   margin-left: 10px;
