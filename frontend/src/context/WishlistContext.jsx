@@ -6,44 +6,11 @@ const WishlistContext = createContext();
 
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
-  const [wishlistProducts, setWishlistProducts] = useState([]);
   const { user } = useAuthContext();
-  useEffect(() => {
-    const fetchWishlistProducts = async () => {
-      try {
-        const userId = user._id;
-        const token = user.token;
-
-        const response = await axios.get(
-          `http://localhost:4000/api/users/${userId}/wishlist/products`,
-          {
-            headers: {
-              Authorization: `${token}`,
-            },
-          }
-        );
-
-        if (response.status === 200) {
-          // Set the wishlist state with the fetched data
-          setWishlist(response.data.wishlist);
-          setWishlistProducts(response.data.products);
-        } else {
-          console.error("Error fetching wishlist. Response:", response);
-        }
-      } catch (error) {
-        console.error("Error fetching wishlist:", error);
-      }
-    };
-
-    if (user) {
-      // Fetch the wishlist when the user is available
-      fetchWishlistProducts();
-    }
-  }, [user]);
 
   const addToWishlist = async (productId) => {
     try {
-      const userId = user._id; // Access the user ID directly from the user context
+      const userId = user._id;
       const token = user.token;
 
       const response = await axios.post(
@@ -57,9 +24,30 @@ export function WishlistProvider({ children }) {
       );
 
       if (response.status === 201) {
-        // Update the wishlist state with the response data if successful
-        setWishlist([...wishlist, productId]);
-        console.log("Product added to wishlist");
+        // Fetch the complete product details and add them to the wishlist
+        const productDetailsResponse = await axios.get(
+          `http://localhost:4000/api/products/${productId}`,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
+
+        if (productDetailsResponse.status === 200) {
+          const updatedWishlist = [...wishlist, productDetailsResponse.data];
+          setWishlist(updatedWishlist);
+
+          // Update localStorage with the new wishlist data
+          localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+
+          console.log("Product added to wishlist");
+        } else {
+          console.error(
+            "Error fetching product details. Response:",
+            productDetailsResponse
+          );
+        }
       } else {
         console.error("Error adding product to wishlist. Response:", response);
       }
@@ -68,11 +56,54 @@ export function WishlistProvider({ children }) {
     }
   };
 
+  const removeFromWishlist = async (productId) => {
+    try {
+      const userId = user._id;
+      const token = user.token;
+
+      const response = await axios.delete(
+        `http://localhost:4000/api/users/${userId}/wishlist/${productId}`,
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        // Update the wishlist state with the updated data
+        const updatedWishlist = wishlist.filter(
+          (item) => item._id !== productId
+        );
+        setWishlist(updatedWishlist);
+
+        // Update localStorage with the updated wishlist data
+        localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+      } else {
+        console.error(
+          "Error removing product from wishlist. Response:",
+          response
+        );
+      }
+    } catch (error) {
+      console.error("Error removing product from wishlist:", error);
+    }
+  };
+
+  // Load wishlist data from localStorage when the component mounts
+  useEffect(() => {
+    const storedWishlist = localStorage.getItem("wishlist");
+    if (storedWishlist) {
+      setWishlist(JSON.parse(storedWishlist));
+    }
+  }, []);
+
   return (
     <WishlistContext.Provider
       value={{
         wishlist,
         addToWishlist,
+        removeFromWishlist,
       }}>
       {children}
     </WishlistContext.Provider>

@@ -6,7 +6,8 @@ const {
   addToWishlist,
   fetchWishlist,
   addToCart,
-  fetchCart
+  fetchCart,
+  removeFromWishlist,
 } = require("../controllers/userController");
 
 // Login
@@ -22,5 +23,7 @@ router.get("/:userId/wishlist/products", fetchWishlist);
 // Add to Cart
 router.post("/:userId/cart/:productId", addToCart);
 router.get("/:userId/cart/products", fetchCart);
+
+router.delete("/:userId/wishlist/:productId", removeFromWishlist);
 
 module.exports = router;

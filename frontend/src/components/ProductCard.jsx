@@ -1,17 +1,19 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useIcons } from "../context/IconContext";
-import { useWishlist } from "../context/wishlistContext";
+import { useWishlist } from "../context/WishlistContext";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
   const icons = useIcons();
   const [isHovered, setIsHovered] = useState(false);
-  // const [isInWishlist, setIsInWishlist] = useState(wishlist.includes(product));
+  const [isInWishlist, setIsInWishlist] = useState(false);
 
-  console.log("Wishlist:", wishlist);
-  console.log("Product:", product);
+  useEffect(() => {
+    const wishlistIds = wishlist.map((item) => item._id); // Extract product IDs from the wishlist
+    setIsInWishlist(wishlistIds.includes(product._id)); // Check if the product ID is in the wishlist IDs
+    console.log(`Product ${product._id} isInWishlist: ${isInWishlist}`);
+  }, [wishlist, product]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -21,30 +23,29 @@ const ProductCard = ({ product }) => {
     setIsHovered(false);
   };
 
-  // const handleHeartClick = () => {
-  //   if (isInWishlist) {
-  //     removeFromWishlist(product);
-  //   } else {
-  //     addToWishlist(product);
-  //   }
-  //   setIsInWishlist(!isInWishlist);
-  // };
+  const handleHeartClick = () => {
+    if (isInWishlist) {
+      removeFromWishlist(product._id);
+    } else {
+      addToWishlist(product._id);
+    }
+    setIsInWishlist(!isInWishlist);
+  };
 
   return (
     <div
       className="product-card"
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+      onMouseLeave={handleMouseLeave}>
       <React.Suspense fallback={<div>Loading Icons...</div>}>
-        {/* {isInWishlist ? (
+        {isInWishlist ? (
           <icons.HeartFilledIcon
             className="heart-icon"
             onClick={handleHeartClick}
           />
         ) : (
           <icons.HeartIcon className="heart-icon" onClick={handleHeartClick} />
-        )} */}
+        )}
       </React.Suspense>
       <Link to={`/product/${product._id}`} key={product._id}>
         <div className="image-container">
