@@ -179,8 +179,9 @@ const VendorAccount = () => {
         <div className="account-section-heading">Add a New Product</div>
         <form className="add-product" onSubmit={handleSubmit}>
           <div className="form-sections">
-            <label>Product Name</label>
+            <label className="product-form-label">Product Name</label>
             <input
+              className="product-form-input"
               type="text"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
@@ -188,8 +189,9 @@ const VendorAccount = () => {
           </div>
 
           <div className="form-sections">
-            <label>Categories</label>
+            <label className="product-form-label">Categories</label>
             <select
+              className="product-form-input"
               onChange={(e) => setCategory(e.target.value)}
               value={category}
             >
@@ -202,8 +204,9 @@ const VendorAccount = () => {
           </div>
 
           <div className="form-sections">
-            <label>Materials</label>
+            <label className="product-form-label">Materials</label>
             <MultiSelectDropdown
+              className="product-form-input"
               options={materialOptions}
               selectedItems={selectedMaterials}
               onChange={handleMaterialChange}
@@ -211,8 +214,9 @@ const VendorAccount = () => {
           </div>
 
           <div className="form-sections">
-            <label>Price</label>
+            <label className="product-form-label">Price</label>
             <input
+              className="product-form-input"
               type="number"
               onChange={(e) => setPrice(e.target.value)}
               value={price}
@@ -220,8 +224,9 @@ const VendorAccount = () => {
           </div>
 
           <div className="form-sections">
-            <label>Description</label>
+            <label className="product-form-label">Description</label>
             <textarea
+              className="product-form-input"
               rows="4"
               onChange={(e) => setDescription(e.target.value)}
               value={description}
@@ -231,6 +236,7 @@ const VendorAccount = () => {
           <div className="file-upload form sections">
             <label className="upload-photos">Upload Photos</label>
             <input
+              className="product-form-input"
               type="file"
               accept="image/*"
               multiple

@@ -3,13 +3,14 @@ import { Puff } from "react-loader-spinner";
 
 const LoadingSpinner = ({
   type = "Puff",
-  color = "#00BFFF",
+  color = "#686868",
   height = 100,
   width = 100,
 }) => {
   return (
     <div className="loading-spinner">
-      <Puff color={color} height={height} width={width} />
+      {/* <Puff className="puff" /> */}
+      <Puff className="puff" color={color} height={height} width={width} />
     </div>
   );
 };

@@ -401,41 +401,6 @@ footer {
   }
 }
 
-.product-card {
-  position: relative;
-  svg {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    color: #20657c;
-  }
-
-  .image-container {
-    margin-top: 20px;
-    .product-image {
-      width: 100%;
-    }
-  }
-  .product-description {
-    display: none;
-  }
-  .product-material {
-    display: none;
-  }
-  .product-name {
-    color: $light-color;
-    @include head-font;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .product-price {
-    text-align: center;
-    color: $light-color;
-    @include sub-font;
-  }
-}
 // about
 #about-page {
   width: 100%;
@@ -509,39 +474,23 @@ footer {
 
 // Shop Page
 
-.shop-page {
-  .shop-search {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column-reverse;
-
-    .shop-category-heading {
-      @include body-font;
-      font-size: $body-size;
-      margin: 10px;
-    }
-    .search-bar {
-      button {
-        margin-left: 20px;
-        color: $light-color;
-        @include head-font;
-        width: 60px;
-        height: 30px;
-        text-decoration: none;
-        background-color: $main-color;
-      }
-      button:hover {
-        transition: 0.3s;
-        opacity: 0.8;
-      }
-      input {
-        margin-left: 10px;
-        height: 30px;
-        width: 225px;
-        @include body-font;
-      }
-    }
+.product-card {
+  .product-description {
+    display: none;
+  }
+  .product-material {
+    display: none;
+  }
+  .product-name {
+    color: $light-color;
+    @include head-font;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .product-price {
+    text-align: center;
+    color: $light-color;
+    @include sub-font;
   }
 }
 
@@ -554,20 +503,27 @@ footer {
   align-content: center;
   justify-content: space-around;
   margin: auto;
-  padding: 2em 0 2em 0;
 
-  a {
+  .product-card {
+    text-align: center;
+    background-color: $light-color;
+    filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
+    margin: auto;
     margin-top: 0;
-    margin-left: 2em;
-    margin-right: 2em;
     margin-bottom: 4em;
+    min-width: 240px;
+    max-width: 30%;
+    // position: relative;
+    // svg {
+    //   position: absolute;
+    //   top: 10px;
+    //   right: 10px;
+    //   width: 30px;
+    //   height: 30px;
+    //   color: #20657c;
+    // }
 
-    .product-card {
-      text-align: center;
-      background-color: $light-color;
-      filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
-      position: relative;
-
+    a {
       svg {
         position: absolute;
         top: 0.5em;
@@ -579,16 +535,15 @@ footer {
 
       .image-container {
         // width: 25%;
-        // padding-bottom: 25%;
-        // position: relative;
+        padding: 0 0.5em 0.5em;
+        // position: absolute;
 
         .product-image {
           // position: absolute;
-          // margin: 0;
-          // max-width: 100%;
-
+          margin: 0;
           width: 320px;
           height: 320px;
+          max-width: 100%;
           object-fit: cover;
           object-position: center;
           margin-bottom: 1em;
@@ -597,24 +552,31 @@ footer {
 
       .text-container {
         width: 320px;
-        height: 6em;
+        max-width: 100%;
+        height: 7em;
         text-align: center;
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: nowrap;
 
         .product-name,
-          // .product-material,
-          .product-price {
+        // .product-material,
+        .product-price {
           text-transform: uppercase;
           text-align: center;
           color: $dark-color;
           text-decoration: none;
-          font-size: $body-size;
+          color: $dark-color;
+          // font-size: $body-size;
+          font-size: $mob-button-size;
           @include body-font;
-          margin: auto;
           margin-bottom: 0.5em;
         }
         .product-description,
         .product-material {
+          color: $dark-color;
           display: none;
         }
       }
@@ -741,74 +703,6 @@ footer {
   }
 }
 
-// .comments-wrapper {
-//   flex-direction: column-reverse;
-
-//   .add-comment {
-//     height: 4em;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     input {
-//       height: 40px;
-//       align-self: center;
-//       margin: 0% 1% 0% 5%;
-//       width: 250px;
-//     }
-
-//     button {
-//       margin: auto 0%;
-//       color: $light-color;
-//       @include head-font;
-//       width: 100px;
-//       height: 40px;
-//       text-decoration: none;
-//       background-color: $main-color;
-
-//       button:hover {
-//         transition: 0.3s;
-//         opacity: 0.8;
-//       }
-//     }
-//   }
-// }
-
-// comments
-
-// .comments {
-//   margin-top: 30px;
-//   display: grid;
-//   justify-content: center;
-//   @include sub-font;
-//   .comment {
-//     display: flex;
-//     margin-bottom: 10px;
-//     .detail-name {
-//       text-transform: uppercase;
-//       font-size: $sub-size;
-//       @include head-font;
-//       margin-bottom: 1em;
-//     }
-//     .detail-description {
-//       @include body-font;
-//       margin-bottom: 0.5em;
-//     }
-//     p {
-//       font-size: 23px;
-//       margin-left: 20px;
-//     }
-//     span {
-//       font-size: 18px;
-//       margin-left: 30px;
-//     }
-//   }
-// }
-
-// .add-comment {
-//   label {}
-//   input {}
-//   button {}
-// }
 .account-page {
   margin: 0 1em 0 1em;
 
@@ -850,7 +744,8 @@ footer {
 .vendor-products,
 .vendor-comments,
 .add-product-section,
-.comments-wrapper {
+.comments-wrapper,
+.shop-search {
   @include head-font;
   max-width: 1000px;
   margin-left: auto;
@@ -895,7 +790,6 @@ footer {
       filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
       margin-bottom: 1em;
       position: relative;
-
       img {
         grid-area: image;
         width: 100%;
@@ -903,143 +797,201 @@ footer {
         // object-fit: cover;
         margin: 1em;
       }
-      .list-text {
-        grid-area: text;
-        margin: 1em;
-        text-decoration: none;
-        color: $dark-color;
-
-        .list-creator,
-        .comment-user {
-          font-size: $mob-body-size;
-          margin-bottom: 0.5em;
-        }
-        .list-title,
-        .list-price,
-        .comment-text {
-          text-decoration: none;
-          color: $dark-color;
-          font-size: $mob-button-size;
-          text-transform: capitalize;
-          margin-bottom: 1em;
-        }
-      }
-      .list-buttons {
-        grid-area: buttons;
-        position: absolute;
-        right: 1em;
-        bottom: 1em;
-
-        .edit-button,
-        .add-to-cart-button {
-          font-size: $mob-button-size;
-          margin-right: 1em;
-        }
-        .remove-button,
-        .view-comment {
-          font-size: $mob-button-size;
-          text-decoration: none;
-          color: $dark-color;
-        }
-      }
     }
   }
+}
 
-  form,
-  .add-comment {
-    width: 80%;
-    align-items: center;
-    margin: auto;
-    margin-top: 2em;
-    @include head-font;
-    .form-sections {
-      display: grid;
-      // grid-template-columns: 1fr 4fr;
-      // grid-template-areas: "labelarea inputarea";
-      // margin-bottom: 3em;
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas: "labelarea" "inputarea";
-      margin-bottom: 3em;
-    }
-    label {
-      grid-area: labelarea;
-      color: $grey-color;
-      @include head-font;
-      font-size: $body-size;
-      min-width: 160px;
-    }
-    input,
-    textarea,
-    select,
-    .multi-select-dropdown {
-      grid-area: inputarea;
-      border: none;
-      border-bottom: 2px $grey-color solid;
-      color: $grey-color;
-      width: 100%;
-      resize: none;
-      resize: vertical;
-      text-align: start;
-      background-color: $light-color;
-      @include head-font;
-      font-size: $body-size;
-      .dropdown-header {
-        text-align: end;
-      }
-    }
-    .file-upload {
-      margin-bottom: 2em;
-      .upload-photos {
-        display: none;
-      }
-      // input {
-      //   display: grid;
-      //   grid-template-columns: 1fr 4fr;
-      //   grid-template-areas: "file-selector-button inputarea";
-      // }
+.list-text {
+  grid-area: text;
+  margin: 1em;
+  text-decoration: none;
+  color: $dark-color;
 
-      input[type="file"]::file-selector-button {
-        text-align: start;
-        width: 20%;
-        padding: 4px 10px;
-        border: 0;
-        background-color: $light-color;
-        color: $grey-color;
-      }
-    }
-    .button-container {
-      text-align: center;
-      margin: 6em 0;
-    }
-
-    .product-submit,
-    .comment-submit {
-      text-align: center;
-      margin: auto;
-      color: $light-color;
-      @include body-font;
-      font-size: $button-size;
-      width: 100%;
-      padding: 0.5em 0;
-      text-decoration: none;
-      background-color: $main-color;
-      margin-bottom: 1em;
-      button:hover {
-        transition: 0.3s;
-        opacity: 0.8;
-      }
-    }
+  .list-creator,
+  .comment-user {
+    font-size: $mob-body-size;
+    margin-bottom: 0.5em;
   }
-  .add-comment {
+  .list-title,
+  .list-price,
+  .comment-text {
+    text-decoration: none;
+    color: $dark-color;
+    font-size: $mob-button-size;
+    text-transform: capitalize;
+    margin-bottom: 1em;
+  }
+}
+.list-buttons {
+  grid-area: buttons;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+
+  .edit-button,
+  .add-to-cart-button {
+    font-size: $mob-button-size;
+    margin-right: 1em;
+  }
+  .remove-button,
+  .view-comment {
+    font-size: $mob-button-size;
+    text-decoration: none;
+    color: $dark-color;
+  }
+}
+
+form,
+.add-comment,
+.searh-bar {
+  width: 80%;
+  align-items: center;
+  margin: auto;
+  margin-top: 2em;
+  @include head-font;
+}
+.form-sections {
+  display: grid;
+  // grid-template-columns: 1fr 4fr;
+  // grid-template-areas: "labelarea inputarea";
+  // margin-bottom: 3em;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "labelarea" "inputarea";
+  margin-bottom: 3em;
+}
+.product-form-label {
+  grid-area: labelarea;
+  color: $grey-color;
+  @include head-font;
+  font-size: $body-size;
+  min-width: 160px;
+}
+
+input,
+textarea,
+select,
+.product-form-input,
+.multi-select-dropdown,
+.search-input {
+  grid-area: inputarea;
+  border: none;
+  border-bottom: 2px $grey-color solid;
+  color: $grey-color;
+  width: 100%;
+  resize: none;
+  resize: vertical;
+  text-align: start;
+  background-color: $light-color;
+  @include head-font;
+  font-size: $body-size;
+  .dropdown-header {
+    text-align: end;
+  }
+}
+.file-upload {
+  margin-bottom: 2em;
+  .upload-photos {
+    display: none;
+  }
+
+  input[type="file"]::file-selector-button {
+    text-align: start;
+    width: 20%;
+    padding: 4px 10px;
+    border: 0;
+    background-color: $light-color;
+    color: $grey-color;
+  }
+}
+.button-container {
+  text-align: center;
+  margin: 6em 0;
+}
+
+.product-submit {
+  text-align: center;
+  margin: auto;
+  color: $light-color;
+  @include body-font;
+  font-size: $button-size;
+  width: 100%;
+  padding: 0.5em 0;
+  text-decoration: none;
+  background-color: $main-color;
+  margin-bottom: 1em;
+  button:hover {
+    transition: 0.3s;
+    opacity: 0.8;
+  }
+}
+
+.add-comment {
+  position: relative;
+  input {
+    margin: 0 0 2em;
+    padding: 1em 0;
+  }
+  .comment-submit {
+    padding: 0 0 16px;
+    position: absolute;
+    bottom: 2em;
+    right: 6px;
+    font-size: $button-size;
+    text-decoration: none;
+    color: $dark-color;
+  }
+}
+
+.shop-search {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .shop-category-heading {
+    @include body-font;
+    font-size: $body-size;
+    color: $grey-color;
+    margin: 10px;
+  }
+  .search-bar {
     position: relative;
-    input {
-      margin: 0 0 2em;
-      padding: 1em 0;
-    }
-    .comment-submit {
-      width: 200px;
+    svg {
+      height: 20px;
+      width: 20px;
       position: absolute;
-      right: 0;
+      right: 6px;
+      bottom: 6px;
     }
+
+    input {
+      margin-left: 10px;
+      height: 30px;
+      width: 225px;
+      @include body-font;
+      text-align: center;
+    }
+  }
+}
+
+// swiper
+
+.swiper-pagination-bullet-active {
+  background: $main-color !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $main-color !important;
+}
+
+// loader
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .puff {
+    margin: auto;
   }
 }
