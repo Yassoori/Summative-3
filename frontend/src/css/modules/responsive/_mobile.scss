@@ -44,12 +44,14 @@ nav {
     h2 {
       color: $dark-color;
       font-size: $mob-button-size;
+      cursor: pointer;
     }
   }
   .nav-logo {
     @include logo-font;
     h1 {
       color: $dark-color;
+      cursor: pointer;
     }
   }
   .nav-icons {
@@ -62,6 +64,7 @@ nav {
       width: 20px;
       height: 20px;
       margin: 0 0.5em;
+      cursor: pointer;
     }
     // button {
     //   border: none;
@@ -153,6 +156,7 @@ nav {
           text-decoration: none;
           background-color: $main-color;
           border: none;
+          cursor: pointer;
         }
 
         button:hover {
@@ -205,6 +209,7 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    cursor: pointer;
 
     div {
       text-align: center;
@@ -290,6 +295,7 @@ footer {
           text-decoration: none;
           background-color: #0e2c36;
           margin-top: 10px;
+          cursor: pointer;
         }
       }
     }
@@ -311,10 +317,12 @@ footer {
 
   .swiper-button-prev {
     display: block;
+    cursor: pointer;
   }
 
   .swiper-button-next {
     display: block;
+    cursor: pointer;
   }
 }
 
@@ -513,7 +521,7 @@ footer {
     margin-bottom: 4em;
     min-width: 240px;
     max-width: 30%;
-    // position: relative;
+    position: relative;
     // svg {
     //   position: absolute;
     //   top: 10px;
@@ -681,7 +689,7 @@ footer {
           text-decoration: none;
           background-color: $main-color;
           margin-bottom: 1em;
-
+          cursor: pointer;
           button:hover {
             transition: 0.3s;
             opacity: 0.8;
@@ -697,6 +705,7 @@ footer {
           border: $dark-color 2px solid;
           text-decoration: none;
           background-color: $light-color;
+          cursor: pointer;
         }
       }
     }
@@ -722,6 +731,7 @@ footer {
       text-decoration: none;
       background-color: $light-color;
       margin-bottom: 1em;
+      cursor: pointer;
       button:hover {
         background-color: $main-color;
         transition: 0.3s;
@@ -769,7 +779,7 @@ footer {
     font-size: $head-size;
     @include body-font;
   }
-  
+
   .payment-section-heading {
     font-size: $head-size;
     @include body-font;
@@ -785,7 +795,7 @@ footer {
     text-transform: capitalize;
     margin-bottom: 1em;
   }
-  
+
   .comment-list {
     width: 80%;
     margin: auto;
@@ -913,6 +923,7 @@ select,
   margin-bottom: 2em;
   .upload-photos {
     display: none;
+    cursor: pointer;
   }
 
   input[type="file"]::file-selector-button {
@@ -941,6 +952,7 @@ select,
   text-decoration: none;
   background-color: $main-color;
   margin-bottom: 1em;
+  cursor: pointer;
   button:hover {
     transition: 0.3s;
     opacity: 0.8;
@@ -985,6 +997,7 @@ select,
       position: absolute;
       right: 6px;
       bottom: 6px;
+      cursor: pointer;
     }
 
     input {
@@ -996,8 +1009,6 @@ select,
     }
   }
 }
-
-
 
 // swiper
 
