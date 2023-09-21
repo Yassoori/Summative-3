@@ -59,7 +59,6 @@ const Account = () => {
           <div className="wishlist">
             <ul>
               {wishlist.map((product) => (
-
                 <li key={product._id} className="list-item-product">
                   <img src={product.image[0]} className="list-image"></img>
                   <div className="list-text">
@@ -71,10 +70,13 @@ const Account = () => {
                   </div>
                   <div className="list-buttons">
                     <a className="edit-button">Edit</a>
-                    <a className="remove-button">Remove</a>
+                    <a
+                      className="remove-button"
+                      onClick={() => handleRemoveFromWishlist(product._id)}>
+                      Remove
+                    </a>
                   </div>
                 </li>
-
               ))}
             </ul>
           </div>
