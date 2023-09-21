@@ -26,7 +26,13 @@ const LoginSignup = ({ onClose }) => {
           <p className="register-text">
             Already have an account?
             <br />
-            <a onClick={(e) => setLoginOrSignup("Login")}>Log In</a>
+            <br />
+            <a
+              onClick={(e) => setLoginOrSignup("Login")}
+              className="login-signup-switch"
+            >
+              Log in
+            </a>
           </p>
         </div>
       </div>
@@ -41,7 +47,13 @@ const LoginSignup = ({ onClose }) => {
           <p className="register-text">
             Don't have an account?
             <br />
-            <a onClick={(e) => setLoginOrSignup("Signup")}>Signup</a>
+            <br />
+            <a
+              onClick={(e) => setLoginOrSignup("Signup")}
+              className="login-signup-switch"
+            >
+              Sign up
+            </a>
           </p>
         </div>
       </div>
