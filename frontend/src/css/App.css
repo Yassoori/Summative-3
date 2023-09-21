@@ -113,6 +113,11 @@ nav .nav-icons svg {
   text-align: center;
   margin: auto;
   margin-top: 1em;
+  color: #686868;
+}
+.login-signup-wrapper .login-signup-modal p .login-signup-switch {
+  cursor: pointer;
+  color: #0e2c36;
 }
 .login-signup-wrapper .login-signup-modal .cancel-login {
   height: 1.5rem;
@@ -127,7 +132,7 @@ nav .nav-icons svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20%;
+  padding: 0 10%;
 }
 .login-signup-wrapper .login-signup-modal .login .login-form h3,
 .login-signup-wrapper .login-signup-modal .login .signup-form h3,

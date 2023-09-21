@@ -94,12 +94,18 @@ nav {
     width: 80%;
     height: 85%;
     max-width: 480px;
+
     p {
       @include body-font;
       font-size: $mob-button-size;
       text-align: center;
       margin: auto;
       margin-top: 1em;
+      color: $grey-color;
+      .login-signup-switch {
+        cursor: pointer;
+        color: $main-color;
+      }
     }
     .cancel-login {
       height: 1.5rem;
@@ -114,7 +120,7 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 20%;
+        padding: 0 10%;
 
         h3 {
           @include head-font;
