@@ -34,33 +34,33 @@
     }
   }
 
-  .product-card {
-    .image-container {
-      display: flex;
-      justify-content: center;
+  // .product-card {
+  //   .image-container {
+  //     display: flex;
+  //     justify-content: center;
 
-      .product-image {
-        width: 100%;
-        height: fit-content;
-      }
-    }
-    .product-description {
-      display: none;
-    }
-    .product-material {
-      display: none;
-    }
-    .product-name {
-      color: $dark-color;
-      @include head-font;
-      text-align: center;
-    }
-    .product-price {
-      text-align: center;
-      color: $dark-color;
-      @include sub-font;
-    }
-  }
+  //     .product-image {
+  //       width: 100%;
+  //       height: fit-content;
+  //     }
+  //   }
+  //   .product-description {
+  //     display: none;
+  //   }
+  //   .product-material {
+  //     display: none;
+  //   }
+  //   .product-name {
+  //     color: $dark-color;
+  //     @include head-font;
+  //     text-align: center;
+  //   }
+  //   .product-price {
+  //     text-align: center;
+  //     color: $dark-color;
+  //     @include sub-font;
+  //   }
+  // }
 
   .details-page {
     .details-container {
