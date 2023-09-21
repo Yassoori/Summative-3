@@ -8,7 +8,7 @@ const Cart = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   // Get the removeFromCart function from useCart
-  const { cart, removeFromCart } = useCart(); 
+  const { cart, removeFromCart } = useCart();
 
   useEffect(() => {
     if (user) {
@@ -49,19 +49,23 @@ const Cart = () => {
           <div className="cart">
             <ul>
               {cart.map((product) => (
-                  <li key={product._id} className="list-item-product">
-                    <img src={product.image[0]} className="list-image"></img>
-                    <div className="list-text">
-                      <p className="list-creator">{product.creator}</p>
-                      <Link to={`/product/${product._id}`} key={product._id}>
-                        <p className="list-title">{product.title}</p>
-                      </Link>
-                      <p className="list-price">${product.price}</p>
-                    </div>
-                    <div className="list-buttons">
-                      <a className="edit-button">Edit</a>
-                      <a className="remove-button">Remove</a>
-                    </div>
+                <li key={product._id} className="list-item-product">
+                  <img src={product.image[0]} className="list-image"></img>
+                  <div className="list-text">
+                    <p className="list-creator">{product.creator}</p>
+                    <Link to={`/product/${product._id}`} key={product._id}>
+                      <p className="list-title">{product.title}</p>
+                    </Link>
+                    <p className="list-price">${product.price}</p>
+                  </div>
+                  <div className="list-buttons">
+                    <a className="edit-button">Edit</a>
+                    <a
+                      className="remove-button"
+                      onClick={() => handleRemoveFromCart(product._id)}>
+                      Remove
+                    </a>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -93,7 +97,9 @@ const Cart = () => {
           </div>
 
           <div className="form-sections">
-            <label className="payment-form-label">Optional - email my receipt </label>
+            <label className="payment-form-label">
+              Optional - email my receipt{" "}
+            </label>
             <input className="payment-form-input" type="text" />
           </div>
 
@@ -103,7 +109,6 @@ const Cart = () => {
         </form>
       </div>
     </>
-
   );
 };
 
