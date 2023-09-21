@@ -8,6 +8,8 @@ export const useLogout = () => {
   const logout = () => {
     //remove user in localstorage
     localStorage.removeItem("user");
+    localStorage.removeItem("cart");
+    localStorage.removeItem("wishlist");
     dispatch({ type: "LOGOUT" });
     navigate("/");
   };
