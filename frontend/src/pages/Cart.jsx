@@ -7,7 +7,7 @@ const Cart = () => {
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart(); // Get the removeFromCart function from useCart
 
   useEffect(() => {
     console.log(cart);
@@ -37,10 +37,14 @@ const Cart = () => {
     return <div>User Details Not Available.</div>;
   }
 
-  // Add a conditional check for cart to avoid the error
   if (!cart || !cart.length) {
     return <div>Your cart is empty.</div>;
   }
+
+  // Define a function to handle removal of a product from the cart
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
 
   return (
     <>
@@ -104,6 +108,7 @@ const Cart = () => {
         </form>
       </div>
     </>
+
   );
 };
 
