@@ -69,7 +69,6 @@ const Account = () => {
                     <p className="list-price">${product.price}</p>
                   </div>
                   <div className="list-buttons">
-                    <a className="edit-button">Edit</a>
                     <a
                       className="remove-button"
                       onClick={() => handleRemoveFromWishlist(product._id)}>

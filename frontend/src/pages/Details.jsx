@@ -4,7 +4,7 @@ import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useWishlist } from "../context/WishlistContext";
 import { useCart } from "../context/CartContext";
-// import { useCart } from "../context/CartContext";
+import { useLoginModalContext } from "../hooks/useLoginModalContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,6 +19,7 @@ import "swiper/css/navigation";
 const ProductDetails = () => {
   const { addToWishlist, wishlist } = useWishlist();
   const { addToCart, cart } = useCart();
+  const { dispatch } = useLoginModalContext();
   // const { addToCart } = useCart();
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -33,6 +34,11 @@ const ProductDetails = () => {
 
   const handleAddToWishlist = () => {
     addToWishlist(productId); // Pass the productId to addToWishlist
+  };
+
+  // use the dispatch action to open login modal
+  const openLoginModal = () => {
+    dispatch({ type: "LOGIN_OPEN" });
   };
 
   const handleAddComment = async () => {
@@ -54,7 +60,10 @@ const ProductDetails = () => {
         setProduct(updatedProduct);
         setCommentText("");
         console.log(response.data);
+
+        
       }
+
     } catch (error) {
       console.error("Error Adding Comment:", error);
     }
@@ -126,11 +135,11 @@ const ProductDetails = () => {
           <div className="detail-material">{product.materials}</div>
           <div className="detail-price">${product.price}</div>
           <div className="button-container">
-            <button className="cart-button" onClick={handleAddToCart}>
+            <button className="cart-button" onClick={user ? handleAddToCart : openLoginModal}>
               {/* ADD TO CART */}
               Add to Cart
             </button>
-            <button className="wish-button" onClick={handleAddToWishlist}>
+            <button className="wish-button" onClick={user ? handleAddToWishlist : openLoginModal}>
               {/* ADD TO WISHLIST */}
               Add to Wishlist
             </button>
@@ -146,8 +155,8 @@ const ProductDetails = () => {
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
-          <a onClick={handleAddComment} className="comment-submit">
-            Post
+          <a onClick={user ? handleAddComment : openLoginModal} className="comment-submit">
+            {user ? "Post" : "Login to Post"}
           </a>
         </div>
         {/* Map over comments array */}
