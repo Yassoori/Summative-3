@@ -50,112 +50,6 @@ const signupUser = async (req, res) => {
   }
 };
 
-// const addToWishlist = async (req, res) => {
-//   try {
-//     // const user = await User.findById(req.user._id);
-//     const user = await User.findById("650a4f824be3ca7effb2afb7");
-
-//     // Check if the user exists
-//     if (!user) {
-//       console.log(user);
-//       return res.status(404).json({ error: "User not found" });
-//     } else {
-//       console.log("YESSSSSSSSSSSSSSSSSSSSSSSSSS");
-//     }
-
-//     const { productId } = req.params;
-
-//     // Check if the product with the given ID exists
-//     const product = await Product.findById(productId);
-//     if (!product) {
-//       return res.status(404).json({ error: "Product not found" });
-//     }
-
-//     // Check if the product is already in the user's wishlist
-//     if (user.wishlist.includes(productId)) {
-//       return res
-//         .status(400)
-//         .json({ error: "Product is already in the wishlist" });
-//     }
-
-//     // Create a new Wishlist entry
-//     const newProductWishlist = new Wishlist({
-//       user: req.userId,
-//       product: productId,
-//     });
-
-//     await newProductWishlist.save();
-
-//     // Add the product ID to the user's wishlist
-//     user.wishlist.push(productId);
-//     await user.save();
-
-//     // Populate the product field to include product details in the response
-//     await newProductWishlist.populate("product").execPopulate();
-
-//     res.status(201).json(newProductWishlist);
-
-//     console.log("Product added to wishlist");
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Server Error" });
-//   }
-// };
-// const addToWishlist = async (req, res) => {
-//   try {
-//     // const user = await User.findById(req.user._id);
-//     const user = await User.findById(`650a98348b3624455a467af3`);
-
-//     // Check if the user exists
-//     if (!user) {
-//       console.log(user);
-//       return res.status(404).json({ error: "User not found" });
-//     } else {
-//       console.log("YES");
-//     }
-
-//     const productId = "650a137afab57f32998dbdcd";
-
-//     // Check if the product with the given ID exists
-//     const product = await Product.findById(productId);
-
-//     if (!product) {
-//       return res.status(404).json({ error: "Product not found" });
-//     } else {
-//       console.log("Product found:", product);
-//     }
-
-//     // Check if the product is already in the user's wishlist
-//     // if (user.wishlist.includes(productId)) {
-//     //   return res
-//     //     .status(400)
-//     //     .json({ error: "Product is already in the wishlist" });
-//     // }
-
-//     // Create a new Wishlist entry
-//     const newProductWishlist = {
-//       user: req.userId,
-//       product: productId,
-//     };
-
-//     await newProductWishlist.save();
-
-//     // Add the product ID to the user's wishlist
-//     user.wishlist.push(productId);
-//     await user.save();
-
-//     // Populate the product field to include product details in the response
-//     await newProductWishlist.populate("product").execPopulate();
-
-//     res.status(201).json(newProductWishlist);
-
-//     console.log("Product added to wishlist");
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Server Error" });
-//   }
-// };
-
 const addToWishlist = async (req, res) => {
   try {
     const { productId } = req.params;
@@ -262,9 +156,7 @@ const addToCart = async (req, res) => {
 
     // Check if the product is already in the user's cart
     if (user.carts.includes(productId)) {
-      return res
-        .status(400)
-        .json({ error: "Product is already in the cart" });
+      return res.status(400).json({ error: "Product is already in the cart" });
     }
 
     // Add the product's ObjectId to the user's carts array
@@ -291,14 +183,21 @@ const fetchCart = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const cartlistItems = await Product.find({ _id: { $in: user.cartlists } });
+    const cartlistItems = await Product.find({ _id: { $in: user.carts } });
 
     // Send the wishlist items in the response
-    res.status(200).json({ wishlist: cartlistItems });
+    res.status(200).json({ cart: cartlistItems });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server Error" });
   }
 };
 
-module.exports = { signupUser, loginUser, addToWishlist, fetchWishlist, addToCart, fetchCart};
+module.exports = {
+  signupUser,
+  loginUser,
+  addToWishlist,
+  fetchWishlist,
+  addToCart,
+  fetchCart,
+};

@@ -19,7 +19,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import { useLoginModalContext } from "./hooks/useLoginModalContext";
 import { IconContextProvider } from "./context/IconContext";
 import { ProductsContextProvider } from "./context/ProductContext";
-import { WishlistProvider } from "./context/wishlistContext";
+import { WishlistProvider } from "./context/WishlistContext";
 import { CartProvider } from "./context/CartContext";
 
 //Import Local Storage
@@ -36,9 +36,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <CartProvider>
-        <WishlistProvider>
-          
+        <CartProvider>
+          <WishlistProvider>
             <IconContextProvider>
               <ProductsContextProvider>
                 <Header />
@@ -57,10 +56,7 @@ function App() {
                         user && user.isVendor ? <VendorAccount /> : <Account />
                       }
                     />
-                    <Route
-                      path="/cart/:userId"
-                      element={<Cart />}
-                    />
+                    <Route path="/cart/:userId" element={<Cart />} />
                   </Routes>
                 </div>
                 {isLoginVisible && (
@@ -69,8 +65,7 @@ function App() {
                 <Footer />
               </ProductsContextProvider>
             </IconContextProvider>
-         
-        </WishlistProvider>
+          </WishlistProvider>
         </CartProvider>
       </BrowserRouter>
     </div>
