@@ -1,6 +1,6 @@
-import { useEffect, useState, lazy, useRef, Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useProducts } from "../context/ProductContext";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // react-icons
 import { BsChevronLeft } from "react-icons/bs";
@@ -16,10 +16,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ProductCard from "../components/ProductCard.jsx";
-// const LazyProductCard = lazy(() => import("../components/ProductCard.jsx"));
 
 const Home = () => {
-  const { category } = useParams();
   const { filteredProducts = [], fetchProducts } = useProducts();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedProducts, setDisplayedProducts] = useState([]);
@@ -92,7 +90,6 @@ const Home = () => {
   useEffect(() => {
     fetchProducts("all");
   }, []);
-  console.log(filteredProducts);
 
   return (
     <div className="home-page">

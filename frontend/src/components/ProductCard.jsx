@@ -12,7 +12,6 @@ const ProductCard = ({ product }) => {
   useEffect(() => {
     const wishlistIds = wishlist.map((item) => item._id); // Extract product IDs from the wishlist
     setIsInWishlist(wishlistIds.includes(product._id)); // Check if the product ID is in the wishlist IDs
-    console.log(`Product ${product._id} isInWishlist: ${isInWishlist}`);
   }, [wishlist, product]);
 
   const handleMouseEnter = () => {

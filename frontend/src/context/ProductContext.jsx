@@ -81,8 +81,6 @@ export function ProductsContextProvider({ children }) {
         );
 
         if (response.status === 200) {
-          console.log(`Fetched data for ${category}`, response.data);
-
           // Cache the fetched data for this category
           setCachedData({
             category,

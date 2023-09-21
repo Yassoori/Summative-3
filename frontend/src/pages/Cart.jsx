@@ -7,11 +7,8 @@ const Cart = () => {
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { cart, removeFromCart } = useCart(); // Get the removeFromCart function from useCart
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  // Get the removeFromCart function from useCart
+  const { cart, removeFromCart } = useCart(); 
 
   useEffect(() => {
     if (user) {
@@ -20,8 +17,6 @@ const Cart = () => {
         setUserDetails(storedUserDetails);
         setLoading(false);
       }
-      console.log("user:", user);
-      console.log("isvendor:", user.isvendor);
     }
   }, [user]);
 
@@ -78,7 +73,7 @@ const Cart = () => {
         <div className="payment-section-heading">Payment</div>
         <form>
           <div className="form-sections">
-            <label className="payment-form-label">Product Name</label>
+            <label className="payment-form-label">Card number</label>
             <input className="payment-form-input" type="text" />
           </div>
 
