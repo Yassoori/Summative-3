@@ -1,4 +1,4 @@
-import { useReducer, createContext, useContext } from "react";
+import { useReducer, createContext } from "react";
 
 export const LoginModalContext = createContext();
 
@@ -17,6 +17,11 @@ const reducer = (state, action) => {
         isLoginVisible: true,
       };
     case "LOGIN_CLOSE":
+      return {
+        ...state,
+        isLoginVisible: false,
+      };
+    case "SIGNUP_CLOSE":
       return {
         ...state,
         isLoginVisible: false,
