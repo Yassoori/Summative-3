@@ -485,40 +485,6 @@ footer #footer-copywrite {
   font-size: 20px;
 }
 
-.shop-page .shop-search {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column-reverse;
-}
-.shop-page .shop-search .shop-category-heading {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  margin: 10px;
-}
-.shop-page .shop-search .search-bar button {
-  margin-left: 20px;
-  color: #f9f9f9;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  width: 60px;
-  height: 30px;
-  text-decoration: none;
-  background-color: #0e2c36;
-}
-.shop-page .shop-search .search-bar button:hover {
-  transition: 0.3s;
-  opacity: 0.8;
-}
-.shop-page .shop-search .search-bar input {
-  margin-left: 10px;
-  height: 30px;
-  width: 225px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
 .product-card .product-description {
   display: none;
 }
@@ -756,7 +722,8 @@ footer #footer-copywrite {
 .vendor-products,
 .vendor-comments,
 .add-product-section,
-.comments-wrapper {
+.comments-wrapper,
+.shop-search {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   max-width: 1000px;
@@ -767,7 +734,8 @@ footer #footer-copywrite {
 .vendor-products .account-section-heading,
 .vendor-comments .account-section-heading,
 .add-product-section .account-section-heading,
-.comments-wrapper .account-section-heading {
+.comments-wrapper .account-section-heading,
+.shop-search .account-section-heading {
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -775,7 +743,8 @@ footer #footer-copywrite {
 .vendor-products .comments-products-heading,
 .vendor-comments .comments-products-heading,
 .add-product-section .comments-products-heading,
-.comments-wrapper .comments-products-heading {
+.comments-wrapper .comments-products-heading,
+.shop-search .comments-products-heading {
   text-decoration: none;
   color: #686868;
   font-size: 22px;
@@ -785,14 +754,16 @@ footer #footer-copywrite {
 .vendor-products .comment-list,
 .vendor-comments .comment-list,
 .add-product-section .comment-list,
-.comments-wrapper .comment-list {
+.comments-wrapper .comment-list,
+.shop-search .comment-list {
   width: 80%;
   margin: auto;
 }
 .vendor-products ul,
 .vendor-comments ul,
 .add-product-section ul,
-.comments-wrapper ul {
+.comments-wrapper ul,
+.shop-search ul {
   text-decoration: none;
   color: #171d1d;
   background-color: #f9f9f9;
@@ -800,21 +771,24 @@ footer #footer-copywrite {
 .vendor-products ul .list-item-product,
 .vendor-comments ul .list-item-product,
 .add-product-section ul .list-item-product,
-.comments-wrapper ul .list-item-product {
+.comments-wrapper ul .list-item-product,
+.shop-search ul .list-item-product {
   grid-template-columns: 1fr 3fr;
   grid-template-areas: "image text";
 }
 .vendor-products ul .list-item-comment,
 .vendor-comments ul .list-item-comment,
 .add-product-section ul .list-item-comment,
-.comments-wrapper ul .list-item-comment {
+.comments-wrapper ul .list-item-comment,
+.shop-search ul .list-item-comment {
   grid-template-columns: 3fr 1fr;
   grid-template-areas: " text buttons";
 }
 .vendor-products ul li,
 .vendor-comments ul li,
 .add-product-section ul li,
-.comments-wrapper ul li {
+.comments-wrapper ul li,
+.shop-search ul li {
   display: grid;
   background: #f9f9f9;
   filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
@@ -824,89 +798,55 @@ footer #footer-copywrite {
 .vendor-products ul li img,
 .vendor-comments ul li img,
 .add-product-section ul li img,
-.comments-wrapper ul li img {
+.comments-wrapper ul li img,
+.shop-search ul li img {
   grid-area: image;
   width: 100%;
   margin: 1em;
 }
-.vendor-products ul li .list-text,
-.vendor-comments ul li .list-text,
-.add-product-section ul li .list-text,
-.comments-wrapper ul li .list-text {
+
+.list-text {
   grid-area: text;
   margin: 1em;
   text-decoration: none;
   color: #171d1d;
 }
-.vendor-products ul li .list-text .list-creator,
-.vendor-products ul li .list-text .comment-user,
-.vendor-comments ul li .list-text .list-creator,
-.vendor-comments ul li .list-text .comment-user,
-.add-product-section ul li .list-text .list-creator,
-.add-product-section ul li .list-text .comment-user,
-.comments-wrapper ul li .list-text .list-creator,
-.comments-wrapper ul li .list-text .comment-user {
+.list-text .list-creator,
+.list-text .comment-user {
   font-size: 14px;
   margin-bottom: 0.5em;
 }
-.vendor-products ul li .list-text .list-title,
-.vendor-products ul li .list-text .list-price,
-.vendor-products ul li .list-text .comment-text,
-.vendor-comments ul li .list-text .list-title,
-.vendor-comments ul li .list-text .list-price,
-.vendor-comments ul li .list-text .comment-text,
-.add-product-section ul li .list-text .list-title,
-.add-product-section ul li .list-text .list-price,
-.add-product-section ul li .list-text .comment-text,
-.comments-wrapper ul li .list-text .list-title,
-.comments-wrapper ul li .list-text .list-price,
-.comments-wrapper ul li .list-text .comment-text {
+.list-text .list-title,
+.list-text .list-price,
+.list-text .comment-text {
   text-decoration: none;
   color: #171d1d;
   font-size: 16px;
   text-transform: capitalize;
   margin-bottom: 1em;
 }
-.vendor-products ul li .list-buttons,
-.vendor-comments ul li .list-buttons,
-.add-product-section ul li .list-buttons,
-.comments-wrapper ul li .list-buttons {
+
+.list-buttons {
   grid-area: buttons;
   position: absolute;
   right: 1em;
   bottom: 1em;
 }
-.vendor-products ul li .list-buttons .edit-button,
-.vendor-products ul li .list-buttons .add-to-cart-button,
-.vendor-comments ul li .list-buttons .edit-button,
-.vendor-comments ul li .list-buttons .add-to-cart-button,
-.add-product-section ul li .list-buttons .edit-button,
-.add-product-section ul li .list-buttons .add-to-cart-button,
-.comments-wrapper ul li .list-buttons .edit-button,
-.comments-wrapper ul li .list-buttons .add-to-cart-button {
+.list-buttons .edit-button,
+.list-buttons .add-to-cart-button {
   font-size: 16px;
   margin-right: 1em;
 }
-.vendor-products ul li .list-buttons .remove-button,
-.vendor-products ul li .list-buttons .view-comment,
-.vendor-comments ul li .list-buttons .remove-button,
-.vendor-comments ul li .list-buttons .view-comment,
-.add-product-section ul li .list-buttons .remove-button,
-.add-product-section ul li .list-buttons .view-comment,
-.comments-wrapper ul li .list-buttons .remove-button,
-.comments-wrapper ul li .list-buttons .view-comment {
+.list-buttons .remove-button,
+.list-buttons .view-comment {
   font-size: 16px;
   text-decoration: none;
   color: #171d1d;
 }
-.vendor-products form,
-.vendor-products .add-comment,
-.vendor-comments form,
-.vendor-comments .add-comment,
-.add-product-section form,
-.add-product-section .add-comment,
-.comments-wrapper form,
-.comments-wrapper .add-comment {
+
+form,
+.add-comment,
+.searh-bar {
   width: 80%;
   align-items: center;
   margin: auto;
@@ -914,27 +854,15 @@ footer #footer-copywrite {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
 }
-.vendor-products form .form-sections,
-.vendor-products .add-comment .form-sections,
-.vendor-comments form .form-sections,
-.vendor-comments .add-comment .form-sections,
-.add-product-section form .form-sections,
-.add-product-section .add-comment .form-sections,
-.comments-wrapper form .form-sections,
-.comments-wrapper .add-comment .form-sections {
+
+.form-sections {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "labelarea" "inputarea";
   margin-bottom: 3em;
 }
-.vendor-products form label,
-.vendor-products .add-comment label,
-.vendor-comments form label,
-.vendor-comments .add-comment label,
-.add-product-section form label,
-.add-product-section .add-comment label,
-.comments-wrapper form label,
-.comments-wrapper .add-comment label {
+
+.product-form-label {
   grid-area: labelarea;
   color: #686868;
   font-family: "Rubik", sans-serif;
@@ -942,38 +870,13 @@ footer #footer-copywrite {
   font-size: 20px;
   min-width: 160px;
 }
-.vendor-products form input,
-.vendor-products form textarea,
-.vendor-products form select,
-.vendor-products form .multi-select-dropdown,
-.vendor-products .add-comment input,
-.vendor-products .add-comment textarea,
-.vendor-products .add-comment select,
-.vendor-products .add-comment .multi-select-dropdown,
-.vendor-comments form input,
-.vendor-comments form textarea,
-.vendor-comments form select,
-.vendor-comments form .multi-select-dropdown,
-.vendor-comments .add-comment input,
-.vendor-comments .add-comment textarea,
-.vendor-comments .add-comment select,
-.vendor-comments .add-comment .multi-select-dropdown,
-.add-product-section form input,
-.add-product-section form textarea,
-.add-product-section form select,
-.add-product-section form .multi-select-dropdown,
-.add-product-section .add-comment input,
-.add-product-section .add-comment textarea,
-.add-product-section .add-comment select,
-.add-product-section .add-comment .multi-select-dropdown,
-.comments-wrapper form input,
-.comments-wrapper form textarea,
-.comments-wrapper form select,
-.comments-wrapper form .multi-select-dropdown,
-.comments-wrapper .add-comment input,
-.comments-wrapper .add-comment textarea,
-.comments-wrapper .add-comment select,
-.comments-wrapper .add-comment .multi-select-dropdown {
+
+input,
+textarea,
+select,
+.product-form-input,
+.multi-select-dropdown,
+.search-input {
   grid-area: inputarea;
   border: none;
   border-bottom: 2px #686868 solid;
@@ -987,68 +890,22 @@ footer #footer-copywrite {
   font-weight: 400;
   font-size: 20px;
 }
-.vendor-products form input .dropdown-header,
-.vendor-products form textarea .dropdown-header,
-.vendor-products form select .dropdown-header,
-.vendor-products form .multi-select-dropdown .dropdown-header,
-.vendor-products .add-comment input .dropdown-header,
-.vendor-products .add-comment textarea .dropdown-header,
-.vendor-products .add-comment select .dropdown-header,
-.vendor-products .add-comment .multi-select-dropdown .dropdown-header,
-.vendor-comments form input .dropdown-header,
-.vendor-comments form textarea .dropdown-header,
-.vendor-comments form select .dropdown-header,
-.vendor-comments form .multi-select-dropdown .dropdown-header,
-.vendor-comments .add-comment input .dropdown-header,
-.vendor-comments .add-comment textarea .dropdown-header,
-.vendor-comments .add-comment select .dropdown-header,
-.vendor-comments .add-comment .multi-select-dropdown .dropdown-header,
-.add-product-section form input .dropdown-header,
-.add-product-section form textarea .dropdown-header,
-.add-product-section form select .dropdown-header,
-.add-product-section form .multi-select-dropdown .dropdown-header,
-.add-product-section .add-comment input .dropdown-header,
-.add-product-section .add-comment textarea .dropdown-header,
-.add-product-section .add-comment select .dropdown-header,
-.add-product-section .add-comment .multi-select-dropdown .dropdown-header,
-.comments-wrapper form input .dropdown-header,
-.comments-wrapper form textarea .dropdown-header,
-.comments-wrapper form select .dropdown-header,
-.comments-wrapper form .multi-select-dropdown .dropdown-header,
-.comments-wrapper .add-comment input .dropdown-header,
-.comments-wrapper .add-comment textarea .dropdown-header,
-.comments-wrapper .add-comment select .dropdown-header,
-.comments-wrapper .add-comment .multi-select-dropdown .dropdown-header {
+input .dropdown-header,
+textarea .dropdown-header,
+select .dropdown-header,
+.product-form-input .dropdown-header,
+.multi-select-dropdown .dropdown-header,
+.search-input .dropdown-header {
   text-align: end;
 }
-.vendor-products form .file-upload,
-.vendor-products .add-comment .file-upload,
-.vendor-comments form .file-upload,
-.vendor-comments .add-comment .file-upload,
-.add-product-section form .file-upload,
-.add-product-section .add-comment .file-upload,
-.comments-wrapper form .file-upload,
-.comments-wrapper .add-comment .file-upload {
+
+.file-upload {
   margin-bottom: 2em;
 }
-.vendor-products form .file-upload .upload-photos,
-.vendor-products .add-comment .file-upload .upload-photos,
-.vendor-comments form .file-upload .upload-photos,
-.vendor-comments .add-comment .file-upload .upload-photos,
-.add-product-section form .file-upload .upload-photos,
-.add-product-section .add-comment .file-upload .upload-photos,
-.comments-wrapper form .file-upload .upload-photos,
-.comments-wrapper .add-comment .file-upload .upload-photos {
+.file-upload .upload-photos {
   display: none;
 }
-.vendor-products form .file-upload input[type=file]::file-selector-button,
-.vendor-products .add-comment .file-upload input[type=file]::file-selector-button,
-.vendor-comments form .file-upload input[type=file]::file-selector-button,
-.vendor-comments .add-comment .file-upload input[type=file]::file-selector-button,
-.add-product-section form .file-upload input[type=file]::file-selector-button,
-.add-product-section .add-comment .file-upload input[type=file]::file-selector-button,
-.comments-wrapper form .file-upload input[type=file]::file-selector-button,
-.comments-wrapper .add-comment .file-upload input[type=file]::file-selector-button {
+.file-upload input[type=file]::file-selector-button {
   text-align: start;
   width: 20%;
   padding: 4px 10px;
@@ -1056,33 +913,13 @@ footer #footer-copywrite {
   background-color: #f9f9f9;
   color: #686868;
 }
-.vendor-products form .button-container,
-.vendor-products .add-comment .button-container,
-.vendor-comments form .button-container,
-.vendor-comments .add-comment .button-container,
-.add-product-section form .button-container,
-.add-product-section .add-comment .button-container,
-.comments-wrapper form .button-container,
-.comments-wrapper .add-comment .button-container {
+
+.button-container {
   text-align: center;
   margin: 6em 0;
 }
-.vendor-products form .product-submit,
-.vendor-products form .comment-submit,
-.vendor-products .add-comment .product-submit,
-.vendor-products .add-comment .comment-submit,
-.vendor-comments form .product-submit,
-.vendor-comments form .comment-submit,
-.vendor-comments .add-comment .product-submit,
-.vendor-comments .add-comment .comment-submit,
-.add-product-section form .product-submit,
-.add-product-section form .comment-submit,
-.add-product-section .add-comment .product-submit,
-.add-product-section .add-comment .comment-submit,
-.comments-wrapper form .product-submit,
-.comments-wrapper form .comment-submit,
-.comments-wrapper .add-comment .product-submit,
-.comments-wrapper .add-comment .comment-submit {
+
+.product-submit {
   text-align: center;
   margin: auto;
   color: #f9f9f9;
@@ -1095,45 +932,59 @@ footer #footer-copywrite {
   background-color: #0e2c36;
   margin-bottom: 1em;
 }
-.vendor-products form .product-submit button:hover,
-.vendor-products form .comment-submit button:hover,
-.vendor-products .add-comment .product-submit button:hover,
-.vendor-products .add-comment .comment-submit button:hover,
-.vendor-comments form .product-submit button:hover,
-.vendor-comments form .comment-submit button:hover,
-.vendor-comments .add-comment .product-submit button:hover,
-.vendor-comments .add-comment .comment-submit button:hover,
-.add-product-section form .product-submit button:hover,
-.add-product-section form .comment-submit button:hover,
-.add-product-section .add-comment .product-submit button:hover,
-.add-product-section .add-comment .comment-submit button:hover,
-.comments-wrapper form .product-submit button:hover,
-.comments-wrapper form .comment-submit button:hover,
-.comments-wrapper .add-comment .product-submit button:hover,
-.comments-wrapper .add-comment .comment-submit button:hover {
+.product-submit button:hover {
   transition: 0.3s;
   opacity: 0.8;
 }
-.vendor-products .add-comment,
-.vendor-comments .add-comment,
-.add-product-section .add-comment,
-.comments-wrapper .add-comment {
+
+.add-comment {
   position: relative;
 }
-.vendor-products .add-comment input,
-.vendor-comments .add-comment input,
-.add-product-section .add-comment input,
-.comments-wrapper .add-comment input {
+.add-comment input {
   margin: 0 0 2em;
   padding: 1em 0;
 }
-.vendor-products .add-comment .comment-submit,
-.vendor-comments .add-comment .comment-submit,
-.add-product-section .add-comment .comment-submit,
-.comments-wrapper .add-comment .comment-submit {
-  width: 200px;
+.add-comment .comment-submit {
+  padding: 0 0 16px;
   position: absolute;
-  right: 0;
+  bottom: 2em;
+  right: 6px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #171d1d;
+}
+
+.shop-search {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shop-search .shop-category-heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #686868;
+  margin: 10px;
+}
+.shop-search .search-bar {
+  position: relative;
+}
+.shop-search .search-bar svg {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+}
+.shop-search .search-bar input {
+  margin-left: 10px;
+  height: 30px;
+  width: 225px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {

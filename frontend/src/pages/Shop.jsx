@@ -29,8 +29,8 @@ const Shop = () => {
   return (
     <div className="shop-page">
       <div className="shop-search">
-        <div className="shop-category-heading">Showing: {category}</div>
         <SearchBar onSearch={HandleSearch} initialValue={query} />
+        <div className="shop-category-heading">Showing: {category}</div>
         <div className="icon-container">
           <React.Suspense
             fallback={<div>Loading Icons...</div>}
