@@ -62,6 +62,7 @@ function App() {
                 {isLoginVisible && (
                   <LoginSignup onClose={handleLoginModalClose} />
                 )}
+                <Footer/>
               </ProductsContextProvider>
             </IconContextProvider>
           </WishlistProvider>
