@@ -103,8 +103,11 @@ nav .nav-icons svg {
 .login-signup-wrapper .login-signup-modal {
   background-color: #f9f9f9;
   width: 80%;
-  height: 85%;
+  height: 80vh;
   max-width: 480px;
+  min-height: 480px;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 .login-signup-wrapper .login-signup-modal p {
   font-family: "Montserrat", sans-serif;
@@ -992,9 +995,8 @@ form,
 
 .form-sections {
   display: grid;
-  grid-template-rows: 1fr 1fr;
   grid-template-areas: "labelarea" "inputarea";
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 }
 
 .product-form-label {
@@ -1044,6 +1046,7 @@ select .dropdown-header,
 .file-upload input[type=file]::file-selector-button {
   text-align: start;
   width: 20%;
+  min-width: 120px;
   padding: 4px 10px;
   border: 0;
   background-color: #f9f9f9;
