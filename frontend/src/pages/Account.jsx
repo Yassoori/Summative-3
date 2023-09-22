@@ -62,7 +62,7 @@ const Account = () => {
                 <li key={product._id} className="list-item-product">
                   <img src={product.image[0]} className="list-image"></img>
                   <div className="list-text">
-                    <p className="list-creator">{product.creator}</p>
+                    {/* <p className="list-creator">{product.creator}</p> */}
                     <Link to={`/product/${product._id}`} key={product._id}>
                       <p className="list-title">{product.title}</p>
                     </Link>
@@ -71,7 +71,8 @@ const Account = () => {
                   <div className="list-buttons">
                     <a
                       className="remove-button"
-                      onClick={() => handleRemoveFromWishlist(product._id)}>
+                      onClick={() => handleRemoveFromWishlist(product._id)}
+                    >
                       Remove
                     </a>
                   </div>

@@ -268,23 +268,25 @@ footer {
       position: absolute;
       width: 100%;
       height: 100%;
+      backdrop-filter: blur(1px);
 
       .hero-details {
         display: flex;
         position: absolute;
-        top: 200px;
+        left: 5%;
+        top: 20%;
+        max-width: 600px;
         flex-direction: column;
         align-items: flex-start;
         margin: 0px 30px 0px 30px;
         text-align: start;
         padding: 10px;
-        border-radius: 5%;
-        backdrop-filter: blur(2px);
 
         h2 {
           @include head-font;
           font-size: $head-size;
           color: $light-color;
+          margin-bottom: 1em;
         }
 
         p {
@@ -294,15 +296,21 @@ footer {
         }
 
         button {
-          margin: auto 0%;
+          margin: 2em 0%;
           color: $light-color;
           @include head-font;
-          width: 100px;
+          font-size: $mob-button-size;
+          padding: 0 2em;
           height: 40px;
           text-decoration: none;
-          background-color: #0e2c36;
-          margin-top: 10px;
+          background-color: $main-color;
+          border: none;
           cursor: pointer;
+        }
+
+        button:hover {
+          transition: 0.3s;
+          opacity: 0.8;
         }
       }
     }
@@ -336,23 +344,27 @@ footer {
 //Home - category cards
 .category-jewelry {
   display: flex;
-  margin-top: 50px;
+  margin: 1em 0;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 
   .category {
-    margin-bottom: 10%;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     max-width: 250px;
     max-height: 250px;
-    border: 1px solid black;
+    filter: drop-shadow(0.3rem 0.3rem 0.2rem $drop-shadow);
+    background-color: $light-color;
+    margin: 1em;
+    // padding: 4px;
 
     .category-name {
-      position: absolute;
+      position: relative;
       left: 0;
-      bottom: 0;
+      bottom: 1em;
       width: 100%;
       padding: 5px;
       text-align: center;
@@ -773,11 +785,12 @@ footer {
       background-color: $light-color;
       margin-bottom: 1em;
       cursor: pointer;
-      button:hover {
-        background-color: $main-color;
-        transition: 0.3s;
-        opacity: 0.2;
-      }
+    }
+    button:hover {
+      transition: 0.3s;
+      background-color: $main-color;
+      color: $light-color;
+      opacity: 0.2;
     }
   }
 }
@@ -849,6 +862,7 @@ footer {
     .list-item-product {
       grid-template-columns: 1fr 3fr;
       grid-template-areas: "image text";
+      gap: 1em;
     }
     .list-item-comment {
       grid-template-columns: 3fr 1fr;
@@ -871,6 +885,11 @@ footer {
   }
 }
 
+.list-title,
+.comments-products-heading {
+  text-transform: uppercase;
+}
+
 .list-text {
   grid-area: text;
   margin: 1em;
@@ -888,8 +907,13 @@ footer {
     text-decoration: none;
     color: $dark-color;
     font-size: $mob-button-size;
-    text-transform: capitalize;
     margin-bottom: 1em;
+  }
+  .list-title {
+    text-transform: uppercase;
+  }
+  .comment-text {
+    text-transform: none;
   }
 }
 .list-buttons {
@@ -916,8 +940,7 @@ footer {
   .add-to-cart-button:hover,
   .remove-button:hover,
   .view-comment:hover {
-    border-bottom: 2px $main-color solid;
-    padding: 2px;
+    text-decoration: underline;
   }
 }
 
@@ -962,8 +985,18 @@ select,
   font-size: $body-size;
   .dropdown-header {
     text-align: end;
+    width: 100%;
+  }
+  .dropdown-options {
+    text-align: start;
+    width: 100%;
   }
 }
+.multi-select-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
 .file-upload {
   margin-bottom: 2em;
   .upload-photos {
@@ -999,10 +1032,12 @@ select,
   background-color: $main-color;
   margin-bottom: 1em;
   cursor: pointer;
-  button:hover {
-    transition: 0.3s;
-    opacity: 0.8;
-  }
+}
+
+.product-submit:hover,
+.paynow:hover {
+  transition: 0.3s;
+  opacity: 0.8;
 }
 
 .add-comment {
@@ -1019,6 +1054,11 @@ select,
     font-size: $button-size;
     text-decoration: none;
     color: $dark-color;
+  }
+  .comment-submit:hover {
+    text-decoration: underline;
+    // padding: 0 0 6px;
+    // margin-bottom: 8px;
   }
 }
 

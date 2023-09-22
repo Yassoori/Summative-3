@@ -34,34 +34,6 @@
     }
   }
 
-  // .product-card {
-  //   .image-container {
-  //     display: flex;
-  //     justify-content: center;
-
-  //     .product-image {
-  //       width: 100%;
-  //       height: fit-content;
-  //     }
-  //   }
-  //   .product-description {
-  //     display: none;
-  //   }
-  //   .product-material {
-  //     display: none;
-  //   }
-  //   .product-name {
-  //     color: $dark-color;
-  //     @include head-font;
-  //     text-align: center;
-  //   }
-  //   .product-price {
-  //     text-align: center;
-  //     color: $dark-color;
-  //     @include sub-font;
-  //   }
-  // }
-
   .details-page {
     .details-container {
       display: grid;
@@ -112,6 +84,12 @@
           font-size: $button-size;
           text-decoration: none;
           color: $dark-color;
+        }
+        .edit-button:hover,
+        .add-to-cart-button:hover,
+        .remove-button:hover,
+        .view-comment:hover {
+          text-decoration: underline;
         }
       }
     }
