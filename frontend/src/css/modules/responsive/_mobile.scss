@@ -694,18 +694,19 @@ footer {
         text-transform: capitalize;
         font-size: $sub-size;
         @include head-font;
+        margin-top: 1em;
         margin-bottom: 0.25em;
       }
 
       .detail-description {
         @include body-font;
-        margin-bottom: 0.25em;
+        margin-bottom: 1em;
       }
 
       .detail-material {
         font-size: $body-size;
         @include body-font;
-        margin-bottom: 0.25em;
+        margin-bottom: 1em;
       }
 
       // .designer {

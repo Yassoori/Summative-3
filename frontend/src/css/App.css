@@ -695,18 +695,19 @@ footer #footer-copywrite {
   font-size: 30px;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
+  margin-top: 1em;
   margin-bottom: 0.25em;
 }
 .details-page .details-container .text-container .detail-description {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  margin-bottom: 0.25em;
+  margin-bottom: 1em;
 }
 .details-page .details-container .text-container .detail-material {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  margin-bottom: 0.25em;
+  margin-bottom: 1em;
 }
 .details-page .details-container .text-container .detail-price {
   font-family: "Rubik", sans-serif;
