@@ -52,7 +52,7 @@ const Cart = () => {
                 <li key={product._id} className="list-item-product">
                   <img src={product.image[0]} className="list-image"></img>
                   <div className="list-text">
-                    <p className="list-creator">{product.creator}</p>
+                    {/* <p className="list-creator">{product.creator}</p> */}
                     <Link to={`/product/${product._id}`} key={product._id}>
                       <p className="list-title">{product.title}</p>
                     </Link>
@@ -62,7 +62,8 @@ const Cart = () => {
                     <a className="edit-button">Edit</a>
                     <a
                       className="remove-button"
-                      onClick={() => handleRemoveFromCart(product._id)}>
+                      onClick={() => handleRemoveFromCart(product._id)}
+                    >
                       Remove
                     </a>
                   </div>

@@ -308,25 +308,27 @@ footer #footer-copywrite {
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
 }
 .hero .swiper .hero-details-wrapper .hero-details {
   display: flex;
   position: absolute;
-  top: 200px;
+  left: 5%;
+  top: 20%;
+  max-width: 600px;
   flex-direction: column;
   align-items: flex-start;
   margin: 0px 30px 0px 30px;
   text-align: start;
   padding: 10px;
-  border-radius: 5%;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
 }
 .hero .swiper .hero-details-wrapper .hero-details h2 {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   font-size: 40px;
   color: #f9f9f9;
+  margin-bottom: 1em;
 }
 .hero .swiper .hero-details-wrapper .hero-details p {
   font-family: "Montserrat", sans-serif;
@@ -335,16 +337,21 @@ footer #footer-copywrite {
   color: #f9f9f9;
 }
 .hero .swiper .hero-details-wrapper .hero-details button {
-  margin: auto 0%;
+  margin: 2em 0%;
   color: #f9f9f9;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  width: 100px;
+  font-size: 16px;
+  padding: 0 2em;
   height: 40px;
   text-decoration: none;
   background-color: #0e2c36;
-  margin-top: 10px;
+  border: none;
   cursor: pointer;
+}
+.hero .swiper .hero-details-wrapper .hero-details button:hover {
+  transition: 0.3s;
+  opacity: 0.8;
 }
 .hero .swiper-slide {
   text-align: center;
@@ -370,23 +377,26 @@ footer #footer-copywrite {
 
 .category-jewelry {
   display: flex;
-  margin-top: 50px;
+  margin: 1em 0;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
 .category-jewelry .category {
-  margin-bottom: 10%;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   max-width: 250px;
   max-height: 250px;
-  border: 1px solid black;
+  filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(140, 140, 140, 0.2));
+  background-color: #f9f9f9;
+  margin: 1em;
 }
 .category-jewelry .category .category-name {
-  position: absolute;
+  position: relative;
   left: 0;
-  bottom: 0;
+  bottom: 1em;
   width: 100%;
   padding: 5px;
   text-align: center;
@@ -768,9 +778,10 @@ footer #footer-copywrite {
   margin-bottom: 1em;
   cursor: pointer;
 }
-.account-page .logout button button:hover {
-  background-color: #0e2c36;
+.account-page .logout button:hover {
   transition: 0.3s;
+  background-color: #0e2c36;
+  color: #f9f9f9;
   opacity: 0.2;
 }
 
@@ -895,6 +906,7 @@ footer #footer-copywrite {
 .payment-section ul .list-item-product {
   grid-template-columns: 1fr 3fr;
   grid-template-areas: "image text";
+  gap: 1em;
 }
 .vendor-products ul .list-item-comment,
 .vendor-comments ul .list-item-comment,
@@ -934,6 +946,11 @@ footer #footer-copywrite {
   margin: 1em;
 }
 
+.list-title,
+.comments-products-heading {
+  text-transform: uppercase;
+}
+
 .list-text {
   grid-area: text;
   margin: 1em;
@@ -951,8 +968,13 @@ footer #footer-copywrite {
   text-decoration: none;
   color: #171d1d;
   font-size: 16px;
-  text-transform: capitalize;
   margin-bottom: 1em;
+}
+.list-text .list-title {
+  text-transform: uppercase;
+}
+.list-text .comment-text {
+  text-transform: none;
 }
 
 .list-buttons {
@@ -978,8 +1000,7 @@ footer #footer-copywrite {
 .list-buttons .add-to-cart-button:hover,
 .list-buttons .remove-button:hover,
 .list-buttons .view-comment:hover {
-  border-bottom: 2px #0e2c36 solid;
-  padding: 2px;
+  text-decoration: underline;
 }
 
 form,
@@ -1034,6 +1055,21 @@ select .dropdown-header,
 .multi-select-dropdown .dropdown-header,
 .search-input .dropdown-header {
   text-align: end;
+  width: 100%;
+}
+input .dropdown-options,
+textarea .dropdown-options,
+select .dropdown-options,
+.product-form-input .dropdown-options,
+.multi-select-dropdown .dropdown-options,
+.search-input .dropdown-options {
+  text-align: start;
+  width: 100%;
+}
+
+.multi-select-dropdown {
+  display: flex;
+  flex-direction: column;
 }
 
 .file-upload {
@@ -1073,8 +1109,9 @@ select .dropdown-header,
   margin-bottom: 1em;
   cursor: pointer;
 }
-.product-submit button:hover,
-.paynow button:hover {
+
+.product-submit:hover,
+.paynow:hover {
   transition: 0.3s;
   opacity: 0.8;
 }
@@ -1094,6 +1131,9 @@ select .dropdown-header,
   font-size: 22px;
   text-decoration: none;
   color: #171d1d;
+}
+.add-comment .comment-submit:hover {
+  text-decoration: underline;
 }
 
 .shop-search {
@@ -1232,6 +1272,20 @@ select .dropdown-header,
     font-size: 22px;
     text-decoration: none;
     color: #171d1d;
+  }
+  .vendor-products .list-item-product .list-buttons .edit-button:hover,
+  .vendor-products .list-item-product .list-buttons .add-to-cart-button:hover,
+  .vendor-products .list-item-product .list-buttons .remove-button:hover,
+  .vendor-products .list-item-product .list-buttons .view-comment:hover,
+  .regular-account-container .list-item-product .list-buttons .edit-button:hover,
+  .regular-account-container .list-item-product .list-buttons .add-to-cart-button:hover,
+  .regular-account-container .list-item-product .list-buttons .remove-button:hover,
+  .regular-account-container .list-item-product .list-buttons .view-comment:hover,
+  .cart-page .list-item-product .list-buttons .edit-button:hover,
+  .cart-page .list-item-product .list-buttons .add-to-cart-button:hover,
+  .cart-page .list-item-product .list-buttons .remove-button:hover,
+  .cart-page .list-item-product .list-buttons .view-comment:hover {
+    text-decoration: underline;
   }
   .add-product-section form .form-sections {
     display: grid;

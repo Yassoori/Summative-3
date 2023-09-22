@@ -121,7 +121,7 @@ const Home = () => {
                   the perfect expression of individuality and grace
                 </p>
                 <Link to="/shop/all">
-                  <button>SHOP NOW</button>
+                  <button>Shop</button>
                 </Link>
               </div>
             </div>
@@ -143,7 +143,7 @@ const Home = () => {
                   beauty.
                 </p>
                 <Link to="/shop/all">
-                  <button>SHOP NOW</button>
+                  <button>Shop</button>
                 </Link>
               </div>
             </div>
@@ -164,7 +164,7 @@ const Home = () => {
                   gold.
                 </p>
                 <Link to="/shop/all">
-                  <button>SHOP NOW</button>
+                  <button>Shop</button>
                 </Link>
               </div>
             </div>
@@ -263,7 +263,7 @@ const Home = () => {
             white gold.
           </p>
           <Link to="/shop/all">
-            <button>SHOP NOW</button>
+            <button>Shop</button>
           </Link>
         </div>
       </div>

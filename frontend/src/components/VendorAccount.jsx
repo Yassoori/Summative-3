@@ -111,17 +111,18 @@ const VendorAccount = () => {
                 alt={product.title}
               />
               <div className="list-text">
-                <p className="list-creator">{product.creator}</p>
+                {/* <p className="list-creator">{product.creator}</p> */}
                 <Link to={`/product/${product._id}`} key={product._id}>
                   <p className="list-title">{product.title}</p>
                 </Link>
                 <p className="list-price">${product.price}</p>
               </div>
               <div className="list-buttons">
-                <a className="edit-button">Edit</a>
+                {/* <a className="edit-button">Edit</a> */}
                 <a
                   className="remove-button"
-                  onClick={() => handleProductDelete(product._id)}>
+                  onClick={() => handleProductDelete(product._id)}
+                >
                   Remove
                 </a>
               </div>
@@ -157,7 +158,8 @@ const VendorAccount = () => {
                     <Link
                       to={`/product/${product._id}`}
                       key={product._id}
-                      className="view-comment">
+                      className="view-comment"
+                    >
                       View Details
                     </Link>
                   </div>
@@ -207,7 +209,8 @@ const VendorAccount = () => {
             <select
               className="product-form-input"
               onChange={(e) => setCategory(e.target.value)}
-              value={category}>
+              value={category}
+            >
               <option value="" disabled hidden></option>
               <option value="ring">Ring</option>
               <option value="necklace">Necklace</option>
