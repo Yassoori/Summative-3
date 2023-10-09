@@ -1,15 +1,16 @@
 # Full-stack development Team Project - Aurea
 
->Project Mockup
+> Project Mockup
 
 ![project mockup](./frontend/public/mockup.jpg)
+![project pages](./frontend/public/aurea-pages.png)
 
->Project Description
+> Project Description
 
 Aurea is a global online marketplace, where people come together to make, sell, buy and collect unique jewelry.
-As sellers, it’s a struggle to build your own platform and gain a target audience. Therefore using a third party platform such as Aurea has a large and established user base. Meaning the sellers can reach a wide audience of potential customers without the need for extensive marketing efforts. 
+As sellers, it’s a struggle to build your own platform and gain a target audience. Therefore using a third party platform such as Aurea has a large and established user base. Meaning the sellers can reach a wide audience of potential customers without the need for extensive marketing efforts.
 
->Dependencies
+> Dependencies
 
 - nodemon : A development tool that monitors changes in Node.js application.(restarts the server when code changes are detected)
 - bcrypt: A library for hashing and salting passwords.(securely storing user passwords in databases)
@@ -30,8 +31,10 @@ As sellers, it’s a struggle to build your own platform and gain a target audie
 - react-router-dom: A library for handling routing and navigation in React applications.
 - swiper: Touch slider library.
 
->Code snippets
+> Code snippets
+
 - This userSchema allows for the display of individual carts and wishlists for each user.
+
 ```javascript
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -80,10 +83,13 @@ const userSchema = new Schema({
   ],
 });
 ```
+
 #
+
 - Create component for an individual product card
 - Add to wishlist by clicking heart-icon in the individual product
 - Icon change based on status of isInWishlist
+
 ```javascript
 const ProductCard = ({ product }) => {
   const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
@@ -156,9 +162,8 @@ const ProductCard = ({ product }) => {
     </div>
   );
 };
-
 ```
 
->Developed by
-### Alice Kim, Annika Valladolid, Deepak Joshi, Ethan Jones, Yasser Saeed
+> Developed by
 
+### Alice Kim, Annika Valladolid, Deepak Joshi, Ethan Jones, Yasser Saeed
