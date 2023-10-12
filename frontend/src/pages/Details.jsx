@@ -133,7 +133,7 @@ const ProductDetails = () => {
           <div className="detail-name">{product.title}</div>
           <div className="detail-description">{product.description}</div>
           <div className="detail-material">{product.materials}</div>
-          <div className="detail-price">${product.price}</div>
+          <div className="detail-price">${product.price.toLocaleString()}</div>
           <div className="button-container">
             <button className="cart-button" onClick={user ? handleAddToCart : openLoginModal}>
               {/* ADD TO CART */}
