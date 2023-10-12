@@ -4,6 +4,9 @@
 
 ![project mockup](./frontend/public/aurea-desktop.png)
 ![page-shop](./frontend/public/shop-page.png)
+![page-wishlist](./frontend/public/wishlist.png)
+![tablet](./frontend/public/aurea-tablet.png)
+
 
 > Project Description
 
