@@ -2,8 +2,8 @@
 
 > Project Mockup
 
-![project mockup](./frontend/public/mockup.jpg)
-![project pages](./frontend/public/aurea-pages.png)
+![project mockup](./frontend/public/aurea-desktop.png)
+![page-shop](./frontend/public/shop-page.png)
 
 > Project Description
 
