@@ -56,7 +56,7 @@ const Cart = () => {
                     <Link to={`/product/${product._id}`} key={product._id}>
                       <p className="list-title">{product.title}</p>
                     </Link>
-                    <p className="list-price">${product.price}</p>
+                    <p className="list-price">${product.price.toLocaleString()}</p>
                   </div>
                   <div className="list-buttons">
                     <a className="edit-button">Edit</a>
